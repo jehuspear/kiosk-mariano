@@ -1,79 +1,67 @@
-
-
 // Global variables to track order state
 let orderCount = 0;
 let selectedSize = '22oz';
 let selectedOrderType = null;
+let itemModal = null;
+
+// Initialize Bootstrap modal when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    itemModal = new bootstrap.Modal(document.getElementById('itemModal'));
+});
 
 // Show Item Details Modal
 function showDetails(name, price, description) {
-    const modal = document.getElementById('item-details-modal');
-    const itemImage = document.getElementById('item-image');
-    
-    modal.style.display = 'flex';
+    // Update modal content
     document.getElementById('item-name').textContent = name;
     document.getElementById('item-price').textContent = `₱${price}.00`;
     document.getElementById('item-description').textContent = description;
     
     // Set the image source based on the item name
-    const imageName = name.toLowerCase().replace(' ', '-');
-    itemImage.src = `resources/menu-items/${imageName}.jpg`;
+    const imageName = name.toLowerCase().replace(/ /g, '-');
+    document.getElementById('item-image').src = `resources/menu-items/${imageName}.jpg`;
     
     // Reset selections
     selectedSize = '22oz';
     selectedOrderType = null;
-    updateButtonStates();
+    resetSelections();
 }
 
-// Close Item Details Modal
-function closeDetails() {
-    document.getElementById('item-details-modal').style.display = 'none';
+// Reset size and type selections
+function resetSelections() {
+    // Reset size buttons
+    document.querySelectorAll('.size-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent === '22oz') {
+            btn.classList.add('active');
+        }
+    });
+
+    // Reset type buttons
+    document.querySelectorAll('.type-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
 }
 
 // Handle size selection
 function selectSize(size, button) {
     selectedSize = size;
-    // Remove selected class from all size buttons
-    document.querySelectorAll('.size-options button').forEach(btn => {
-        btn.classList.remove('selected');
+    // Remove active class from all size buttons
+    document.querySelectorAll('.size-btn').forEach(btn => {
+        btn.classList.remove('active');
     });
-    // Add selected class to clicked button
-    button.classList.add('selected');
+    // Add active class to clicked button
+    button.classList.add('active');
 }
 
 // Handle order type selection
 function selectOrderType(type, button) {
     selectedOrderType = type;
-    // Remove selected class from all order type buttons
-    document.querySelectorAll('.order-type button').forEach(btn => {
-        btn.classList.remove('selected');
+    // Remove active class from all type buttons
+    document.querySelectorAll('.type-btn').forEach(btn => {
+        btn.classList.remove('active');
     });
-    // Add selected class to clicked button
-    button.classList.add('selected');
-}
-
-// Update button states
-function updateButtonStates() {
-    // Update size buttons
-    document.querySelectorAll('.size-options button').forEach(button => {
-        const size = button.textContent;
-        if (size === selectedSize) {
-            button.classList.add('selected');
-        } else {
-            button.classList.remove('selected');
-        }
-    });
-    
-    // Update order type buttons
-    if (selectedOrderType) {
-        document.querySelectorAll('.order-type button').forEach(button => {
-            if (button.textContent.toLowerCase() === selectedOrderType.toLowerCase()) {
-                button.classList.add('selected');
-            } else {
-                button.classList.remove('selected');
-            }
-        });
-    }
+    // Add active class to clicked button
+    button.classList.add('active');
 }
 
 // Add to cart functionality
@@ -85,7 +73,11 @@ function addToCart() {
     
     orderCount++;
     document.getElementById('order-count').textContent = orderCount;
-    closeDetails();
+    
+    // Close the modal using Bootstrap's modal API
+    if (itemModal) {
+        itemModal.hide();
+    }
 }
 
 // Proceed to Checkout
@@ -98,44 +90,22 @@ function proceedToCheckout() {
 }
 
 // Search functionality
-document.getElementById('search').addEventListener('input', function(e) {
-    const searchTerm = e.target.value.toLowerCase();
-    const menuItems = document.querySelectorAll('.menu-item');
-    
-    menuItems.forEach(item => {
-        const itemName = item.querySelector('.item-name').textContent.toLowerCase();
-        if (itemName.includes(searchTerm)) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-});
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-    const modal = document.getElementById('item-details-modal');
-    if (event.target === modal) {
-        closeDetails();
-    }
-}
-
-// Add event listeners when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Add click handlers for size buttons
-    document.querySelectorAll('.size-options button').forEach(button => {
-        button.addEventListener('click', function() {
-            selectSize(this.textContent, this);
+    const searchInput = document.getElementById('search');
+    if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            menuItems.forEach(item => {
+                const itemName = item.querySelector('.item-name').textContent.toLowerCase();
+                const itemContainer = item.closest('.col-md-6');
+                if (itemName.includes(searchTerm)) {
+                    itemContainer.style.display = 'block';
+                } else {
+                    itemContainer.style.display = 'none';
+                }
+            });
         });
-    });
-
-    // Add click handlers for order type buttons
-    document.querySelectorAll('.order-type button').forEach(button => {
-        button.addEventListener('click', function() {
-            selectOrderType(this.textContent, this);
-        });
-    });
-
-    // Add click handler for add to cart button
-    document.querySelector('.add-to-cart').addEventListener('click', addToCart);
+    }
 });

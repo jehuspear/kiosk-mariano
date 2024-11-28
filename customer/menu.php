@@ -213,6 +213,13 @@
                     <p id="item-price" class="modal-item-price"></p>
                     <p id="item-description" class="modal-item-description"></p>
                     
+                    <!-- Quantity Controls -->
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="adjustQuantity(-1)">-</button>
+                        <span id="quantity">1</span>
+                        <button class="quantity-btn" onclick="adjustQuantity(1)">+</button>
+                    </div>
+
                     <div class="options-group">
                         <button class="option-btn" onclick="selectSize('12oz', this)">12oz</button>
                         <button class="option-btn" onclick="selectSize('16oz', this)">16oz</button>
@@ -222,6 +229,11 @@
                     <div class="options-group">
                         <button class="option-btn" onclick="selectOrderType('Dine In', this)">Dine In</button>
                         <button class="option-btn" onclick="selectOrderType('Take Out', this)">Take Out</button>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button class="btn-cancel" onclick="cancelOrder()">×</button>
+                        <button class="btn-confirm" onclick="addToCart()">✓</button>
                     </div>
                 </div>
             </div>

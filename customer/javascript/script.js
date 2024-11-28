@@ -2,32 +2,26 @@
 let orderCount = 0;
 let selectedSize = '22oz';
 let selectedOrderType = null;
-let itemModal = null;
-
-// Initialize Bootstrap modal when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    itemModal = new bootstrap.Modal(document.getElementById('itemModal'));
-});
+let currentQuantity = 1;
+let orderItems = [];
 
 // Show Item Details Modal
 function showDetails(name, price, description) {
+    // Reset selections
+    selectedSize = '22oz';
+    selectedOrderType = null;
+    currentQuantity = 1;
+    
     // Update modal content
     document.getElementById('item-name').textContent = name;
     document.getElementById('item-price').textContent = `₱${price}.00`;
     document.getElementById('item-description').textContent = description;
+    document.getElementById('quantity').textContent = currentQuantity;
     
     // Set the image source based on the item name
     const imageName = name.toLowerCase().replace(/ /g, '-');
     document.getElementById('item-image').src = `resources/menu-items/${imageName}.jpg`;
     
-    // Reset selections
-    selectedSize = '22oz';
-    selectedOrderType = null;
-    resetSelections();
-}
-
-// Reset size and type selections
-function resetSelections() {
     // Reset size buttons
     document.querySelectorAll('.size-btn').forEach(btn => {
         btn.classList.remove('active');
@@ -36,10 +30,23 @@ function resetSelections() {
         }
     });
 
-    // Reset type buttons
+    // Reset order type buttons
     document.querySelectorAll('.type-btn').forEach(btn => {
         btn.classList.remove('active');
     });
+
+    // Store current item details for adding to cart
+    window.currentItem = {
+        name: name,
+        price: price,
+        description: description
+    };
+}
+
+// Handle quantity adjustment
+function adjustQuantity(change) {
+    currentQuantity = Math.max(1, currentQuantity + change);
+    document.getElementById('quantity').textContent = currentQuantity;
 }
 
 // Handle size selection
@@ -71,13 +78,54 @@ function addToCart() {
         return;
     }
     
-    orderCount++;
+    // Create order item object
+    const orderItem = {
+        ...window.currentItem,
+        size: selectedSize,
+        orderType: selectedOrderType,
+        quantity: currentQuantity,
+        id: Date.now() // unique identifier
+    };
+    
+    // Add to order items array
+    orderItems.push(orderItem);
+    
+    // Update order count
+    orderCount = orderItems.reduce((total, item) => total + item.quantity, 0);
     document.getElementById('order-count').textContent = orderCount;
     
-    // Close the modal using Bootstrap's modal API
-    if (itemModal) {
-        itemModal.hide();
+    // Close the modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('itemModal'));
+    modal.hide();
+
+    // Show success message
+    showToast(`Added ${currentQuantity} ${orderItem.name} to cart`);
+}
+
+// Cancel order
+function cancelOrder() {
+    const modal = bootstrap.Modal.getInstance(document.getElementById('itemModal'));
+    modal.hide();
+}
+
+// Show toast message
+function showToast(message) {
+    // Remove existing toast if any
+    const existingToast = document.querySelector('.toast-message');
+    if (existingToast) {
+        existingToast.remove();
     }
+
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = 'toast-message';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    // Remove toast after animation
+    setTimeout(() => {
+        toast.remove();
+    }, 3000);
 }
 
 // Proceed to Checkout
@@ -86,7 +134,13 @@ function proceedToCheckout() {
         alert('Please add items to your cart before proceeding to checkout');
         return;
     }
-    window.location.href = 'checkout.php';
+    
+    // Here you would typically redirect to checkout page with the order items
+    console.log('Order Items:', orderItems);
+    // For now, just show the items in console
+    orderItems.forEach(item => {
+        console.log(`${item.quantity}x ${item.name} (${item.size}) - ${item.orderType}`);
+    });
 }
 
 // Search functionality
@@ -99,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             menuItems.forEach(item => {
                 const itemName = item.querySelector('.item-name').textContent.toLowerCase();
-                const itemContainer = item.closest('.col-md-6');
+                const itemContainer = item.closest('.col');
                 if (itemName.includes(searchTerm)) {
                     itemContainer.style.display = 'block';
                 } else {

@@ -1,0 +1,118 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: #131213;
+    color: white;
+    display: flex;
+    height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    height: 100vh; /* Full height for vertical alignment */
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: left; /* Center-align content vertically */
+    padding: 1rem;
+    overflow-y: auto; /* Scrollbar for long content */
+}
+
+.logo h2 {
+    text-align: center;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Items stacked vertically */
+    gap: 5x; /* Space between items */
+    width: 100%; /* Ensure full width */
+}
+
+.nav li {
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.nav li.active {
+    font-weight: bold;
+    background-color: #1B2223;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.nav li:hover {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    background-color: #131213;
+    padding: 2rem;
+}
+
+.text-wrapper-10 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+/* Navbar (Table headers) */
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr;
+    gap: 10px;
+    background-color: #222222;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.navbar-item {
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* Order Rows */
+.order-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr;
+    gap: 10px;
+    background-color: #222222;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.order-item {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}

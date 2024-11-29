@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+    color: #333;
+  }
+  
+  .container {
+    background: #fff;
+    border-radius: 16px; /* Smooth rounded corners for the container */
+    display: flex;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 900px; /* Adjust container size */
+    width: 100%;
+    height: 550px;
+  }
+  
+  .image-container {
+    flex: 1;
+    max-width: 300px;
+    height: auto; /* Allow flexibility */
+    display: flex;
+    align-items: flex-start; /* Align the top of the image */
+    justify-content: center;
+    overflow: hidden;
+    padding-left: 10px; /* Add space on the left */
+  }
+  
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px; 
+    object-fit: cover; /* Ensures the image covers the allocated space */
+    margin-top: 60px; /* Adjust alignment with the "Firstname" line */
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  
+  .form {
+    padding: 2rem;
+    flex: 2;
+  }
+  
+  h1 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow the form to grow and push the button down */
+    justify-content: flex-end; /* Push the button towards the bottom of the form */
+  }
+  
+  .input-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .input-row input {
+    flex: 1;
+  }
+  
+  input[type="text"]:not(.input-row input) {
+    margin-bottom: 1.5rem; /* Add extra spacing below Username */
+  }
+  
+  input {
+    padding: 1rem; /* Maintain consistent size for all inputs */
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-bottom: 1rem; /* Default margin for inputs */
+    background-color: #D6D6D62B;
+  }
+
+  input::placeholder {
+    font-weight: bold;
+    font-size: 0.7rem; /* Make the placeholder text smaller */
+    color: #333;
+  }  
+
+  .input-row input,
+input {
+  padding: 1rem; /* Increase padding for larger input boxes */
+  font-size: 1.1rem; /* Slightly larger text size */
+  border: 1px solid #ccc;
+  border-radius: 4px; /* Rounded corners for inputs */
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+
+  
+  button {
+    align-self: center; /* Center the button horizontally */
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 3rem;/* Pushes the button down but not to the very bottom */
+    transition: background 0.3s ease;
+    width: 100%; /* Optional: Adjust button width */
+    font-weight: bold;
+  }
+  
+  

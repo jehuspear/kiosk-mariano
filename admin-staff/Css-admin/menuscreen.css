@@ -17,78 +17,66 @@
     display: flex;
     width: 100%;
   }
-  
+
   /* Sidebar */
-  .sidebar {
-    width: 250px;
-    background-color: #000;
-    padding: 1rem;
-  }
-  
-  .logo h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
-  }
-  
-  .nav {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .nav li {
-    margin-bottom: 10px; /* Adds space between each list item */
-    padding: 10px 15px; /* Adds padding inside each item */
-    font-size: 1.1rem; /* Sets the font size */
-    cursor: pointer; /* Changes the cursor to pointer for interactivity */
-    display: flex; /* Ensures proper alignment for icons and text */
-    align-items: center; /* Vertically centers icons and text */
-    gap: 10px; /* Adds space between icons and text */
-    color: white; /* Makes the list item text white */
-  }
-  
-  .nav li.active {
-    font-weight: bold;
-    background-color: #1B2223;
-    border-radius: 5px;
-  }
-  
-  .nav li:hover {
-    background-color: #333;
-    border-radius: 5px;
-  }
+  /* Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100vh; /* Full height for vertical alignment */
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: left; /* Center-align content vertically */
+  padding: 1rem;
+  overflow-y: auto; /* Scrollbar for long content */
+}
 
-  .nav li i {
-    margin-right: 10px; /* Add spacing between icon and text */
-  }
+.logo h2 {
+  text-align: center;
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
 
-  .nav li.login-item {
-    margin-bottom: 30px; /* Add space below the Login item */
-    font-weight: bold;
-  }
-
-  .nav li.active {
-    background-color: #1B2223;
-    font-weight: bold;
-  }
-
-  /* Sidebar fix */
-.sidebar ul {
+.nav {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-direction: column; /* Items stacked vertically */
+  gap: 5px; /* Space between items */
+  width: 100%; /* Ensure full width */
 }
-.sidebar ul li {
-  display: block;
+
+.nav li {
+  margin-bottom: 13px;
   padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: white;
-  font-size: 16px;
+  padding-right: 20px; /* Shift the item to the right */
+  position: relative; /* Allow shifting inside the li */
 }
-.sidebar ul li.active {
+
+/* Move the icons a little to the left without affecting the background */
+.nav li i, .nav li img {
+  margin-right: 5px; /* Space between the icon and the text */
+  position: relative; /* Allow movement */
+  left: -10px; /* Move icon and text 5px to the left */
+}
+
+
+.nav li.active {
+  font-weight: bold;
   background-color: #1B2223;
+  border-radius: 5px;
 }
-.sidebar ul li i {
-  margin-right: 10px;
+
+.nav li:hover {
+  background-color: #333;
+  border-radius: 5px;
 }
   
   /* Main Content */
@@ -168,9 +156,8 @@
   }
   
   .card img {
-    width: auto; /* Make the image take full width */
-    max-width: 200px; /* Control max size for the image */
-    height: auto; /* Maintain aspect ratio */
+    width: 180px; /* Ensure consistent image width */
+    height: 180px; /* Ensure consistent image height */
     margin-bottom: 10px; /* Space below image */
     margin-left: auto; /* Center horizontally */
     margin-right: auto; /* Center horizontally */
@@ -195,7 +182,7 @@
   
   .card-body .actions {
     display: flex;
-    gap: 10px; /* Space between edit and remove buttons */
+    gap: 50px; /* Space between edit and remove buttons */
   }
   
   
@@ -418,6 +405,31 @@
     box-shadow: none; /* Removes any shadow effect */
 }
 
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
 
+  .main-content {
+    padding: 1rem;
+    margin-top: 20px; /* To avoid overlapping with the fixed header menu */
+  }
 
-  
+  .header-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menu-cards {
+    justify-content: center; /* Center cards on smaller screens */
+  }
+
+  .card {
+    width: 90%; /* Adjust card size for small screens */
+  }
+}
+
+a {
+  color: white !important; /* Force the text color to white */
+  text-decoration: none; /* Remove underline */
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="Css-admin/login.css" />
   </head>
   <body>
     <div class="login-wrapper">
@@ -33,7 +33,7 @@
         <button type="submit" class="login-button">Login</button>
       </form>
       <p class="signup-text">
-        Don’t have an account? <a href="#" class="signup-link">Signup</a>
+        Don’t have an account? <a href="registrationadmin.html" class="signup-link">Signup</a>
       </p>
     </div>
   </body>

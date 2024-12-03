@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registration Screen</title>
-  <link rel="stylesheet" href="registrationadmin.css">
+  <link rel="stylesheet" href="Css-admin/registrationadmin.css">
 </head>
 <body>
   <div class="container">
@@ -23,6 +23,9 @@
           <input type="password" placeholder="Password" required>
           <button type="submit">Complete Registration</button>
         </form>
+        <p class="signup-text">
+          Already have an account? <a href="login.php" class="signup-link">Login</a>
+        </p>
       </div>
     </div>
   </div>

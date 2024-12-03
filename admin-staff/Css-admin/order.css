@@ -20,7 +20,7 @@ body {
 
 /* Sidebar */
 .sidebar {
-    width: 300px;
+    width: 250px;
     height: 100vh; /* Full height for vertical alignment */
     background-color: #000;
     display: flex;
@@ -42,7 +42,7 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column; /* Items stacked vertically */
-    gap: 5x; /* Space between items */
+    gap: 5px; /* Space between items */
     width: 100%; /* Ensure full width */
 }
 
@@ -55,7 +55,26 @@ body {
     align-items: center;
     gap: 10px;
     color: white;
+    padding-right: 20px; /* Shift the item to the right */
 }
+
+.nav li img, .nav li i {
+    margin-right: 10px; /* Space between the icon and the text */
+    transform: translateX(-5px); /* Shift the icon a bit to the left */
+  }
+
+  .nav li.completed {
+    margin-left: auto; /* Push the "Completed" item to the right side */
+    padding-right: 78px; /* Optional: Add padding if needed */
+    justify-content: flex-end; /* Ensure the item is aligned properly in the flex container */
+}
+
+.nav li.completed span {
+    position: relative; /* Allow movement of the text */
+    left: 5px; /* Move the text to the left */
+}
+
+
 
 .nav li.active {
     font-weight: bold;
@@ -140,4 +159,9 @@ body {
 .button:hover {
     background-color: #006400;
 }
+
+a {
+    color: white !important; /* Force the text color to white */
+    text-decoration: none; /* Remove underline */
+  }
 

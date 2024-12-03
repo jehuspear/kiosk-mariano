@@ -20,54 +20,52 @@ body {
 
 /* Sidebar */
 .sidebar {
-  width: 250px; /* Fixed width for sidebar */
+  width: 250px;
+  height: 100vh; /* Full height for vertical alignment */
   background-color: #000;
-  padding: 1rem;
   display: flex;
-  flex-direction: column; /* Ensures vertical stacking */
-  height: 100vh; /* Full height */
+  flex-direction: column;
+  align-items: left; /* Center-align content vertically */
+  padding: 1rem;
+  overflow-y: auto; /* Scrollbar for long content */
 }
 
 .logo h2 {
   text-align: center;
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
   color: white;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .nav {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column; /* Ensures vertical stacking */
-}
-
-.nav ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  display: flex;
+  flex-direction: column; /* Items stacked vertically */
+  gap: 5px; /* Space between items */
+  width: 100%; /* Ensure full width */
 }
 
 .nav li {
-  margin-bottom: 15px; /* Consistent gap between all list items */
-  padding: 8px 15px; /* Smaller padding for compact size */
-  font-size: 1rem; /* Smaller text size */
+  margin-bottom: 13px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
   cursor: pointer;
   display: flex;
-  align-items: center; /* Aligns the icon and text horizontally */
-  gap: 8px; /* Adjusted gap between icons and text */
+  align-items: center;
+  gap: 10px;
   color: white;
+  padding-right: 20px; /* Shift the item to the right */
+  position: relative; /* Allow shifting inside the li */
 }
 
-.nav li i {
-  font-size: 1rem; /* Smaller icon size */
-  margin-left: 5px; /* Move the icon slightly to the left */
-  padding-right: 8px; /* Add padding to move items a little to the right */
+/* Move the icons a little to the left without affecting the background */
+.nav li i, .nav li img {
+  margin-right: 5px; /* Space between the icon and the text */
+  position: relative; /* Allow movement */
+  left: -10px; /* Move icon and text 5px to the left */
 }
 
-.nav li.login-item {
-  margin-bottom: 15px; /* Removed extra margin for consistency */
-}
 
 .nav li.active {
   font-weight: bold;
@@ -130,4 +128,9 @@ button {
 
 button:hover {
   background-color: #777;
+}
+
+a {
+  color: white !important; /* Force the text color to white */
+  text-decoration: none; /* Remove underline */
 }

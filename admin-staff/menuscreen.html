@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
-<body>
+<body>  
   <div class="wrapper">
     <!-- Sidebar -->
     <div class="sidebar">
@@ -191,33 +191,61 @@
   <!-- MODAL -->
 <!-- Edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Menu Item</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="menuImage" class="form-label">Upload Image</label>
-                        <input type="file" class="form-control" id="menuImage" accept="image/*">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="editModalLabel">Menu Item</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form>
+                  <div class="mb-3">
+                      <label for="menuImage" class="form-label">Upload Image</label>
+                      <input type="file" class="form-control" id="menuImage" accept="image/*">
+                  </div>
+                  
+                  <div class="mb-3" id="imagePreviewContainer" style="display:none;">
+                      <label class="form-label">Preview:</label>
+                      <img id="imagePreview" src="" alt="Image Preview" class="img-fluid" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="MenuName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="MenuName" placeholder="Enter menu name">
+                  </div>
+        
+                  <div class="mb-3">
+                    <label for="ProductId" class="form-label">Product ID</label>
+                    <p id="ProductId" class="text-muted">Will be auto-generated</p>
+                  </div>
+        
+                  <div class="mb-3">
+                    <label class="form-label">Cup Sizes Available</label>
+                    <div class="size-buttons">
+                      <button type="button" class="size-btn">8oz</button>
+                      <button type="button" class="size-btn">12oz</button>
+                      <button type="button" class="size-btn">16oz</button>
+                      <button type="button" class="size-btn">22oz</button>
+                      <button type="button" class="size-btn custom-btn">Custom</button>
                     </div>
-                    <div class="mb-3" id="imagePreviewContainer" style="display:none;">
-                        <label class="form-label">Preview:</label>
-                        <img id="imagePreview" src="" alt="Image Preview" class="img-fluid" />
-                    </div>
-                    <!-- Other form elements -->
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Save Changes</button>
-            </div>
-        </div>
-    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="MenuPrice" class="form-label">Price</label>
+                    <input type="number" class="form-control" id="MenuPrice" placeholder="Enter price">
+                  </div>
+        
+                  <div class="mb-3">
+                    <label for="MenuDescription" class="form-label">Description</label>
+                    <textarea class="form-control" id="MenuDescription" rows="3" placeholder="Enter a description"></textarea>
+                  </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success">Save Changes</button>
+          </div>
+      </div>
+  </div>
 </div>
-
 <!-- Delete Confirmation Modal -->
 <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
   <div class="modal-dialog">

@@ -174,6 +174,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px; /* Add space between elements */
+    bottom: 10%;
   }
 
   .card-body h3 {
@@ -211,7 +212,7 @@
   flex-direction: column; /* Stack elements vertically */
   justify-content: center; /* Center content vertically */
   align-items: center; /* Center content horizontally */
-  height: 100%; /* Ensure the card takes up full height */
+  height: 108%; /* Ensure the card takes up full height */
   text-align: center; /* Center the text horizontally */
   position: relative;
 }
@@ -236,9 +237,9 @@
   align-items: center; /* Center-align horizontally */
   text-align: center;
   justify-content: center; /* Align items vertically */
-  top: 100%; /* Move it down to the center */
+  top: 120%; /* Move it down to the center */
   left: 50%; /* Move it to the center horizontally */
-  transform: translate(0%, 60%); /* Offset by 50% of its width and height to center it */
+  transform: translate(0%, 90%); /* Offset by 50% of its width and height to center it */
   }
   
   .add-menu-btn {
@@ -327,21 +328,29 @@
     cursor: pointer;
     transition: background-color 0.3s ease; /* Smooth hover effect */
     margin: 0 5px; /* Adjust the space between the action buttons */
-  }
-  
-  .action-btn:hover {
+    outline: none; /* Remove default focus outline */
+}
+
+.action-btn:hover {
     background-color: #f1f1f1; /* Light grey background on hover */
     color: black; /* Keep the icon color black on hover */
     transform: scale(1.05); /* Slight zoom effect on hover */
-  }
-  
-  .action-btn:hover i {
-    color: black; /* Ensure icon stays black on hover */
-  }
+}
 
-  .action-btn i {
+.action-btn:hover i {
+    color: black; /* Ensure icon stays black on hover */
+}
+
+.action-btn i {
     color: black; /* Change icon color to black */
-  }
+}
+
+/* Remove the yellow focus outline */
+.action-btn:focus {
+    outline: none;
+    box-shadow: none; /* Remove the default box-shadow applied when focused */
+}
+
 
   /* Add Menu Button */
   .add-menu {
@@ -539,6 +548,8 @@ a {
 /* Textarea */
 textarea.form-control {
   resize: none; /* Disable resizing for better control */
+  background-color: white;
+  color: black;
 }
 
 /* Modal Footer */

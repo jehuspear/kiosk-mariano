@@ -194,3 +194,129 @@ a {
     color: white !important; /* Force the text color to white */
     text-decoration: none; /* Remove underline */
   }
+
+  /* Modal header customization */
+.modal-header {
+    border-bottom: none;
+  }
+  
+  .modal-title {
+    font-weight: bold;
+  }
+  
+  /* Center alignment for the circular image */
+  .modal-body div:first-child {
+    margin-bottom: 20px;
+  }
+  
+  /* Footer styling */
+  .modal-footer {
+    font-weight: bold;
+    font-size: 16px;
+    border-top: none;
+  }
+  
+  /* Styling for the order details */
+  .modal-body p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .modal-footer p {
+    margin: 0;
+  }
+
+  /* Modal text customization */
+.modal-title,
+.modal-body p,
+.modal-footer p {
+  color: black; /* Set all text to black */
+}
+
+/* Remove any default bootstrap coloring */
+.modal-content {
+  background-color: white; /* Ensure a white background for contrast */
+  border: none; /* Optional: remove the border for a cleaner look */
+}
+
+.modal-footer hr {
+    width: 100%; /* Full width */
+    border: 1px solid #000; /* Black border */
+    margin-bottom: 10px; /* Add spacing below */
+    background-color: black;
+  }
+
+  /* CSS for the modal */
+.modal-body p {
+    text-align: left; /* Aligns all text to the left */
+    margin-bottom: 10px; /* Adds some spacing between paragraphs */
+}
+
+.modal-body p strong {
+    display: inline-block; /* Keeps the labels on the same line */
+    width: 100px; /* Sets a fixed width for the labels */
+}
+
+.modal-body .float-right {
+    float: right; /* Aligns the values (like ₱240) to the right side */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Ensures all text is aligned to the left, including the "Order:" label */
+.modal-body p {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.modal-body p strong {
+    display: inline-block;
+    width: 100px; /* Sets a fixed width for the labels */
+}
+
+/* Container to float the order items to the right */
+.order-item {
+    text-align: right;  /* Aligns the order item details to the right */
+    margin-left: auto;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;  /* Makes each p tag display vertically */
+    align-items: flex-end;   /* Aligns the content to the right */
+    gap: 5px;  /* Adds space between each item */
+    
+}
+
+/* Optional: Style for the order details container */
+.order-details {
+    display: flex;
+    flex-direction: column; /* Stacks all the items vertically */
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Style each row in the order item */
+.order-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ensure consistent alignment across rows */
+    text-align: left; /* Align all text to the left */
+    gap: 10px; /* Space between items */
+    margin-bottom: 10px; /* Space between rows */
+}
+
+/* Optional: Customize individual columns */
+.order-row p:nth-child(1) {
+    text-align: left; /* Left-align the first column */
+}
+
+.order-row p:nth-child(2),
+.order-row p:nth-child(3) {
+    text-align: center; /* Center-align the middle columns if needed */
+}

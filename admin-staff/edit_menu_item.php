@@ -99,21 +99,50 @@ if(isset($_POST['submit'])) {
             }
         }
         
-        // Update sizes
-        $sizeSql = "UPDATE menuitem_sizes SET MenuItemSize_Price=?, MenuItemSize_IsHot=?, MenuItemSize_Stock=? 
-                    WHERE MenuItem_ID=? AND MenuItemSize_Size=?";
-        $sizeStmt = mysqli_stmt_init($conn);
-        
-        if(mysqli_stmt_prepare($sizeStmt, $sizeSql)) {
-            $sizeNames = array('Uno', 'Dos', 'Tres', 'Quatro', 'Sinco');
-            foreach($sizeNames as $size) {
-                $sizeLower = strtolower($size);
-                $price = $_POST["price_" . $sizeLower];
-                $isHot = isset($_POST["is_hot_" . $sizeLower]) ? 1 : 0;
-                $stock = $_POST["stock_" . $sizeLower];
+        // Update or insert sizes
+        $sizeNames = array('Uno', 'Dos', 'Tres', 'Quatro', 'Sinco');
+        foreach($sizeNames as $size) {
+            $sizeLower = strtolower($size);
+            $price = $_POST["price_" . $sizeLower];
+            $isHot = isset($_POST["is_hot_" . $sizeLower]) ? 1 : 0;
+            $stock = $_POST["stock_" . $sizeLower];
+            
+            // Check if size exists
+            if(isset($sizes[$size])) {
+                // Update existing size
+                $updateSql = "UPDATE menuitem_sizes SET 
+                             MenuItemSize_Price=?, 
+                             MenuItemSize_IsHot=?, 
+                             MenuItemSize_Stock=? 
+                             WHERE MenuItemSize_ID=?";
+                $updateStmt = mysqli_stmt_init($conn);
                 
-                mysqli_stmt_bind_param($sizeStmt, "diisi", $price, $isHot, $stock, $id, $size);
-                mysqli_stmt_execute($sizeStmt);
+                if(mysqli_stmt_prepare($updateStmt, $updateSql)) {
+                    mysqli_stmt_bind_param($updateStmt, "diii", 
+                        $price, 
+                        $isHot, 
+                        $stock, 
+                        $sizes[$size]['MenuItemSize_ID']
+                    );
+                    mysqli_stmt_execute($updateStmt);
+                }
+            } else {
+                // Insert new size
+                $insertSql = "INSERT INTO menuitem_sizes 
+                             (MenuItem_ID, MenuItemSize_Size, MenuItemSize_Price, MenuItemSize_IsHot, MenuItemSize_Stock) 
+                             VALUES (?, ?, ?, ?, ?)";
+                $insertStmt = mysqli_stmt_init($conn);
+                
+                if(mysqli_stmt_prepare($insertStmt, $insertSql)) {
+                    mysqli_stmt_bind_param($insertStmt, "isdii", 
+                        $id, 
+                        $size, 
+                        $price, 
+                        $isHot, 
+                        $stock
+                    );
+                    mysqli_stmt_execute($insertStmt);
+                }
             }
         }
         
@@ -246,7 +275,7 @@ if(isset($_POST['submit'])) {
                             <td>
                                 <input type="number" class="form-control" 
                                        name="stock_<?php echo $sizeLower; ?>" 
-                                       value="<?php echo $sizeData ? $sizeData['MenuItemSize_Stock'] : ''; ?>"
+                                       value="<?php echo $sizeData ? $sizeData['MenuItemSize_Stock'] : '0'; ?>"
                                        min="0" required>
                             </td>
                         </tr>

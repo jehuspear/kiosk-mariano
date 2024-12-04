@@ -33,7 +33,7 @@
         <button type="submit" class="login-button">Login</button>
       </form>
       <p class="signup-text">
-        Don’t have an account? <a href="registrationadmin.html" class="signup-link">Signup</a>
+        Don’t have an account? <a href="registrationadmin.php" class="signup-link">Signup</a>
       </p>
     </div>
   </body>

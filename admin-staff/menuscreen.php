@@ -9,9 +9,49 @@ if(!isset($_SESSION["user_id"])) {
 
 include 'database_admin.php';
 
-// Fetch menu items from database
-$sql = "SELECT MenuItem_ID, MenuItem_Name, MenuItem_Image, MenuItem_Description, MenuItem_Category, MenuItem_TotalStocks, MenuItem_TotalSold FROM menuitem";
+// Fetch menu items and their sizes from database
+$sql = "SELECT m.MenuItem_ID, m.MenuItem_Name, m.MenuItem_Image, m.MenuItem_Description, 
+        m.MenuItem_Category, m.MenuItem_TotalStocks, m.MenuItem_TotalSold,
+        ms.MenuItemSize_ID, ms.MenuItemSize_Size, ms.MenuItemSize_Price, 
+        ms.MenuItemSize_IsHot, ms.MenuItemSize_Stock
+        FROM menuitem m
+        LEFT JOIN menuitem_sizes ms ON m.MenuItem_ID = ms.MenuItem_ID
+        ORDER BY m.MenuItem_ID, 
+        CASE ms.MenuItemSize_Size 
+            WHEN 'Uno' THEN 1 
+            WHEN 'Dos' THEN 2 
+            WHEN 'Tres' THEN 3 
+            WHEN 'Quatro' THEN 4 
+            WHEN 'Sinco' THEN 5 
+        END";
 $result = mysqli_query($conn, $sql);
+
+// Group menu items with their sizes
+$menuItems = array();
+while ($row = mysqli_fetch_assoc($result)) {
+    $itemId = $row['MenuItem_ID'];
+    if (!isset($menuItems[$itemId])) {
+        $menuItems[$itemId] = array(
+            'MenuItem_ID' => $row['MenuItem_ID'],
+            'MenuItem_Name' => $row['MenuItem_Name'],
+            'MenuItem_Image' => $row['MenuItem_Image'],
+            'MenuItem_Description' => $row['MenuItem_Description'],
+            'MenuItem_Category' => $row['MenuItem_Category'],
+            'MenuItem_TotalStocks' => $row['MenuItem_TotalStocks'],
+            'MenuItem_TotalSold' => $row['MenuItem_TotalSold'],
+            'sizes' => array()
+        );
+    }
+    if ($row['MenuItemSize_ID']) {
+        $menuItems[$itemId]['sizes'][] = array(
+            'id' => $row['MenuItemSize_ID'],
+            'size' => $row['MenuItemSize_Size'],
+            'price' => $row['MenuItemSize_Price'],
+            'is_hot' => $row['MenuItemSize_IsHot'],
+            'stock' => $row['MenuItemSize_Stock']
+        );
+    }
+}
 
 // Get the currently selected category (default to 'Traditional Coffee')
 $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional Coffee';
@@ -30,6 +70,9 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="Css-admin/menuscreen.css">
   <link rel="stylesheet" href="Css-admin/modal.css">
+  <link rel="stylesheet" href="Css-admin/delete-modal.css">
+  <link rel="stylesheet" href="Css-admin/menu-sizes.css">
+  <link rel="stylesheet" href="Css-admin/menu-items.css">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -42,6 +85,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
       
     }
 
+    /* Sidebar Styles */
     .sidebar {
       width: 250px;
       background-color: #343a40;
@@ -86,12 +130,14 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
       width: 20px;
     }
 
+    /* Main Content Layout */
     .main-content {
       flex: 1;
       margin-left: 250px;
       padding: 20px;
     }
 
+    /* Header Menu Styles */
     .header-menu {
       display: flex;
       flex-wrap: wrap;
@@ -286,7 +332,20 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
         <li><a href="decodingscreen.php"><i class="fa-regular fa-comment"></i> <span>Feedback</span></a></li>
         <li><a href="history.php"><i class="fa-solid fa-clock-rotate-left"></i> <span>History</span></a></li>
       </ul>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="delete-modal" id="deleteModal">
+    <h3><i class="fas fa-exclamation-triangle"></i> Delete Menu Item</h3>
+    <p>Are you sure you want to delete this menu item? This action cannot be undone.</p>
+    <div class="btn-group">
+        <button class="btn btn-secondary" onclick="cancelDelete()">Cancel</button>
+        <button class="btn btn-danger" onclick="confirmDelete()">Delete</button>
     </div>
+  </div>
+
+  <div class="wrapper">
+    <!-- Previous sidebar content remains unchanged -->
     
     <!-- Main Content -->
     <div class="main-content">
@@ -327,8 +386,8 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
             <i class="fa-solid fa-pizza-slice"></i>
             <p>Snacks</p>
           </a>
-        </div>
-      </div>
+    </div>
+  </div>
 
       <!-- View & Edit Buttons -->
       <div class="buttons">
@@ -343,43 +402,69 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
       <!-- Menu Cards Section -->
       <div class="menu-cards">
         <?php
-        if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-                // Only show items from selected category
-                if ($row['MenuItem_Category'] == $selectedCategory) {
-                    $availabilityClass = $row['MenuItem_TotalStocks'] > 0 ? 'btn-success' : 'btn-danger';
-                    $availabilityText = $row['MenuItem_TotalStocks'] > 0 ? 'AVAILABLE' : 'UNAVAILABLE';
-                    ?>
-                    <div class="card">
-                        <img src="<?php echo htmlspecialchars($row['MenuItem_Image']); ?>" 
-                             alt="<?php echo htmlspecialchars($row['MenuItem_Name']); ?>" 
-                             class="card-img-top">
-                        <div class="card-body">
-                            <h3 class="card-title"><?php echo htmlspecialchars($row['MenuItem_Name']); ?></h3>
-                            <p class="card-text"><?php echo htmlspecialchars($row['MenuItem_Description']); ?></p>
-                            <p class="card-text">
-                                <small class="text-muted">
-                                    Stock: <?php echo $row['MenuItem_TotalStocks']; ?> | 
-                                    Sold: <?php echo $row['MenuItem_TotalSold']; ?>
-                                </small>
-                            </p>
-                            <button class="btn <?php echo $availabilityClass; ?> status">
-                                <?php echo $availabilityText; ?>
+        foreach ($menuItems as $item) {
+            if ($item['MenuItem_Category'] == $selectedCategory) {
+                $availabilityClass = $item['MenuItem_TotalStocks'] > 0 ? 'btn-success' : 'btn-danger';
+                $availabilityText = $item['MenuItem_TotalStocks'] > 0 ? 'AVAILABLE' : 'UNAVAILABLE';
+                ?>
+                <div class="card">
+                    <img src="<?php echo htmlspecialchars($item['MenuItem_Image']); ?>" 
+                         alt="<?php echo htmlspecialchars($item['MenuItem_Name']); ?>" 
+                         class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title"><?php echo htmlspecialchars($item['MenuItem_Name']); ?></h3>
+                        <p class="card-text"><?php echo htmlspecialchars($item['MenuItem_Description']); ?></p>
+                        
+                        <!-- Sizes and Prices Table -->
+                        <div class="price-section">
+                            <table class="size-price-table">
+                                <thead>
+                                    <tr>
+                                        <th>Size</th>
+                                        <th>Type</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($item['sizes'] as $size): ?>
+                                    <tr>
+                                        <td><?php echo htmlspecialchars($size['size']); ?></td>
+                                        <td>
+                                            <?php if ($size['is_hot']): ?>
+                                                <span class="hot-label">HOT</span>
+                                            <?php else: ?>
+                                                <span class="cold-label">ICED</span>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>₱<?php echo number_format($size['price'], 2); ?></td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p class="card-text">
+                            <small class="text-muted">
+                                Stock: <?php echo $item['MenuItem_TotalStocks']; ?> | 
+                                Sold: <?php echo $item['MenuItem_TotalSold']; ?>
+                            </small>
+                        </p>
+                        <button class="btn <?php echo $availabilityClass; ?> status">
+                            <?php echo $availabilityText; ?>
+                        </button>
+                        <div class="actions">
+                            <button class="btn btn-warning action-btn" 
+                                    onclick="editMenuItem(<?php echo $item['MenuItem_ID']; ?>)">
+                                <i class="fa-solid fa-pen-to-square"></i>
                             </button>
-                            <div class="actions">
-                                <button class="btn btn-warning action-btn" 
-                                        onclick="editMenuItem(<?php echo $row['MenuItem_ID']; ?>)">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                </button>
-                                <button class="btn btn-danger action-btn" 
-                                        onclick="deleteMenuItem(<?php echo $row['MenuItem_ID']; ?>)">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </div>
+                            <button class="btn btn-danger action-btn" 
+                                    onclick="deleteMenuItem(<?php echo $item['MenuItem_ID']; ?>)">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
                         </div>
                     </div>
-                    <?php
-                }
+                </div>
+                <?php
             }
         }
         ?>
@@ -400,7 +485,10 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
   <!-- Bootstrap JS -->
   <script src="Css-admin/bootstrap.bundle.min.js"></script>
   
+  <!-- Previous JavaScript code remains unchanged -->
   <script>
+  let deleteItemId = null;
+
   function openModal(url) {
       document.getElementById('modalOverlay').classList.add('show');
       document.getElementById('modalContainer').classList.add('show');
@@ -420,8 +508,20 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
   }
 
   function deleteMenuItem(menuItemId) {
-      if (confirm('Are you sure you want to delete this menu item?')) {
-          window.location.href = 'delete_menu_item.php?id=' + menuItemId;
+      deleteItemId = menuItemId;
+      document.getElementById('modalOverlay').classList.add('show');
+      document.getElementById('deleteModal').classList.add('show');
+  }
+
+  function cancelDelete() {
+      deleteItemId = null;
+      document.getElementById('modalOverlay').classList.remove('show');
+      document.getElementById('deleteModal').classList.remove('show');
+  }
+
+  function confirmDelete() {
+      if (deleteItemId) {
+          window.location.href = 'delete_menu_item.php?id=' + deleteItemId;
       }
   }
 
@@ -432,14 +532,22 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
   // Close modal when clicking outside
   document.getElementById('modalOverlay').addEventListener('click', function(e) {
       if (e.target === this) {
-          closeModal();
+          if (document.getElementById('deleteModal').classList.contains('show')) {
+              cancelDelete();
+          } else {
+              closeModal();
+          }
       }
   });
 
   // Close modal with escape key
   document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
-          closeModal();
+          if (document.getElementById('deleteModal').classList.contains('show')) {
+              cancelDelete();
+          } else {
+              closeModal();
+          }
       }
   });
   </script>

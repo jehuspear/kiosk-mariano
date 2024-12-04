@@ -1,0 +1,192 @@
+/* Menu Cards Layout */
+.menu-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+/* Card Styles */
+.card {
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    background-color: #212121;
+    border: 1px solid #404040;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ffd700;
+}
+
+.card-text {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Status Button */
+.status {
+    width: 100%;
+    margin: 10px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+}
+
+.action-btn i {
+    margin-right: 5px;
+}
+
+/* Add Menu Card */
+.add-menu-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    border: 2px dashed #404040;
+    background-color: #2a2a2a;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-menu-card:hover {
+    border-color: #007bff;
+    background-color: #343a40;
+}
+
+.add-menu-container {
+    text-align: center;
+}
+
+.add-menu-btn {
+    font-size: 24px;
+    margin-bottom: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 2px solid #007bff;
+    color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.add-menu-btn:hover {
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.1);
+}
+
+.add-menu-text {
+    color: #e0e0e0;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+/* View & Edit Buttons */
+.buttons {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.view-btn,
+.edit-btn {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.view-btn i,
+.edit-btn i {
+    font-size: 1.1rem;
+}
+
+/* Stock and Sold Info */
+.text-muted {
+    color: #888 !important;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-cards {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .buttons {
+        flex-direction: row;
+    }
+
+    .view-btn,
+    .edit-btn {
+        flex: 1;
+    }
+}
+
+@media (max-width: 576px) {
+    .menu-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        margin: 0 auto;
+        max-width: 320px;
+    }
+
+    .buttons button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}

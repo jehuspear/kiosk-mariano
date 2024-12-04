@@ -1,0 +1,104 @@
+/* Delete Confirmation Modal Styles */
+.delete-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #212121;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 1051;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    color: white;
+}
+
+.delete-modal h3 {
+    color: #dc3545;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.delete-modal h3 i {
+    margin-right: 10px;
+}
+
+.delete-modal p {
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.delete-modal .btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.delete-modal .btn {
+    padding: 10px 25px;
+    font-weight: bold;
+    min-width: 100px;
+    transition: all 0.3s ease;
+}
+
+.delete-modal .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.delete-modal .btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.delete-modal .btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.delete-modal .btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.delete-modal.show {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Modal Animations */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translate(-50%, -45%);
+    }
+    to { 
+        opacity: 1; 
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .delete-modal {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .delete-modal h3 {
+        font-size: 1.3rem;
+    }
+
+    .delete-modal p {
+        font-size: 1rem;
+    }
+
+    .delete-modal .btn {
+        padding: 8px 20px;
+    }
+}

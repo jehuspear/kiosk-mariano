@@ -1,0 +1,124 @@
+/* Menu Item Sizes and Prices Styles */
+.size-price-table {
+    width: 100%;
+    margin: 10px 0;
+    border-collapse: collapse;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.size-price-table th,
+.size-price-table td {
+    padding: 12px 8px;
+    text-align: center;
+    border: 1px solid #404040;
+    color: #fff;
+}
+
+.size-price-table th {
+    background-color: #343a40;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.size-price-table td {
+    font-size: 0.95rem;
+    transition: background-color 0.3s;
+}
+
+.size-price-table tr:hover td {
+    background-color: #363636;
+}
+
+.hot-label {
+    color: #ff4d4d;
+    font-weight: bold;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background-color: rgba(255, 77, 77, 0.1);
+}
+
+.cold-label {
+    color: #4ddbff;
+    font-weight: bold;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background-color: rgba(77, 219, 255, 0.1);
+}
+
+.price-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #404040;
+}
+
+/* Size column */
+.size-price-table td:first-child {
+    font-weight: 600;
+    color: #ffd700;
+}
+
+/* Price column */
+.size-price-table td:last-child {
+    font-weight: 600;
+    color: #98ff98;
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+    .size-price-table {
+        font-size: 0.85rem;
+    }
+
+    .size-price-table th,
+    .size-price-table td {
+        padding: 8px 4px;
+    }
+
+    .hot-label,
+    .cold-label {
+        padding: 1px 4px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Card body adjustments */
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Enhanced table header */
+.size-price-table thead {
+    background: linear-gradient(45deg, #343a40, #495057);
+}
+
+.size-price-table th {
+    border-bottom: 2px solid #505050;
+}
+
+/* Zebra striping for rows */
+.size-price-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Animation for hover states */
+.hot-label,
+.cold-label {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hot-label:hover,
+.cold-label:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

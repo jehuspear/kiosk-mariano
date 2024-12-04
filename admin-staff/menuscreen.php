@@ -1,5 +1,12 @@
+<?php
+session_start();
 
-
+// Check if user is not logged in
+if(!isset($_SESSION["user_id"])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +32,7 @@
         <h2>SINCO CAFE</h2>
       </div>
       <ul class="nav">
-        <li><a href="login.php"><i class="fa-solid fa-user"></i> Login</a></li>
+        <li><a href="logout.php"><i class="fa-solid fa-sign-out"></i> Logout</a></li>
         <li class="active"><a href="menuscreen.php"><i class="fa-solid fa-book"></i> Menu</a></li>
         <li><a href="decodingscreen.php"><i class="fa-solid fa-ticket"></i> E-ticket</a></li>
         <li><a href="orderlist.php"><i class="fa-solid fa-sort"></i> Order Lists</a></li>

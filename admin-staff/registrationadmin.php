@@ -3,13 +3,14 @@
 
 include 'database_admin.php'; //Connection to the phpMyAdmin SQL database
 
-session_start(); // Start the session
+session_start();
 
-if (!isset($_SESSION["user_id"])) {
-    // Redirect to the login page if the user is not logged in
-    header("Location: login.php");
+// Check if user is already logged in
+if(isset($_SESSION["user_id"])) {
+    header("Location: menuscreen.php");
     exit();
 }
+
 ?>
 
 <!DOCTYPE html>

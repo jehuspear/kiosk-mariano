@@ -1,0 +1,136 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Sarabun', sans-serif;
+  background-color: #222;
+  display: flex;
+  height: 100vh;
+}
+
+/* Wrapper for sidebar and main content */
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100vh; /* Full height for vertical alignment */
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: left; /* Center-align content vertically */
+  padding: 1rem;
+  overflow-y: auto; /* Scrollbar for long content */
+}
+
+.logo h2 {
+  text-align: center;
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.nav {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Items stacked vertically */
+  gap: 5px; /* Space between items */
+  width: 100%; /* Ensure full width */
+}
+
+.nav li {
+  margin-bottom: 13px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  padding-right: 20px; /* Shift the item to the right */
+  position: relative; /* Allow shifting inside the li */
+}
+
+/* Move the icons a little to the left without affecting the background */
+.nav li i, .nav li img {
+  margin-right: 5px; /* Space between the icon and the text */
+  position: relative; /* Allow movement */
+  left: -10px; /* Move icon and text 5px to the left */
+}
+
+
+.nav li.active {
+  font-weight: bold;
+  background-color: #1B2223;
+  border-radius: 5px;
+}
+
+.nav li:hover {
+  background-color: #333;
+  border-radius: 5px;
+}
+
+/* Main content area */
+.main-content {
+  flex-grow: 1;
+  background-color: #131213;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 300px; /* Adjusted height for better spacing */
+  margin-top: 40px; /* Space from the top */
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 1.5rem;
+  width: 400px; /* Wider input */
+  margin-top: 20px;
+}
+
+button {
+  padding: 1rem;
+  font-size: 0.8rem;
+  background-color: #EDEDED;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100px; /* Fixed button width */
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #777;
+}
+
+a {
+  color: white !important; /* Force the text color to white */
+  text-decoration: none; /* Remove underline */
+}

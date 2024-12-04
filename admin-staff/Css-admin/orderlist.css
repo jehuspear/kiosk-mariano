@@ -1,0 +1,196 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+  }
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh; /* Full height for the screen */
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Fix the sidebar to the left */
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    overflow-y: auto; /* Add scroll if content overflows */
+    z-index: 1000; /* Ensure the sidebar is above other elements */
+}
+  
+  .logo h2 {
+    text-align: center;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  
+  .nav {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin-top: -30px; /* Move the entire list upward */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 5px; /* Space between list items */
+    width: 100%; /* Ensure full width */
+  }
+  
+  .nav li {
+    margin-bottom: 13px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    padding-right: 20px; /* Shift the item to the right */
+    position: relative; /* Allow shifting inside the li */
+  }
+  
+  /* Move the icons a little to the left without affecting the background */
+  .nav li i, .nav li img {
+    margin-right: 5px; /* Space between the icon and the text */
+    position: relative; /* Allow movement */
+    left: -10px; /* Move icon and text 5px to the left */
+  }
+  
+  
+  .nav li.active {
+    font-weight: bold;
+    background-color: #1B2223;
+    border-radius: 5px;
+  }
+  
+  .nav li:hover {
+    background-color: #333;
+    border-radius: 5px;
+  }
+
+.logo {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.menu {
+    width: 100%;
+}
+
+.menu-item {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu-item:hover, .menu-item.active {
+    background-color: #444;
+}
+
+.content {
+    margin-left: 250px; /* Leave space for the sidebar */
+    width: calc(100% - 250px); /* Adjust the width to fit the remaining space */
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.order-list {
+    display: flex;
+    gap: 20px;
+    height: 300px;
+}
+
+.order-card {
+    background-color: #282828;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    position: relative;
+}
+
+.ticket-number {
+    color: #bbb;
+    font-size: 0.8rem;
+}
+
+h3 {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.view-order {
+    margin-top: 10px;
+    background-color: #fff;
+    border: none;
+    color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.view-order:hover {
+    background-color: #777;
+}
+
+.order-actions {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 70px;
+}
+
+.action-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.approve {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.approve:hover {
+    background-color: #3e8e41;
+}
+
+.decline {
+    background-color: #F44336;
+    color: #fff;
+}
+
+.decline:hover {
+    background-color: #d73232;
+}
+
+a {
+    color: white !important; /* Force the text color to white */
+    text-decoration: none; /* Remove underline */
+  }

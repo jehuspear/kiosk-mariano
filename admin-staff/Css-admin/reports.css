@@ -1,0 +1,289 @@
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Dashboard Layout */
+    .dashboard {
+        display: flex;
+        background-color: #1c1c1c;
+        color: #fff;
+        height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 250px;
+        height: 100vh; /* Full height for vertical alignment */
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: left; /* Center-align content vertically */
+        padding: 1rem;
+        overflow-y: auto; /* Scrollbar for long content */
+    }
+
+    .logo h2 {
+        text-align: center;
+        color: white;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .nav {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column; /* Items stacked vertically */
+        gap: 5px; /* Space between items */
+        width: 100%; /* Ensure full width */
+    }
+
+    .nav li {
+        margin-bottom: 13px;
+        padding: 10px 15px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        padding-right: 20px; /* Shift the item to the right */
+    }
+
+    .nav li img,
+    .nav li i {
+        margin-right: 10px; /* Space between the icon and the text */
+        transform: translateX(-5px); /* Shift the icon a bit to the left */
+    }
+
+    .nav li.completed {
+        margin-left: auto; /* Push the "Completed" item to the right side */
+        padding-right: 80px; /* Optional: Add padding if needed */
+        justify-content: flex-end; /* Ensure the item is aligned properly in the flex container */
+    }
+
+    .nav li.completed span {
+        position: relative; /* Allow movement of the text */
+        left: -5px; /* Move the text to the left */
+    }
+
+    .nav li.active {
+        font-weight: bold;
+        background-color: #1B2223;
+        border-radius: 5px;
+    }
+
+    .nav li:hover {
+        background-color: #333;
+        border-radius: 5px;
+    }
+
+    /* Main Content */
+    .main-content {
+        width: 80%;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+    }
+
+    /* Customer Count Section */
+    .customer-count {
+        background-color: #212121;
+        border-radius: 10px;
+        padding: 20px;
+        position: relative;
+        display: flex;
+        justify-content: space-between; /* Moves dropdown to the far right */
+        width: 110%;
+        height: 90%;
+    }
+
+    .customer-count h3 {
+        margin: 0;  
+    }
+
+
+    .customer-count select {
+        padding: 10px;
+        background: #555;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+    }
+
+    /* Stats Section */
+    .stats {
+        display: grid;
+        gap: -80px;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #212121;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        color: white;
+        height: 200px; /* Adjust as needed */
+        position: relative; /* Make the card relative so the dropdowns inside can be positioned */
+        width: 80%;
+        left: 20%;
+    }
+
+    .card h3 {
+        margin-bottom: 10px; /* Give some space between heading and paragraph */
+    }
+
+    .card p {
+        margin-top: 40px; /* Give some space between paragraph and dropdown */
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+    .card .cupscategory,
+    .card .revenuecategory {
+        position: absolute; /* This allows them to stay inside the card */
+        top: 60px; /* Adjusts the dropdown's position within the card */
+        right: 20px; /* Aligns the dropdown to the right side */
+        left: 10%; /* Centers the dropdown horizontally */
+        width: auto;
+    }
+
+
+
+    .card select {
+        padding: 10px;
+        background: #555;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: #292F33;
+        font-weight: bold;
+    }
+
+    /* Best Selling Section */
+    .best-selling {
+        grid-column: span 2;
+        background-color: #212121;
+        border-radius: 10px;
+        padding: 20px;
+        position: relative;
+        height: 120%;
+        bottom: 40px;
+    }
+
+    .best-selling .filter {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 14px;
+        background: #555;
+        padding: 5px 10px;
+        border-radius: 4px;
+    }
+
+    /* Categories Section */
+    .categories {
+        background-color: #212121;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        top:-30px;
+        
+        padding-top: 30px; /* Optional: Add padding inside the div */
+    }
+
+    .categories select {
+        width: 100%;
+        padding: 10px;
+        background: #555;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+    }
+
+    a {
+        color: white !important; /* Force the text color to white */
+        text-decoration: none; /* Remove underline */
+    }
+
+    .best-selling {
+        grid-column: span 1;
+        background-color: #212121;
+        border-radius: 10px;
+        padding: 20px;
+        position: relative; /* Makes the dropdown's position relative to this container */
+    }
+
+    .best-selling .bestsellingcategory {
+        position: absolute; /* Position relative to the best-selling container */
+        top: 20px; /* Adjust vertical alignment (distance from the top) */
+        right: 20px; /* Align to the right edge */
+    }
+
+    .best-selling select {
+        padding: 10px;
+        background: #212121;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer; /* Makes it more interactive */
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        background-color: #292F33;
+        font-weight: bold;  
+        
+    }
+
+    .customer-count .customercategory {
+        position: absolute; /* Position relative to the best-selling container */
+        top: 20px; /* Adjust vertical alignment (distance from the top) */
+        right: 20px; /* Align to the right edge */
+    }
+
+    .customer-count select {
+        padding: 10px;
+        background: #555;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer; /* Makes it more interactive */
+        border-radius: 10px; 
+        border:none;
+        outline: none;
+        background-color: #292F33;
+        font-weight: bold;
+        margin-left: 10px;  /* Add space between the heading and dropdown */
+    }
+
+    #customerChart {
+        max-width: 900px;
+        max-height: 400px;
+        position: absolute;
+        top: 50%; /* Vertically center */
+        left: 0; /* Align to the left */
+        transform: translate(3%, -45%); /* Center vertically */    
+    }
+
+    #bestSellingChart {
+        max-width: 800px;
+        max-height: 200px;
+        position: absolute;
+        top: 63%; /* Vertically center */
+        left: 3%; /* Adjust this percentage for fine-tuning */
+        transform: translate(0, -50%); /* Keep it vertically centered */
+    }
+
+
+
+

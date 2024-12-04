@@ -91,11 +91,18 @@ a {
     text-decoration: none; /* Remove underline */
 }
 
-  
+canvas {
+  background-color: #222;
+  border-radius: 10px;
+  display: block;
+  max-width: 500%; /* Make chart smaller */
+  max-height: 500px; /* Reduce chart height */
+}
+
 /* Main Content */
 .main-content {
   flex-grow: 1;
-  padding: 3rem;
+  padding: 1.5rem;
 }
 
 /* Section Titles */
@@ -104,7 +111,6 @@ a {
   margin-bottom: 1rem;
   font-weight: bold;
   color: white;
-  text-indent: 10px;
 }
 
 /* Rating Count Section */
@@ -113,52 +119,8 @@ a {
   border-radius: 10px;
   padding: 2rem;
   margin-bottom: 1.5rem;
-  
 }
 
-.rating-bar {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-  
-}
-
-.stars {
-  flex: -1;
-  font-size: 1.2rem;
-  color: #ffd700;
-  text-align: center;
-  margin-right: 15px;
-  margin-top: 10px;
-}
-
-.bar {
-  flex: 5; /* Increase the flex value to make the bar longer */
-  background-color: #444;
-  border-radius: 0px;
-  height: 30px;
-  overflow: hidden;
-  margin-right: 15px; /* Space between the bar and the count */
-  margin-top: 10px;
-}
-
-.filled-bar {
-  height: 100%;
-  background-color: #0af;
-  border-radius: 0px;
-}
-
-.count {
-  flex: 0.5;
-  position: relative;
-  left: 0px;
-  font-size: 1.2rem;
-  margin-left: 10px;
-  margin-top: 15px;
-  color: white;
-  font-weight: bold;
-  
-}
 
 /* Feedback Section */
 .feedback-container {
@@ -177,3 +139,5 @@ a {
   font-size: 1rem;
   line-height: 1.4;
 }
+
+

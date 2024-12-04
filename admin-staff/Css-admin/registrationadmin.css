@@ -49,6 +49,7 @@ body {
   .form {
     padding: 2rem;
     flex: 2;
+    overflow: auto;
   }
   
   h1 {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2024 at 06:18 AM
+-- Generation Time: Dec 04, 2024 at 03:50 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -61,11 +61,86 @@ CREATE TABLE `menuitem` (
   `MenuItem_Name` varchar(100) NOT NULL,
   `MenuItem_Image` varchar(255) DEFAULT NULL,
   `MenuItem_Description` varchar(255) DEFAULT NULL,
-  `MenuItem_Price` decimal(10,2) NOT NULL,
   `MenuItem_Category` varchar(50) DEFAULT NULL,
-  `MenuItem_Stocks` int(11) NOT NULL,
-  `MenuItem_Sold` int(11) DEFAULT 0
+  `MenuItem_TotalStocks` int(11) NOT NULL,
+  `MenuItem_TotalSold` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `menuitem`
+--
+
+INSERT INTO `menuitem` (`MenuItem_ID`, `MenuItem_Name`, `MenuItem_Image`, `MenuItem_Description`, `MenuItem_Category`, `MenuItem_TotalStocks`, `MenuItem_TotalSold`) VALUES
+(1, 'Kape Amerikano', 'Images/menu-item/kape-americano.jpg', 'Full-bodied espresso with hot water', 'Coffee', 200, 3),
+(2, 'Latte de Kape', 'Images/menu-item/latte-de-kape.jpg', 'Espresso with steamed milk and a thin layer of foam', 'Coffee', 150, 0),
+(3, 'Cappuccino', 'Images/menu-item/cappuccino.jpg', 'Espresso with steamed milk and a thick layer of foam', 'Coffee', 120, 0),
+(4, 'Latte Espanyol', 'Images/menu-item/latte-espanyol.jpg', 'Espresso combined with milk and a hint of condensed milk', 'Coffee', 100, 0),
+(5, "Kape Dulce\'t Salty Caramelo", 'Images/menu-item/kape-dulce-salty-caramelo.jpg', 'Espresso combined with milk, infused with salted caramel syrup', 'Coffee', 80, 0),
+(6, 'Kape con Canela', 'Images/menu-item/kape-con-canela.jpg', 'Espresso combined with steamed milk and infused with honey and cinnamon', 'Coffee', 60, 0),
+(7, 'Kape de Cacao', 'Images/menu-item/kape-de-cacao.jpg', 'Espresso combined with steamed milk and rich chocolate syrup', 'Coffee', 40, 0),
+(10, 'Espresso (Doppio)', 'Images/menu-items/Doppio_Espresso_Macchiato.jpg', 'Sample Coffee', 'Traditional Coffee', 20, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menuitem_sizes`
+--
+
+CREATE TABLE `menuitem_sizes` (
+  `MenuItemSize_ID` int(11) NOT NULL,
+  `MenuItem_ID` int(11) NOT NULL,
+  `MenuItemSize_Size` varchar(10) NOT NULL,
+  `MenuItemSize_IsHot` tinyint(1) NOT NULL,
+  `MenuItemSize_Price` decimal(10,2) NOT NULL,
+  `MenuItemSize_Sold` int(11) NOT NULL,
+  `MenuItemSize_Stock` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `menuitem_sizes`
+--
+
+INSERT INTO `menuitem_sizes` (`MenuItemSize_ID`, `MenuItem_ID`, `MenuItemSize_Size`, `MenuItemSize_IsHot`, `MenuItemSize_Price`, `MenuItemSize_Sold`, `MenuItemSize_Stock`) VALUES
+(1, 1, 'Uno', 1, 60.00, 3, 50),
+(2, 1, 'Dos', 1, 75.00, 0, 40),
+(3, 1, 'Tres', 0, 85.00, 0, 30),
+(4, 1, 'Quatro', 0, 100.00, 0, 20),
+(5, 1, 'Sinco', 0, 110.00, 0, 15),
+(6, 2, 'Uno', 1, 80.00, 0, 50),
+(7, 2, 'Dos', 1, 105.00, 0, 40),
+(8, 2, 'Tres', 0, 90.00, 0, 30),
+(9, 2, 'Quatro', 0, 125.00, 0, 20),
+(10, 2, 'Sinco', 0, 135.00, 0, 15),
+(11, 3, 'Uno', 1, 85.00, 0, 50),
+(12, 3, 'Dos', 1, 105.00, 0, 40),
+(13, 3, 'Tres', 0, 90.00, 0, 30),
+(14, 3, 'Quatro', 0, 125.00, 0, 20),
+(15, 3, 'Sinco', 0, 135.00, 0, 15),
+(16, 4, 'Uno', 1, 90.00, 0, 50),
+(17, 4, 'Dos', 1, 120.00, 0, 40),
+(18, 4, 'Tres', 0, 95.00, 0, 30),
+(19, 4, 'Quatro', 0, 130.00, 0, 20),
+(20, 4, 'Sinco', 0, 145.00, 0, 15),
+(21, 5, 'Uno', 1, 95.00, 0, 50),
+(22, 5, 'Dos', 1, 125.00, 0, 40),
+(23, 5, 'Tres', 0, 100.00, 0, 30),
+(24, 5, 'Quatro', 0, 135.00, 0, 20),
+(25, 5, 'Sinco', 0, 150.00, 0, 15),
+(26, 6, 'Uno', 1, 100.00, 0, 50),
+(27, 6, 'Dos', 1, 130.00, 0, 40),
+(28, 6, 'Tres', 0, 100.00, 0, 30),
+(29, 6, 'Quatro', 0, 135.00, 0, 20),
+(30, 6, 'Sinco', 0, 150.00, 0, 15),
+(31, 7, 'Uno', 1, 100.00, 0, 50),
+(32, 7, 'Dos', 1, 130.00, 0, 40),
+(33, 7, 'Tres', 0, 105.00, 0, 30),
+(34, 7, 'Quatro', 0, 140.00, 0, 20),
+(35, 7, 'Sinco', 0, 155.00, 0, 15),
+(36, 10, 'Uno', 1, 60.00, 0, 10),
+(37, 10, 'Dos', 1, 70.00, 0, 2),
+(38, 10, 'Tres', 0, 0.00, 0, 0),
+(39, 10, 'Quatro', 0, 0.00, 0, 0),
+(40, 10, 'Sinco', 0, 0.00, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -143,7 +218,7 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`Staff_ID`, `Staff_Username`, `Staff_Password`, `Staff_FirstName`, `Staff_MiddleName`, `Staff_LastName`, `Staff_ContactNumber`, `Staff_Email`, `Staff_Address`, `Staff_BirthDate`, `Staff_Role`) VALUES
-(1, 'Admin Tan', 'admin123', 'Clarence', 'Allanson', 'Tan', '09236547891', 'tancc1@students.nu-fairview.edu.ph', 'Caloocan City', '2004-06-12', 'Admin');
+(1, 'admin_tan', '$2y$10$Ui7nbTCCCwB18q0DyzTYOegtToXPOy80T/O54Yk5kL84te4S/VWru', 'Clarence', 'Allanson', 'Tan', '09123456789', 'clarence@admin.com', 'Merry Homes, Barangay 178, Caloocan City', '2003-06-12', 'Staff');
 
 --
 -- Indexes for dumped tables
@@ -168,6 +243,13 @@ ALTER TABLE `logs`
 --
 ALTER TABLE `menuitem`
   ADD PRIMARY KEY (`MenuItem_ID`);
+
+--
+-- Indexes for table `menuitem_sizes`
+--
+ALTER TABLE `menuitem_sizes`
+  ADD PRIMARY KEY (`MenuItemSize_ID`),
+  ADD KEY `fk_menuitem` (`MenuItem_ID`);
 
 --
 -- Indexes for table `order`
@@ -218,7 +300,13 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT for table `menuitem`
 --
 ALTER TABLE `menuitem`
-  MODIFY `MenuItem_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MenuItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `menuitem_sizes`
+--
+ALTER TABLE `menuitem_sizes`
+  MODIFY `MenuItemSize_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `order`
@@ -259,6 +347,12 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `logs`
   ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `staff` (`Staff_ID`);
+
+--
+-- Constraints for table `menuitem_sizes`
+--
+ALTER TABLE `menuitem_sizes`
+  ADD CONSTRAINT `fk_menuitem` FOREIGN KEY (`MenuItem_ID`) REFERENCES `menuitem` (`MenuItem_ID`);
 
 --
 -- Constraints for table `order`

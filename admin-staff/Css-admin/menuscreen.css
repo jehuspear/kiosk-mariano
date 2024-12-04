@@ -7,7 +7,7 @@
   
   body {
     font-family: Arial, sans-serif;
-    background-color: #222;
+    background-color: #131213;
     color: white;
     display: flex;
     height: 100vh;
@@ -372,8 +372,8 @@
     justify-content: center; /* Center items vertically */
     text-align: center; /* Center text within its container */
     font-weight: bold;
-  }
-  
+}
+
   .view-btn i, .edit-btn i {
     font-size: 18px; /* Icon size */
     margin-bottom: 4px; /* Spacing between icon and text */

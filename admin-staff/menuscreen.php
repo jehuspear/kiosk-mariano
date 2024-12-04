@@ -86,9 +86,10 @@ if(!isset($_SESSION["user_id"])) {
 
       <!-- Menu Cards Section -->
       <div class="menu-cards d-flex flex-wrap">
-        <!-- Menu Card -->
+        
+        <!--Start of Menu Card Items -->
         <div class="card">
-          <img src="Images/salted-caramel.jpg" alt="Salted Caramel" class="card-img-top">
+          <img src="Images/menu-items/salted-caramel.jpg" alt="Salted Caramel" class="card-img-top">
           <div class="card-body">
             <h3 class="card-title">Salted Caramel</h3>
             <button class="btn btn-success status available">AVAILABLE</button>
@@ -122,7 +123,7 @@ if(!isset($_SESSION["user_id"])) {
             </div>
           </div>
         </div>
-
+<!-- End of Menu Card Items -->
         <!-- Add Menu Card -->
         <div class="card add-menu-card">
           <div class="add-menu-container">

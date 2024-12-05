@@ -1,0 +1,134 @@
+/* Category Styles */
+.categories-wrapper {
+    width: 100px !important;
+    min-width: 100px;
+    background: #fff;
+    border-right: 1px solid #eee;
+    height: calc(100vh - 250px);
+}
+
+.categories {
+    padding: 0.5rem 0;
+}
+
+.category-section {
+    margin-bottom: 1rem;
+}
+
+.category-header {
+    background: #000;
+    color: #fff;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.category-item:hover {
+    transform: translateY(-2px);
+    background: #f8f8f8;
+}
+
+.category-item.active {
+    background: #000;
+}
+
+.category-item.active span {
+    color: #fff;
+}
+
+/* Icon styles for "All Items" category */
+.category-item i {
+    font-size: 24px;
+    margin-bottom: 0.25rem;
+    color: #000;
+    transition: color 0.2s ease;
+}
+
+.category-item.active i {
+    color: #fff;
+}
+
+/* Image styles for category icons */
+.category-item img {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 0.25rem;
+    transition: all 0.2s ease;
+}
+
+.category-item.active img {
+    filter: brightness(0) invert(1);
+}
+
+/* Category text styles */
+.category-item span {
+    color: #000;
+    font-size: 0.65rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+    line-height: 1.2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .categories-wrapper {
+        width: 80px !important;
+    }
+
+    .category-item {
+        width: 60px;
+        height: 60px;
+    }
+
+    .category-item img,
+    .category-item i {
+        width: 20px;
+        height: 20px;
+    }
+
+    .category-item span {
+        font-size: 0.6rem;
+    }
+}
+
+/* Loading state for category changes */
+.categories-wrapper.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.category-item.loading {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}

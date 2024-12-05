@@ -17,7 +17,7 @@ if(isset($_POST['submit'])) {
     $totalStocks = $_POST['totalStocks'];
     
     // Handle file upload
-    $targetDir = "Images/menu-items/";
+    $targetDir = "Images/menu-item/";
     if (!file_exists($targetDir)) {
         mkdir($targetDir, 0777, true);
     }

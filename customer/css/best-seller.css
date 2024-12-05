@@ -1,0 +1,84 @@
+/* Best Seller Badge Styles */
+.best-seller-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #FFD700;
+    color: #000;
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    animation: sparkle 1.5s infinite;
+}
+
+.best-seller-badge i {
+    color: #FFA500;
+    font-size: 0.8rem;
+}
+
+/* Sparkle Animation */
+@keyframes sparkle {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Best Seller Rank Colors */
+.best-seller-rank-1 {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    border: 1px solid #FFD700;
+}
+
+.best-seller-rank-2 {
+    background: linear-gradient(45deg, #C0C0C0, #A9A9A9);
+    border: 1px solid #C0C0C0;
+}
+
+.best-seller-rank-3 {
+    background: linear-gradient(45deg, #CD7F32, #8B4513);
+    border: 1px solid #CD7F32;
+    color: #fff;
+}
+
+.best-seller-rank-1 i {
+    color: #FF6B6B;
+}
+
+.best-seller-rank-2 i {
+    color: #4A4A4A;
+}
+
+.best-seller-rank-3 i {
+    color: #FFD700;
+}
+
+/* Star Animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.best-seller-badge i {
+    animation: spin 4s linear infinite;
+}
+
+/* Hover Effect */
+.menu-item:hover .best-seller-badge {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}

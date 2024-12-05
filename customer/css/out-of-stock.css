@@ -1,0 +1,73 @@
+/* Out of Stock Item Styles */
+.out-of-stock-item {
+    opacity: 0.7;
+    cursor: not-allowed !important;
+    pointer-events: none;
+    position: relative;
+}
+
+.out-of-stock-item:hover {
+    transform: none !important;
+}
+
+.out-of-stock-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 1;
+}
+
+.out-of-stock {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #000;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.out-of-stock i {
+    font-size: 0.8rem;
+}
+
+/* Disable hover effects for out-of-stock items */
+.menu-item:not(.out-of-stock-item):hover {
+    transform: translateY(-2px);
+}
+
+/* Grayscale effect for out-of-stock items */
+.out-of-stock-item img {
+    filter: grayscale(30%);
+}
+
+/* Dim text for out-of-stock items */
+.out-of-stock-item .item-details {
+    opacity: 0.8;
+}
+
+/* Animation for out-of-stock badge */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.out-of-stock {
+    animation: fadeIn 0.3s ease;
+}

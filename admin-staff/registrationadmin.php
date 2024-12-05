@@ -121,41 +121,41 @@ if(isset($_SESSION["user_id"])) {
         <h1 style="font-weight: 500;">Staff Registration</h1>
         <form action="registrationadmin.php" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" name="LastName" placeholder="Last Name: ">
+                <input type="text" class="form-control" name="LastName" placeholder="Last Name: " required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="FirstName" placeholder="First Name: ">
+                <input type="text" class="form-control" name="FirstName" placeholder="First Name: " required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="MiddleName" placeholder="Middle Name: ">
+                <input type="text" class="form-control" name="MiddleName" placeholder="Middle Name: " required>
             </div>
             <label style="text-align: center;">Enter Date of Birth: </label>
             <div class="form-group">
-                <input type="date" class="form-control" name="DateofBirth" placeholder="Date of Birth: ">
+                <input type="date" class="form-control" name="DateofBirth" placeholder="Date of Birth: " required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="City" placeholder="City: ">
+                <input type="text" class="form-control" name="City" placeholder="City: " required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="Barangay" placeholder="Barangay: ">
+                <input type="text" class="form-control" name="Barangay" placeholder="Barangay: " required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="Street" placeholder="Street: ">
+                <input type="text" class="form-control" name="Street" placeholder="Street: " required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="Email" placeholder="Email: " >
+                <input type="text" class="form-control" name="Email" placeholder="Email: " required>
             </div>
             <div class="form-group">
-                <input type="int" class="form-control" name="ContactNo" placeholder="Contact No: ">
+                <input type="int" class="form-control" name="ContactNo" placeholder="Contact No: " required>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="Username" placeholder="Username: ">
+                <input type="text" class="form-control" name="Username" placeholder="Username: " required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password: ">
+                <input type="password" class="form-control" name="password" placeholder="Password: " required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password: ">
+                <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password: " required>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary key" name="submit" placeholder="Submit ">

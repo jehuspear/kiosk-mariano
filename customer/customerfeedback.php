@@ -301,11 +301,25 @@ $conn->close();
     });
     });
 
-    // Back button logic
-    $('#back-button').on('click', function () {
-        $('#screen2').removeClass('active-screen');
-        $('#screen1').addClass('active-screen');
-    });
+  // Back button logic
+$('#back-button').on('click', function () {
+    $('#screen2').removeClass('active-screen');
+    $('#screen1').addClass('active-screen');
+});
+
+// Modal close event to go back to the first screen
+$('#thank-you-modal').on('hidden.bs.modal', function () {
+    // When the modal is closed, go back to the first screen
+    $('#screen2').removeClass('active-screen');
+    $('#screen1').addClass('active-screen');
+
+    
+// Reset the name input, rating, and other fields to their defaults
+$('#customer-name').val(''); // Clear the name input
+    $('#feedback-text').val(''); // Clear the feedback input
+    $('#star-rating .fa-star').removeClass('active'); // Reset stars
+    selectedRating = 0; // Reset rating
+});
 });
 
 </script>

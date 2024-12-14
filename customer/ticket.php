@@ -19,7 +19,7 @@
             <p class="instructions">Show this to the barista at the counter to process your order, Thank you!</p>
         </div>
         <div class="buttons">
-            <button class="button">View Order Status</button>
+        <a href="orderstatusboard.php"><button class="button">View Order Status</button></a>
             <button class="button">Next</button>
         </div>
     </div>

@@ -23,7 +23,7 @@ function showDetails(name, price, description) {
     document.getElementById('item-image').src = `resources/menu-items/${imageName}.jpg`;
     
     // Reset size buttons
-    document.querySelectorAll('.size-btn').forEach(btn => {
+    document.querySelectorAll('.option-btn').forEach(btn => {
         btn.classList.remove('active');
         if (btn.textContent === '22oz') {
             btn.classList.add('active');
@@ -31,7 +31,7 @@ function showDetails(name, price, description) {
     });
 
     // Reset order type buttons
-    document.querySelectorAll('.type-btn').forEach(btn => {
+    document.querySelectorAll('.options-group:last-child .option-btn').forEach(btn => {
         btn.classList.remove('active');
     });
 
@@ -52,8 +52,8 @@ function adjustQuantity(change) {
 // Handle size selection
 function selectSize(size, button) {
     selectedSize = size;
-    // Remove active class from all size buttons
-    document.querySelectorAll('.size-btn').forEach(btn => {
+    // Remove active class from all size buttons in the same options group
+    button.closest('.options-group').querySelectorAll('.option-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     // Add active class to clicked button
@@ -63,8 +63,8 @@ function selectSize(size, button) {
 // Handle order type selection
 function selectOrderType(type, button) {
     selectedOrderType = type;
-    // Remove active class from all type buttons
-    document.querySelectorAll('.type-btn').forEach(btn => {
+    // Remove active class from all type buttons in the same options group
+    button.closest('.options-group').querySelectorAll('.option-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     // Add active class to clicked button
@@ -122,9 +122,35 @@ function showToast(message) {
     toast.textContent = message;
     document.body.appendChild(toast);
 
+    // Add toast styles dynamically
+    const style = document.createElement('style');
+    style.textContent = `
+        .toast-message {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            z-index: 1000;
+            animation: fadeInOut 3s ease;
+        }
+        
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, 20px); }
+            10% { opacity: 1; transform: translate(-50%, 0); }
+            90% { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, -20px); }
+        }
+    `;
+    document.head.appendChild(style);
+
     // Remove toast after animation
     setTimeout(() => {
         toast.remove();
+        style.remove();
     }, 3000);
 }
 
@@ -145,7 +171,7 @@ function proceedToCheckout() {
 
 // Search functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('search');
+    const searchInput = document.querySelector('.search-input');
     if (searchInput) {
         searchInput.addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
@@ -155,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const itemName = item.querySelector('.item-name').textContent.toLowerCase();
                 const itemContainer = item.closest('.col');
                 if (itemName.includes(searchTerm)) {
-                    itemContainer.style.display = 'block';
+                    itemContainer.style.display = '';
                 } else {
                     itemContainer.style.display = 'none';
                 }

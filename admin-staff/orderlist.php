@@ -73,6 +73,19 @@ if(!isset($_SESSION["user_id"])) {
                     <button class="action-btn approve">✔</button>
                 </div>
             </div>
+            <div class="order-card">
+                <div class="order-info">
+                    <p class="ticket-number">Order Ticket No</p>
+                    <h3>225</h3>
+                    <p>For Pablo</p>
+                    <p>Payment Total: ₱120</p>
+                    <button class="view-order">View order list</button>
+                </div>
+                <div class="order-actions">
+                    <button class="action-btn decline">✖</button>
+                    <button class="action-btn approve">✔</button>
+                </div>
+            </div>
         </div>
     </main>
 </div>

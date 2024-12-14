@@ -75,6 +75,7 @@
     <div class="home-page container-fluid">
         <div class="logo-container">
             <img src="resources/images/logo.png" alt="Mariano Cafe Logo" class="logo img-fluid">
+            <p class="header-tagline">Where Good Coffee Starts</p>
         </div>
         <div class="tap-to-start">
             <a href="menu.php" class="start-btn">Tap To Start</a>

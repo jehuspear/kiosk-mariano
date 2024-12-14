@@ -59,7 +59,7 @@ if (isset($_POST["login"])) {
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
@@ -106,5 +106,5 @@ if (isset($_POST["login"])) {
         Don't have a Staff account? <a href="registrationadmin.php" class="signup-link">Sign up</a>
       </p>
     </div>
-  </body>
+</body>
 </html>

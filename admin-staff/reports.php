@@ -26,8 +26,8 @@
                 <li><a href="orderlist.php"><i class="fa-solid fa-sort"></i> Order Lists</a></li>
                 <li><a href="order.php"><i class="fa-solid fa-mug-hot"></i> Orders</a></li>
                 <li><a href="completed.php"><i class="fa-solid fa-check-to-slot"></i> Completed</a></li>
-                <li class="active"><a href="reports.php"><i class="fa-solid fa-newspaper"></i> Reports</a></li>
-                <li><a href="decodingscreen.php"><i class="fa-regular fa-comment"></i> Feedback</a></li>
+                <li class="active"><a href="reports.php"><i class="fa-solid fa-newspaper"></i> Dashboard</a></li>
+                <li><a href="feedback.php"><i class="fa-regular fa-comment"></i> Feedback</a></li>
                 <li><a href="history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
             </ul>
         </div>

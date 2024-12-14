@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black !important; /* Ensure black background for the entire page */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.ticket-screen {
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+    background-color: black;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.header .logo {
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.header .logo-icon {
+    font-size: 18px;
+}
+
+.img-fluid {
+    max-width: 60%;
+    height: auto;
+}
+
+.subtitle {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #ccc;
+}
+
+.ticket {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid black;
+}
+
+.ticket-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.ticket-number {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.instructions {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.buttons .button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.buttons .button:hover {
+    background-color: #f0f0f0;
+}
+

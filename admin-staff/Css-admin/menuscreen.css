@@ -19,16 +19,16 @@
   }
 
   /* Sidebar */
-  /* Sidebar */
+
 .sidebar {
   width: 250px;
-  height: 100vh; /* Full height for vertical alignment */
+  height: 100%; 
   background-color: #000;
-  display: flex;
   flex-direction: column;
-  align-items: left; /* Center-align content vertically */
+  align-items: left;
+  position: fixed; /* Stays fixed on the screen */
   padding: 1rem;
-  overflow-y: auto; /* Scrollbar for long content */
+  z-index: 1000; /* Ensures it stays above other content */
 }
 
 .logo h2 {
@@ -84,27 +84,29 @@
     flex-grow: 1;
     padding: 1rem;
     background-color: #131213;
-  }
+    overflow-y: auto; /* Enables vertical scrolling for the content */
+    z-index: 1;
+}
+  
   
   /* Header Menu */
   .header-menu {
     display: flex;
-    gap: 15px; /* Space between menu items */
-    background-color: #535353; /* Light gray background */
-    padding: 15px; /* Add space inside the rectangle */
-    border-radius: 8px; /* Rounded corners */
-    margin: 20px 0 0 0; /* Remove horizontal margins, keep top spacing */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    width: calc(100% - 250px); /* Full width minus sidebar width */
-    position: fixed; /* Fixed positioning to align properly */
-    top: 0; /* Position at the top */
-    left: 250px; /* Align it right next to the sidebar */
-    justify-content: flex-start; /* Align items to the left */
+    gap: 15px; 
+    background-color: #535353; 
+    padding: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    width: calc(100% - 250px); 
+    position: fixed; /* Stays fixed on the screen */
+    top: 0; 
+    left: 250px;
+    z-index: 2000; 
+    justify-content: flex-start; 
     align-items: center;
-    margin-top: 0; /* Remove top margin */
-    padding-top: 10px; /* Add some padding to the top if needed */
-    padding-left: 10px; /* Optional: to add some left padding for spacing */
-  }
+}
+
+
   
   .menu-item {
     background-color: #444;
@@ -141,7 +143,7 @@
 
   .card {
     width: 280px; /* Fixed width */
-    height: 380px; /* Fixed height */ 
+    height: 410px; /* Fixed height */ 
     background-color: #212121 !important;
     padding: 1rem;
     border-radius: 8px;
@@ -152,6 +154,8 @@
     align-items: center; /* Center content horizontally */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     color: white;
+    z-index: 10;
+    left: 18%;
 
   }
   
@@ -170,6 +174,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px; /* Add space between elements */
+    bottom: 10%;
   }
 
   .card-body h3 {
@@ -190,6 +195,28 @@
     margin-bottom: 1px;
   }
 
+  .card-body .actions button {
+    position: relative; /* Ensure they respect stacking order */
+    z-index: 20; /* Place them in front of the card content */
+    
+    color: white; /* Button text color */
+    border: none; /* Remove default button border */
+    padding: 15px 25px; /* Add padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for interaction */
+    transition: transform 0.2s ease, background-color 0.3s ease; /* Hover effect */
+}
+
+.card.add-menu-card {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  height: 108%; /* Ensure the card takes up full height */
+  text-align: center; /* Center the text horizontally */
+  position: relative;
+}
+
   /* Add Menu Card */
 .add-menu-card {
     background-color: #212121;
@@ -199,7 +226,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Ensure the card takes up space */
+    width: 280px; /* Fixed width */
+    height: 100%; /* Fixed height */ 
   }
 
   /* Container for the Add Menu button and text */
@@ -207,7 +235,11 @@
   display: flex;
   flex-direction: column; /* Stack items vertically */
   align-items: center; /* Center-align horizontally */
+  text-align: center;
   justify-content: center; /* Align items vertically */
+  top: 120%; /* Move it down to the center */
+  left: 50%; /* Move it to the center horizontally */
+  transform: translate(0%, 90%); /* Offset by 50% of its width and height to center it */
   }
   
   .add-menu-btn {
@@ -223,6 +255,7 @@
     justify-content: center; /* Align icon vertically */
     cursor: pointer; /* Pointer cursor on hover */
     transition: transform 0.3s ease; /* Hover effect */
+    margin-bottom: 10px; /* Add space between button and text */
   }
   
   .add-menu-btn:hover {
@@ -295,21 +328,29 @@
     cursor: pointer;
     transition: background-color 0.3s ease; /* Smooth hover effect */
     margin: 0 5px; /* Adjust the space between the action buttons */
-  }
-  
-  .action-btn:hover {
+    outline: none; /* Remove default focus outline */
+}
+
+.action-btn:hover {
     background-color: #f1f1f1; /* Light grey background on hover */
     color: black; /* Keep the icon color black on hover */
     transform: scale(1.05); /* Slight zoom effect on hover */
-  }
-  
-  .action-btn:hover i {
-    color: black; /* Ensure icon stays black on hover */
-  }
+}
 
-  .action-btn i {
+.action-btn:hover i {
+    color: black; /* Ensure icon stays black on hover */
+}
+
+.action-btn i {
     color: black; /* Change icon color to black */
-  }
+}
+
+/* Remove the yellow focus outline */
+.action-btn:focus {
+    outline: none;
+    box-shadow: none; /* Remove the default box-shadow applied when focused */
+}
+
 
   /* Add Menu Button */
   .add-menu {
@@ -336,13 +377,15 @@
 
   /* View and Edit Buttons */
   .buttons {
-    position: absolute;
+    position: fixed; /* Fix the position relative to the viewport */
     top: 135px; /* Distance from the top (below the header menu) */
     right: 20px; /* Distance from the right edge of the screen */
     display: flex;
     flex-direction: row; /* Arrange buttons side by side */
     gap: 10px; /* Space between the buttons */
+    z-index: 1000; /* Optional: ensures buttons stay on top of other content */
   }
+  
 
   .buttons button {
     border: none;
@@ -394,6 +437,7 @@
    gap: 20px;
    margin-top: 180px; /* Push cards below View and Edit buttons */
    padding: 20px;
+   z-index: 1;
    
 }
 
@@ -413,11 +457,15 @@
   .main-content {
     padding: 1rem;
     margin-top: 20px; /* To avoid overlapping with the fixed header menu */
+    z-index: 1;
+    
   }
 
   .header-menu {
     flex-wrap: wrap;
     justify-content: center;
+    position: fixed;
+    
   }
 
   .menu-cards {
@@ -433,3 +481,208 @@ a {
   color: white !important; /* Force the text color to white */
   text-decoration: none; /* Remove underline */
 }
+
+/* Modal Container */
+.modal-content {
+  background-color: #1e1e1e; /* Dark background for modal */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  color: #f0f0f0; /* Light text color for readability */
+  padding: 20px; /* Add internal padding */
+  border: none; /* Remove default border */
+}
+
+/* Modal Header */
+.modal-header {
+  border-bottom: 1px solid #444; /* Subtle divider */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 1.5rem; /* Increase font size */
+  font-weight: bold;
+  color: #f0f0f0; /* Golden color for emphasis */
+}
+
+/* Close Button */
+.btn-close {
+  background-color: transparent;
+  border: none;
+  color: #ffbf00; /* Golden close button */
+  font-size: 1.2rem; /* Larger size for visibility */
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 15px 10px;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #ccc; /* Light gray for labels */
+}
+
+.form-control {
+  background-color: #2e2e2e; /* Darker background for inputs */
+  color: #f0f0f0; /* Light text for inputs */
+  border: 1px solid #555; /* Subtle border */
+  border-radius: 5px;
+  padding: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #ffbf00; /* Highlight border on focus */
+  box-shadow: 0 0 8px rgba(255, 191, 0, 0.4); /* Soft glow */
+  outline: none;
+}
+
+/* Textarea */
+textarea.form-control {
+  resize: none; /* Disable resizing for better control */
+  background-color: white;
+  color: black;
+}
+
+/* Modal Footer */
+.modal-footer {
+  border-top: 1px solid #444; /* Subtle divider */
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 15px;
+  gap: 10px; /* Space between buttons */
+}
+
+/* Buttons */
+.modal-footer .btn {
+  border-radius: 5px;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Secondary Button */
+.modal-footer .btn-secondary {
+  background-color: #555;
+  color: white;
+  border: 1px solid #444;
+}
+
+.modal-footer .btn-secondary:hover {
+  background-color: #444;
+  transform: scale(1.05);
+}
+
+/* Success Button */
+.modal-footer .btn-success {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.modal-footer .btn-success:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Container for the Cup Sizes Buttons */
+/* Container for Cup Sizes Buttons */
+.cup-sizes {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.size-buttons {
+  display: flex;
+  flex-direction: column; /* Arrange buttons vertically */
+  gap: 10px; /* Add spacing between buttons */
+  margin-top: 10px;
+}
+
+.size-btn {
+  background-color: #444; /* Default background */
+  color: white; /* Text color */
+  border: 2px solid #333; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px;
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Hover State */
+.size-btn:hover {
+  background-color: #555; /* Slightly lighter background */
+  transform: scale(1.02); /* Slight zoom effect */
+}
+
+/* Active/Checked State */
+.size-btn.active {
+  background-color: #007bff; /* Blue background */
+  color: #fff; /* White text */
+  border-color: #0056b3; /* Darker border */
+}
+
+/* Button Focus (for accessibility) */
+.size-btn:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.8); /* Subtle glow */
+}
+
+.custom-input {
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: inherit;
+  font-family: inherit;
+  outline: none;
+  cursor: text;
+}
+
+/* Make text inputs in the modal white by default */
+.modal .form-control[type="text"],
+.modal .form-control[type="number"],
+.modal .form-control#menuDescription {
+  background-color: white;
+  color: black; /* Ensure text color contrasts with the white background */
+  border: 1px solid #ced4da; /* Standard border for input fields */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for styling */
+}
+
+/* Optional: Add hover and focus styles for better interactivity */
+.modal .form-control[type="text"]:hover,
+.modal .form-control[type="text"]:focus,
+.modal .form-control[type="number"]:hover,
+.modal .form-control[type="number"]:focus,
+.modal .form-control#menuDescription:hover,
+.modal .form-control#menuDescription:focus {
+  background-color: #f8f9fa; /* Slightly lighter shade on hover/focus */
+  border-color: #86b7fe; /* Highlighted border color on focus */
+  outline: none; /* Remove default focus outline */
+}
+
+.modal .text-muted {
+  color: white !important; /* Use !important to override any existing styles */
+  text-align: center;
+}
+
+.size-btn.custom-btn {
+  min-width: 100px; /* Ensure enough space for the input */
+  text-align: center;
+}
+
+.custom-btn{
+  display: flex; justify-content: center; align-items: center;
+}
+
+

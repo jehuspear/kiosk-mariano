@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Management Screen</title>
+  
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="Css-admin/menuscreen.css">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>  
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <h2>SINCO CAFE</h2>
+      </div>
+      <ul class="nav">
+        <li><a href="login.php"><i class="fa-solid fa-user"></i> Login</a></li>
+        <li class="active"><a href="menuscreen.php"><i class="fa-solid fa-book"></i> Menu</a></li>
+        <li><a href="decodingscreen.php"><i class="fa-solid fa-ticket"></i> E-ticket</a></li>
+        <li><a href="orderlist.php"><i class="fa-solid fa-sort"></i> Order Lists</a></li>
+        <li><a href="order.php"><i class="fa-solid fa-mug-hot"></i> Orders</a></li>
+        <li><a href="completed.php"><i class="fa-solid fa-check-to-slot"></i> Completed</a></li>
+        <li><a href="reports.php"><i class="fa-solid fa-newspaper"></i> Reports</a></li>
+        <li><a href="decodingscreen.php"><i class="fa-regular fa-comment"></i> Feedback</a></li>
+        <li><a href="history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
+      </ul>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header Menu -->
+      <div class="header-menu">
+        <div class="menu-item active">
+          <i class="fa-solid fa-coffee"></i>
+          <p>Traditional Coffee</p>
+        </div>
+        <div class="menu-item">
+          <i class="fa-solid fa-mug-hot"></i>
+          <p>Coffee</p>
+        </div>
+        <div class="menu-item">
+          <i class="fa-solid fa-wine-glass"></i>
+          <p>Non-Coffee</p>
+        </div>
+        <div class="menu-item">
+          <i class="fa-solid fa-cocktail"></i>
+          <p>Mocktail</p>
+        </div>
+        <div class="menu-item">
+          <i class="fa-solid fa-cookie"></i>
+          <p>Pastries</p>
+        </div>
+        <div class="menu-item">
+          <i class="fa-solid fa-pizza-slice"></i>
+          <p>Snacks</p>
+        </div>
+      </div>
+
+      <!-- View & Edit Buttons -->
+      <div class="buttons">
+        <button class="btn btn-primary view-btn">
+          <i class="fa-solid fa-eye"></i> View
+        </button>
+        <button class="btn btn-secondary edit-btn">
+          <i class="fa-solid fa-pen"></i> Edit
+        </button>
+      </div>
+
+      <!-- Menu Cards Section -->
+      <div class="menu-cards d-flex flex-wrap">
+        <!-- Menu Card -->
+        <div class="card">
+          <img src="Images/salted-caramel.jpg" alt="Salted Caramel" class="card-img-top">
+          <div class="card-body">
+            <h3 class="card-title">Salted Caramel</h3>
+            <button class="btn btn-success status available">AVAILABLE</button>
+            <div class="actions">
+              <button class="btn btn-warning action-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+              <button class="btn btn-danger action-btn"><i class="fa-solid fa-trash"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="Images/cafemocha.jpg" alt="Cafe Mocha" class="card-img-top">
+          <div class="card-body">
+            <h3 class="card-title">Cafe Mocha</h3>
+            <button class="btn btn-danger status unavailable">UNAVAILABLE</button>
+            <div class="actions">
+              <button class="btn btn-warning action-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+              <button class="btn btn-danger action-btn"><i class="fa-solid fa-trash"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="Images/Spanish-latte.jpg" alt="Spanish Latte" class="card-img-top">
+          <div class="card-body">
+            <h3 class="card-title">Spanish Latte</h3>
+            <button class="btn btn-success status available">AVAILABLE</button>
+            <div class="actions">
+              <button id="editButton" class="btn btn-warning action-btn"><i class="fa-solid fa-pen-to-square"></i></button>
+              <button class="btn btn-danger action-btn"><i class="fa-solid fa-trash"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Menu Card -->
+        <div class="card add-menu-card ">
+          <div class="add-menu-container">
+            <button class="btn btn-outline-primary add-menu-btn">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <span class="add-menu-text">Add Menu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- MODAL for Adding New Menu -->
+<div class="modal fade" id="addMenuModal" tabindex="-1" aria-labelledby="addMenuModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addMenuModalLabel">Add New Menu Item</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="addMenuImage" class="form-label">Upload Image</label>
+            <input type="file" class="form-control" id="addMenuImage" accept="image/*">
+          </div>
+          <div class="mb-3" id="addImagePreviewContainer" style="display:none;">
+            <label class="form-label">Preview:</label>
+            <img id="addImagePreview" src="" alt="Image Preview" class="img-fluid" />
+          </div>
+
+          <div class="mb-3">
+            <label for="addMenuName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="addMenuName" placeholder="Enter menu name">
+          </div>
+
+          <div class="mb-3">
+            <label for="addProductId" class="form-label">Product ID</label>
+            <p id="addProductId" class="text-muted">Will be auto-generated</p>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Cup Sizes Available</label>
+            <div class="size-buttons">
+              <button type="button" class="size-btn">8oz</button>
+              <button type="button" class="size-btn">12oz</button>
+              <button type="button" class="size-btn">16oz</button>
+              <button type="button" class="size-btn">22oz</button>
+              <button type="button" class="size-btn custom-btn">Custom</button>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="addMenuPrice" class="form-label">Price</label>
+            <input type="number" class="form-control" id="addMenuPrice" placeholder="Enter price">
+          </div>
+
+          <div class="mb-3">
+            <label for="addMenuDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="addMenuDescription" rows="3" placeholder="Enter a description"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Add Menu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- MODAL -->
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="editModalLabel">Menu Item</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form>
+                  <div class="mb-3">
+                      <label for="menuImage" class="form-label">Upload Image</label>
+                      <input type="file" class="form-control" id="menuImage" accept="image/*">
+                  </div>
+                  
+                  <div class="mb-3" id="imagePreviewContainer" style="display:none;">
+                      <label class="form-label">Preview:</label>
+                      <img id="imagePreview" src="" alt="Image Preview" class="img-fluid" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="MenuName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="MenuName" placeholder="Enter menu name">
+                  </div>
+        
+                  <div class="mb-3">
+                    <label for="ProductId" class="form-label">Product ID</label>
+                    <p id="ProductId" class="text-muted">Will be auto-generated</p>
+                  </div>
+        
+                  <div class="mb-3">
+                    <label class="form-label">Cup Sizes Available</label>
+                    <div class="size-buttons">
+                      <button type="button" class="size-btn">8oz</button>
+                      <button type="button" class="size-btn">12oz</button>
+                      <button type="button" class="size-btn">16oz</button>
+                      <button type="button" class="size-btn">22oz</button>
+                      <button type="button" class="size-btn custom-btn">Custom</button>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="MenuPrice" class="form-label">Price</label>
+                    <input type="number" class="form-control" id="MenuPrice" placeholder="Enter price">
+                  </div>
+        
+                  <div class="mb-3">
+                    <label for="MenuDescription" class="form-label">Description</label>
+                    <textarea class="form-control" id="MenuDescription" rows="3" placeholder="Enter a description"></textarea>
+                  </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success">Save Changes</button>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteConfirmationLabel">Will you remove this product from the menu?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p class="text-muted">This action cannot be undone.</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-success" id="confirmDelete">✔ Yes</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">✖ No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- JavaScript for image preview -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const menuImageInput = document.getElementById("menuImage");
+    const imagePreviewContainer = document.getElementById("imagePreviewContainer");
+    const imagePreview = document.getElementById("imagePreview");
+
+    menuImageInput.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                imagePreview.src = e.target.result; // Set the preview image's source
+                imagePreviewContainer.style.display = "block"; // Show the preview container
+            };
+            reader.readAsDataURL(file); // Read the file as a Data URL
+        } else {
+            // If no file is selected, hide the preview
+            imagePreviewContainer.style.display = "none";
+            imagePreview.src = "";
+        }
+    });
+});
+</script>
+
+
+  <!-- Bootstrap JS -->
+  <script src="Css-admin/bootstrap.bundle.min.js"></script>
+  <script src="Javascript-admin/menuscreen.js"></script>
+  </script>
+</body>
+</html>
+
+
+
+
+

@@ -4815,3 +4815,159 @@
 
 [2024-12-16 21:10:04] Cart totals - Amount: 300, Quantity: 2
 [2024-12-16 21:10:04] Response sent: {"success":true,"totalAmount":300,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-16 21:21:13] Raw POST data: {"id":2,"name":"Latte de Kape","price":135,"description":"Espresso with steamed milk and a thin layer of foam","image":"../admin-staff/Images/menu-item/latte-de-kape.jpg","size":"Sinco","orderType":"Take-out","quantity":3}
+[2024-12-16 21:21:13] Decoded data: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [price] => 135
+    [description] => Espresso with steamed milk and a thin layer of foam
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Sinco
+    [orderType] => Take-out
+    [quantity] => 3
+)
+
+[2024-12-16 21:21:13] Item added to cart: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Sinco
+    [price] => 135
+    [quantity] => 3
+    [orderType] => Take-out
+)
+
+[2024-12-16 21:21:13] Cart totals - Amount: 405, Quantity: 3
+[2024-12-16 21:21:13] Response sent: {"success":true,"totalAmount":405,"totalQuantity":3,"message":"Item added to cart successfully"}
+[2024-12-16 21:25:01] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":150,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Sinco","orderType":"Take-out","quantity":3}
+[2024-12-16 21:25:01] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 150
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Sinco
+    [orderType] => Take-out
+    [quantity] => 3
+)
+
+[2024-12-16 21:25:01] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Sinco
+    [price] => 150
+    [quantity] => 3
+    [orderType] => Take-out
+)
+
+[2024-12-16 21:25:01] Cart totals - Amount: 450, Quantity: 3
+[2024-12-16 21:25:01] Response sent: {"success":true,"totalAmount":450,"totalQuantity":3,"message":"Item added to cart successfully"}
+[2024-12-16 21:25:12] Raw POST data: {"id":7,"name":"Kape de Cacao","price":140,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Quatro","orderType":"Dine-in","quantity":3}
+[2024-12-16 21:25:12] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 140
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Quatro
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2024-12-16 21:25:12] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Quatro
+    [price] => 140
+    [quantity] => 3
+    [orderType] => Dine-in
+)
+
+[2024-12-16 21:25:12] Cart totals - Amount: 420, Quantity: 3
+[2024-12-16 21:25:12] Response sent: {"success":true,"totalAmount":420,"totalQuantity":3,"message":"Item added to cart successfully"}
+[2024-12-16 21:31:25] Raw POST data: {"id":1,"name":"Kape Amerikano","price":100,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Quatro","orderType":"Dine-in","quantity":2}
+[2024-12-16 21:31:25] Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 100
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Quatro
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2024-12-16 21:31:25] Item added to cart: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Quatro
+    [price] => 100
+    [quantity] => 2
+    [orderType] => Dine-in
+)
+
+[2024-12-16 21:31:25] New total quantity: 6
+[2024-12-16 21:31:25] Response sent: {"success":true,"totalAmount":760,"totalQuantity":6,"message":"Item added to cart successfully"}
+[2024-12-16 21:33:37] Raw POST data: {"id":3,"name":"Cappuccino","price":125,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Quatro","orderType":"Dine-in","quantity":1}
+[2024-12-16 21:33:37] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 125
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Quatro
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-16 21:33:37] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Quatro
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-16 21:33:37] New total quantity: 1
+[2024-12-16 21:33:37] Response sent: {"success":true,"totalAmount":125,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-16 21:38:06] Raw POST data: {"id":4,"name":"Latte Espanyol","price":130,"description":"Espresso combined with milk and a hint of condensed milk","image":"../admin-staff/Images/menu-item/latte-espanyol.jpg","size":"Quatro","orderType":"Take-out","quantity":2}
+[2024-12-16 21:38:06] Decoded data: Array
+(
+    [id] => 4
+    [name] => Latte Espanyol
+    [price] => 130
+    [description] => Espresso combined with milk and a hint of condensed milk
+    [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+    [size] => Quatro
+    [orderType] => Take-out
+    [quantity] => 2
+)
+
+[2024-12-16 21:38:06] Item added to cart: Array
+(
+    [id] => 4
+    [name] => Latte Espanyol
+    [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+    [size] => Quatro
+    [price] => 130
+    [quantity] => 2
+    [orderType] => Take-out
+)
+
+[2024-12-16 21:38:06] New total quantity: 2
+[2024-12-16 21:38:06] Response sent: {"success":true,"totalAmount":260,"totalQuantity":2,"message":"Item added to cart successfully"}

@@ -63,7 +63,7 @@ try {
         $response['totalAmount'] = $totalAmount;
         $response['totalQuantity'] = $totalQuantity;
         $response['message'] = 'Item added to cart successfully';
-        logDebug("Cart totals - Amount: $totalAmount, Quantity: $totalQuantity");
+        logDebug("New total quantity: $totalQuantity");
     } else {
         $response['error'] = 'Missing required data';
         logDebug("Missing required data in request");

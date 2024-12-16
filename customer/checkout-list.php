@@ -43,207 +43,9 @@ foreach ($_SESSION['cart'] as $item) {
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .mobile-container {
-            max-width: 450px;
-            margin: 0 auto;
-            background-color: #fff;
-            min-height: 100vh;
-            position: relative;
-            padding-bottom: 160px; /* Space for bottom section */
-        }
-
-        .header {
-            background-color: #000;
-            color: #fff;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .logo-image {
-            max-width: 150px;
-            margin-bottom: 0.5rem;
-        }
-
-        .header-tagline {
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        .order-list {
-            padding: 1rem;
-        }
-
-        .order-item {
-            background: #fff;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .item-image {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .item-details {
-            flex-grow: 1;
-        }
-
-        .item-name {
-            font-weight: bold;
-            margin-bottom: 0.25rem;
-        }
-
-        .item-size {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .item-price {
-            font-weight: bold;
-            color: #000;
-        }
-
-        .order-type {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 0.5rem;
-        }
-
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .quantity-btn {
-            background: #eee;
-            border: none;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .quantity-btn:hover {
-            background: #ddd;
-        }
-
-        .bottom-section {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 450px;
-            background: #fff;
-            padding: 1rem;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-        }
-
-        .total-amount {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-align: right;
-        }
-
-        .action-buttons {
-            display: grid;
-            gap: 0.5rem;
-        }
-
-        .btn-continue {
-            background: #28a745;
-            color: #fff;
-            border: none;
-            padding: 0.75rem;
-            border-radius: 5px;
-            width: 100%;
-            font-weight: bold;
-            transition: background-color 0.2s;
-        }
-
-        .btn-continue:hover {
-            background: #218838;
-        }
-
-        .btn-cancel {
-            background: #dc3545;
-            color: #fff;
-            border: none;
-            padding: 0.75rem;
-            border-radius: 5px;
-            width: 100%;
-            font-weight: bold;
-            transition: background-color 0.2s;
-        }
-
-        .btn-cancel:hover {
-            background: #c82333;
-        }
-
-        .empty-cart {
-            text-align: center;
-            padding: 2rem;
-            color: #666;
-        }
-
-        .add-more-items {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            color: #007bff;
-            text-decoration: none;
-            border: 2px dashed #ccc;
-            border-radius: 10px;
-            margin: 1rem;
-            transition: all 0.2s;
-        }
-
-        .add-more-items:hover {
-            color: #0056b3;
-            border-color: #0056b3;
-            background: #f8f9fa;
-        }
-
-        .add-more-items i {
-            margin-right: 0.5rem;
-        }
-
-        /* Toast Message */
-        .toast-message {
-            position: fixed;
-            bottom: 160px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            z-index: 1000;
-            animation: fadeInOut 3s ease-in-out;
-        }
-
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translate(-50%, 20px); }
-            15% { opacity: 1; transform: translate(-50%, 0); }
-            85% { opacity: 1; transform: translate(-50%, 0); }
-            100% { opacity: 0; transform: translate(-50%, -20px); }
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/checkout-list.css">
+    <link rel="stylesheet" href="css/cancel-order-modal.css">
 </head>
 <body>
     <div class="mobile-container">
@@ -291,11 +93,10 @@ foreach ($_SESSION['cart'] as $item) {
 
         <!-- Bottom Section -->
         <div class="bottom-section">
-            
-        <!-- Total Order Count Display -->
-            <div class="total-order-count" style="text-align: left; position:inherit; font-size: 12px;">
+            <!-- Total Order Count Display -->
+            <div class="total-order-count">
                 Total Number of Order Item: <br>
-                <span style="margin-left: 70px; color: #000; font-weight:700;font-size: 18px;"><?php echo $totalQuantity; ?></span>
+                <span class="total-quantity"><?php echo $totalQuantity; ?></span>
             </div>
 
             <div class="total-amount">
@@ -303,7 +104,37 @@ foreach ($_SESSION['cart'] as $item) {
             </div>
             <div class="action-buttons">
                 <button class="btn-continue" onclick="window.location.href='modeofpayment.php'">Continue</button>
-                <button class="btn-cancel" onclick="cancelOrder()">Cancel Order</button>
+                <button class="btn-cancel" onclick="showCancelOrderModal()">Cancel Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cancel Order Modal -->
+    <div class="modal fade" id="cancelOrderModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cancel Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <i class="fas fa-exclamation-triangle modal-icon"></i>
+                    <p class="modal-message">Are you sure you want to cancel your order?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, Keep Order</button>
+                    <button type="button" class="btn btn-danger" onclick="confirmCancelOrder()">Yes, Cancel Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Message Container -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="toastMessage" class="toast align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body"></div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
         </div>
     </div>
@@ -351,22 +182,27 @@ foreach ($_SESSION['cart'] as $item) {
             });
         }
 
-        function cancelOrder() {
-            if (confirm('Are you sure you want to cancel your order?')) {
-                fetch('cancel_order.php', {
-                    method: 'POST'
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        window.location.href = 'menu.php';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
+        function showCancelOrderModal() {
+            const modal = new bootstrap.Modal(document.getElementById('cancelOrderModal'));
+            modal.show();
+        }
+
+        function confirmCancelOrder() {
+            fetch('cancel_order.php', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = 'menu.php';
+                } else {
                     showToast('Failed to cancel order');
-                });
-            }
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('Failed to cancel order');
+            });
         }
     </script>
 </body>

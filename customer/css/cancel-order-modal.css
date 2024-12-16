@@ -1,0 +1,79 @@
+/* Cancel Order Modal Styles */
+.modal-content {
+    border-radius: 15px;
+    border: none;
+}
+
+.modal-header {
+    background-color: #dc3545;
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom: none;
+    padding: 1rem;
+}
+
+.modal-header .btn-close {
+    color: white;
+    opacity: 1;
+}
+
+.modal-body {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 1rem;
+    justify-content: center;
+    gap: 10px;
+}
+
+.modal-footer .btn {
+    padding: 8px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    min-width: 120px;
+}
+
+.modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: white;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.modal-footer .btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.modal-footer .btn-danger:hover {
+    background-color: #c82333;
+}
+
+.modal-icon {
+    font-size: 3rem;
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.modal-message {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 0;
+}
+
+/* Animation for modal */
+.modal.fade .modal-dialog {
+    transform: scale(0.8);
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+}

@@ -199,7 +199,7 @@ if (!$ticketNumber) {
 
     <div class="action-buttons">
         <button class="btn btn-status" onclick="window.location.href='orderstatusboard.php'">View Order Status</button>
-        <button class="btn btn-next" onclick="window.location.href='menu.php'">Next</button>
+        <button class="btn btn-next" onclick="window.location.href='order_status_board.php'">Next</button>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->

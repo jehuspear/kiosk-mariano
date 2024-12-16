@@ -219,7 +219,7 @@ if ($result->num_rows > 0) {
             setTimeout(function() {
                 location.reload();
             }, 1000);
-        }, 30000);
+        }, 5000);
     </script>
 </body>
 </html>

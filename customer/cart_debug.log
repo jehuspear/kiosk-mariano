@@ -5023,3 +5023,55 @@
 
 [2024-12-16 22:02:58] New total quantity: 1
 [2024-12-16 22:02:58] Response sent: {"success":true,"totalAmount":100,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-16 22:06:17] Raw POST data: {"id":7,"name":"Kape de Cacao","price":155,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Sinco","orderType":"Take-out","quantity":2}
+[2024-12-16 22:06:17] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 155
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Sinco
+    [orderType] => Take-out
+    [quantity] => 2
+)
+
+[2024-12-16 22:06:17] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Sinco
+    [price] => 155
+    [quantity] => 2
+    [orderType] => Take-out
+)
+
+[2024-12-16 22:06:17] New total quantity: 2
+[2024-12-16 22:06:17] Response sent: {"success":true,"totalAmount":310,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-16 22:06:35] Raw POST data: {"id":11,"name":"Banana","price":60,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Dos","orderType":"Take-out","quantity":2}
+[2024-12-16 22:06:35] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 60
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [orderType] => Take-out
+    [quantity] => 2
+)
+
+[2024-12-16 22:06:35] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [price] => 60
+    [quantity] => 2
+    [orderType] => Take-out
+)
+
+[2024-12-16 22:06:35] New total quantity: 4
+[2024-12-16 22:06:35] Response sent: {"success":true,"totalAmount":430,"totalQuantity":4,"message":"Item added to cart successfully"}

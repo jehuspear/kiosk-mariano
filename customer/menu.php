@@ -32,8 +32,6 @@ require_once 'get_best_sellers.php';
     <link rel="stylesheet" href="css/order-type.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Add this line in the head section after other CSS links -->
-    <link rel="stylesheet" href="css/modal-actions.css">
 </head>
 <body>
     <!-- Mobile Phone Container -->
@@ -131,9 +129,9 @@ require_once 'get_best_sellers.php';
             <div class="modal fade" id="itemModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="item-name"></h5>
-                            <button type="button" class="close-modal" data-bs-dismiss="modal">×</button>
+                        <div class="modal-header" style="text-align: center;">
+                            <h5 class="modal-title" id="item-name" ></h5>
+                            <!-- <button type="button" class="close-modal" data-bs-dismiss="modal">×</button> -->
                         </div>
                         <div class="modal-body">
                             <img src="" alt="Item Image" id="item-image" class="modal-item-image">

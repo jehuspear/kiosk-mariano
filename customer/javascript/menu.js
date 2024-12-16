@@ -38,7 +38,7 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
     document.getElementById('quantity').textContent = currentQuantity;
     document.getElementById('item-image').src = image;
     
-    // Get size and temperature information
+// Get size and temperature information
     try {
         const response = await fetch(`get_size_temperature.php?itemId=${itemId}`);
         const data = await response.json();
@@ -51,11 +51,15 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
             sizeGroup.innerHTML = '';
             
             // Create buttons with temperature badges
+            let isFirstButton = true;  // Track first button
             data.sizes.forEach(sizeInfo => {
                 const button = document.createElement('button');
                 button.className = 'option-btn';
-                if (sizeInfo.size === 'Uno') {
+                // Make first button active by default
+                if (isFirstButton) {
                     button.classList.add('active');
+                    selectedSize = sizeInfo.size;
+                    isFirstButton = false;
                 }
                 button.onclick = () => selectSize(sizeInfo.size, button);
                 
@@ -72,11 +76,23 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
             });
             
             // Update price for initial size
-            updatePriceForSize('Uno');
+            updatePriceForSize(selectedSize);
         }
     } catch (error) {
         console.error('Error fetching size information:', error);
     }
+
+    // Reset Size Option Buttons
+    const sizeButtons = document.querySelectorAll('.options-group .option-btn');
+    sizeButtons.forEach(btn => btn.classList.remove('active'));
+    
+    const firstButton = document.querySelector('.options-group .option-btn');
+    if (firstButton) {
+        firstButton.classList.add('active');
+        selectedSize = 'Uno';
+        updatePriceForSize('Uno');
+    }
+
 
     // Reset order type buttons
     document.querySelectorAll('.order-type-btn').forEach(btn => {
@@ -95,7 +111,6 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
         confirmBtn.style.cursor = 'pointer';
     }
 }
-
 
 
 // Function to add to cart
@@ -161,6 +176,7 @@ function selectSize(size, button) {
     updatePriceForSize(size);
 }
 
+
 // Function to update price based on selected size
 function updatePriceForSize(size) {
     if (!currentItemId) return;
@@ -182,7 +198,7 @@ function updatePriceForSize(size) {
             // Update current item price
             if (window.currentItem) {
                 window.currentItem.price = parseFloat(data.price);
-            }
+        }
 
             // Handle out of stock status
             const confirmBtn = document.querySelector('.btn-confirm');
@@ -338,3 +354,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+

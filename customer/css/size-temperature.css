@@ -1,40 +1,11 @@
-/* Temperature badge styles */
-.temp-badge {
-    display: inline-block;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    z-index: 1;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Hot temperature style */
-.temp-badge.hot {
-    background: linear-gradient(45deg, #ff4e50, #f9d423);
-    color: white;
-    box-shadow: 0 2px 4px rgba(255, 78, 80, 0.3);
-}
-
-/* Cold temperature style */
-.temp-badge.cold {
-    background: linear-gradient(45deg, #2193b0, #6dd5ed);
-    color: white;
-    box-shadow: 0 2px 4px rgba(33, 147, 176, 0.3);
-}
-
 /* Size button container */
 .options-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px; /* Increased gap to accommodate badges */
+    gap: 12px;
     margin: 15px 0;
     justify-content: center;
-    padding: 10px; /* Added padding to prevent badge cutoff */
+    padding: 10px;
 }
 
 /* Size option container */
@@ -55,6 +26,7 @@
     font-weight: 500;
     transition: all 0.2s ease;
     cursor: pointer;
+    position: relative; /* Added for badge positioning */
 }
 
 /* Active state */
@@ -75,46 +47,49 @@
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Modal actions container */
-.modal-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    padding: 0;
+/* Button content wrapper */
+.button-content {
+    position: relative;
+    z-index: 1;
 }
 
-/* Cancel button */
-.btn-cancel {
-    flex: 1;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    background: #f5f5f5;
-    color: #333;
-    font-size: 24px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+/* Temperature badge styles */
+.temp-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    pointer-events: none; /* Prevent badge from interfering with button clicks */
 }
 
-/* Confirm button */
-.btn-confirm {
-    flex: 1;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    background: #28a745;
+/* Hot temperature style */
+.temp-badge.hot {
+    background: linear-gradient(45deg, #ff4e50, #f9d423);
     color: white;
-    font-size: 24px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(255, 78, 80, 0.3);
 }
 
-.btn-cancel:hover {
-    background: #e0e0e0;
+/* Cold temperature style */
+.temp-badge.cold {
+    background: linear-gradient(45deg, #2193b0, #6dd5ed);
+    color: white;
+    box-shadow: 0 2px 4px rgba(33, 147, 176, 0.3);
 }
 
-.btn-confirm:hover {
-    background: #218838;
+/* Active button badge styles */
+.option-btn.active .temp-badge.hot {
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+}
+
+.option-btn.active .temp-badge.cold {
+    background: linear-gradient(45deg, #4fb8d1, #8de1f4);
 }
 
 /* Responsive adjustments */

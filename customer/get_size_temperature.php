@@ -1,8 +1,22 @@
 <?php
 require_once 'database_customer.php';
 
+// Enable error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Set JSON header
+header('Content-Type: application/json');
+
+// Log function
+function logError($message) {
+    error_log(date('Y-m-d H:i:s') . " - " . $message . "\n", 3, "debug.log");
+}
+
 if (isset($_GET['itemId'])) {
     $itemId = intval($_GET['itemId']);
+    
+    logError("Received request for itemId: " . $itemId);
     
     // Query to get sizes and their temperatures for this item
     $sql = "SELECT 
@@ -11,7 +25,7 @@ if (isset($_GET['itemId'])) {
                 MenuItemSize_Stock as stock,
                 MenuItemSize_Price as price
             FROM menuitem_sizes 
-            WHERE MenuItem_ID = ? AND MenuItemSize_Stock > 0
+            WHERE MenuItem_ID = ?
             ORDER BY CASE MenuItemSize_Size
                 WHEN 'Uno' THEN 1
                 WHEN 'Dos' THEN 2
@@ -19,25 +33,35 @@ if (isset($_GET['itemId'])) {
                 WHEN 'Quatro' THEN 4
                 WHEN 'Sinco' THEN 5
             END";
+    
+    logError("SQL Query: " . $sql);
             
-    $stmt = mysqli_prepare($conn, $sql);
+    $stmt = $conn->prepare($sql);
     if (!$stmt) {
-        echo json_encode(['success' => false, 'message' => 'Failed to prepare statement']);
+        logError("Prepare failed: " . $conn->error);
+        echo json_encode([
+            'success' => false, 
+            'message' => 'Failed to prepare statement: ' . $conn->error
+        ]);
         exit;
     }
     
-    mysqli_stmt_bind_param($stmt, "i", $itemId);
+    $stmt->bind_param("i", $itemId);
     
-    if (!mysqli_stmt_execute($stmt)) {
-        echo json_encode(['success' => false, 'message' => 'Failed to execute statement']);
-        mysqli_stmt_close($stmt);
+    if (!$stmt->execute()) {
+        logError("Execute failed: " . $stmt->error);
+        echo json_encode([
+            'success' => false, 
+            'message' => 'Failed to execute statement: ' . $stmt->error
+        ]);
+        $stmt->close();
         exit;
     }
     
-    $result = mysqli_stmt_get_result($stmt);
+    $result = $stmt->get_result();
     $sizes = [];
     
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($row = $result->fetch_assoc()) {
         $sizes[] = [
             'size' => $row['size'],
             'temperature' => $row['isHot'] ? 'HOT' : 'COLD',
@@ -46,18 +70,27 @@ if (isset($_GET['itemId'])) {
         ];
     }
     
-    mysqli_stmt_close($stmt);
+    $stmt->close();
     
     if (empty($sizes)) {
-        echo json_encode(['success' => false, 'message' => 'No available sizes found']);
+        logError("No sizes found for itemId: " . $itemId);
+        echo json_encode([
+            'success' => false, 
+            'message' => 'No available sizes found for item ID: ' . $itemId
+        ]);
         exit;
     }
     
+    logError("Successfully found " . count($sizes) . " sizes for itemId: " . $itemId);
     echo json_encode([
         'success' => true,
         'sizes' => $sizes
     ]);
 } else {
-    echo json_encode(['success' => false, 'message' => 'Item ID is required']);
+    logError("No itemId provided in request");
+    echo json_encode([
+        'success' => false, 
+        'message' => 'Item ID is required'
+    ]);
 }
 ?>

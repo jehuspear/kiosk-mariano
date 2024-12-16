@@ -1,57 +1,69 @@
 // Alert Modal Functions
 function showOrderTypeAlert() {
     const orderTypeAlertEl = document.getElementById('orderTypeAlert');
-    if (!orderTypeAlertEl) return;
-
-    let orderTypeAlert = bootstrap.Modal.getInstance(orderTypeAlertEl);
-    if (!orderTypeAlert) {
-        orderTypeAlert = new bootstrap.Modal(orderTypeAlertEl);
+    if (!orderTypeAlertEl) {
+        console.error('Order type alert modal not found');
+        return;
     }
-    orderTypeAlert.show();
+
+    try {
+        const orderTypeAlert = bootstrap.Modal.getInstance(orderTypeAlertEl) || new bootstrap.Modal(orderTypeAlertEl, {
+            backdrop: 'static',
+            keyboard: false
+        });
+        orderTypeAlert.show();
+    } catch (error) {
+        console.error('Error showing order type alert:', error);
+    }
 }
 
 function showEmptyCartAlert() {
     const emptyCartAlertEl = document.getElementById('emptyCartAlert');
-    if (!emptyCartAlertEl) return;
-
-    let emptyCartAlert = bootstrap.Modal.getInstance(emptyCartAlertEl);
-    if (!emptyCartAlert) {
-        emptyCartAlert = new bootstrap.Modal(emptyCartAlertEl);
+    if (!emptyCartAlertEl) {
+        console.error('Empty cart alert modal not found');
+        return;
     }
-    emptyCartAlert.show();
+
+    try {
+        const emptyCartAlert = bootstrap.Modal.getInstance(emptyCartAlertEl) || new bootstrap.Modal(emptyCartAlertEl, {
+            backdrop: 'static',
+            keyboard: false
+        });
+        emptyCartAlert.show();
+    } catch (error) {
+        console.error('Error showing empty cart alert:', error);
+    }
 }
 
 // Initialize modals when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize empty cart alert modal
-    const emptyCartAlert = document.getElementById('emptyCartAlert');
-    if (emptyCartAlert) {
-        new bootstrap.Modal(emptyCartAlert, {
-            backdrop: 'static',
-            keyboard: false
-        });
-    }
-
-    // Initialize order type alert modal
-    const orderTypeAlert = document.getElementById('orderTypeAlert');
-    if (orderTypeAlert) {
-        new bootstrap.Modal(orderTypeAlert, {
-            backdrop: 'static',
-            keyboard: false
-        });
-    }
-
-    // Override proceedToCheckout function
-    window.proceedToCheckout = function() {
-        if (!window.orderCount || window.orderCount === 0) {
-            showEmptyCartAlert();
-            return;
+    try {
+        // Initialize empty cart alert modal
+        const emptyCartAlert = document.getElementById('emptyCartAlert');
+        if (emptyCartAlert) {
+            new bootstrap.Modal(emptyCartAlert, {
+                backdrop: 'static',
+                keyboard: false
+            });
+        } else {
+            console.warn('Empty cart alert modal element not found');
         }
-        
-        // Here you would typically redirect to checkout page
-        console.log('Order Items:', window.orderItems);
-        window.orderItems.forEach(item => {
-            console.log(`${item.quantity}x ${item.name} (${item.size}) - ${item.orderType}`);
-        });
-    };
+
+        // Initialize order type alert modal
+        const orderTypeAlert = document.getElementById('orderTypeAlert');
+        if (orderTypeAlert) {
+            new bootstrap.Modal(orderTypeAlert, {
+                backdrop: 'static',
+                keyboard: false
+            });
+        } else {
+            console.warn('Order type alert modal element not found');
+        }
+    } catch (error) {
+        console.error('Error initializing modals:', error);
+    }
 });
+
+// Export functions for use in other scripts
+window.showOrderTypeAlert = showOrderTypeAlert;
+window.showEmptyCartAlert = showEmptyCartAlert;

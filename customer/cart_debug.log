@@ -1,0 +1,4613 @@
+2024-12-16 19:30:46 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:30:46 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 95
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 110
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [3] => Array
+                (
+                    [id] => 3
+                    [name] => Cappuccino
+                    [price] => 135
+                    [size] => Sinco
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+                )
+
+            [4] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 125
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:30:46 - Total quantity calculated: 5
+2024-12-16 19:30:46 - Response sent: Array
+(
+    [success] => 1
+    [count] => 5
+)
+
+2024-12-16 19:30:47 - Session ID: gk4pl4mrkfale7ibuacc0o8veu
+2024-12-16 19:30:47 - Session data: Array
+(
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:30:47 - Total quantity calculated: 0
+2024-12-16 19:30:47 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:31:13 - POST request received
+2024-12-16 19:31:13 - Raw POST data: {"id":11,"name":"Banana","price":50,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Uno","orderType":"Take-out","quantity":1}
+2024-12-16 19:31:13 - Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 50
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+2024-12-16 19:31:13 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 95
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 110
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 135
+            [size] => Sinco
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 125
+            [size] => Dos
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [5] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+)
+
+2024-12-16 19:31:13 - Total quantity calculated: 6
+2024-12-16 19:31:13 - Success response sent
+2024-12-16 19:31:18 - POST request received
+2024-12-16 19:31:18 - Raw POST data: {"id":11,"name":"Banana","price":50,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Uno","orderType":"Take-out","quantity":1}
+2024-12-16 19:31:18 - Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 50
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+2024-12-16 19:31:18 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 95
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 110
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 135
+            [size] => Sinco
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 125
+            [size] => Dos
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [5] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [6] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+)
+
+2024-12-16 19:31:18 - Total quantity calculated: 7
+2024-12-16 19:31:18 - Success response sent
+2024-12-16 19:31:21 - POST request received
+2024-12-16 19:31:21 - Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+2024-12-16 19:31:21 - Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+2024-12-16 19:31:21 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 85
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+)
+
+2024-12-16 19:31:21 - Total quantity calculated: 1
+2024-12-16 19:31:21 - Success response sent
+2024-12-16 19:31:21 - POST request received
+2024-12-16 19:31:21 - Raw POST data: {"id":11,"name":"Banana","price":60,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Dos","orderType":"Take-out","quantity":1}
+2024-12-16 19:31:21 - Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 60
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+2024-12-16 19:31:21 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 95
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 110
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 135
+            [size] => Sinco
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 125
+            [size] => Dos
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [5] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [6] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [7] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+)
+
+2024-12-16 19:31:21 - Total quantity calculated: 8
+2024-12-16 19:31:21 - Success response sent
+2024-12-16 19:32:16 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:32:16 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 95
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 110
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [3] => Array
+                (
+                    [id] => 3
+                    [name] => Cappuccino
+                    [price] => 135
+                    [size] => Sinco
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+                )
+
+            [4] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 125
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [5] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [6] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [7] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:32:16 - Total quantity calculated: 8
+2024-12-16 19:32:16 - Response sent: Array
+(
+    [success] => 1
+    [count] => 8
+)
+
+2024-12-16 19:32:16 - Session ID: o2t4l3a7di94kloppsrlf2l03m
+2024-12-16 19:32:16 - Session data: Array
+(
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:32:16 - Total quantity calculated: 0
+2024-12-16 19:32:16 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:32:20 - POST request received
+2024-12-16 19:32:20 - Raw POST data: {"id":1,"name":"Kape Amerikano","price":60,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+2024-12-16 19:32:20 - Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 60
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+2024-12-16 19:32:20 - Cart item created: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 60
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+)
+
+2024-12-16 19:32:20 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 95
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 110
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 135
+            [size] => Sinco
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 125
+            [size] => Dos
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [5] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [6] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [7] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [8] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+)
+
+2024-12-16 19:32:20 - Total quantity calculated: 9
+2024-12-16 19:32:20 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 9
+)
+
+2024-12-16 19:32:47 - POST request received
+2024-12-16 19:32:47 - Raw POST data: {"id":1,"name":"Kape Amerikano","price":60,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Uno","orderType":"Dine-in","quantity":2}
+2024-12-16 19:32:47 - Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 60
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+2024-12-16 19:32:47 - Cart item created: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 60
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 2
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+)
+
+2024-12-16 19:32:47 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 95
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 110
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 135
+            [size] => Sinco
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 125
+            [size] => Dos
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [5] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [6] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [7] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [8] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [9] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+)
+
+2024-12-16 19:32:47 - Total quantity calculated: 11
+2024-12-16 19:32:47 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 11
+)
+
+2024-12-16 19:32:50 - POST request received
+2024-12-16 19:32:50 - Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+2024-12-16 19:32:50 - Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+2024-12-16 19:32:50 - Cart item created: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+)
+
+2024-12-16 19:32:50 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 85
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+)
+
+2024-12-16 19:32:50 - Total quantity calculated: 1
+2024-12-16 19:32:50 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 1
+)
+
+2024-12-16 19:33:02 - POST request received
+2024-12-16 19:33:02 - Raw POST data: {"id":7,"name":"Kape de Cacao","price":100,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Uno","orderType":"Take-out","quantity":1}
+2024-12-16 19:33:02 - Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 100
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+2024-12-16 19:33:02 - Cart item created: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 100
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+)
+
+2024-12-16 19:33:02 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 95
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 110
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 135
+            [size] => Sinco
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 125
+            [size] => Dos
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [5] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [6] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [7] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [8] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [9] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [10] => Array
+        (
+            [id] => 7
+            [name] => Kape de Cacao
+            [price] => 100
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+        )
+
+)
+
+2024-12-16 19:33:02 - Total quantity calculated: 12
+2024-12-16 19:33:02 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 12
+)
+
+2024-12-16 19:33:49 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:33:49 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 95
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 110
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [3] => Array
+                (
+                    [id] => 3
+                    [name] => Cappuccino
+                    [price] => 135
+                    [size] => Sinco
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+                )
+
+            [4] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 125
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [5] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [6] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [7] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [8] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [9] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [10] => Array
+                (
+                    [id] => 7
+                    [name] => Kape de Cacao
+                    [price] => 100
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:33:49 - Total quantity calculated: 12
+2024-12-16 19:33:49 - Response sent: Array
+(
+    [success] => 1
+    [count] => 12
+)
+
+2024-12-16 19:33:52 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:33:52 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 95
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 110
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [3] => Array
+                (
+                    [id] => 3
+                    [name] => Cappuccino
+                    [price] => 135
+                    [size] => Sinco
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+                )
+
+            [4] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 125
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [5] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [6] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [7] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [8] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [9] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [10] => Array
+                (
+                    [id] => 7
+                    [name] => Kape de Cacao
+                    [price] => 100
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:33:52 - Total quantity calculated: 12
+2024-12-16 19:33:52 - Response sent: Array
+(
+    [success] => 1
+    [count] => 12
+)
+
+2024-12-16 19:33:53 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:33:53 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 95
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 110
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [3] => Array
+                (
+                    [id] => 3
+                    [name] => Cappuccino
+                    [price] => 135
+                    [size] => Sinco
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+                )
+
+            [4] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 125
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [5] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [6] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [7] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [8] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [9] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [10] => Array
+                (
+                    [id] => 7
+                    [name] => Kape de Cacao
+                    [price] => 100
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:33:53 - Total quantity calculated: 12
+2024-12-16 19:33:53 - Response sent: Array
+(
+    [success] => 1
+    [count] => 12
+)
+
+2024-12-16 19:34:16 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:34:16 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 95
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 110
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [3] => Array
+                (
+                    [id] => 3
+                    [name] => Cappuccino
+                    [price] => 135
+                    [size] => Sinco
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+                )
+
+            [4] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 125
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [5] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [6] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [7] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [8] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [9] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [10] => Array
+                (
+                    [id] => 7
+                    [name] => Kape de Cacao
+                    [price] => 100
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:34:16 - Total quantity calculated: 12
+2024-12-16 19:34:16 - Response sent: Array
+(
+    [success] => 1
+    [count] => 12
+)
+
+2024-12-16 19:34:20 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:34:20 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 95
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 110
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [3] => Array
+                (
+                    [id] => 3
+                    [name] => Cappuccino
+                    [price] => 135
+                    [size] => Sinco
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+                )
+
+            [4] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 125
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [5] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [6] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [7] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [8] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [9] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [10] => Array
+                (
+                    [id] => 7
+                    [name] => Kape de Cacao
+                    [price] => 100
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:34:20 - Total quantity calculated: 12
+2024-12-16 19:34:20 - Response sent: Array
+(
+    [success] => 1
+    [count] => 12
+)
+
+2024-12-16 19:34:20 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:34:20 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 95
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 110
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [3] => Array
+                (
+                    [id] => 3
+                    [name] => Cappuccino
+                    [price] => 135
+                    [size] => Sinco
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+                )
+
+            [4] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 125
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [5] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [6] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [7] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [8] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [9] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [10] => Array
+                (
+                    [id] => 7
+                    [name] => Kape de Cacao
+                    [price] => 100
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:34:20 - Total quantity calculated: 12
+2024-12-16 19:34:20 - Response sent: Array
+(
+    [success] => 1
+    [count] => 12
+)
+
+2024-12-16 19:34:27 - POST request received
+2024-12-16 19:34:27 - Raw POST data: {"id":6,"name":"Kape con Canela","price":150,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Sinco","orderType":"Dine-in","quantity":1}
+2024-12-16 19:34:28 - Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 150
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Sinco
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+2024-12-16 19:34:28 - Cart item created: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 150
+    [size] => Sinco
+    [orderType] => Dine-in
+    [quantity] => 1
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+)
+
+2024-12-16 19:34:28 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 95
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 110
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 135
+            [size] => Sinco
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 125
+            [size] => Dos
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [5] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [6] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [7] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [8] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [9] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [10] => Array
+        (
+            [id] => 7
+            [name] => Kape de Cacao
+            [price] => 100
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+        )
+
+    [11] => Array
+        (
+            [id] => 6
+            [name] => Kape con Canela
+            [price] => 150
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+        )
+
+)
+
+2024-12-16 19:34:28 - Total quantity calculated: 13
+2024-12-16 19:34:28 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 13
+)
+
+2024-12-16 19:34:32 - POST request received
+2024-12-16 19:34:32 - Raw POST data: {"id":6,"name":"Kape con Canela","price":150,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Sinco","orderType":"Dine-in","quantity":1}
+2024-12-16 19:34:32 - Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 150
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Sinco
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+2024-12-16 19:34:32 - Cart item created: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 150
+    [size] => Sinco
+    [orderType] => Dine-in
+    [quantity] => 1
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+)
+
+2024-12-16 19:34:32 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 95
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 110
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 135
+            [size] => Sinco
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 125
+            [size] => Dos
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [5] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [6] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [7] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [8] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [9] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [10] => Array
+        (
+            [id] => 7
+            [name] => Kape de Cacao
+            [price] => 100
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+        )
+
+    [11] => Array
+        (
+            [id] => 6
+            [name] => Kape con Canela
+            [price] => 150
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+        )
+
+    [12] => Array
+        (
+            [id] => 6
+            [name] => Kape con Canela
+            [price] => 150
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+        )
+
+)
+
+2024-12-16 19:34:32 - Total quantity calculated: 14
+2024-12-16 19:34:32 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 14
+)
+
+2024-12-16 19:35:02 - Session ID: seh3levs0ln9iuomdqcfk1g0f4
+2024-12-16 19:35:02 - Session data: Array
+(
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:35:02 - Total quantity calculated: 0
+2024-12-16 19:35:02 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:35:35 - POST request received
+2024-12-16 19:35:35 - Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+2024-12-16 19:35:35 - Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+2024-12-16 19:35:35 - Cart item created: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+)
+
+2024-12-16 19:35:35 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 85
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+)
+
+2024-12-16 19:35:35 - Total quantity calculated: 1
+2024-12-16 19:35:35 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 1
+)
+
+2024-12-16 19:36:39 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:36:39 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 95
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 110
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [3] => Array
+                (
+                    [id] => 3
+                    [name] => Cappuccino
+                    [price] => 135
+                    [size] => Sinco
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+                )
+
+            [4] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 125
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [5] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [6] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [7] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [8] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [9] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [10] => Array
+                (
+                    [id] => 7
+                    [name] => Kape de Cacao
+                    [price] => 100
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+                )
+
+            [11] => Array
+                (
+                    [id] => 6
+                    [name] => Kape con Canela
+                    [price] => 150
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+                )
+
+            [12] => Array
+                (
+                    [id] => 6
+                    [name] => Kape con Canela
+                    [price] => 150
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:36:39 - Total quantity calculated: 14
+2024-12-16 19:36:39 - Response sent: Array
+(
+    [success] => 1
+    [count] => 14
+)
+
+2024-12-16 19:36:42 - POST request received
+2024-12-16 19:36:42 - Raw POST data: {"id":1,"name":"Kape Amerikano","price":60,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Uno","orderType":"Take-out","quantity":1}
+2024-12-16 19:36:42 - Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 60
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+2024-12-16 19:36:42 - Cart item created: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 60
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+)
+
+2024-12-16 19:36:42 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 95
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 110
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 135
+            [size] => Sinco
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 125
+            [size] => Dos
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+    [5] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [6] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 50
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [7] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [8] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [9] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [10] => Array
+        (
+            [id] => 7
+            [name] => Kape de Cacao
+            [price] => 100
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+        )
+
+    [11] => Array
+        (
+            [id] => 6
+            [name] => Kape con Canela
+            [price] => 150
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+        )
+
+    [12] => Array
+        (
+            [id] => 6
+            [name] => Kape con Canela
+            [price] => 150
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+        )
+
+    [13] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+)
+
+2024-12-16 19:36:42 - Total quantity calculated: 15
+2024-12-16 19:36:42 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 15
+)
+
+2024-12-16 19:37:09 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:37:09 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 95
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 110
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [3] => Array
+                (
+                    [id] => 3
+                    [name] => Cappuccino
+                    [price] => 135
+                    [size] => Sinco
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+                )
+
+            [4] => Array
+                (
+                    [id] => 5
+                    [name] => Kape Dulce Salty Caramelo
+                    [price] => 125
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+                )
+
+            [5] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [6] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 50
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [7] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [8] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [9] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [10] => Array
+                (
+                    [id] => 7
+                    [name] => Kape de Cacao
+                    [price] => 100
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+                )
+
+            [11] => Array
+                (
+                    [id] => 6
+                    [name] => Kape con Canela
+                    [price] => 150
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+                )
+
+            [12] => Array
+                (
+                    [id] => 6
+                    [name] => Kape con Canela
+                    [price] => 150
+                    [size] => Sinco
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+                )
+
+            [13] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:37:09 - Total quantity calculated: 15
+2024-12-16 19:37:09 - Response sent: Array
+(
+    [success] => 1
+    [count] => 15
+)
+
+2024-12-16 19:37:17 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:37:17 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:37:17 - Total quantity calculated: 0
+2024-12-16 19:37:17 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:37:29 - POST request received
+2024-12-16 19:37:29 - Raw POST data: {"id":1,"name":"Kape Amerikano","price":100,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Quatro","orderType":"Take-out","quantity":2}
+2024-12-16 19:37:29 - Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 100
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Quatro
+    [orderType] => Take-out
+    [quantity] => 2
+)
+
+2024-12-16 19:37:29 - Cart item created: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 100
+    [size] => Quatro
+    [orderType] => Take-out
+    [quantity] => 2
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+)
+
+2024-12-16 19:37:29 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 100
+            [size] => Quatro
+            [orderType] => Take-out
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+)
+
+2024-12-16 19:37:29 - Total quantity calculated: 2
+2024-12-16 19:37:29 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 2
+)
+
+2024-12-16 19:37:41 - Session ID: un99i7b1c608ritofmmf2rtveh
+2024-12-16 19:37:41 - Session data: Array
+(
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:37:41 - Total quantity calculated: 0
+2024-12-16 19:37:41 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:38:16 - POST request received
+2024-12-16 19:38:16 - Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+2024-12-16 19:38:16 - Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+2024-12-16 19:38:16 - Cart item created: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+)
+
+2024-12-16 19:38:16 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 3
+            [name] => Cappuccino
+            [price] => 85
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+        )
+
+)
+
+2024-12-16 19:38:16 - Total quantity calculated: 1
+2024-12-16 19:38:16 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 1
+)
+
+2024-12-16 19:38:46 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:38:46 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:38:46 - Total quantity calculated: 2
+2024-12-16 19:38:46 - Response sent: Array
+(
+    [success] => 1
+    [count] => 2
+)
+
+2024-12-16 19:38:46 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:38:46 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:38:46 - Total quantity calculated: 2
+2024-12-16 19:38:46 - Response sent: Array
+(
+    [success] => 1
+    [count] => 2
+)
+
+2024-12-16 19:38:47 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:38:47 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:38:47 - Total quantity calculated: 2
+2024-12-16 19:38:47 - Response sent: Array
+(
+    [success] => 1
+    [count] => 2
+)
+
+2024-12-16 19:38:51 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:38:51 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:38:51 - Total quantity calculated: 2
+2024-12-16 19:38:51 - Response sent: Array
+(
+    [success] => 1
+    [count] => 2
+)
+
+2024-12-16 19:39:37 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:39:37 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:39:37 - Total quantity calculated: 2
+2024-12-16 19:39:37 - Response sent: Array
+(
+    [success] => 1
+    [count] => 2
+)
+
+2024-12-16 19:39:57 - POST request received
+2024-12-16 19:39:57 - Raw POST data: {"id":11,"name":"Banana","price":60,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Dos","orderType":"Dine-in","quantity":3}
+2024-12-16 19:39:57 - Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 60
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+2024-12-16 19:39:57 - Cart item created: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 60
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 3
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+)
+
+2024-12-16 19:39:57 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 100
+            [size] => Quatro
+            [orderType] => Take-out
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Dine-in
+            [quantity] => 3
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+)
+
+2024-12-16 19:39:57 - Total quantity calculated: 5
+2024-12-16 19:39:57 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 5
+)
+
+2024-12-16 19:41:27 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:41:27 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 3
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:41:27 - Total quantity calculated: 5
+2024-12-16 19:41:27 - Response sent: Array
+(
+    [success] => 1
+    [count] => 5
+)
+
+2024-12-16 19:41:28 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:41:28 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 3
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:41:28 - Total quantity calculated: 5
+2024-12-16 19:41:28 - Response sent: Array
+(
+    [success] => 1
+    [count] => 5
+)
+
+2024-12-16 19:41:29 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:41:29 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 3
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:41:29 - Total quantity calculated: 5
+2024-12-16 19:41:29 - Response sent: Array
+(
+    [success] => 1
+    [count] => 5
+)
+
+2024-12-16 19:41:34 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:41:34 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 3
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:41:34 - Total quantity calculated: 5
+2024-12-16 19:41:34 - Response sent: Array
+(
+    [success] => 1
+    [count] => 5
+)
+
+2024-12-16 19:41:41 - POST request received
+2024-12-16 19:41:41 - Raw POST data: {"id":1,"name":"Kape Amerikano","price":100,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Quatro","orderType":"Dine-in","quantity":2}
+2024-12-16 19:41:41 - Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 100
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Quatro
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+2024-12-16 19:41:41 - Cart item created: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 100
+    [size] => Quatro
+    [orderType] => Dine-in
+    [quantity] => 2
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+)
+
+2024-12-16 19:41:41 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 100
+            [size] => Quatro
+            [orderType] => Take-out
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Dine-in
+            [quantity] => 3
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 100
+            [size] => Quatro
+            [orderType] => Dine-in
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+)
+
+2024-12-16 19:41:41 - Total quantity calculated: 7
+2024-12-16 19:41:41 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 7
+)
+
+2024-12-16 19:41:42 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:41:42 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 3
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Dine-in
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:41:42 - Total quantity calculated: 7
+2024-12-16 19:41:42 - Response sent: Array
+(
+    [success] => 1
+    [count] => 7
+)
+
+2024-12-16 19:43:04 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:43:04 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 3
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Dine-in
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:43:04 - Total quantity calculated: 7
+2024-12-16 19:43:04 - Response sent: Array
+(
+    [success] => 1
+    [count] => 7
+)
+
+2024-12-16 19:43:05 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:43:05 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 3
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Dine-in
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:43:05 - Total quantity calculated: 7
+2024-12-16 19:43:05 - Response sent: Array
+(
+    [success] => 1
+    [count] => 7
+)
+
+2024-12-16 19:43:06 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:43:06 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Take-out
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 11
+                    [name] => Banana
+                    [price] => 60
+                    [size] => Dos
+                    [orderType] => Dine-in
+                    [quantity] => 3
+                    [image] => ../admin-staff/Images/menu-items/banana.jpg
+                )
+
+            [2] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 100
+                    [size] => Quatro
+                    [orderType] => Dine-in
+                    [quantity] => 2
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:43:06 - Total quantity calculated: 7
+2024-12-16 19:43:06 - Response sent: Array
+(
+    [success] => 1
+    [count] => 7
+)
+
+2024-12-16 19:43:13 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:43:13 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:43:13 - Total quantity calculated: 0
+2024-12-16 19:43:13 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:43:15 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:43:15 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:43:15 - Total quantity calculated: 0
+2024-12-16 19:43:15 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:43:18 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:43:18 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:43:18 - Total quantity calculated: 0
+2024-12-16 19:43:18 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:45:32 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:45:32 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:45:32 - Total quantity calculated: 0
+2024-12-16 19:45:32 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:45:32 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:45:32 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:45:32 - Total quantity calculated: 0
+2024-12-16 19:45:32 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:45:32 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:45:32 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:45:32 - Total quantity calculated: 0
+2024-12-16 19:45:32 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:45:33 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:45:33 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:45:33 - Total quantity calculated: 0
+2024-12-16 19:45:33 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:45:34 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:45:34 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:45:34 - Total quantity calculated: 0
+2024-12-16 19:45:34 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:46:14 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:46:14 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:46:14 - Total quantity calculated: 0
+2024-12-16 19:46:14 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:46:15 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:46:15 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:46:15 - Total quantity calculated: 0
+2024-12-16 19:46:15 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:46:15 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:46:15 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:46:15 - Total quantity calculated: 0
+2024-12-16 19:46:15 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:46:16 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:46:16 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:46:16 - Total quantity calculated: 0
+2024-12-16 19:46:16 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:48:03 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:48:03 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:48:03 - Total quantity calculated: 0
+2024-12-16 19:48:03 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:48:04 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:48:04 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:48:04 - Total quantity calculated: 0
+2024-12-16 19:48:04 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:48:57 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:48:57 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+        )
+
+)
+
+2024-12-16 19:48:57 - Total quantity calculated: 0
+2024-12-16 19:48:57 - Response sent: Array
+(
+    [success] => 1
+    [count] => 0
+)
+
+2024-12-16 19:49:04 - POST request received
+2024-12-16 19:49:04 - Raw POST data: {"id":7,"name":"Kape de Cacao","price":100,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Uno","orderType":"Take-out","quantity":1}
+2024-12-16 19:49:04 - Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 100
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+2024-12-16 19:49:04 - Cart item created: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 100
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+)
+
+2024-12-16 19:49:04 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [name] => Kape de Cacao
+            [price] => 100
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+        )
+
+)
+
+2024-12-16 19:49:04 - Total quantity calculated: 1
+2024-12-16 19:49:04 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 1
+)
+
+2024-12-16 19:49:07 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:49:07 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 7
+                    [name] => Kape de Cacao
+                    [price] => 100
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:49:07 - Total quantity calculated: 1
+2024-12-16 19:49:07 - Response sent: Array
+(
+    [success] => 1
+    [count] => 1
+)
+
+2024-12-16 19:49:08 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:49:08 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 7
+                    [name] => Kape de Cacao
+                    [price] => 100
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:49:08 - Total quantity calculated: 1
+2024-12-16 19:49:08 - Response sent: Array
+(
+    [success] => 1
+    [count] => 1
+)
+
+2024-12-16 19:49:25 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:49:25 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 7
+                    [name] => Kape de Cacao
+                    [price] => 100
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:49:25 - Total quantity calculated: 1
+2024-12-16 19:49:25 - Response sent: Array
+(
+    [success] => 1
+    [count] => 1
+)
+
+2024-12-16 19:49:28 - POST request received
+2024-12-16 19:49:28 - Raw POST data: {"id":1,"name":"Kape Amerikano","price":60,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+2024-12-16 19:49:28 - Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 60
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+2024-12-16 19:49:28 - Cart item created: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 60
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+)
+
+2024-12-16 19:49:28 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [name] => Kape de Cacao
+            [price] => 100
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 60
+            [size] => Uno
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+)
+
+2024-12-16 19:49:28 - Total quantity calculated: 2
+2024-12-16 19:49:28 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 2
+)
+
+2024-12-16 19:49:30 - Session ID: 2t4d0jd4lbtmh087mprs7akje5
+2024-12-16 19:49:30 - Session data: Array
+(
+    [user_id] => 2
+    [username] => jehu_staff
+    [role] => Staff
+    [cart] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 7
+                    [name] => Kape de Cacao
+                    [price] => 100
+                    [size] => Uno
+                    [orderType] => Take-out
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+                )
+
+            [1] => Array
+                (
+                    [id] => 1
+                    [name] => Kape Amerikano
+                    [price] => 60
+                    [size] => Uno
+                    [orderType] => Dine-in
+                    [quantity] => 1
+                    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+                )
+
+        )
+
+)
+
+2024-12-16 19:49:30 - Total quantity calculated: 2
+2024-12-16 19:49:30 - Response sent: Array
+(
+    [success] => 1
+    [count] => 2
+)
+
+2024-12-16 19:50:44 - POST request received
+2024-12-16 19:50:44 - Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":150,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Sinco","orderType":"Dine-in","quantity":2}
+2024-12-16 19:50:44 - Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 150
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Sinco
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+2024-12-16 19:50:44 - Cart item created: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 150
+    [size] => Sinco
+    [orderType] => Dine-in
+    [quantity] => 2
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+)
+
+2024-12-16 19:50:44 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 7
+            [name] => Kape de Cacao
+            [price] => 100
+            [size] => Uno
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 5
+            [name] => Kape Dulce Salty Caramelo
+            [price] => 150
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+        )
+
+)
+
+2024-12-16 19:50:44 - Total quantity calculated: 3
+2024-12-16 19:50:44 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 3
+)
+
+2024-12-16 19:51:31 - POST request received
+2024-12-16 19:51:31 - Raw POST data: {"id":10,"name":"Espresso (Doppio)","price":70,"description":"Sample Coffee","image":"../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg","size":"Dos","orderType":"Take-out","quantity":2}
+2024-12-16 19:51:31 - Decoded data: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [price] => 70
+    [description] => Sample Coffee
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Dos
+    [orderType] => Take-out
+    [quantity] => 2
+)
+
+2024-12-16 19:51:31 - Cart item created: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [price] => 70
+    [size] => Dos
+    [orderType] => Take-out
+    [quantity] => 2
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+)
+
+2024-12-16 19:51:31 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 10
+            [name] => Espresso (Doppio)
+            [price] => 70
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+        )
+
+)
+
+2024-12-16 19:51:31 - Total quantity calculated: 2
+2024-12-16 19:51:31 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 2
+)
+
+2024-12-16 19:51:56 - POST request received
+2024-12-16 19:51:56 - Raw POST data: {"id":4,"name":"Latte Espanyol","price":145,"description":"Espresso combined with milk and a hint of condensed milk","image":"../admin-staff/Images/menu-item/latte-espanyol.jpg","size":"Sinco","orderType":"Dine-in","quantity":1}
+2024-12-16 19:51:56 - Decoded data: Array
+(
+    [id] => 4
+    [name] => Latte Espanyol
+    [price] => 145
+    [description] => Espresso combined with milk and a hint of condensed milk
+    [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+    [size] => Sinco
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+2024-12-16 19:51:56 - Cart item created: Array
+(
+    [id] => 4
+    [name] => Latte Espanyol
+    [price] => 145
+    [size] => Sinco
+    [orderType] => Dine-in
+    [quantity] => 1
+    [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+)
+
+2024-12-16 19:51:56 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [name] => Latte Espanyol
+            [price] => 145
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+        )
+
+)
+
+2024-12-16 19:51:56 - Total quantity calculated: 1
+2024-12-16 19:51:56 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 1
+)
+
+2024-12-16 19:52:01 - POST request received
+2024-12-16 19:52:01 - Raw POST data: {"id":11,"name":"Banana","price":60,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Dos","orderType":"Take-out","quantity":2}
+2024-12-16 19:52:01 - Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 60
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [orderType] => Take-out
+    [quantity] => 2
+)
+
+2024-12-16 19:52:01 - Cart item created: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 60
+    [size] => Dos
+    [orderType] => Take-out
+    [quantity] => 2
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+)
+
+2024-12-16 19:52:01 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [name] => Latte Espanyol
+            [price] => 145
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+)
+
+2024-12-16 19:52:01 - Total quantity calculated: 3
+2024-12-16 19:52:01 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 3
+)
+
+2024-12-16 19:52:06 - POST request received
+2024-12-16 19:52:06 - Raw POST data: {"id":1,"name":"Kape Amerikano","price":85,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Tres","orderType":"Take-out","quantity":2}
+2024-12-16 19:52:06 - Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 85
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Tres
+    [orderType] => Take-out
+    [quantity] => 2
+)
+
+2024-12-16 19:52:06 - Cart item created: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 85
+    [size] => Tres
+    [orderType] => Take-out
+    [quantity] => 2
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+)
+
+2024-12-16 19:52:06 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [name] => Latte Espanyol
+            [price] => 145
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 85
+            [size] => Tres
+            [orderType] => Take-out
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+)
+
+2024-12-16 19:52:06 - Total quantity calculated: 5
+2024-12-16 19:52:06 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 5
+)
+
+2024-12-16 19:59:07 - POST request received
+2024-12-16 19:59:07 - Raw POST data: {"id":2,"name":"Latte de Kape","price":125,"description":"Espresso with steamed milk and a thin layer of foam","image":"../admin-staff/Images/menu-item/latte-de-kape.jpg","size":"Quatro","orderType":"Dine-in","quantity":2}
+2024-12-16 19:59:07 - Decoded data: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [price] => 125
+    [description] => Espresso with steamed milk and a thin layer of foam
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Quatro
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+2024-12-16 19:59:07 - Cart item created: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [price] => 125
+    [size] => Quatro
+    [orderType] => Dine-in
+    [quantity] => 2
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+)
+
+2024-12-16 19:59:07 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [name] => Latte Espanyol
+            [price] => 145
+            [size] => Sinco
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 1
+            [name] => Kape Amerikano
+            [price] => 85
+            [size] => Tres
+            [orderType] => Take-out
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+        )
+
+    [3] => Array
+        (
+            [id] => 2
+            [name] => Latte de Kape
+            [price] => 125
+            [size] => Quatro
+            [orderType] => Dine-in
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+        )
+
+)
+
+2024-12-16 19:59:07 - Total quantity calculated: 7
+2024-12-16 19:59:07 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 7
+)
+
+2024-12-16 19:59:35 - POST request received
+2024-12-16 19:59:35 - Raw POST data: {"id":11,"name":"Banana","price":60,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Dos","orderType":"Dine-in","quantity":1}
+2024-12-16 19:59:35 - Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 60
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+2024-12-16 19:59:35 - Cart item created: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 60
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+)
+
+2024-12-16 19:59:35 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [name] => Latte de Kape
+            [price] => 125
+            [size] => Quatro
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Dine-in
+            [quantity] => 1
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+)
+
+2024-12-16 19:59:35 - Total quantity calculated: 3
+2024-12-16 19:59:35 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 3
+)
+
+2024-12-16 20:11:29 - POST request received
+2024-12-16 20:11:29 - Raw POST data: {"id":4,"name":"Latte Espanyol","price":130,"description":"Espresso combined with milk and a hint of condensed milk","image":"../admin-staff/Images/menu-item/latte-espanyol.jpg","size":"Quatro","orderType":"Take-out","quantity":3}
+2024-12-16 20:11:29 - Decoded data: Array
+(
+    [id] => 4
+    [name] => Latte Espanyol
+    [price] => 130
+    [description] => Espresso combined with milk and a hint of condensed milk
+    [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+    [size] => Quatro
+    [orderType] => Take-out
+    [quantity] => 3
+)
+
+2024-12-16 20:11:29 - Cart item created: Array
+(
+    [id] => 4
+    [name] => Latte Espanyol
+    [price] => 130
+    [size] => Quatro
+    [orderType] => Take-out
+    [quantity] => 3
+    [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+)
+
+2024-12-16 20:11:29 - Item added to cart. Current cart: Array
+(
+    [0] => Array
+        (
+            [id] => 11
+            [name] => Banana
+            [price] => 60
+            [size] => Dos
+            [orderType] => Take-out
+            [quantity] => 3
+            [image] => ../admin-staff/Images/menu-items/banana.jpg
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [name] => Latte de Kape
+            [price] => 125
+            [size] => Quatro
+            [orderType] => Dine-in
+            [quantity] => 2
+            [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+        )
+
+    [2] => Array
+        (
+            [id] => 4
+            [name] => Latte Espanyol
+            [price] => 130
+            [size] => Quatro
+            [orderType] => Take-out
+            [quantity] => 3
+            [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+        )
+
+)
+
+2024-12-16 20:11:29 - Total quantity calculated: 8
+2024-12-16 20:11:29 - Success response: Array
+(
+    [success] => 1
+    [message] => Item added to cart
+    [cartCount] => 8
+)
+

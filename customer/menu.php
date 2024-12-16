@@ -185,12 +185,10 @@ require_once 'get_best_sellers.php';
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Alert Modals -->
+<!-- Alert Modals -->
      <!-- Alert for Order Type Options -->
-    <div class="modal fade alert-modal" id="orderTypeAlert" tabindex="-1" aria-hidden="true">
+     <div class="modal fade alert-modal" id="orderTypeAlert" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -199,14 +197,15 @@ require_once 'get_best_sellers.php';
                 </div>
                 <div class="modal-body text-center">
                     <i class="fas fa-exclamation-circle mb-3" style="font-size: 3rem;"></i>
-                    <p>Please select an order type (Dine In or Take Out)</p>
+                    <p>Please select an order type <br> (Dine In or Take Out)</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
-    </div>
+    </div>  <!-- End of Alert Modal for No Order Type Options -->
+
     <!-- Alert for Empty Check Out List -->
     <div class="modal fade alert-modal" id="emptyCartAlert" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -224,7 +223,14 @@ require_once 'get_best_sellers.php';
                 </div>
             </div>
         </div>
-    </div>
+    </div>  <!-- End of Alert Modal for Empty Check out list -->
+
+
+        </div> <!-- End of Mobile Content -->
+    </div> <!-- End of Mobile Container -->
+
+    
+   
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>

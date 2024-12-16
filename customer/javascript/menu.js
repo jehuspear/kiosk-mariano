@@ -265,7 +265,6 @@ function proceedToCheckout() {
 }
 
 
-
 // Function to select order type
 function selectOrderType(type, button) {
     selectedOrderType = type;
@@ -283,7 +282,7 @@ function selectOrderType(type, button) {
 }
 
 
-// Show toast message
+// Show toast message (after adding menu item to the checkout list)
 function showToast(message) {
     // Remove existing toast if any
     const existingToast = document.querySelector('.toast-message');
@@ -303,6 +302,8 @@ function showToast(message) {
     }, 3000);
 }
 
+
+// THE SEARCH FUNCTIONALITY --Start--
 // Initialize event listeners when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize search functionality
@@ -353,5 +354,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
-});
+}); //END of Search Functionality
+
+
 

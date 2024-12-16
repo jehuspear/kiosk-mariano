@@ -10,7 +10,7 @@
 /* Alert Modal Dialog */
 .modal.alert-modal .modal-dialog {
     margin: 1rem;
-    max-width: 400px;
+    max-width: 300px;
     position: fixed;
     top: 50%;
     left: 50%;

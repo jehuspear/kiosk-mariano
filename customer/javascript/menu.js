@@ -241,7 +241,7 @@ function proceedToCheckout() {
         return;
     }
     
-    // Here you would typically redirect to checkout page
+    // Here you would typically redirect to checkout page (checkout.php)
     console.log('Order Items:', orderItems);
     orderItems.forEach(item => {
         console.log(`${item.quantity}x ${item.name} (${item.size}) - ${item.orderType}`);
@@ -253,15 +253,19 @@ function proceedToCheckout() {
 // Function to select order type
 function selectOrderType(type, button) {
     selectedOrderType = type;
+
+    // Get all order type buttons
+    const buttons = document.querySelectorAll('.order-type-group .order-type-btn');
     
-    // Remove active class from all type buttons
-    document.querySelectorAll('.order-type-group:last-of-type .order-type-btn').forEach(btn => {
+    // Loop through the buttons and deactivate them
+    buttons.forEach(btn => {
         btn.classList.remove('active');
     });
-    
-    // Add active class to clicked button
+
+    // Activate the clicked button
     button.classList.add('active');
 }
+
 
 // Show toast message
 function showToast(message) {

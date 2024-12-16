@@ -150,7 +150,7 @@ require_once 'get_best_sellers.php';
                             <!-- Size Options -->
                             <div class="options-group">
                                 <div class="size-option">
-                                    <button class="option-btn" onclick="selectSize('Uno', this)">Uno</button>
+                                    <button class="option-btn active" onclick="selectSize('Uno', this)">Uno</button>
                                 </div>
                                 <div class="size-option">
                                     <button class="option-btn" onclick="selectSize('Dos', this)">Dos</button>
@@ -236,7 +236,5 @@ require_once 'get_best_sellers.php';
     <script src="javascript/show-temperature.js"></script>
     <!-- Alert System -->
     <script src="javascript/alert-modals.js"></script>
-    <!-- Order Type Handler -->
-    <!-- <script src="javascript/order-type-handler.js"></script> -->
 </body>
 </html>

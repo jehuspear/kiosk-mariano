@@ -30,17 +30,16 @@
 }
 
 /* Selected state */
-.order-type-btn.selected {
+.order-type-btn.active {
     background: #333;
     color: white;
-    border-color: #28a745;
+    /* border-color: #28a745; */
 }
 
 /* Hover state */
-.order-type-btn:hover:not(.selected) {
-    background: #333;
-    color: white;
-    border-color: #28a745;
+.order-type-btn:hover:not(.active) {
+    background: #f8f9fa;
+    /* border-color: #28a745; */
 }
 
 /* Focus state */

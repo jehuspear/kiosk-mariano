@@ -1,0 +1,118 @@
+/* Modal dialog */
+.modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    width: 90%;
+    max-width: 400px;
+    margin: 0;
+}
+
+/* Modal content */
+.modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Modal body */
+.modal-body {
+    padding: 15px;
+}
+
+/* Modal actions container */
+.modal-actions {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cancel button */
+.btn-cancel {
+    flex: 1;
+    border: none;
+    background: white;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    line-height: 50px;
+}
+
+/* Confirm button */
+.btn-confirm {
+    flex: 1;
+    border: none;
+    background: #28a745;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    height: 50px;
+    line-height: 50px;
+}
+
+/* Hover states */
+.btn-cancel:hover {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-confirm:hover {
+    background: #218838;
+}
+
+/* Close button in modal header */
+.close-modal {
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.close-modal:hover {
+    background: #dc3545;
+    color: white;
+}
+
+/* Modal backdrop
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+} */
+
+/* Modal show animation */
+.modal.fade .modal-dialog {
+    transform: translate(-50%, -50%) !important;
+}
+
+.modal.show .modal-dialog {
+    transform: translate(-50%, -50%) !important;
+}
+
+@media (max-width: 576px) {
+    .modal-dialog {
+        width: 95%;
+    }
+}

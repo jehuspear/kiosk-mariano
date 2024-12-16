@@ -1,4 +1,23 @@
 /* Alert Modal Styles */
+.modal.alert-modal {
+    z-index: 1060 !important;
+}
+
+.modal-backdrop {
+    z-index: 1050 !important;
+}
+
+/* Alert Modal Dialog */
+.modal.alert-modal .modal-dialog {
+    margin: 1rem;
+    max-width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+}
+
+/* Alert Modal Content */
 .modal.alert-modal .modal-content {
     border: none;
     border-radius: 15px;
@@ -20,18 +39,29 @@
 }
 
 .modal.alert-modal .close-modal {
+    padding: 0;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    line-height: 1;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
     position: absolute;
     right: 1rem;
     top: 1rem;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #666;
-    cursor: pointer;
-    padding: 0.25rem;
-    line-height: 1;
 }
 
+.modal.alert-modal .close-modal:hover {
+    background: #dc3545;
+    color: white;
+    border-radius: 50%;
+}
+
+/* Alert Modal Body */
 .modal.alert-modal .modal-body {
     padding: 1.5rem;
     text-align: center;
@@ -44,9 +74,9 @@
 }
 
 .modal.alert-modal .modal-body p {
+    margin: 0;
     font-size: 1rem;
     color: #555;
-    margin: 0;
     line-height: 1.5;
 }
 
@@ -74,10 +104,12 @@
 /* Alert Icons */
 .modal.alert-modal .fa-exclamation-circle {
     color: #ffc107;
+    font-size: 3rem;
 }
 
 .modal.alert-modal .fa-shopping-cart {
     color: #17a2b8;
+    font-size: 3rem;
 }
 
 /* Animation for alert icons */
@@ -98,10 +130,11 @@
     opacity: 0.7;
 }
 
-/* Mobile Responsive Adjustments */
+/* Mobile adjustments */
 @media (max-width: 576px) {
     .modal.alert-modal .modal-dialog {
         margin: 1rem;
+        width: calc(100% - 2rem);
     }
     
     .modal.alert-modal .modal-body i {

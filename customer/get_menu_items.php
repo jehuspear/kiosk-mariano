@@ -70,7 +70,8 @@ function displayMenuItems() {
             <div class="menu-item <?php echo $outOfStock ? 'out-of-stock-item' : ''; ?>" 
                  <?php if (!$outOfStock): ?>
                  data-bs-toggle="modal" 
-                 data-bs-target="#itemModal" 
+                 data-bs-target="#itemModal"
+                 data-item-id="<?php echo $item['id']; ?>"
                  onclick="showDetails('<?php echo htmlspecialchars($item['name']); ?>', 
                                     <?php echo $item['price']; ?>, 
                                     '<?php echo htmlspecialchars($item['description']); ?>',

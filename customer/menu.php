@@ -22,10 +22,18 @@ require_once 'get_best_sellers.php';
     <link rel="stylesheet" href="css/best-seller.css">
     <!-- Alert Modals CSS -->
     <link rel="stylesheet" href="css/alert-modals.css">
+    <!-- Size Temperature CSS -->
+    <link rel="stylesheet" href="css/size-temperature.css">
     <!-- Mobile Layout CSS -->
     <link rel="stylesheet" href="css/mobile-layout.css">
+    <!-- Modal Actions CSS -->
+    <link rel="stylesheet" href="css/modal-actions.css">
+    <!-- Order Type CSS -->
+    <link rel="stylesheet" href="css/order-type.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add this line in the head section after other CSS links -->
+    <link rel="stylesheet" href="css/modal-actions.css">
 </head>
 <body>
     <!-- Mobile Phone Container -->
@@ -139,38 +147,93 @@ require_once 'get_best_sellers.php';
                                 <button class="quantity-btn" onclick="adjustQuantity(1)">+</button>
                             </div>
 
+                            <!-- Size Options -->
                             <div class="options-group">
-                                <button class="option-btn" onclick="selectSize('Uno', this)">Uno</button>
-                                <button class="option-btn" onclick="selectSize('Dos', this)">Dos</button>
-                                <button class="option-btn" onclick="selectSize('Tres', this)">Tres</button>
-                                <button class="option-btn" onclick="selectSize('Quatro', this)">Quatro</button>
-                                <button class="option-btn active" onclick="selectSize('Sinco', this)">Sinco</button>
+                                <div class="size-option">
+                                    <button class="option-btn" onclick="selectSize('Uno', this)">Uno</button>
+                                </div>
+                                <div class="size-option">
+                                    <button class="option-btn" onclick="selectSize('Dos', this)">Dos</button>
+                                </div>
+                                <div class="size-option">
+                                    <button class="option-btn" onclick="selectSize('Tres', this)">Tres</button>
+                                </div>
+                                <div class="size-option">
+                                    <button class="option-btn" onclick="selectSize('Quatro', this)">Quatro</button>
+                                </div>
+                                <div class="size-option">
+                                    <button class="option-btn" onclick="selectSize('Sinco', this)">Sinco</button>
+                                </div>
                             </div>
                             
-                            <div class="options-group">
-                                <button class="option-btn" onclick="selectOrderType('Dine-in', this)">Dine In</button>
-                                <button class="option-btn" onclick="selectOrderType('Take-out', this)">Take Out</button>
+                            <!-- Order Type Options -->
+                            <div class="order-type-group">
+                                <div class="order-type-option">
+                                    <button class="order-type-btn" onclick="selectOrderType('Dine-in', this)">Dine In</button>
+                                </div>
+                                <div class="order-type-option">
+                                    <button class="order-type-btn" onclick="selectOrderType('Take-out', this)">Take Out</button>
+                                </div>
                             </div>
 
                             <div class="modal-actions">
                                 <button class="btn-cancel" data-bs-dismiss="modal">×</button>
-                                <button class="btn-confirm" onclick="addToCart()">✓</button>
+                                <button class="btn-confirm" onclick="validateSelections() && addToCart()">✓</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Include Alert Modals -->
-            <?php include 'alert_modals.php'; ?>
+    <!-- Alert Modals -->
+     <!-- Alert for Order Type Options -->
+    <div class="modal fade alert-modal" id="orderTypeAlert" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Order Type Required</h5>
+                    <button type="button" class="close-modal" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fas fa-exclamation-circle mb-3" style="font-size: 3rem;"></i>
+                    <p>Please select an order type (Dine In or Take Out)</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Alert for Empty Check Out List -->
+    <div class="modal fade alert-modal" id="emptyCartAlert" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Empty Cart</h5>
+                    <button type="button" class="close-modal" data-bs-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fas fa-shopping-cart mb-3" style="font-size: 3rem;"></i>
+                    <p>Please add items to your cart before proceeding to checkout</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Alert Modals JavaScript -->
-    <script src="javascript/alert-modals.js"></script>
     <!-- Custom JavaScript -->
     <script src="javascript/menu.js"></script>
+    <!-- Size Handler -->
+    <script src="javascript/show-temperature.js"></script>
+    <!-- Alert System -->
+    <script src="javascript/alert-modals.js"></script>
+    <!-- Order Type Handler -->
+    <!-- <script src="javascript/order-type-handler.js"></script> -->
 </body>
 </html>

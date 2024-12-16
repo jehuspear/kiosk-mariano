@@ -1,0 +1,52 @@
+/* Order Type Group */
+.order-type-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 15px 0;
+    justify-content: center;
+}
+
+/* Order Type Option */
+.order-type-option {
+    flex: 1;
+}
+
+/* Order Type Button */
+.order-type-btn {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #f5f5f5;
+    color: #333;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+/* Selected state */
+.order-type-btn.selected {
+    background: #333;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover state */
+.order-type-btn:hover:not(.selected) {
+    background: #e0e0e0;
+}
+
+/* Focus state */
+.order-type-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+    .order-type-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}

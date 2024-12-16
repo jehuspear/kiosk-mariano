@@ -1,0 +1,47 @@
+/* Temperature Type Badge */
+.temp-type {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    margin-left: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+/* Hot Badge */
+.temp-type.hot {
+    background: linear-gradient(45deg, #ff4e50, #f9d423);
+    color: white;
+}
+
+/* Iced Badge */
+.temp-type.iced {
+    background: linear-gradient(45deg, #2193b0, #6dd5ed);
+    color: white;
+}
+
+/* Animation */
+.temp-type {
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-2px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .temp-type {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.8rem;
+        margin-left: 0.4rem;
+    }
+}

@@ -1,0 +1,140 @@
+/* Temperature badge styles */
+.temp-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    z-index: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hot temperature style */
+.temp-badge.hot {
+    background: linear-gradient(45deg, #ff4e50, #f9d423);
+    color: white;
+    box-shadow: 0 2px 4px rgba(255, 78, 80, 0.3);
+}
+
+/* Cold temperature style */
+.temp-badge.cold {
+    background: linear-gradient(45deg, #2193b0, #6dd5ed);
+    color: white;
+    box-shadow: 0 2px 4px rgba(33, 147, 176, 0.3);
+}
+
+/* Size button container */
+.options-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px; /* Increased gap to accommodate badges */
+    margin: 15px 0;
+    justify-content: center;
+    padding: 10px; /* Added padding to prevent badge cutoff */
+}
+
+/* Size option container */
+.size-option {
+    position: relative;
+    flex: 1;
+    min-width: 60px;
+}
+
+/* Size button style */
+.option-btn {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #f5f5f5;
+    color: #333;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+/* Active state */
+.option-btn.active {
+    background: #333;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover state */
+.option-btn:hover:not(.active) {
+    background: #e0e0e0;
+}
+
+/* Focus state */
+.option-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal actions container */
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 0;
+}
+
+/* Cancel button */
+.btn-cancel {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #f5f5f5;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Confirm button */
+.btn-confirm {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #28a745;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+    background: #e0e0e0;
+}
+
+.btn-confirm:hover {
+    background: #218838;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .option-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .temp-badge {
+        font-size: 0.6rem;
+        padding: 1px 4px;
+        top: -6px;
+        right: -6px;
+    }
+}
+
+/* Make sure badges stay visible */
+.modal-dialog,
+.modal-content,
+.modal-body {
+    overflow: visible !important;
+}

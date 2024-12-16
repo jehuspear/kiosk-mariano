@@ -1,32 +1,44 @@
 <?php
 session_start();
+require_once 'database_customer.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $index = isset($_POST['index']) ? (int)$_POST['index'] : null;
-    $change = isset($_POST['change']) ? (int)$_POST['change'] : null;
+$response = array('success' => false);
 
-    if ($index !== null && $change !== null && isset($_SESSION['cart'][$index])) {
-        $newQuantity = $_SESSION['cart'][$index]['quantity'] + $change;
+try {
+    // Check if cart exists and index and change are provided
+    if (isset($_SESSION['cart']) && isset($_POST['index']) && isset($_POST['change'])) {
+        $index = intval($_POST['index']);
+        $change = intval($_POST['change']);
         
-        if ($newQuantity > 0) {
-            $_SESSION['cart'][$index]['quantity'] = $newQuantity;
-        } else {
-            // Remove item if quantity becomes 0 or negative
-            array_splice($_SESSION['cart'], $index, 1);
+        // Check if index exists in cart
+        if (isset($_SESSION['cart'][$index])) {
+            // Calculate new quantity
+            $newQuantity = $_SESSION['cart'][$index]['quantity'] + $change;
+            
+            // Ensure quantity doesn't go below 1
+            if ($newQuantity >= 1) {
+                $_SESSION['cart'][$index]['quantity'] = $newQuantity;
+                
+                // Calculate new total
+                $totalAmount = 0;
+                $totalQuantity = 0;
+                foreach ($_SESSION['cart'] as $item) {
+                    $totalAmount += $item['price'] * $item['quantity'];
+                    $totalQuantity += $item['quantity'];
+                }
+                
+                $response['success'] = true;
+                $response['newQuantity'] = $newQuantity;
+                $response['newTotal'] = $totalAmount;
+                $response['totalQuantity'] = $totalQuantity;
+            }
         }
-
-        // Calculate total quantity
-        $totalQuantity = 0;
-        foreach ($_SESSION['cart'] as $item) {
-            $totalQuantity += $item['quantity'];
-        }
-        
-        echo json_encode([
-            'success' => true,
-            'totalQuantity' => $totalQuantity
-        ]);
-        exit;
     }
+} catch (Exception $e) {
+    $response['error'] = $e->getMessage();
 }
 
-echo json_encode(['success' => false]);
+// Return JSON response
+header('Content-Type: application/json');
+echo json_encode($response);
+?>

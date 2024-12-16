@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2024 at 04:22 PM
+-- Generation Time: Dec 16, 2024 at 08:44 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -72,13 +72,14 @@ CREATE TABLE `menuitem` (
 
 INSERT INTO `menuitem` (`MenuItem_ID`, `MenuItem_Name`, `MenuItem_Image`, `MenuItem_Description`, `MenuItem_Category`, `MenuItem_TotalStocks`, `MenuItem_TotalSold`) VALUES
 (1, 'Kape Amerikano', 'Images/menu-item/kape-americano.jpg', 'Full-bodied espresso with hot water', 'Coffee', 200, 3),
-(2, 'Latte de Kape', 'Images/menu-item/latte-de-kape.jpg', 'Espresso with steamed milk and a thin layer of foam', 'Coffee', 150, 5),
+(2, 'Latte de Kape', 'Images/menu-item/latte-de-kape.jpg', 'Espresso with steamed milk and a thin layer of foam', 'Coffee', 100, 5),
 (3, 'Cappuccino', 'Images/menu-item/cappuccino.jpg', 'Espresso with steamed milk and a thick layer of foam', 'Coffee', 120, 0),
 (4, 'Latte Espanyol', 'Images/menu-item/latte-espanyol.jpg', 'Espresso combined with milk and a hint of condensed milk', 'Coffee', 100, 7),
-(5, 'Kape Dulce\'t Salty Caramelo', 'Images/menu-item/kape-dulce-salty-caramelo.jpg', 'Espresso combined with milk, infused with salted caramel syrup', 'Coffee', 80, 10),
-(6, 'Kape con Canela', 'Images/menu-item/kape-con-canela.jpg', 'Espresso combined with steamed milk and infused with honey and cinnamon', 'Coffee', 60, 0),
-(7, 'Kape de Cacao', 'Images/menu-item/kape-de-cacao.jpg', 'Espresso combined with steamed milk and rich chocolate syrup', 'Coffee', 0, 0),
-(10, 'Espresso (Doppio)', 'Images/menu-item/Doppio_Espresso_Macchiato.jpg', 'Sample Coffee', 'Traditional Coffee', 0, 0);
+(5, 'Kape Dulce Salty Caramelo', 'Images/menu-item/kape-dulce-salty-caramelo.jpg', 'Espresso combined with milk, infused with salted caramel syrup', 'Coffee', 80, 10),
+(6, 'Kape con Canela', 'Images/menu-item/kape-con-canela.jpg', 'Espresso combined with steamed milk and infused with honey and cinnamon', 'Coffee', 100, 0),
+(7, 'Kape de Cacao', 'Images/menu-item/kape-de-cacao.jpg', 'Espresso combined with steamed milk and rich chocolate syrup', 'Coffee', 2, 0),
+(10, 'Espresso (Doppio)', 'Images/menu-items/Doppio_Espresso_Macchiato.jpg', 'Sample Coffee', 'Traditional Coffee', 20, 0),
+(11, 'Banana', 'Images/menu-items/banana.jpg', 'Banana', 'Snacks', 20, 0);
 
 -- --------------------------------------------------------
 
@@ -140,7 +141,12 @@ INSERT INTO `menuitem_sizes` (`MenuItemSize_ID`, `MenuItem_ID`, `MenuItemSize_Si
 (37, 10, 'Dos', 1, 70.00, 0, 2),
 (38, 10, 'Tres', 0, 0.00, 0, 0),
 (39, 10, 'Quatro', 0, 0.00, 0, 0),
-(40, 10, 'Sinco', 0, 0.00, 0, 0);
+(40, 10, 'Sinco', 0, 0.00, 0, 0),
+(41, 11, 'Uno', 1, 50.00, 0, 10),
+(42, 11, 'Dos', 1, 60.00, 0, 10),
+(43, 11, 'Tres', 0, 0.00, 0, 0),
+(44, 11, 'Quatro', 0, 0.00, 0, 0),
+(45, 11, 'Sinco', 0, 0.00, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -171,7 +177,7 @@ CREATE TABLE `orderitem` (
   `OrderItem_ID` int(11) NOT NULL,
   `Order_ID` int(11) NOT NULL,
   `MenuItem_ID` int(11) NOT NULL,
-  `OrderItem_CupSize` enum('12oz','16oz','22oz') DEFAULT NULL,
+  `OrderItem_CupSize` varchar(255) DEFAULT NULL,
   `OrderItem_Quantity` int(11) NOT NULL,
   `OrderItem_Price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -301,13 +307,13 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT for table `menuitem`
 --
 ALTER TABLE `menuitem`
-  MODIFY `MenuItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `MenuItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `menuitem_sizes`
 --
 ALTER TABLE `menuitem_sizes`
-  MODIFY `MenuItemSize_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `MenuItemSize_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `order`

@@ -1,26 +1,37 @@
 <?php
+// Set session cookie parameters before starting session
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path' => '/',
+    'domain' => '',
+    'secure' => false,
+    'httponly' => true,
+    'samesite' => 'Strict'
+]);
+
 session_start();
 
-// Initialize response array
 $response = array(
     'success' => true,
-    'count' => 0
+    'count' => 0,
+    'totalAmount' => 0
 );
 
-// Get total quantity from cart session
-if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
+// Calculate total quantity and amount if cart exists
+if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
     $totalQuantity = 0;
+    $totalAmount = 0;
+    
     foreach ($_SESSION['cart'] as $item) {
-        if (isset($item['quantity'])) {
-            $totalQuantity += (int)$item['quantity'];
-        }
+        $totalQuantity += $item['quantity'];
+        $totalAmount += $item['price'] * $item['quantity'];
     }
+    
     $response['count'] = $totalQuantity;
+    $response['totalAmount'] = $totalAmount;
 }
 
-// Send JSON response
+// Return JSON response
 header('Content-Type: application/json');
-header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-header('Cache-Control: post-check=0, pre-check=0', false);
-header('Pragma: no-cache');
 echo json_encode($response);
+?>

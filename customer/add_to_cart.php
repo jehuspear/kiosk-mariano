@@ -12,22 +12,16 @@ session_set_cookie_params([
 session_start();
 require_once 'database_customer.php';
 
-// Enable error reporting for debugging
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Log function
+// Function to log debug information
 function logDebug($message) {
-    $logFile = __DIR__ . '/cart_debug.log';
-    error_log(date('Y-m-d H:i:s') . " - " . print_r($message, true) . "\n", 3, $logFile);
+    $logFile = 'cart_debug.log';
+    $timestamp = date('Y-m-d H:i:s');
+    file_put_contents($logFile, "[$timestamp] $message\n", FILE_APPEND);
 }
 
-// Ensure proper content type for JSON responses
-header('Content-Type: application/json');
+$response = array('success' => false);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    logDebug("POST request received");
-    
+try {
     // Initialize cart if it doesn't exist
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = array();
@@ -44,49 +38,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($data && isset($data['id'], $data['name'], $data['price'], $data['size'], $data['orderType'], $data['quantity'], $data['image'])) {
         // Create cart item
         $cartItem = array(
-            'id' => $data['id'],
+            'id' => intval($data['id']),
             'name' => $data['name'],
-            'price' => floatval($data['price']),
+            'image' => $data['image'],
             'size' => $data['size'],
-            'orderType' => $data['orderType'],
+            'price' => floatval($data['price']),
             'quantity' => intval($data['quantity']),
-            'image' => $data['image']
+            'orderType' => $data['orderType']
         );
-        logDebug("Cart item created: " . print_r($cartItem, true));
-
-        // Add to cart session
+        
+        // Add to cart
         $_SESSION['cart'][] = $cartItem;
-        logDebug("Item added to cart. Current cart: " . print_r($_SESSION['cart'], true));
-
-        // Calculate total quantity across all items
+        logDebug("Item added to cart: " . print_r($cartItem, true));
+        
+        // Calculate totals
+        $totalAmount = 0;
         $totalQuantity = 0;
         foreach ($_SESSION['cart'] as $item) {
+            $totalAmount += $item['price'] * $item['quantity'];
             $totalQuantity += $item['quantity'];
         }
-        logDebug("Total quantity calculated: " . $totalQuantity);
-
-        $response = [
-            'success' => true,
-            'message' => 'Item added to cart',
-            'cartCount' => $totalQuantity
-        ];
-        logDebug("Success response: " . print_r($response, true));
-        echo json_encode($response);
-        exit;
+        
+        $response['success'] = true;
+        $response['totalAmount'] = $totalAmount;
+        $response['totalQuantity'] = $totalQuantity;
+        $response['message'] = 'Item added to cart successfully';
+        logDebug("Cart totals - Amount: $totalAmount, Quantity: $totalQuantity");
     } else {
-        logDebug("Invalid data received: Missing required fields");
-        echo json_encode([
-            'success' => false,
-            'message' => 'Invalid data: Missing required fields',
-            'received' => $data
-        ]);
-        exit;
+        $response['error'] = 'Missing required data';
+        logDebug("Missing required data in request");
     }
+} catch (Exception $e) {
+    $response['error'] = $e->getMessage();
+    logDebug("Error: " . $e->getMessage());
 }
 
-$response = [
-    'success' => false,
-    'message' => 'Invalid request method or no data received'
-];
-logDebug("Error response: " . print_r($response, true));
+// Return JSON response
+header('Content-Type: application/json');
 echo json_encode($response);
+logDebug("Response sent: " . json_encode($response));
+?>

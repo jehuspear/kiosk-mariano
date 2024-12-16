@@ -1934,3 +1934,147 @@
                 WHEN 'Sinco' THEN 5
             END
 2024-12-16 20:11:25 - Successfully found 5 sizes for itemId: 4
+2024-12-16 20:21:16 - Received request for itemId: 3
+2024-12-16 20:21:16 - SQL Query: SELECT 
+                MenuItemSize_Size as size, 
+                MenuItemSize_IsHot as isHot,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY CASE MenuItemSize_Size
+                WHEN 'Uno' THEN 1
+                WHEN 'Dos' THEN 2
+                WHEN 'Tres' THEN 3
+                WHEN 'Quatro' THEN 4
+                WHEN 'Sinco' THEN 5
+            END
+2024-12-16 20:21:16 - Successfully found 5 sizes for itemId: 3
+2024-12-16 20:51:44 - Received request for itemId: 1
+2024-12-16 20:51:44 - SQL Query: SELECT 
+                MenuItemSize_Size as size, 
+                MenuItemSize_IsHot as isHot,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY CASE MenuItemSize_Size
+                WHEN 'Uno' THEN 1
+                WHEN 'Dos' THEN 2
+                WHEN 'Tres' THEN 3
+                WHEN 'Quatro' THEN 4
+                WHEN 'Sinco' THEN 5
+            END
+2024-12-16 20:51:44 - Successfully found 5 sizes for itemId: 1
+2024-12-16 20:52:13 - Received request for itemId: 1
+2024-12-16 20:52:13 - SQL Query: SELECT 
+                MenuItemSize_Size as size, 
+                MenuItemSize_IsHot as isHot,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY CASE MenuItemSize_Size
+                WHEN 'Uno' THEN 1
+                WHEN 'Dos' THEN 2
+                WHEN 'Tres' THEN 3
+                WHEN 'Quatro' THEN 4
+                WHEN 'Sinco' THEN 5
+            END
+2024-12-16 20:52:13 - Successfully found 5 sizes for itemId: 1
+2024-12-16 20:52:48 - Received request for itemId: 6
+2024-12-16 20:52:48 - SQL Query: SELECT 
+                MenuItemSize_Size as size, 
+                MenuItemSize_IsHot as isHot,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY CASE MenuItemSize_Size
+                WHEN 'Uno' THEN 1
+                WHEN 'Dos' THEN 2
+                WHEN 'Tres' THEN 3
+                WHEN 'Quatro' THEN 4
+                WHEN 'Sinco' THEN 5
+            END
+2024-12-16 20:52:48 - Successfully found 5 sizes for itemId: 6
+2024-12-16 20:53:44 - Received request for itemId: 5
+2024-12-16 20:53:44 - SQL Query: SELECT 
+                MenuItemSize_Size as size, 
+                MenuItemSize_IsHot as isHot,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY CASE MenuItemSize_Size
+                WHEN 'Uno' THEN 1
+                WHEN 'Dos' THEN 2
+                WHEN 'Tres' THEN 3
+                WHEN 'Quatro' THEN 4
+                WHEN 'Sinco' THEN 5
+            END
+2024-12-16 20:53:44 - Successfully found 5 sizes for itemId: 5
+2024-12-16 20:56:02 - Received request for itemId: 11
+2024-12-16 20:56:02 - SQL Query: SELECT 
+                MenuItemSize_Size as size, 
+                MenuItemSize_IsHot as isHot,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY CASE MenuItemSize_Size
+                WHEN 'Uno' THEN 1
+                WHEN 'Dos' THEN 2
+                WHEN 'Tres' THEN 3
+                WHEN 'Quatro' THEN 4
+                WHEN 'Sinco' THEN 5
+            END
+2024-12-16 20:56:02 - Successfully found 5 sizes for itemId: 11
+2024-12-16 21:05:20 - Received request for itemId: 3
+2024-12-16 21:05:20 - SQL Query: SELECT 
+                MenuItemSize_Size as size, 
+                MenuItemSize_IsHot as isHot,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY CASE MenuItemSize_Size
+                WHEN 'Uno' THEN 1
+                WHEN 'Dos' THEN 2
+                WHEN 'Tres' THEN 3
+                WHEN 'Quatro' THEN 4
+                WHEN 'Sinco' THEN 5
+            END
+2024-12-16 21:05:20 - Successfully found 5 sizes for itemId: 3
+2024-12-16 21:09:41 - Received request for itemId: 11
+2024-12-16 21:09:41 - SQL Query: SELECT 
+                MenuItemSize_Size as size, 
+                MenuItemSize_IsHot as isHot,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY CASE MenuItemSize_Size
+                WHEN 'Uno' THEN 1
+                WHEN 'Dos' THEN 2
+                WHEN 'Tres' THEN 3
+                WHEN 'Quatro' THEN 4
+                WHEN 'Sinco' THEN 5
+            END
+2024-12-16 21:09:41 - Successfully found 5 sizes for itemId: 11
+2024-12-16 21:09:57 - Received request for itemId: 5
+2024-12-16 21:09:57 - SQL Query: SELECT 
+                MenuItemSize_Size as size, 
+                MenuItemSize_IsHot as isHot,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY CASE MenuItemSize_Size
+                WHEN 'Uno' THEN 1
+                WHEN 'Dos' THEN 2
+                WHEN 'Tres' THEN 3
+                WHEN 'Quatro' THEN 4
+                WHEN 'Sinco' THEN 5
+            END
+2024-12-16 21:09:57 - Successfully found 5 sizes for itemId: 5

@@ -1,143 +1,108 @@
 /* General reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Sarabun', sans-serif; /* Apply Sarabun font */
-    background-color: #131213;
-    display: flex;
-    height: 100vh;
-  }
-  
-  /* Wrapper for sidebar and main content */
-  .wrapper {
-    display: flex;
-    width: 100%;
-  }
-  
-  /* Sidebar */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Sarabun', sans-serif;
+  background-color: #131213;
+  height: 100vh;
+  display: flex;
+  overflow: hidden; /* Prevent body scrolling */
+}
+
+/* Wrapper for layout */
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Sidebar */
 .sidebar {
-    width: 250px;
-    height: 100vh; /* Full height for vertical alignment */
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-    align-items: left; /* Center-align content vertically */
-    padding: 1rem;
-    overflow-y: auto; /* Scrollbar for long content */
+  width: 250px;
+  height: 100vh; /* Full height of the viewport */
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  position: fixed; /* Keep the sidebar fixed */
+  top: 0;
+  left: 0;
+  overflow-y: auto; /* Enable scrolling within the sidebar if necessary */
+  z-index: 1000; /* Ensure it stays above other content */
 }
 
 .logo h2 {
-    text-align: center;
-    color: white;
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+  text-align: center;
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .nav {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column; /* Items stacked vertically */
-    gap: 5px; /* Space between items */
-    width: 100%; /* Ensure full width */
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .nav li {
-    margin-bottom: 13px;
-    padding: 10px 15px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    padding-right: 20px; /* Shift the item to the right */
-}
-
-.nav li img,
-.nav li i {
-    margin-right: 10px; /* Space between the icon and the text */
-    transform: translateX(-5px); /* Shift the icon a bit to the left */
-}
-
-.nav li.completed {
-    margin-left: auto; /* Push the "Completed" item to the right side */
-    padding-right: 80px; /* Optional: Add padding if needed */
-    justify-content: flex-end; /* Ensure the item is aligned properly in the flex container */
-}
-
-.nav li.completed span {
-    position: relative; /* Allow movement of the text */
-    left: -5px; /* Move the text to the left */
+  margin-bottom: 13px;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
 }
 
 .nav li.active {
-    font-weight: bold;
-    background-color: #1B2223;
-    border-radius: 5px;
+  font-weight: bold;
+  background-color: #1B2223;
+  border-radius: 5px;
 }
 
 .nav li:hover {
-    background-color: #333;
-    border-radius: 5px;
+  background-color: #333;
+  border-radius: 5px;
 }
 
 a {
-    color: white !important; /* Force the text color to white */
-    text-decoration: none; /* Remove underline */
-}
-
-canvas {
-  background-color: #222;
-  border-radius: 10px;
-  display: block;
-  max-width: 500%; /* Make chart smaller */
-  max-height: 500px; /* Reduce chart height */
+  color: white;
+  text-decoration: none;
 }
 
 /* Main Content */
 .main-content {
-  flex-grow: 1;
+  margin-left: 250px; /* Space for the fixed sidebar */
   padding: 1.5rem;
-}
-
-/* Section Titles */
-.section-title {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
+  width: calc(100% - 250px); /* Take up remaining width */
+  height: 100vh; /* Full height of the viewport */
+  overflow-y: auto; /* Enable vertical scrolling */
+  background-color: #131213;
   color: white;
 }
 
-/* Rating Count Section */
-.ratings-container {
-  background-color: #222;
-  border-radius: 10px;
-  padding: 2rem;
-  margin-bottom: 1.5rem;
+/* Chart and Feedback Styling */
+canvas {
+  margin-bottom: 20px;
+  display: block;
 }
 
-
-/* Feedback Section */
 .feedback-container {
-  background-color: #222;
-  border-radius: 10px;
-  padding: 2rem;
+  margin-top: 20px;
 }
 
 .feedback-item {
   background-color: white;
   color: black;
-  font-weight: bold;
   padding: 12px 15px;
   margin-bottom: 10px;
   border-radius: 8px;
   font-size: 1rem;
   line-height: 1.4;
 }
-
-

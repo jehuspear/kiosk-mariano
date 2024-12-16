@@ -4997,3 +4997,29 @@
 
 [2024-12-16 21:41:15] New total quantity: 3
 [2024-12-16 21:41:15] Response sent: {"success":true,"totalAmount":450,"totalQuantity":3,"message":"Item added to cart successfully"}
+[2024-12-16 22:02:58] Raw POST data: {"id":7,"name":"Kape de Cacao","price":100,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+[2024-12-16 22:02:58] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 100
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-16 22:02:58] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Uno
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-16 22:02:58] New total quantity: 1
+[2024-12-16 22:02:58] Response sent: {"success":true,"totalAmount":100,"totalQuantity":1,"message":"Item added to cart successfully"}

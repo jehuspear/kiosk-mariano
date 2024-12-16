@@ -232,6 +232,9 @@ if ($ticketNumber) {
     <?php endif; ?>
 
     <div class="action-buttons">
+        <a href="order_status_board.php" target="_blank" class="btn-back">View Order Status Board</a>
+    </div>
+    <div class="action-buttons">
         <a href="menu.php" class="btn-back">Back to Menu</a>
     </div>
 

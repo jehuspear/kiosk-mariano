@@ -20,6 +20,8 @@ require_once 'get_best_sellers.php';
     <link rel="stylesheet" href="css/out-of-stock.css">
     <!-- Best Seller CSS -->
     <link rel="stylesheet" href="css/best-seller.css">
+    <!-- Alert Modals CSS -->
+    <link rel="stylesheet" href="css/alert-modals.css">
     <!-- Mobile Layout CSS -->
     <link rel="stylesheet" href="css/mobile-layout.css">
     <!-- Font Awesome -->
@@ -158,11 +160,16 @@ require_once 'get_best_sellers.php';
                     </div>
                 </div>
             </div>
+
+            <!-- Include Alert Modals -->
+            <?php include 'alert_modals.php'; ?>
         </div>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Alert Modals JavaScript -->
+    <script src="javascript/alert-modals.js"></script>
     <!-- Custom JavaScript -->
     <script src="javascript/menu.js"></script>
 </body>

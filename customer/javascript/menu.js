@@ -236,7 +236,7 @@ function updatePriceForSize(size) {
 // Add to cart functionality
 function addToCart() {
     if (!selectedOrderType) {
-        alert('Please select an order type (Dine In or Take Out)');
+        showOrderTypeAlert();
         return;
     }
     
@@ -293,7 +293,7 @@ function showToast(message) {
 // Proceed to Checkout
 function proceedToCheckout() {
     if (orderCount === 0) {
-        alert('Please add items to your cart before proceeding to checkout');
+        showEmptyCartAlert();
         return;
     }
     

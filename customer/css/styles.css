@@ -291,12 +291,14 @@ body {
     font-weight: bold;
     color: #000;
     margin: 0.5rem 0;
+    text-align: center;
 }
 
 .modal-item-description {
     color: #666;
     font-size: 0.9rem;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 /* Quantity Controls */

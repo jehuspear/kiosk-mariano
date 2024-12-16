@@ -31,14 +31,15 @@
 
 /* Selected state */
 .order-type-btn.selected {
-    background: #28a745;
+    background: #333;
     color: white;
     border-color: #28a745;
 }
 
 /* Hover state */
 .order-type-btn:hover:not(.selected) {
-    background: #f8f9fa;
+    background: #333;
+    color: white;
     border-color: #28a745;
 }
 

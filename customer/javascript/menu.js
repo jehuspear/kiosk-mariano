@@ -255,58 +255,12 @@ function selectOrderType(type, button) {
     selectedOrderType = type;
     
     // Remove active class from all type buttons
-    document.querySelectorAll('.options-group:last-of-type .option-btn').forEach(btn => {
+    document.querySelectorAll('.order-type-group:last-of-type .order-type-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     
     // Add active class to clicked button
     button.classList.add('active');
-}
-
-// Function to update price based on selected size
-function updatePriceForSize(size) {
-    if (!currentItemId) return;
-
-    const formData = new FormData();
-    formData.append('itemId', currentItemId);
-    formData.append('size', size);
-
-    fetch('get_item_price.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            // Update price display
-            document.getElementById('item-price').textContent = `₱${parseFloat(data.price).toFixed(2)}`;
-            
-            // Update current item price
-            if (window.currentItem) {
-                window.currentItem.price = parseFloat(data.price);
-            }
-
-            // Handle out of stock status
-            const confirmBtn = document.querySelector('.btn-confirm');
-            if (data.stock <= 0) {
-                confirmBtn.disabled = true;
-                confirmBtn.style.opacity = '0.5';
-                confirmBtn.style.cursor = 'not-allowed';
-                showToast('Selected size is out of stock');
-            } else {
-                confirmBtn.disabled = false;
-                confirmBtn.style.opacity = '1';
-                confirmBtn.style.cursor = 'pointer';
-            }
-        } else {
-            console.error('Failed to get price:', data.message);
-            showToast('Failed to update price');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        showToast('Error updating price');
-    });
 }
 
 // Show toast message
@@ -327,28 +281,6 @@ function showToast(message) {
     setTimeout(() => {
         toast.remove();
     }, 3000);
-}
-
-// Function to proceed to checkout
-function proceedToCheckout() {
-    console.log('Current order count:', orderCount); // Debug log
-    if (!orderCount || orderCount === 0) {
-        const emptyCartAlertEl = document.getElementById('emptyCartAlert');
-        if (!emptyCartAlertEl) {
-            console.error('Empty cart alert modal not found');
-            return;
-        }
-
-        const emptyCartAlert = new bootstrap.Modal(emptyCartAlertEl);
-        emptyCartAlert.show();
-        return;
-    }
-    
-    // Here you would typically redirect to checkout page
-    console.log('Order Items:', orderItems);
-    orderItems.forEach(item => {
-        console.log(`${item.quantity}x ${item.name} (${item.size}) - ${item.orderType}`);
-    });
 }
 
 // Initialize event listeners when DOM is loaded

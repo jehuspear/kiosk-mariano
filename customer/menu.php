@@ -177,9 +177,12 @@ require_once 'get_best_sellers.php';
                             </div>
 
                             <div class="modal-actions">
+                                <!-- Cancel Button -->
                                 <button class="btn-cancel" data-bs-dismiss="modal">×</button>
-                                <button class="btn-confirm" onclick="validateSelections() && addToCart()">✓</button>
+                                <!-- Add to Card Button -->
+                                <button class="btn-confirm" onclick="addToCart()">✓</button> 
                             </div>
+
                         </div>
                     </div>
                 </div>

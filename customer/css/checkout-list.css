@@ -39,6 +39,19 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.button-group .btn-remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.button-group .btn-remove:hover {
+    color: #dc3545; /* Red for Remove */
+}
+
 .item-image {
     width: 80px;
     height: 80px;

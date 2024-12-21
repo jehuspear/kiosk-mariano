@@ -5075,3 +5075,107 @@
 
 [2024-12-16 22:06:35] New total quantity: 4
 [2024-12-16 22:06:35] Response sent: {"success":true,"totalAmount":430,"totalQuantity":4,"message":"Item added to cart successfully"}
+[2024-12-21 08:24:49] Raw POST data: {"id":20,"name":"Biscoff Cookies","price":50,"description":"Sample Description","image":"../admin-staff/Images/menu-item/biscoffcookies18A.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+[2024-12-21 08:24:49] Decoded data: Array
+(
+    [id] => 20
+    [name] => Biscoff Cookies
+    [price] => 50
+    [description] => Sample Description
+    [image] => ../admin-staff/Images/menu-item/biscoffcookies18A.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-21 08:24:49] Item added to cart: Array
+(
+    [id] => 20
+    [name] => Biscoff Cookies
+    [image] => ../admin-staff/Images/menu-item/biscoffcookies18A.jpg
+    [size] => Uno
+    [price] => 50
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-21 08:24:49] New total quantity: 1
+[2024-12-21 08:24:49] Response sent: {"success":true,"totalAmount":50,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-21 08:25:10] Raw POST data: {"id":1,"name":"Kape Amerikano","price":100,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Quatro","orderType":"Take-out","quantity":1}
+[2024-12-21 08:25:10] Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 100
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Quatro
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-21 08:25:10] Item added to cart: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Quatro
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-21 08:25:10] New total quantity: 2
+[2024-12-21 08:25:10] Response sent: {"success":true,"totalAmount":150,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-21 08:28:57] Raw POST data: {"id":3,"name":"Cappuccino","price":90,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Tres","orderType":"Dine-in","quantity":1}
+[2024-12-21 08:28:57] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 90
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Tres
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-21 08:28:57] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Tres
+    [price] => 90
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-21 08:28:57] New total quantity: 1
+[2024-12-21 08:28:57] Response sent: {"success":true,"totalAmount":90,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-21 08:29:06] Raw POST data: {"id":7,"name":"Kape de Cacao","price":140,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Quatro","orderType":"Take-out","quantity":1}
+[2024-12-21 08:29:06] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 140
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Quatro
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-21 08:29:06] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Quatro
+    [price] => 140
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-21 08:29:06] New total quantity: 2
+[2024-12-21 08:29:06] Response sent: {"success":true,"totalAmount":230,"totalQuantity":2,"message":"Item added to cart successfully"}

@@ -6194,3 +6194,107 @@
 
 [2024-12-28 14:31:40] New total quantity: 2
 [2024-12-28 14:31:40] Response sent: {"success":true,"totalAmount":120,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-28 14:50:25] Raw POST data: {"id":11,"name":"Banana","price":50,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Uno","orderType":"Dine-in","quantity":3}
+[2024-12-28 14:50:25] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 50
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2024-12-28 14:50:25] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Uno
+    [price] => 50
+    [quantity] => 3
+    [orderType] => Dine-in
+)
+
+[2024-12-28 14:50:25] New total quantity: 3
+[2024-12-28 14:50:25] Response sent: {"success":true,"totalAmount":150,"totalQuantity":3,"message":"Item added to cart successfully"}
+[2024-12-28 15:08:09] Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Uno","orderType":"Take-out","quantity":1}
+[2024-12-28 15:08:09] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-28 15:08:09] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Uno
+    [price] => 85
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-28 15:08:09] New total quantity: 1
+[2024-12-28 15:08:09] Response sent: {"success":true,"totalAmount":85,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-28 15:08:27] Raw POST data: {"id":1,"name":"Kape Amerikano","price":60,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Uno","orderType":"Take-out","quantity":1}
+[2024-12-28 15:08:27] Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 60
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-28 15:08:27] Item added to cart: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Uno
+    [price] => 60
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-28 15:08:27] New total quantity: 2
+[2024-12-28 15:08:27] Response sent: {"success":true,"totalAmount":145,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-28 15:08:39] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":135,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Quatro","orderType":"Take-out","quantity":1}
+[2024-12-28 15:08:39] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 135
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Quatro
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-28 15:08:39] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Quatro
+    [price] => 135
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-28 15:08:39] New total quantity: 3
+[2024-12-28 15:08:39] Response sent: {"success":true,"totalAmount":280,"totalQuantity":3,"message":"Item added to cart successfully"}

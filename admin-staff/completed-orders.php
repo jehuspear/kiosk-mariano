@@ -30,9 +30,9 @@ session_start();
                 <li><a href="logout.php"><i class="fa-solid fa-sign-out"></i> <span>Logout</span></a></li>
                 <li><a href="menuscreen.php"><i class="fa-solid fa-book"></i> Menu</a></li>
                 <li><a href="decodingscreen.php"><i class="fa-solid fa-ticket"></i> E-ticket</a></li>
-                <li><a href="order.php"><i class="fa-solid fa-mug-hot"></i> Pending</a></li>
-                <li><a href="orderlist.php"><i class="fa-solid fa-sort"></i> Order Lists</a></li>
-                <li class="active"><a href="completed.php"><i class="fa-solid fa-check-to-slot"></i> Completed</a></li>
+                <li><a href="pending-orders.php"><i class="fa-solid fa-mug-hot"></i> Pending</a></li>
+                <li><a href="preparing-orders.php"><i class="fa-solid fa-sort"></i> Order Lists</a></li>
+                <li class="active"><a href="completed-orders.php"><i class="fa-solid fa-check-to-slot"></i> Completed</a></li>
                 <li><a href="reports.php"><i class="fa-solid fa-newspaper"></i> Dashboard</a></li>
                 <li><a href="feedback.php"><i class="fa-regular fa-comment"></i> Feedback</a></li>
                 <li><a href="history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>

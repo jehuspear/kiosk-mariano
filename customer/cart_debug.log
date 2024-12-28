@@ -5673,3 +5673,81 @@
 
 [2024-12-27 17:27:10] New total quantity: 1
 [2024-12-27 17:27:10] Response sent: {"success":true,"totalAmount":50,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-28 07:25:26] Raw POST data: {"id":3,"name":"Cappuccino","price":105,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Dos","orderType":"Dine-in","quantity":1}
+[2024-12-28 07:25:26] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 105
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-28 07:25:26] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Dos
+    [price] => 105
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-28 07:25:26] New total quantity: 1
+[2024-12-28 07:25:26] Response sent: {"success":true,"totalAmount":105,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-28 07:26:05] Raw POST data: {"id":7,"name":"Kape de Cacao","price":140,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Quatro","orderType":"Dine-in","quantity":2}
+[2024-12-28 07:26:05] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 140
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Quatro
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2024-12-28 07:26:05] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Quatro
+    [price] => 140
+    [quantity] => 2
+    [orderType] => Dine-in
+)
+
+[2024-12-28 07:26:05] New total quantity: 2
+[2024-12-28 07:26:05] Response sent: {"success":true,"totalAmount":280,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-28 07:26:18] Raw POST data: {"id":11,"name":"Banana","price":60,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Dos","orderType":"Dine-in","quantity":2}
+[2024-12-28 07:26:18] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 60
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2024-12-28 07:26:18] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [price] => 60
+    [quantity] => 2
+    [orderType] => Dine-in
+)
+
+[2024-12-28 07:26:18] New total quantity: 4
+[2024-12-28 07:26:18] Response sent: {"success":true,"totalAmount":400,"totalQuantity":4,"message":"Item added to cart successfully"}

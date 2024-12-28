@@ -5855,3 +5855,55 @@
 
 [2024-12-28 10:26:24] New total quantity: 2
 [2024-12-28 10:26:24] Response sent: {"success":true,"totalAmount":190,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-28 10:33:24] Raw POST data: {"id":11,"name":"Banana","price":60,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Dos","orderType":"Take-out","quantity":3}
+[2024-12-28 10:33:24] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 60
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [orderType] => Take-out
+    [quantity] => 3
+)
+
+[2024-12-28 10:33:24] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [price] => 60
+    [quantity] => 3
+    [orderType] => Take-out
+)
+
+[2024-12-28 10:33:24] New total quantity: 3
+[2024-12-28 10:33:24] Response sent: {"success":true,"totalAmount":180,"totalQuantity":3,"message":"Item added to cart successfully"}
+[2024-12-28 10:34:15] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":100,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Tres","orderType":"Dine-in","quantity":2}
+[2024-12-28 10:34:15] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 100
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Tres
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2024-12-28 10:34:15] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Tres
+    [price] => 100
+    [quantity] => 2
+    [orderType] => Dine-in
+)
+
+[2024-12-28 10:34:15] New total quantity: 2
+[2024-12-28 10:34:15] Response sent: {"success":true,"totalAmount":200,"totalQuantity":2,"message":"Item added to cart successfully"}

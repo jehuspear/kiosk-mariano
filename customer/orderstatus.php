@@ -239,6 +239,9 @@ if ($ticketNumber) {
         <a href="order-status-board.php" target="_blank" class="btn-back">View Order Status Board</a>
     </div>
     <div class="action-buttons">
+        <a href="e-ticket.php" class="btn-back">Back to your E-Ticket Number</a>
+    </div>
+    <div class="action-buttons">
         <a href="menu.php" class="btn-back">Back to Menu</a>
     </div>
 

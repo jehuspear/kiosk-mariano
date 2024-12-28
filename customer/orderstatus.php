@@ -131,6 +131,10 @@ if ($ticketNumber) {
             background-color: #28a745;
             color: white;
         }
+        .status-completed {
+            background-color: #28a745;
+            color: white;
+        }
 
         .status-cancelled {
             background-color: #dc3545;

@@ -1,0 +1,36 @@
+.button-cancel {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-cancel:hover {
+    background-color: #c82333;
+}
+
+.button-cancel:active {
+    background-color: #bd2130;
+}
+
+/* Add animation for when order is being cancelled */
+.button-cancel.cancelling {
+    opacity: 0.7;
+    cursor: not-allowed;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

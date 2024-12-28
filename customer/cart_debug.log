@@ -5907,3 +5907,82 @@
 
 [2024-12-28 10:34:15] New total quantity: 2
 [2024-12-28 10:34:15] Response sent: {"success":true,"totalAmount":200,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-28 12:06:23] Cart initialized in session
+[2024-12-28 12:06:23] Raw POST data: {"id":7,"name":"Kape de Cacao","price":100,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Uno","orderType":"Dine-in","quantity":2}
+[2024-12-28 12:06:23] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 100
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2024-12-28 12:06:23] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Uno
+    [price] => 100
+    [quantity] => 2
+    [orderType] => Dine-in
+)
+
+[2024-12-28 12:06:23] New total quantity: 2
+[2024-12-28 12:06:23] Response sent: {"success":true,"totalAmount":200,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-28 12:07:31] Raw POST data: {"id":2,"name":"Latte de Kape","price":125,"description":"Espresso with steamed milk and a thin layer of foam","image":"../admin-staff/Images/menu-item/latte-de-kape.jpg","size":"Quatro","orderType":"Take-out","quantity":3}
+[2024-12-28 12:07:31] Decoded data: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [price] => 125
+    [description] => Espresso with steamed milk and a thin layer of foam
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Quatro
+    [orderType] => Take-out
+    [quantity] => 3
+)
+
+[2024-12-28 12:07:31] Item added to cart: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Quatro
+    [price] => 125
+    [quantity] => 3
+    [orderType] => Take-out
+)
+
+[2024-12-28 12:07:31] New total quantity: 3
+[2024-12-28 12:07:31] Response sent: {"success":true,"totalAmount":375,"totalQuantity":3,"message":"Item added to cart successfully"}
+[2024-12-28 12:22:36] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":150,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Sinco","orderType":"Take-out","quantity":2}
+[2024-12-28 12:22:36] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 150
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Sinco
+    [orderType] => Take-out
+    [quantity] => 2
+)
+
+[2024-12-28 12:22:36] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Sinco
+    [price] => 150
+    [quantity] => 2
+    [orderType] => Take-out
+)
+
+[2024-12-28 12:22:36] New total quantity: 2
+[2024-12-28 12:22:36] Response sent: {"success":true,"totalAmount":300,"totalQuantity":2,"message":"Item added to cart successfully"}

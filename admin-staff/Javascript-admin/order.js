@@ -1,81 +1,57 @@
-let clickedButton = null; // Store the reference to the clicked button
-
-// Handle "Add" button clicks
-document.querySelectorAll('.order .add-button').forEach(button => {
-    button.addEventListener('click', function () {
-        const modal = new bootstrap.Modal(document.getElementById('discountModal'));
-        clickedButton = this; // Set clickedButton to the current button
-
-        // Show the discount modal
-        modal.show();
-    });
-});
-
-// Handle "Done" button clicks
-document.querySelectorAll('.done-button').forEach(button => {
-    button.addEventListener('click', function () {
-        const orderId = this.getAttribute('data-order-id');
-        console.log('Order ID:', orderId); // Optional: Log the order ID
-        const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-        modal.show();
-
-        // Add event listeners for closing the modal (Yes/No)
-        const confirmationButtons = document.querySelectorAll('#confirmationModal .btn-confirm');
-        confirmationButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Hide the confirmation modal
-                const modalInstance = bootstrap.Modal.getInstance(modal);
-                modalInstance.hide(); // Close the modal
-            });
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle Confirm button clicks
+    document.querySelectorAll('.done-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const orderId = this.getAttribute('data-order-id');
+            const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+            
+            // Store the order ID for use in the confirmation
+            document.getElementById('yesButton').setAttribute('data-order-id', orderId);
+            modal.show();
         });
     });
-});
 
-// Show custom discount input
-document.getElementById('customDiscountButton').addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent default behavior
-    document.getElementById('discount-buttons').style.display = 'none';
-    document.getElementById('customDiscountInput').style.display = 'block';
-});
-
-// Handle custom discount apply
-document.getElementById('applyCustomDiscount').addEventListener('click', () => {
-    const customValue = document.getElementById('customDiscountValue').value;
-    if (customValue && clickedButton) {
-        clickedButton.textContent = `${customValue}%`; // Update the clicked button's text
-        // Remove the disable logic so it remains clickable
-        const modal = bootstrap.Modal.getInstance(document.getElementById('discountModal'));
+    // Handle Yes button click in confirmation modal
+    document.getElementById('yesButton').addEventListener('click', function() {
+        const orderId = this.getAttribute('data-order-id');
+        updateOrderStatus(orderId, 'Preparing');
+        const modal = bootstrap.Modal.getInstance(document.getElementById('confirmationModal'));
         modal.hide();
+    });
+
+    // Handle Cancel button clicks
+    document.querySelectorAll('.button-cancel').forEach(button => {
+        button.addEventListener('click', function() {
+            const orderId = this.getAttribute('data-order-id');
+            if(confirm('Are you sure you want to cancel this order?')) {
+                updateOrderStatus(orderId, 'Cancelled');
+            }
+        });
+    });
+
+    function updateOrderStatus(orderId, status) {
+        const formData = new FormData();
+        formData.append('order_id', orderId);
+        formData.append('status', status);
+
+        fetch('update_order_status.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success) {
+                // Show success message
+                alert(status === 'Preparing' ? 'Order confirmed and now preparing!' : 'Order cancelled successfully!');
+                // Refresh the page to show updated orders
+                location.reload();
+            } else {
+                alert('Error updating order status: ' + (data.error || 'Unknown error'));
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error updating order status');
+        });
     }
-});
-
-// Handle predefined discount button clicks
-document.querySelectorAll('#discount-buttons button').forEach(button => {
-    button.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent default behavior
-        const discount = this.getAttribute('data-discount');
-        if (discount && clickedButton) {
-            clickedButton.textContent = `${discount}%`; // Update the clicked button's text
-            // Remove the disable logic so it remains clickable
-            const modal = bootstrap.Modal.getInstance(document.getElementById('discountModal'));
-            modal.hide();
-        }
-    });
-});
-
-// Handle "Back" button to return to predefined discount options
-document.getElementById('backToOptions')?.addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent default behavior
-    document.getElementById('customDiscountInput').style.display = 'none';
-    document.getElementById('discount-buttons').style.display = 'block';
-});
-
-// Remove the modal backdrop once the modal is fully hidden
-document.querySelectorAll('.modal').forEach(modal => {
-    modal.addEventListener('hidden.bs.modal', () => {
-        const backdrop = document.querySelector('.modal-backdrop');
-        if (backdrop) {
-            backdrop.remove(); // Remove the backdrop manually
-        }
-    });
 });

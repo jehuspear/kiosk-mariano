@@ -1,0 +1,36 @@
+.done-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.done-button:hover {
+    background-color: #218838;
+}
+
+.done-button:active {
+    background-color: #1e7e34;
+}
+
+/* Add animation for when order is being confirmed */
+.done-button.confirming {
+    opacity: 0.7;
+    cursor: not-allowed;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

@@ -122,8 +122,12 @@ if ($ticketNumber) {
             background-color: #ffc107;
             color: black;
         }
+        .status-preparing {
+            background-color:rgb(255, 251, 7);
+            color: black;
+        }
 
-        .status-completed {
+        .status-readytoclaim {
             background-color: #28a745;
             color: white;
         }

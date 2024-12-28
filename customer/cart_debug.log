@@ -5829,3 +5829,29 @@
 
 [2024-12-28 08:39:19] New total quantity: 2
 [2024-12-28 08:39:19] Response sent: {"success":true,"totalAmount":250,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-28 10:26:24] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":95,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Uno","orderType":"Dine-in","quantity":2}
+[2024-12-28 10:26:24] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 95
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2024-12-28 10:26:24] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Uno
+    [price] => 95
+    [quantity] => 2
+    [orderType] => Dine-in
+)
+
+[2024-12-28 10:26:24] New total quantity: 2
+[2024-12-28 10:26:24] Response sent: {"success":true,"totalAmount":190,"totalQuantity":2,"message":"Item added to cart successfully"}

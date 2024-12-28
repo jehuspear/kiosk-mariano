@@ -6,16 +6,16 @@ $preparingOrders = [];
 $claimOrders = [];
 
 $sql = "SELECT Order_TicketNumber, Order_Status FROM `order` 
-        WHERE Order_Status IN ('Pending', 'Completed') 
+        WHERE Order_Status IN ('Preparing', 'ReadyToClaim') 
         ORDER BY Order_DateTime DESC";
 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        if ($row['Order_Status'] === 'Pending') {
+        if ($row['Order_Status'] === 'Preparing') {
             $preparingOrders[] = $row['Order_TicketNumber'];
-        } else if ($row['Order_Status'] === 'Completed') {
+        } else if ($row['Order_Status'] === 'ReadyToClaim') {
             $claimOrders[] = $row['Order_TicketNumber'];
         }
     }

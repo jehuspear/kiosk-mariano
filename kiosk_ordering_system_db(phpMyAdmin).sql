@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2024 at 08:44 PM
+-- Generation Time: Dec 28, 2024 at 09:00 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -145,8 +145,7 @@ INSERT INTO `menuitem_sizes` (`MenuItemSize_ID`, `MenuItem_ID`, `MenuItemSize_Si
 (41, 11, 'Uno', 1, 50.00, 0, 10),
 (42, 11, 'Dos', 1, 60.00, 0, 10),
 (43, 11, 'Tres', 0, 0.00, 0, 0),
-(44, 11, 'Quatro', 0, 0.00, 0, 0),
-(45, 11, 'Sinco', 0, 0.00, 0, 0);
+(44, 11, 'Quatro', 0, 0.00, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -164,7 +163,7 @@ CREATE TABLE `order` (
   `Payment_ID` int(11) DEFAULT NULL,
   `Payment_Method` varchar(50) DEFAULT NULL,
   `Staff_ID` int(11) DEFAULT NULL,
-  `Order_Status` enum('Pending','Completed','Cancelled') NOT NULL
+  `Order_Status` enum('Pending','Preparing','ReadyToClaim','Completed','Cancelled') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -216,7 +215,7 @@ CREATE TABLE `staff` (
   `Staff_Email` varchar(100) NOT NULL,
   `Staff_Address` varchar(150) NOT NULL,
   `Staff_BirthDate` date DEFAULT NULL,
-  `Staff_Role` varchar(20) NOT NULL
+  `Staff_Role` enum('Admin','Staff') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

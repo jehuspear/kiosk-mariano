@@ -5986,3 +5986,211 @@
 
 [2024-12-28 12:22:36] New total quantity: 2
 [2024-12-28 12:22:36] Response sent: {"success":true,"totalAmount":300,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-28 12:32:51] Raw POST data: {"id":6,"name":"Kape con Canela","price":100,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Tres","orderType":"Dine-in","quantity":2}
+[2024-12-28 12:32:51] Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 100
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Tres
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2024-12-28 12:32:51] Item added to cart: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Tres
+    [price] => 100
+    [quantity] => 2
+    [orderType] => Dine-in
+)
+
+[2024-12-28 12:32:51] New total quantity: 2
+[2024-12-28 12:32:51] Response sent: {"success":true,"totalAmount":200,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-28 12:32:55] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":100,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Tres","orderType":"Take-out","quantity":3}
+[2024-12-28 12:32:55] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 100
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Tres
+    [orderType] => Take-out
+    [quantity] => 3
+)
+
+[2024-12-28 12:32:55] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Tres
+    [price] => 100
+    [quantity] => 3
+    [orderType] => Take-out
+)
+
+[2024-12-28 12:32:55] New total quantity: 5
+[2024-12-28 12:32:55] Response sent: {"success":true,"totalAmount":500,"totalQuantity":5,"message":"Item added to cart successfully"}
+[2024-12-28 12:33:00] Raw POST data: {"id":11,"name":"Banana","price":50,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Uno","orderType":"Dine-in","quantity":3}
+[2024-12-28 12:33:00] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 50
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2024-12-28 12:33:00] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Uno
+    [price] => 50
+    [quantity] => 3
+    [orderType] => Dine-in
+)
+
+[2024-12-28 12:33:00] New total quantity: 8
+[2024-12-28 12:33:00] Response sent: {"success":true,"totalAmount":650,"totalQuantity":8,"message":"Item added to cart successfully"}
+[2024-12-28 12:36:21] Raw POST data: {"id":7,"name":"Kape de Cacao","price":140,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Quatro","orderType":"Dine-in","quantity":2}
+[2024-12-28 12:36:21] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 140
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Quatro
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2024-12-28 12:36:21] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Quatro
+    [price] => 140
+    [quantity] => 2
+    [orderType] => Dine-in
+)
+
+[2024-12-28 12:36:21] New total quantity: 2
+[2024-12-28 12:36:21] Response sent: {"success":true,"totalAmount":280,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-28 12:36:30] Raw POST data: {"id":11,"name":"Banana","price":50,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Uno","orderType":"Dine-in","quantity":3}
+[2024-12-28 12:36:30] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 50
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2024-12-28 12:36:30] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Uno
+    [price] => 50
+    [quantity] => 3
+    [orderType] => Dine-in
+)
+
+[2024-12-28 12:36:30] New total quantity: 5
+[2024-12-28 12:36:30] Response sent: {"success":true,"totalAmount":430,"totalQuantity":5,"message":"Item added to cart successfully"}
+[2024-12-28 12:36:41] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":100,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Tres","orderType":"Dine-in","quantity":2}
+[2024-12-28 12:36:41] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 100
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Tres
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2024-12-28 12:36:41] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Tres
+    [price] => 100
+    [quantity] => 2
+    [orderType] => Dine-in
+)
+
+[2024-12-28 12:36:41] New total quantity: 7
+[2024-12-28 12:36:41] Response sent: {"success":true,"totalAmount":630,"totalQuantity":7,"message":"Item added to cart successfully"}
+[2024-12-28 14:31:39] Raw POST data: {"id":11,"name":"Banana","price":60,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Dos","orderType":"Dine-in","quantity":1}
+[2024-12-28 14:31:39] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 60
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-28 14:31:39] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [price] => 60
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-28 14:31:39] New total quantity: 1
+[2024-12-28 14:31:39] Response sent: {"success":true,"totalAmount":60,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-28 14:31:40] Raw POST data: {"id":11,"name":"Banana","price":60,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Dos","orderType":"Dine-in","quantity":1}
+[2024-12-28 14:31:40] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 60
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-28 14:31:40] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Dos
+    [price] => 60
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-28 14:31:40] New total quantity: 2
+[2024-12-28 14:31:40] Response sent: {"success":true,"totalAmount":120,"totalQuantity":2,"message":"Item added to cart successfully"}

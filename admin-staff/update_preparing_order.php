@@ -39,6 +39,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mysqli_stmt_execute($stmt);
         }
         
+        // Log the action
+        $log_action = $action === 'approve' ? 'Order marked as ready' : 'Order cancelled';
+        $sql = "INSERT INTO logs (Staff_ID, Log_DateTime, Log_Action, Log_Details) 
+                VALUES (?, NOW(), ?, ?)";
+        $staff_id = $_SESSION['user_id'] ?? 1; // Use session staff ID if available
+        $log_details = "Order #$order_id status changed to $new_status";
+        
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "iss", $staff_id, $log_action, $log_details);
+        mysqli_stmt_execute($stmt);
+        
         // Commit transaction
         mysqli_commit($conn);
         echo json_encode(['success' => true, 'message' => 'Order status updated successfully']);

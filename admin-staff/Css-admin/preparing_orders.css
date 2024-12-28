@@ -1,0 +1,230 @@
+/* Main content */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.content h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: white;
+}
+
+/* Order list container */
+.order-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Order card styles */
+.order-card {
+    background-color: #2d2d2d;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 1px solid #3d3d3d;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Order header */
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+.ticket-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ticket-info h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.preparing {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.order-time {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Order details */
+.order-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #3d3d3d;
+    align-items: center
+}
+
+.order-type, .payment-method {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ddd;
+    font-size: 0.95rem;
+    padding: 8px 12px;
+    background-color: #383838;
+    border-radius: 8px;
+}
+
+.order-type i, .payment-method i {
+    color: #007bff;
+    font-size: 1rem;
+}
+
+/* Order items */
+.order-items {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+.order-items h4 {
+    color: #fff;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.items-list {
+    color: #ddd;
+    line-height: 1.8;
+    padding: 12px;
+    background-color: #383838;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+/* Order footer */
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-amount {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.total-amount strong {
+    color: #888;
+    font-size: 1rem;
+    margin-right: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn i {
+    font-size: 1rem;
+}
+
+.action-btn.approve {
+    background-color: #28a745;
+    color: white;
+}
+
+.action-btn.approve:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+}
+
+.action-btn.decline {
+    background-color: #dc3545;
+    color: white;
+}
+
+.action-btn.decline:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+/* No orders message */
+.no-orders {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background-color: #2d2d2d;
+    border-radius: 15px;
+    color: #888;
+    font-size: 1.1rem;
+    border: 1px solid #3d3d3d;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .content {
+        margin-left: 0;
+        padding: 15px;
+    }
+    
+    .order-list {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+    
+    .order-card {
+        margin-bottom: 15px;
+    }
+    
+    .order-details {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .ticket-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .status-badge {
+        align-self: flex-start;
+    }
+}

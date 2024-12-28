@@ -20,9 +20,14 @@ session_start();
   
   <!-- Custom Styles -->
   <link rel="stylesheet" href="Css-admin/orderlist.css">
+  <link rel="stylesheet" href="Css-admin/preparing_orders.css">
+  <link rel="stylesheet" href="Css-admin/preparing_status.css">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Toast Container -->
+  <div class="toast-container"></div>
 </head>
 <body>
   <div class="wrapper">
@@ -47,111 +52,124 @@ session_start();
     <main class="content">
         <h2>List of orders</h2>
         <div class="order-list">
-            <div class="order-card">
-                <div class="order-info">
-                    <p class="ticket-number">Order Ticket No</p>
-                    <h3>224</h3>
-                    
-                    <p>Payment Total: ₱350</p>
-                    <button class="view-order">View order list</button>
-                </div>
-                <div class="order-actions">
-                    <button class="action-btn decline">✖</button>
-                    <button class="action-btn approve">✔</button>
-                </div>
-            </div>
-            <div class="order-card">
-                <div class="order-info">
-                    <p class="ticket-number">Order Ticket No</p>
-                    <h3>225</h3>
-                    
-                    <p>Payment Total: ₱120</p>
-                    <button class="view-order">View order list</button>
-                </div>
-                <div class="order-actions">
-                    <button class="action-btn decline">✖</button>
-                    <button class="action-btn approve">✔</button>
-                </div>
-            </div>
-            <div class="order-card">
-                <div class="order-info">
-                    <p class="ticket-number">Order Ticket No</p>
-                    <h3>225</h3>
-                    
-                    <p>Payment Total: ₱120</p>
-                    <button class="view-order">View order list</button>
-                </div>
-                <div class="order-actions">
-                    <button class="action-btn decline">✖</button>
-                    <button class="action-btn approve">✔</button>
-                </div>
-            </div>
+            <?php
+            require_once 'database_admin.php';
+            
+            // Query to get orders that are "Preparing" with "Completed" payment status
+            $sql = "SELECT 
+                        o.Order_ID,
+                        o.Order_TicketNumber,
+                        o.Order_Status,
+                        o.Order_EatingOption,
+                        o.Order_TotalAmount,
+                        GROUP_CONCAT(
+                            CONCAT(
+                                oi.OrderItem_Quantity, 
+                                ' x ', 
+                                m.MenuItem_Name, 
+                                ' (', 
+                                oi.OrderItem_CupSize,
+                                ')'
+                            ) 
+                            SEPARATOR '<br>'
+                        ) as items,
+                        p.Payment_Method,
+                        p.Payment_DateTime
+                    FROM `order` o
+                    JOIN orderitem oi ON o.Order_ID = oi.Order_ID
+                    JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID
+                    JOIN payment p ON o.Payment_ID = p.Payment_ID
+                    WHERE o.Order_Status = 'Preparing' 
+                    AND p.Payment_Status = 'Completed'
+                    GROUP BY o.Order_ID
+                    ORDER BY p.Payment_DateTime ASC";
+            
+            $result = mysqli_query($conn, $sql);
+            
+            if ($result && mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div class="ticket-info">
+                                <h3>Ticket #<?php echo htmlspecialchars($row['Order_TicketNumber']); ?></h3>
+                                <span class="status-badge <?php echo strtolower($row['Order_Status']); ?>">
+                                    <?php echo $row['Order_Status']; ?>
+                                </span>
+                            </div>
+                            <div class="order-time">
+                                <?php echo date('M d, Y h:i A', strtotime($row['Payment_DateTime'])); ?>
+                            </div>
+                        </div>
+                        
+                        <div class="order-details">
+                            <div class="order-type">
+                                <i class="fas <?php echo $row['Order_EatingOption'] === 'Dine-in' ? 'fa-utensils' : 'fa-shopping-bag'; ?>"></i>
+                                <?php echo htmlspecialchars($row['Order_EatingOption']); ?>
+                                <div class="payment-method">
+                                <i class="fas <?php echo $row['Payment_Method'] === 'Cash' ? 'fa-money-bill' : 'fa-mobile-alt'; ?>"></i>
+                                <?php echo htmlspecialchars($row['Payment_Method']); ?>
+                            </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="order-items">
+                            <h4>Items:</h4>
+                            <div class="items-list">
+                                <?php echo $row['items']; ?>
+                            </div>
+                        </div>
+                        
+                        <div class="order-footer">
+                            <div class="total-amount">
+                                <strong>Total:</strong> ₱<?php echo number_format($row['Order_TotalAmount'], 2); ?>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="action-btn decline" data-order-id="<?php echo $row['Order_ID']; ?>" title="Cancel Order">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <button class="action-btn approve" data-order-id="<?php echo $row['Order_ID']; ?>" title="Mark as Ready">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                }
+            } else {
+                echo '<p class="no-orders">No orders in preparation at the moment.</p>';
+            }
+            ?>
         </div>
     </main>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content" style="border-radius: 10px; padding: 20px;">
-            <div class="modal-header text-center">
-                <h3 class="modal-title" id="orderModalLabel">Order Details</h3>
-                <!-- Circle -->
-                <div style="width: 20px; height: 20px; background-color: black; border-radius: 50%; margin: 0 auto; margin-left: 0%; position: relative; top: -35px;"></div>    
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mt-4">
-                    <div class="text-center">
-                        <div class="order-details">
-                            <p><strong>Order:</strong> <span id="orderDetails" class="float-right"></span></p>
-                            <div class="order-item">
-                                <div class="order-row">
-                                <p>2x Salted Caramel (22oz)<br>Dine In<br>Cash</p>
-                            </div>
-                            <div class="order-row">
-                                <p>2x Cafe Mocha (22oz)<br>Dine In<br>Cash</p>
-                            </div>
-                        </div>
-                        </div>
-                        <p><strong></strong> <span id="orderAmount"></span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <hr style="width: 100%;">
-                <p><strong>Ticket No:</strong> 224</p>
-                <p><strong>Name:</strong> Juan</p>
-                <p><strong>Total:</strong> ₱480</p>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
 </div>
 
 <!-- Confirmation Modal -->
 <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="confirmationModalLabel">Confirm Action</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">Confirm Action</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p id="confirmationText">Are you sure?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" id="confirmActionBtn">Yes</button>
+            </div>
         </div>
-        <div class="modal-body text-center">
-          <p id="confirmationText">Are you sure?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-          <button type="button" class="btn btn-primary" id="confirmActionBtn">Yes</button>
-        </div>
-      </div>
     </div>
-  </div>
-  
+</div>
+
             
             
 
-<script src="Javascript-admin/orderlist.js"></script>
+<!-- Bootstrap JS -->
 <script src="Css-admin/bootstrap.bundle.min.js"></script>
+<!-- Custom Scripts -->
+<script src="Javascript-admin/order_status_handler.js"></script>
 </body>
 </html>

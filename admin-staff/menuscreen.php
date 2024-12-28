@@ -85,50 +85,64 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
       
     }
 
-    /* Sidebar Styles */
     .sidebar {
-      width: 250px;
-      background-color: #343a40;
-      color: white;
-      padding: 20px;
-      position: fixed;
-      height: 100vh;
-      overflow-y: auto;
-    }
+  width: 250px;
+  height: 100%; 
+  background-color: #000;
+  flex-direction: column;
+  align-items: left;
+  position: fixed; /* Stays fixed on the screen */
+  padding: 1rem;
+  z-index: 1000; /* Ensures it stays above other content */
+}
 
-    .sidebar .logo {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+.logo h2 {
+  text-align: center;
+  color: white;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
 
-    .sidebar .nav {
-      list-style: none;
-      padding: 0;
-    }
+.nav {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Items stacked vertically */
+  gap: 5px; /* Space between items */
+  width: 100%; /* Ensure full width */
+}
 
-    .sidebar .nav li {
-      margin-bottom: 10px;
-    }
+.nav li {
+  margin-bottom: 13px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  padding-right: 20px; /* Shift the item to the right */
+  position: relative; /* Allow shifting inside the li */
+}
 
-    .sidebar .nav a {
-      color: white;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
+/* Move the icons a little to the left without affecting the background */
+.nav li i, .nav li img {
+  margin-right: 5px; /* Space between the icon and the text */
+  position: relative; /* Allow movement */
+  left: -10px; /* Move icon and text 5px to the left */
+}
 
-    .sidebar .nav a:hover,
-    .sidebar .nav li.active a {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
 
-    .sidebar .nav i {
-      margin-right: 10px;
-      width: 20px;
-    }
+.nav li.active {
+  font-weight: bold;
+  background-color: #1B2223;
+  border-radius: 5px;
+}
+
+.nav li:hover {
+  background-color: #1B2223;
+  border-radius: 5px;
+}
 
     /* Main Content Layout */
     .main-content {
@@ -143,9 +157,8 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 20px;
-      background-color: #343a40;
+      background-color: #535353;
       padding: 15px;
-      border-radius: 10px;
       z-index: 1000;
     }
 
@@ -162,12 +175,6 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
       padding: 10px;
       border-radius: 5px;
       transition: background-color 0.3s;
-    }
-
-    .menu-item.active a,
-    .menu-item a:hover {
-      background-color: #131213;
-      color: white;
     }
 
     .menu-item i {
@@ -325,10 +332,10 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
         <li><a href="logout.php"><i class="fa-solid fa-sign-out"></i> <span>Logout</span></a></li>
         <li class="active"><a href="menuscreen.php"><i class="fa-solid fa-book"></i> <span>Menu</span></a></li>
         <li><a href="decodingscreen.php"><i class="fa-solid fa-ticket"></i> <span>E-ticket</span></a></li>
-        <li><a href="orderlist.php"><i class="fa-solid fa-sort"></i> <span>Order Lists</span></a></li>
-        <li><a href="order.php"><i class="fa-solid fa-mug-hot"></i> <span>Orders</span></a></li>
+        <li><a href="order.php"><i class="fa-solid fa-mug-hot"></i> <span>Pending</span></a></li>
+        <li><a href="orderlist.php"><i class="fa-solid fa-sort"></i> <span>Order list</span></a></li>
         <li><a href="completed.php"><i class="fa-solid fa-check-to-slot"></i> <span>Completed</span></a></li>
-        <li><a href="reports.php"><i class="fa-solid fa-newspaper"></i> <span>Reports</span></a></li>
+        <li><a href="reports.php"><i class="fa-solid fa-newspaper"></i> <span>Dashboard</span></a></li>
         <li><a href="decodingscreen.php"><i class="fa-regular fa-comment"></i> <span>Feedback</span></a></li>
         <li><a href="history.php"><i class="fa-solid fa-clock-rotate-left"></i> <span>History</span></a></li>
       </ul>

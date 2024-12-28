@@ -32,11 +32,11 @@ if(!isset($_SESSION["user_id"])) {
         <h2>SINCO CAFE</h2>
       </div>
       <ul class="nav">
-        <li><a href="login.php"><i class="fa-solid fa-user"></i> Login</a></li>
+        <li><a href="logout.php"><i class="fa-solid fa-sign-out"></i> <span>Logout</span></a></li>
         <li><a href="menuscreen.php"><i class="fa-solid fa-book"></i> Menu</a></li>
         <li><a href="decodingscreen.php"><i class="fa-solid fa-ticket"></i> E-ticket</a></li>
-        <li class="active"><a href="orderlist.php"><i class="fa-solid fa-sort"></i> Order Lists</a></li>
         <li><a href="order.php"><i class="fa-solid fa-mug-hot"></i> Orders</a></li>
+        <li class="active"><a href="orderlist.php"><i class="fa-solid fa-sort"></i> Order Lists</a></li>
         <li><a href="completed.php"><i class="fa-solid fa-check-to-slot"></i> Completed</a></li>
         <li><a href="reports.php"><i class="fa-solid fa-newspaper"></i> Reports</a></li>
         <li><a href="feedback.php"><i class="fa-regular fa-comment"></i> Feedback</a></li>
@@ -51,7 +51,7 @@ if(!isset($_SESSION["user_id"])) {
                 <div class="order-info">
                     <p class="ticket-number">Order Ticket No</p>
                     <h3>224</h3>
-                    <p>For Juan</p>
+                    
                     <p>Payment Total: ₱350</p>
                     <button class="view-order">View order list</button>
                 </div>
@@ -64,7 +64,7 @@ if(!isset($_SESSION["user_id"])) {
                 <div class="order-info">
                     <p class="ticket-number">Order Ticket No</p>
                     <h3>225</h3>
-                    <p>For Pablo</p>
+                    
                     <p>Payment Total: ₱120</p>
                     <button class="view-order">View order list</button>
                 </div>
@@ -77,7 +77,7 @@ if(!isset($_SESSION["user_id"])) {
                 <div class="order-info">
                     <p class="ticket-number">Order Ticket No</p>
                     <h3>225</h3>
-                    <p>For Pablo</p>
+                    
                     <p>Payment Total: ₱120</p>
                     <button class="view-order">View order list</button>
                 </div>

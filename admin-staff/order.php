@@ -27,11 +27,11 @@ if(!isset($_SESSION["user_id"])) {
                     <h2>SINCO CAFE</h2>
                 </div>
                 <ul class="nav">
-                    <li><a href="login.php"><i class="fa-solid fa-user"></i> Login</a></li>
+                    <li><a href="logout.php"><i class="fa-solid fa-sign-out"></i> <span>Logout</span></a></li>
                     <li><a href="menuscreen.php"><i class="fa-solid fa-book"></i> Menu</a></li>
                     <li><a href="decodingscreen.php"><i class="fa-solid fa-ticket"></i> E-ticket</a></li>
+                    <li class="active"><a href="order.php"><i class="fa-solid fa-mug-hot"></i> Pending</a></li>
                     <li><a href="orderlist.php"><i class="fa-solid fa-sort"></i> Order Lists</a></li>
-                    <li class="active"><a href="order.php"><i class="fa-solid fa-mug-hot"></i> Orders</a></li>
                     <li><a href="completed.php"><i class="fa-solid fa-check-to-slot"></i> Completed</a></li>
                     <li><a href="reports.php"><i class="fa-solid fa-newspaper"></i> Dashboard</a></li>
                     <li><a href="feedback.php"><i class="fa-regular fa-comment"></i> Feedback</a></li>
@@ -44,7 +44,7 @@ if(!isset($_SESSION["user_id"])) {
                 <div class="navbar">
                     <div class="navbar-item">Product ID</div>
                     <div class="navbar-item">Order No</div>
-                    <div class="navbar-item">Name</div>
+                    
                     <div class="navbar-item">Eating Option</div>
                     <div class="navbar-item">Order</div>
                     <div class="navbar-item">Payment</div>
@@ -58,7 +58,7 @@ if(!isset($_SESSION["user_id"])) {
                 <div class="order">
                     <div class="order-item">001<br />003</div>
                     <div class="order-item">224</div>
-                    <div class="order-item">Juan</div>
+                    
                     <div class="order-item">Dine In</div>
                     <div class="order-item">2 x Salted Caramel 22oz<br />2 x Cafe Mocha 22oz</div>
                     <div class="order-item">Cash</div>
@@ -76,7 +76,7 @@ if(!isset($_SESSION["user_id"])) {
                 <div class="order">
                     <div class="order-item">002</div>
                     <div class="order-item">223</div>
-                    <div class="order-item">Balong</div>
+                    
                     <div class="order-item">Takeout</div>
                     <div class="order-item">1 x Spanish Latte 22oz</div>
                     <div class="order-item">GCash</div>

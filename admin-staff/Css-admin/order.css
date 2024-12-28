@@ -108,7 +108,7 @@ a {
 /* Navbar (Table headers) */
 .navbar {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr; /* Add columns for Total and Status */
+    grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr; /* Add columns for Total and Status */
     gap: 10px;
     background-color: #222222;
     padding: 15px;
@@ -125,7 +125,7 @@ a {
 /* Orders */
 .order {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr; /* Matches the navbar layout */
+    grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr; /* Matches the navbar layout */
     gap: 10px;
     background-color: #222222;
     padding: 15px;

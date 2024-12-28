@@ -5179,3 +5179,497 @@
 
 [2024-12-21 08:29:06] New total quantity: 2
 [2024-12-21 08:29:06] Response sent: {"success":true,"totalAmount":230,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-22 12:17:53] Raw POST data: {"id":6,"name":"Kape con Canela","price":130,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Dos","orderType":"Dine-in","quantity":1}
+[2024-12-22 12:17:53] Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 130
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-22 12:17:53] Item added to cart: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Dos
+    [price] => 130
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-22 12:17:53] New total quantity: 1
+[2024-12-22 12:17:53] Response sent: {"success":true,"totalAmount":130,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-22 12:17:55] Raw POST data: {"id":2,"name":"Latte de Kape","price":125,"description":"Espresso with steamed milk and a thin layer of foam","image":"../admin-staff/Images/menu-item/latte-de-kape.jpg","size":"Quatro","orderType":"Take-out","quantity":1}
+[2024-12-22 12:17:55] Decoded data: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [price] => 125
+    [description] => Espresso with steamed milk and a thin layer of foam
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Quatro
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-22 12:17:55] Item added to cart: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Quatro
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-22 12:17:55] New total quantity: 2
+[2024-12-22 12:17:55] Response sent: {"success":true,"totalAmount":255,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-22 12:18:02] Raw POST data: {"id":22,"name":"Strawberry Kiss","price":100,"description":"sample","image":"../admin-staff/Images/menu-item/strawberry-lemon-mocktail-5411.jpg","size":"Tres","orderType":"Take-out","quantity":1}
+[2024-12-22 12:18:02] Decoded data: Array
+(
+    [id] => 22
+    [name] => Strawberry Kiss
+    [price] => 100
+    [description] => sample
+    [image] => ../admin-staff/Images/menu-item/strawberry-lemon-mocktail-5411.jpg
+    [size] => Tres
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-22 12:18:02] Item added to cart: Array
+(
+    [id] => 22
+    [name] => Strawberry Kiss
+    [image] => ../admin-staff/Images/menu-item/strawberry-lemon-mocktail-5411.jpg
+    [size] => Tres
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-22 12:18:02] New total quantity: 3
+[2024-12-22 12:18:02] Response sent: {"success":true,"totalAmount":355,"totalQuantity":3,"message":"Item added to cart successfully"}
+[2024-12-22 12:20:27] Raw POST data: {"id":3,"name":"Cappuccino","price":90,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Tres","orderType":"Take-out","quantity":1}
+[2024-12-22 12:20:27] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 90
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Tres
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-22 12:20:27] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Tres
+    [price] => 90
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-22 12:20:27] New total quantity: 1
+[2024-12-22 12:20:27] Response sent: {"success":true,"totalAmount":90,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-22 12:20:31] Raw POST data: {"id":6,"name":"Kape con Canela","price":130,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Dos","orderType":"Dine-in","quantity":1}
+[2024-12-22 12:20:31] Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 130
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-22 12:20:31] Item added to cart: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Dos
+    [price] => 130
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-22 12:20:31] New total quantity: 2
+[2024-12-22 12:20:31] Response sent: {"success":true,"totalAmount":220,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-22 12:20:35] Raw POST data: {"id":3,"name":"Cappuccino","price":105,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Dos","orderType":"Take-out","quantity":1}
+[2024-12-22 12:20:35] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 105
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Dos
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-22 12:20:35] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Dos
+    [price] => 105
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-22 12:20:35] New total quantity: 3
+[2024-12-22 12:20:35] Response sent: {"success":true,"totalAmount":325,"totalQuantity":3,"message":"Item added to cart successfully"}
+[2024-12-22 12:21:06] Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+[2024-12-22 12:21:06] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-22 12:21:06] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Uno
+    [price] => 85
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-22 12:21:06] New total quantity: 1
+[2024-12-22 12:21:06] Response sent: {"success":true,"totalAmount":85,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-22 12:23:43] Raw POST data: {"id":1,"name":"Kape Amerikano","price":60,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+[2024-12-22 12:23:43] Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 60
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-22 12:23:43] Item added to cart: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Uno
+    [price] => 60
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-22 12:23:43] New total quantity: 1
+[2024-12-22 12:23:43] Response sent: {"success":true,"totalAmount":60,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-22 12:23:49] Raw POST data: {"id":6,"name":"Kape con Canela","price":100,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Tres","orderType":"Take-out","quantity":1}
+[2024-12-22 12:23:49] Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 100
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Tres
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-22 12:23:49] Item added to cart: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Tres
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-22 12:23:49] New total quantity: 1
+[2024-12-22 12:23:49] Response sent: {"success":true,"totalAmount":100,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-22 12:23:51] Raw POST data: {"id":7,"name":"Kape de Cacao","price":130,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Dos","orderType":"Dine-in","quantity":1}
+[2024-12-22 12:23:51] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 130
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-22 12:23:51] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Dos
+    [price] => 130
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-22 12:23:51] New total quantity: 2
+[2024-12-22 12:23:51] Response sent: {"success":true,"totalAmount":230,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-27 10:18:04] Raw POST data: {"id":6,"name":"Kape con Canela","price":150,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Sinco","orderType":"Dine-in","quantity":1}
+[2024-12-27 10:18:04] Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 150
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Sinco
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-27 10:18:04] Item added to cart: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Sinco
+    [price] => 150
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-27 10:18:04] New total quantity: 1
+[2024-12-27 10:18:04] Response sent: {"success":true,"totalAmount":150,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-27 10:18:28] Raw POST data: {"id":6,"name":"Kape con Canela","price":150,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Sinco","orderType":"Take-out","quantity":1}
+[2024-12-27 10:18:28] Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 150
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Sinco
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-27 10:18:28] Item added to cart: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Sinco
+    [price] => 150
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-27 10:18:28] New total quantity: 1
+[2024-12-27 10:18:28] Response sent: {"success":true,"totalAmount":150,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-27 10:18:32] Raw POST data: {"id":7,"name":"Kape de Cacao","price":130,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Dos","orderType":"Dine-in","quantity":2}
+[2024-12-27 10:18:32] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 130
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2024-12-27 10:18:32] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Dos
+    [price] => 130
+    [quantity] => 2
+    [orderType] => Dine-in
+)
+
+[2024-12-27 10:18:32] New total quantity: 3
+[2024-12-27 10:18:32] Response sent: {"success":true,"totalAmount":410,"totalQuantity":3,"message":"Item added to cart successfully"}
+[2024-12-27 10:26:30] Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+[2024-12-27 10:26:30] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-27 10:26:30] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Uno
+    [price] => 85
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-27 10:26:30] New total quantity: 1
+[2024-12-27 10:26:30] Response sent: {"success":true,"totalAmount":85,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-27 10:26:32] Raw POST data: {"id":1,"name":"Kape Amerikano","price":60,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+[2024-12-27 10:26:32] Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 60
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-27 10:26:32] Item added to cart: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Uno
+    [price] => 60
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-27 10:26:32] New total quantity: 2
+[2024-12-27 10:26:32] Response sent: {"success":true,"totalAmount":145,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-27 10:31:26] Raw POST data: {"id":6,"name":"Kape con Canela","price":130,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Dos","orderType":"Dine-in","quantity":1}
+[2024-12-27 10:31:26] Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 130
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2024-12-27 10:31:26] Item added to cart: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Dos
+    [price] => 130
+    [quantity] => 1
+    [orderType] => Dine-in
+)
+
+[2024-12-27 10:31:26] New total quantity: 1
+[2024-12-27 10:31:26] Response sent: {"success":true,"totalAmount":130,"totalQuantity":1,"message":"Item added to cart successfully"}
+[2024-12-27 10:31:29] Raw POST data: {"id":7,"name":"Kape de Cacao","price":105,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Tres","orderType":"Take-out","quantity":1}
+[2024-12-27 10:31:29] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 105
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Tres
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-27 10:31:29] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Tres
+    [price] => 105
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-27 10:31:29] New total quantity: 2
+[2024-12-27 10:31:29] Response sent: {"success":true,"totalAmount":235,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-27 10:32:04] Raw POST data: {"id":22,"name":"Strawberry Kiss","price":100,"description":"sample","image":"../admin-staff/Images/menu-item/strawberry-lemon-mocktail-5411.jpg","size":"Tres","orderType":"Take-out","quantity":1}
+[2024-12-27 10:32:04] Decoded data: Array
+(
+    [id] => 22
+    [name] => Strawberry Kiss
+    [price] => 100
+    [description] => sample
+    [image] => ../admin-staff/Images/menu-item/strawberry-lemon-mocktail-5411.jpg
+    [size] => Tres
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-27 10:32:04] Item added to cart: Array
+(
+    [id] => 22
+    [name] => Strawberry Kiss
+    [image] => ../admin-staff/Images/menu-item/strawberry-lemon-mocktail-5411.jpg
+    [size] => Tres
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-27 10:32:04] New total quantity: 2
+[2024-12-27 10:32:04] Response sent: {"success":true,"totalAmount":205,"totalQuantity":2,"message":"Item added to cart successfully"}
+[2024-12-27 17:27:10] Raw POST data: {"id":20,"name":"Biscoff Cookies","price":50,"description":"Sample Description","image":"../admin-staff/Images/menu-item/biscoffcookies18A.jpg","size":"Uno","orderType":"Take-out","quantity":1}
+[2024-12-27 17:27:10] Decoded data: Array
+(
+    [id] => 20
+    [name] => Biscoff Cookies
+    [price] => 50
+    [description] => Sample Description
+    [image] => ../admin-staff/Images/menu-item/biscoffcookies18A.jpg
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2024-12-27 17:27:10] Item added to cart: Array
+(
+    [id] => 20
+    [name] => Biscoff Cookies
+    [image] => ../admin-staff/Images/menu-item/biscoffcookies18A.jpg
+    [size] => Uno
+    [price] => 50
+    [quantity] => 1
+    [orderType] => Take-out
+)
+
+[2024-12-27 17:27:10] New total quantity: 1
+[2024-12-27 17:27:10] Response sent: {"success":true,"totalAmount":50,"totalQuantity":1,"message":"Item added to cart successfully"}

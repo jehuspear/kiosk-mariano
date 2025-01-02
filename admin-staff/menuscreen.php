@@ -313,6 +313,8 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
       }
     }
   </style>
+
+  
 </head>
 <body>
   <!-- Modal Structure -->

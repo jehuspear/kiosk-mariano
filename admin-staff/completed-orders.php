@@ -1,11 +1,12 @@
 <?php
 session_start();
+include 'database_admin.php';
 
 // Check if user is not logged in
-// if(!isset($_SESSION["user_id"])) {
-//     header("Location: login.php");
-//     exit();
-// }
+if(!isset($_SESSION["user_id"])) {
+    header("Location: login.php");
+    exit();
+}
 ?>
 
 
@@ -16,7 +17,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CompletedOrders</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="Css-admin/completed.css">
+    <link rel="stylesheet" href="Css-admin/completed_orders.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -43,58 +44,37 @@ session_start();
         <div class="main-content">
             <div class="text-wrapper-10">Completed Orders</div>
             <div class="navbar">
-                <div class="navbar-item">Product ID</div>
-                <div class="navbar-item">Order No</div>
-                <div class="navbar-item">Name</div>
+                <div class="navbar-item">Order ID</div>
+                <div class="navbar-item">Order Ticket Number</div>
                 <div class="navbar-item">Eating Option</div>
-                <div class="navbar-item">Order</div>
-                <div class="navbar-item">Payment</div>
-                <div class="navbar-item">Time</div>
+                <div class="navbar-item">Menu Item ID</div>
+                <div class="navbar-item">Order Item</div>
+                <div class="navbar-item">Payment Method</div>
+                <div class="navbar-item">Total minutes to complete the order</div>  <!-- from Order_DateTime   -->
                 <div class="navbar-item">Cost</div>
                 <div class="navbar-item">Discount</div>
                 <div class="navbar-item">Total</div>
             </div>
 
-            <div class="order-row">
-                <div class="order-item">001<br />003</div>
-                <div class="order-item">224</div>
-                <div class="order-item">Juan</div>
-                <div class="order-item">Dine In</div>
-                <div class="order-item">2 x Salted Caramel 22oz<br />2 x Cafe Mocha 22oz</div>
-                <div class="order-item">Cash</div>
-                <div class="order-item">01:12</div>
-                <div class="order-item">₱480</div>
-                <div class="order-item">10%<br>10%</div>
-                <div class="order-item">₱384.00</div>
-            </div>
-
-            <div class="order-row">
-                <div class="order-item">004</div>
-                <div class="order-item">223</div>
-                <div class="order-item">Balong</div>
-                <div class="order-item">Takeout</div>
-                <div class="order-item">1 x Spanish Latte 22oz</div>
-                <div class="order-item">GCash</div>
-                <div class="order-item">01:04</div>
-                <div class="order-item">₱120</div>
-                <div class="order-item">0</div>
-                <div class="order-item">₱120.00</div>
+            <div class="orders-container">
+                <!-- Orders will be dynamically populated here -->
             </div>
 
             <div class="sales-summary">
                 <div class="summary-left">
-                    <div class="sales-item"><span>Total Orders:</span> 2</div>
+                    <div class="sales-item"><span>Total Orders:</span> <span class="total-orders">0</span></div>
                 </div>
                 <div class="summary-right">
-                    <div class="sales-item"><span>Cash Sales:</span> ₱384.00</div>
-                    <div class="sales-item"><span>GCash Sales:</span> ₱120.00</div>
+                    <div class="sales-item"><span>Cash Sales:</span> <span class="cash-sales">₱0.00</span></div>
+                    <div class="sales-item"><span>GCash Sales:</span> <span class="gcash-sales">₱0.00</span></div>
                     <br>
-                    <div class="sales-item"><span>Total Sales:</span> ₱504.00</div>
+                    <div class="sales-item"><span>Total Sales:</span> <span class="total-sales">₱0.00</span></div>
                 </div>
             </div>
             
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="Javascript-admin/completed_orders.js"></script>
 </body>
 </html>

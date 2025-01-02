@@ -332,9 +332,9 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
         <li><a href="logout.php"><i class="fa-solid fa-sign-out"></i> <span>Logout</span></a></li>
         <li class="active"><a href="menuscreen.php"><i class="fa-solid fa-book"></i> <span>Menu</span></a></li>
         <li><a href="decodingscreen.php"><i class="fa-solid fa-ticket"></i> <span>E-ticket</span></a></li>
-        <li><a href="order.php"><i class="fa-solid fa-mug-hot"></i> <span>Pending</span></a></li>
-        <li><a href="orderlist.php"><i class="fa-solid fa-sort"></i> <span>Order list</span></a></li>
-        <li><a href="completed.php"><i class="fa-solid fa-check-to-slot"></i> <span>Completed</span></a></li>
+        <li><a href="pending-orders.php"><i class="fa-solid fa-mug-hot"></i> <span>Pending</span></a></li>
+        <li><a href="preparing-orders.php"><i class="fa-solid fa-sort"></i> <span>Order list</span></a></li>
+        <li><a href="completed-orders.php"><i class="fa-solid fa-check-to-slot"></i> <span>Completed</span></a></li>
         <li><a href="reports.php"><i class="fa-solid fa-newspaper"></i> <span>Dashboard</span></a></li>
         <li><a href="decodingscreen.php"><i class="fa-regular fa-comment"></i> <span>Feedback</span></a></li>
         <li><a href="history.php"><i class="fa-solid fa-clock-rotate-left"></i> <span>History</span></a></li>

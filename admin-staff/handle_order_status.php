@@ -47,9 +47,8 @@ try {
         throw new Exception("Invalid order status. Only 'Preparing' orders can be updated.");
     }
     
-    // Set new statuses
+    // Set new order status
     $new_order_status = $action === 'approve' ? 'ReadyToClaim' : 'Cancelled';
-    $new_payment_status = $action === 'approve' ? 'Completed' : 'Cancelled';
     
     // Update order status
     $sql = "UPDATE `order` SET Order_Status = ? WHERE Order_ID = ?";
@@ -60,16 +59,15 @@ try {
         throw new Exception("Failed to update order status: " . mysqli_error($conn));
     }
     
-    // Update payment status and datetime
-    $sql = "UPDATE payment SET 
-            Payment_Status = ?,
-            Payment_DateTime = NOW()
-            WHERE Payment_ID = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "si", $new_payment_status, $order['Payment_ID']);
-    
-    if (!mysqli_stmt_execute($stmt)) {
-        throw new Exception("Failed to update payment status: " . mysqli_error($conn));
+    // Update order completed time when approving
+    if ($action === 'approve') {
+        $sql = "UPDATE `order` SET Order_CompletedTime = NOW() WHERE Order_ID = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "i", $order_id);
+        
+        if (!mysqli_stmt_execute($stmt)) {
+            throw new Exception("Failed to update order completed time: " . mysqli_error($conn));
+        }
     }
     
     // Log the action

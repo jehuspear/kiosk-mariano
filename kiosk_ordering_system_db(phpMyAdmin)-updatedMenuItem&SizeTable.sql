@@ -110,7 +110,7 @@ INSERT INTO `menuitem` (`MenuItem_ID`, `MenuItem_Name`, `MenuItem_Image`, `MenuI
 CREATE TABLE `menuitem_sizes` (
   `MenuItemSize_ID` int(11) NOT NULL,
   `MenuItem_ID` int(11) NOT NULL,
-  `MenuItemSize_Size` varchar(10) NOT NULL,
+  `MenuItemSize_SizeName` varchar(10) NOT NULL,
   `MenuItemSize_IsHot` enum('Hot','Iced','Normal') DEFAULT NULL,
   `MenuItemSize_Price` decimal(10,2) NOT NULL,
   `MenuItemSize_Sold` int(11) NOT NULL,

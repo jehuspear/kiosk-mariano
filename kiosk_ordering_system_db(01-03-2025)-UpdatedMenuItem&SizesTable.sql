@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2025 at 05:59 PM
+-- Generation Time: Jan 02, 2025 at 09:52 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -67,7 +67,9 @@ INSERT INTO `logs` (`Log_ID`, `Staff_ID`, `Log_DateTime`, `Log_Action`, `Log_Det
 (10, 2, '2025-01-02 22:57:09', 'Order marked as ready', 'Order #15 status changed to ReadyToClaim'),
 (11, 2, '2025-01-02 23:14:20', 'Order marked as ready', 'Order #16 status changed to ReadyToClaim'),
 (12, 2, '2025-01-02 23:22:09', 'Order marked as ready', 'Order #17 status changed to ReadyToClaim'),
-(13, 2, '2025-01-03 00:09:44', 'Order marked as ready', 'Order #18 status changed to ReadyToClaim');
+(13, 2, '2025-01-03 00:09:44', 'Order marked as ready', 'Order #18 status changed to ReadyToClaim'),
+(14, 2, '2025-01-03 04:21:32', 'Order marked as ready', 'Order #19 status changed to ReadyToClaim'),
+(15, 2, '2025-01-03 04:30:30', 'Order marked as ready', 'Order #20 status changed to ReadyToClaim');
 
 -- --------------------------------------------------------
 
@@ -92,14 +94,15 @@ CREATE TABLE `menuitem` (
 
 INSERT INTO `menuitem` (`MenuItem_ID`, `MenuItem_Name`, `MenuItem_Image`, `MenuItem_Description`, `MenuItem_Category`, `MenuItem_TotalStocks`, `MenuItem_TotalSold`, `MenuItem_Availability`) VALUES
 (1, 'Kape Amerikano', 'Images/menu-item/kape-americano.jpg', 'Full-bodied espresso with hot water', 'Coffee', 200, 3, 'Available'),
-(2, 'Latte de Kape', 'Images/menu-item/latte-de-kape.jpg', 'Espresso with steamed milk and a thin layer of foam', 'Coffee', 100, 5, 'Available'),
+(2, 'Latte de Kape', 'Images/menu-item/latte-de-kape.jpg', 'Espresso with steamed milk and a thin layer of foam', 'Coffee', 154, 5, 'Available'),
 (3, 'Cappuccino', 'Images/menu-item/cappuccino.jpg', 'Espresso with steamed milk and a thick layer of foam', 'Coffee', 120, 0, 'Available'),
-(4, 'Latte Espanyol', 'Images/menu-item/latte-espanyol.jpg', 'Espresso combined with milk and a hint of condensed milk', 'Coffee', 100, 7, 'Available'),
-(5, 'Kape Dulce Salty Caramelo', 'Images/menu-item/kape-dulce-salty-caramelo.jpg', 'Espresso combined with milk, infused with salted caramel syrup', 'Coffee', 80, 10, 'Available'),
+(4, 'Latte Espanyol', 'Images/menu-item/latte-espanyol.jpg', 'Espresso combined with milk and a hint of condensed milk', 'Coffee', 154, 7, 'Available'),
+(5, 'Kape Dulce Salty Caramelo', 'Images/menu-item/kape-dulce-salty-caramelo.jpg', 'Espresso combined with milk, infused with salted caramel syrup', 'Coffee', 154, 10, 'Available'),
 (6, 'Kape con Canela', 'Images/menu-item/kape-con-canela.jpg', 'Espresso combined with steamed milk and infused with honey and cinnamon', 'Coffee', 100, 0, 'Available'),
 (7, 'Kape de Cacao', 'Images/menu-item/kape-de-cacao.jpg', 'Espresso combined with steamed milk and rich chocolate syrup', 'Coffee', 2, 0, 'Available'),
 (10, 'Espresso (Doppio)', 'Images/menu-items/Doppio_Espresso_Macchiato.jpg', 'Sample Coffee', 'Traditional Coffee', 20, 0, 'Available'),
-(11, 'Banana', 'Images/menu-items/banana.jpg', 'Banana', 'Snacks', 20, 0, 'Available');
+(11, 'Banana', 'Images/menu-items/banana.jpg', 'Banana', 'Snacks', 36, 0, 'Available'),
+(12, 'Blue Punch Mocktail', 'Images/menu-item/blue_mocktail.jpg', 'A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.', 'Mocktail', 7, 0, 'Available');
 
 -- --------------------------------------------------------
 
@@ -110,7 +113,7 @@ INSERT INTO `menuitem` (`MenuItem_ID`, `MenuItem_Name`, `MenuItem_Image`, `MenuI
 CREATE TABLE `menuitem_sizes` (
   `MenuItemSize_ID` int(11) NOT NULL,
   `MenuItem_ID` int(11) NOT NULL,
-  `MenuItemSize_SizeName` varchar(10) NOT NULL,
+  `MenuItemSize_SizeName` varchar(25) NOT NULL,
   `MenuItemSize_IsHot` enum('Hot','Iced','Normal') DEFAULT NULL,
   `MenuItemSize_Price` decimal(10,2) NOT NULL,
   `MenuItemSize_Sold` int(11) NOT NULL,
@@ -121,28 +124,28 @@ CREATE TABLE `menuitem_sizes` (
 -- Dumping data for table `menuitem_sizes`
 --
 
-INSERT INTO `menuitem_sizes` (`MenuItemSize_ID`, `MenuItem_ID`, `MenuItemSize_Size`, `MenuItemSize_IsHot`, `MenuItemSize_Price`, `MenuItemSize_Sold`, `MenuItemSize_Stock`) VALUES
+INSERT INTO `menuitem_sizes` (`MenuItemSize_ID`, `MenuItem_ID`, `MenuItemSize_SizeName`, `MenuItemSize_IsHot`, `MenuItemSize_Price`, `MenuItemSize_Sold`, `MenuItemSize_Stock`) VALUES
 (1, 1, 'Uno', 'Hot', 60.00, 3, 50),
 (2, 1, 'Dos', 'Hot', 75.00, 0, 40),
-(3, 1, 'Tres', '', 85.00, 0, 30),
-(4, 1, 'Quatro', '', 100.00, 0, 20),
-(5, 1, 'Sinco', '', 110.00, 0, 15),
-(6, 2, 'Uno', 'Hot', 80.00, 0, 50),
+(3, 1, 'Tres', 'Iced', 85.00, 0, 30),
+(4, 1, 'Quatro', 'Iced', 100.00, 0, 20),
+(5, 1, 'Sinco', 'Iced', 110.00, 0, 15),
+(6, 2, 'Uno', 'Hot', 80.00, 0, 49),
 (7, 2, 'Dos', 'Hot', 105.00, 0, 40),
-(8, 2, 'Tres', 'Hot', 90.00, 0, 30),
-(9, 2, 'Quatro', 'Hot', 125.00, 0, 20),
-(10, 2, 'Sinco', 'Hot', 135.00, 0, 15),
-(11, 3, 'Uno', '', 85.00, 0, 50),
+(8, 2, 'Tres', 'Iced', 90.00, 0, 30),
+(9, 2, 'Quatro', 'Iced', 125.00, 0, 20),
+(10, 2, 'Sinco', 'Iced', 135.00, 0, 15),
+(11, 3, 'Uno', 'Hot', 85.00, 0, 50),
 (12, 3, 'Dos', '', 105.00, 0, 40),
 (13, 3, 'Tres', '', 90.00, 0, 30),
 (14, 3, 'Quatro', '', 125.00, 0, 20),
 (15, 3, 'Sinco', '', 135.00, 0, 15),
-(16, 4, 'Uno', '', 90.00, 0, 50),
+(16, 4, 'Uno', '', 90.00, 0, 49),
 (17, 4, 'Dos', '', 120.00, 0, 40),
 (18, 4, 'Tres', '', 95.00, 0, 30),
 (19, 4, 'Quatro', '', 130.00, 0, 20),
 (20, 4, 'Sinco', '', 145.00, 0, 15),
-(21, 5, 'Uno', '', 95.00, 0, 50),
+(21, 5, 'Uno', '', 95.00, 0, 49),
 (22, 5, 'Dos', '', 125.00, 0, 40),
 (23, 5, 'Tres', '', 100.00, 0, 30),
 (24, 5, 'Quatro', '', 135.00, 0, 20),
@@ -157,15 +160,15 @@ INSERT INTO `menuitem_sizes` (`MenuItemSize_ID`, `MenuItem_ID`, `MenuItemSize_Si
 (33, 7, 'Tres', '', 105.00, 0, 30),
 (34, 7, 'Quatro', '', 140.00, 0, 20),
 (35, 7, 'Sinco', '', 155.00, 0, 15),
-(36, 10, 'Uno', '', 60.00, 0, 10),
-(37, 10, 'Dos', '', 70.00, 0, 2),
-(38, 10, 'Tres', '', 0.00, 0, 0),
-(39, 10, 'Quatro', '', 0.00, 0, 0),
-(40, 10, 'Sinco', '', 0.00, 0, 0),
-(41, 11, 'Uno', NULL, 50.00, 0, 10),
-(42, 11, 'Dos', '', 60.00, 0, 10),
-(43, 11, 'Tres', '', 0.00, 0, 0),
-(44, 11, 'Quatro', '', 0.00, 0, 0);
+(36, 10, 'Uno', 'Hot', 60.00, 0, 10),
+(37, 10, 'Dos', 'Hot', 70.00, 0, 2),
+(41, 11, 'Small', 'Normal', 50.00, 0, 9),
+(42, 11, 'Medium', 'Normal', 60.00, 0, 10),
+(44, 11, 'Large', 'Normal', 70.00, 0, 7),
+(46, 11, 'Extra-Large', 'Normal', 100.00, 0, 10),
+(47, 12, '8oz', 'Iced', 70.00, 0, 2),
+(48, 12, '12oz', 'Iced', 100.00, 0, 3),
+(49, 12, '16oz', 'Iced', 120.00, 0, 2);
 
 -- --------------------------------------------------------
 
@@ -209,7 +212,9 @@ INSERT INTO `order` (`Order_ID`, `Order_CustomerName`, `Order_EatingOption`, `Or
 (15, NULL, 'Dine-in', 168, '2025-01-02 22:55:29', '2025-01-02 22:57:48', 300.00, 15, 'GCash', NULL, 'ReadyToClaim'),
 (16, NULL, 'Dine-in', 971, '2025-01-02 23:13:20', '2025-01-02 23:15:42', 510.00, 16, 'GCash', NULL, 'ReadyToClaim'),
 (17, NULL, 'Dine-in', 516, '2025-01-02 23:16:55', '2025-01-02 23:22:09', 140.00, 17, 'GCash', NULL, 'ReadyToClaim'),
-(18, NULL, 'Dine-in', 444, '2025-01-03 00:08:26', '2025-01-03 00:09:44', 95.00, 18, 'GCash', NULL, 'ReadyToClaim');
+(18, NULL, 'Dine-in', 444, '2025-01-03 00:08:26', '2025-01-03 00:09:44', 95.00, 18, 'GCash', NULL, 'ReadyToClaim'),
+(19, NULL, 'Dine-in', 273, '2025-01-03 04:20:55', '2025-01-03 04:21:32', 340.00, 19, 'GCash', NULL, 'ReadyToClaim'),
+(20, NULL, 'Dine-in', 413, '2025-01-03 04:29:24', '2025-01-03 04:30:30', 400.00, 20, 'GCash', NULL, 'ReadyToClaim');
 
 -- --------------------------------------------------------
 
@@ -257,7 +262,11 @@ INSERT INTO `orderitem` (`OrderItem_ID`, `Order_ID`, `MenuItem_ID`, `OrderItem_C
 (24, 16, 2, 'Quatro', 2, 125.00),
 (25, 16, 4, 'Quatro', 2, 130.00),
 (26, 17, 7, 'Quatro', 1, 140.00),
-(27, 18, 5, 'Uno', 1, 95.00);
+(27, 18, 5, 'Uno', 1, 95.00),
+(28, 19, 11, 'Extra-Large', 1, 100.00),
+(29, 19, 12, '16oz', 2, 120.00),
+(30, 20, 12, '12oz', 2, 100.00),
+(31, 20, 11, 'Extra-Large', 2, 100.00);
 
 -- --------------------------------------------------------
 
@@ -298,7 +307,9 @@ INSERT INTO `payment` (`Payment_ID`, `Payment_Method`, `Payment_DateTime`, `Orde
 (15, 'GCash', '2025-01-02 22:57:09', 300.00, NULL, 0.00, 300.00, 'Completed'),
 (16, 'GCash', '2025-01-02 23:14:20', 510.00, NULL, 0.00, 510.00, 'Completed'),
 (17, 'GCash', '2025-01-02 23:17:46', 140.00, NULL, 0.00, 140.00, 'Completed'),
-(18, 'GCash', '2025-01-03 00:08:38', 95.00, NULL, 0.00, 95.00, 'Completed');
+(18, 'GCash', '2025-01-03 00:08:38', 95.00, NULL, 0.00, 95.00, 'Completed'),
+(19, 'GCash', '2025-01-03 04:21:09', 340.00, NULL, 0.00, 340.00, 'Completed'),
+(20, 'GCash', '2025-01-03 04:29:49', 400.00, NULL, 0.00, 400.00, 'Completed');
 
 -- --------------------------------------------------------
 
@@ -402,37 +413,37 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `Log_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Log_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `menuitem`
 --
 ALTER TABLE `menuitem`
-  MODIFY `MenuItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `MenuItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `menuitem_sizes`
 --
 ALTER TABLE `menuitem_sizes`
-  MODIFY `MenuItemSize_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `MenuItemSize_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `orderitem`
 --
 ALTER TABLE `orderitem`
-  MODIFY `OrderItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `OrderItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `Payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `Payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `staff`

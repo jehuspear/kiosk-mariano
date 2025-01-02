@@ -7,8 +7,12 @@ include 'database_admin.php';
 function calculateTimeDifference($orderDateTime, $completedTime) {
     $orderTime = new DateTime($orderDateTime);
     $completeTime = $completedTime ? new DateTime($completedTime) : new DateTime();
-    $diff = $orderTime->diff($completeTime);
-    return sprintf("%02d:%02d", $diff->h, $diff->i);
+    $diff = $completeTime->diff($orderTime);
+    
+    // Convert hours to minutes and add to total minutes
+    $totalMinutes = ($diff->h * 60) + $diff->i;
+    
+    return sprintf("%02d:%02d", $totalMinutes, $diff->s);
 }
 
 // Debug database connection

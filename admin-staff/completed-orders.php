@@ -15,7 +15,7 @@ if(!isset($_SESSION["user_id"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CompletedOrders</title>
+    <title>Completed Orders</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="Css-admin/completed_orders.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -50,7 +50,7 @@ if(!isset($_SESSION["user_id"])) {
                 <div class="navbar-item">Menu Item ID</div>
                 <div class="navbar-item">Order Item</div>
                 <div class="navbar-item">Payment Method</div>
-                <div class="navbar-item">Total minutes to complete the order</div>  <!-- from Order_DateTime   -->
+                <div class="navbar-item">Total time to complete the order <br> (MIN:SEC)</div>  <!-- from Order_DateTime   -->
                 <div class="navbar-item">Cost</div>
                 <div class="navbar-item">Discount</div>
                 <div class="navbar-item">Total</div>

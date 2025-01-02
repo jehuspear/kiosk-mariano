@@ -53,7 +53,7 @@
     flex: 1;
     margin-left: 250px;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #333;
     min-height: 100vh;
 }
 
@@ -61,14 +61,15 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #333;
+    color: white;
+    text-align: center;
 }
 
 /* Table Header Styles */
 .navbar {
     display: grid;
     grid-template-columns: 0.7fr 1fr 1fr 0.8fr 2fr 1fr 1.2fr 0.8fr 0.8fr 0.8fr;
-    background-color: #333;
+    background-color: #1a1a1a;
     color: white;
     padding: 15px;
     border-radius: 5px;
@@ -90,7 +91,8 @@
 .order-row {
     display: grid;
     grid-template-columns: 0.7fr 1fr 1fr 0.8fr 2fr 1fr 1.2fr 0.8fr 0.8fr 0.8fr;
-    background-color: white;
+    background-color: #1a1a1a;
+    color: white;
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -99,7 +101,7 @@
 }
 
 .order-row:hover {
-    background-color: #f8f9fa;
+    background-color: #333;
 }
 
 .order-item {
@@ -111,7 +113,7 @@
 .sales-summary {
     display: flex;
     justify-content: space-between;
-    background-color: #333;
+    background-color: #1a1a1a;
     color: white;
     padding: 20px;
     border-radius: 5px;

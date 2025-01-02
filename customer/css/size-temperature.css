@@ -12,33 +12,52 @@
 .size-option {
     position: relative;
     flex: 1;
-    min-width: 60px;
+    min-width: 80px; /* Increased to accommodate longer size names */
+    max-width: calc(50% - 6px); /* Two buttons per row on mobile */
 }
 
 /* Size button style */
 .option-btn {
     width: 100%;
-    padding: 10px 15px;
-    border: none;
+    padding: 12px 15px 8px; /* Increased top padding for badge */
+    border: 2px solid #e0e0e0;
     border-radius: 8px;
-    background: #f5f5f5;
+    background: #ffffff;
     color: #333;
     font-weight: 500;
     transition: all 0.2s ease;
     cursor: pointer;
-    position: relative; /* Added for badge positioning */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-height: 60px; /* Ensure consistent height */
+    justify-content: center;
 }
 
 /* Active state */
 .option-btn.active {
     background: #333;
     color: white;
+    border-color: #333;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
 }
 
 /* Hover state */
-.option-btn:hover:not(.active) {
-    background: #e0e0e0;
+.option-btn:hover:not(:disabled) {
+    background: #f5f5f5;
+    border-color: #333;
+    transform: translateY(-1px);
+}
+
+/* Disabled state */
+.option-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #f5f5f5;
+    border-color: #e0e0e0;
 }
 
 /* Focus state */
@@ -47,26 +66,36 @@
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Button content wrapper */
-.button-content {
-    position: relative;
-    z-index: 1;
+/* Size text style */
+.option-btn span {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    text-align: center;
+    word-break: break-word;
+    max-width: 100%;
 }
 
 /* Temperature badge styles */
 .temp-badge {
-    display: inline-block;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.7rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
     font-weight: bold;
     text-transform: uppercase;
     position: absolute;
-    top: -8px;
-    right: -8px;
+    top: -10px;
+    right: -10px;
     z-index: 2;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    pointer-events: none; /* Prevent badge from interfering with button clicks */
+    pointer-events: none;
+}
+
+/* Temperature icons */
+.temp-badge i {
+    font-size: 0.8rem;
 }
 
 /* Hot temperature style */
@@ -77,10 +106,40 @@
 }
 
 /* Cold temperature style */
-.temp-badge.cold {
+.temp-badge.iced {
     background: linear-gradient(45deg, #2193b0, #6dd5ed);
     color: white;
     box-shadow: 0 2px 4px rgba(33, 147, 176, 0.3);
+}
+
+/* Normal temperature style */
+.temp-badge.normal {
+    background: linear-gradient(45deg, #757F9A, #D7DDE8);
+    color: white;
+    box-shadow: 0 2px 4px rgba(117, 127, 154, 0.3);
+}
+
+/* Stock badge styles */
+.stock-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.stock-badge.out-of-stock {
+    background: #ff4e4e;
+    color: white;
+    box-shadow: 0 2px 4px rgba(255, 78, 78, 0.3);
 }
 
 /* Active button badge styles */
@@ -88,22 +147,41 @@
     background: linear-gradient(45deg, #ff6b6b, #ffd93d);
 }
 
-.option-btn.active .temp-badge.cold {
+.option-btn.active .temp-badge.iced {
     background: linear-gradient(45deg, #4fb8d1, #8de1f4);
+}
+
+.option-btn.active .temp-badge.normal {
+    background: linear-gradient(45deg, #868f9b, #e6e9f0);
 }
 
 /* Responsive adjustments */
 @media (max-width: 576px) {
+    .size-option {
+        min-width: 70px;
+    }
+    
     .option-btn {
-        padding: 8px 12px;
-        font-size: 0.9rem;
+        padding: 10px 12px 6px;
+        min-height: 50px;
+        font-size: 0.85rem;
     }
     
     .temp-badge {
-        font-size: 0.6rem;
-        padding: 1px 4px;
-        top: -6px;
-        right: -6px;
+        font-size: 0.65rem;
+        padding: 2px 6px;
+        top: -8px;
+        right: -8px;
+    }
+    
+    .temp-badge i {
+        font-size: 0.7rem;
+    }
+    
+    .stock-badge {
+        font-size: 0.65rem;
+        padding: 2px 6px;
+        bottom: -8px;
     }
 }
 

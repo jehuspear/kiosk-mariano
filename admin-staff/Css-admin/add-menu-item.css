@@ -1,0 +1,305 @@
+/* Add Menu Item Form */
+.add-menu-form {
+    background-color: #212121;
+    color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.add-menu-form h2 {
+    color: #ffd700;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.75rem;
+}
+
+/* Form Groups */
+.add-menu-form .form-group {
+    margin-bottom: 20px;
+}
+
+.add-menu-form .form-label {
+    color: #e0e0e0;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Form Controls */
+.add-menu-form .form-control {
+    background-color: #2a2a2a;
+    border: 1px solid #404040;
+    color: #e0e0e0;
+    border-radius: 6px;
+    padding: 10px 12px;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.add-menu-form .form-control:focus {
+    background-color: #343a40;
+    border-color: #ffd700;
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+    color: #fff;
+}
+
+.add-menu-form .form-control.is-invalid {
+    border-color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* Size Management Section */
+.size-management {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.size-management-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.size-management-header h4 {
+    color: #ffd700;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+/* Size Table */
+.size-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #404040;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.size-table th {
+    background-color: #212121;
+    color: #ffd700;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    padding: 12px;
+    text-align: left;
+}
+
+.size-table td {
+    padding: 12px;
+    border-top: 1px solid #404040;
+    background-color: #2a2a2a;
+    transition: background-color 0.2s ease;
+}
+
+.size-table tr:hover td {
+    background-color: #343a40;
+}
+
+/* Temperature Types */
+.temperature-select {
+    padding-left: 35px !important;
+    position: relative;
+}
+
+.temperature-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+}
+
+.temperature-select.hot {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+}
+
+.temperature-select.iced {
+    border-color: #74c0fc;
+    color: #74c0fc;
+    background-color: rgba(116, 192, 252, 0.1);
+}
+
+.temperature-select.normal {
+    border-color: #69db7c;
+    color: #69db7c;
+    background-color: rgba(105, 219, 124, 0.1);
+}
+
+/* Price Input */
+.price-input-group {
+    display: flex;
+    align-items: center;
+}
+
+.price-input-group .input-group-text {
+    background-color: #212121;
+    border: 1px solid #404040;
+    color: #ffd700;
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+}
+
+.price-input-group .form-control {
+    border-left: none;
+    border-radius: 0 6px 6px 0;
+}
+
+/* Buttons */
+.add-size-btn {
+    background-color: #2b8a3e;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.add-size-btn:hover {
+    background-color: #2f9e44;
+    transform: translateY(-2px);
+}
+
+.remove-size-btn {
+    background-color: #c92a2a;
+    border: none;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.remove-size-btn:hover {
+    background-color: #e03131;
+    transform: translateY(-2px);
+}
+
+/* Image Preview */
+.image-preview-container {
+    margin-top: 10px;
+}
+
+.image-preview {
+    max-width: 200px;
+    border-radius: 8px;
+    display: none;
+    border: 2px solid #404040;
+}
+
+/* Validation Messages */
+.invalid-feedback {
+    color: #ff6b6b;
+    font-size: 0.875rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Alert Messages */
+.alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.alert-success {
+    background-color: rgba(43, 138, 62, 0.1);
+    border: 1px solid rgba(43, 138, 62, 0.2);
+    color: #69db7c;
+}
+
+.alert-danger {
+    background-color: rgba(201, 42, 42, 0.1);
+    border: 1px solid rgba(201, 42, 42, 0.2);
+    color: #ff6b6b;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #2b8a3e;
+    border: none;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #2f9e44;
+    transform: translateY(-2px);
+}
+
+/* Animations */
+.size-row {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .add-menu-form {
+        padding: 15px;
+    }
+
+    .size-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .image-preview {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .add-menu-form h2 {
+        font-size: 1.5rem;
+    }
+
+    .size-management-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .add-size-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

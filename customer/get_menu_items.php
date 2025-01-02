@@ -5,14 +5,16 @@ require_once 'get_best_sellers.php';
 function getAllMenuItems() {
     global $conn;
     
-    // Query to get all menu items with their base prices (Uno size)
+    // Query to get all menu items with their base prices (smallest size)
     $sql = "SELECT m.MenuItem_ID, m.MenuItem_Name, m.MenuItem_Image, 
                    m.MenuItem_Description, m.MenuItem_Category,
                    m.MenuItem_TotalStocks, m.MenuItem_TotalSold,
-                   ms.MenuItemSize_Price as base_price
+                   MIN(ms.MenuItemSize_Price) as base_price
             FROM menuitem m
             LEFT JOIN menuitem_sizes ms ON m.MenuItem_ID = ms.MenuItem_ID
-            WHERE ms.MenuItemSize_Size = 'Uno'
+            GROUP BY m.MenuItem_ID, m.MenuItem_Name, m.MenuItem_Image, 
+                     m.MenuItem_Description, m.MenuItem_Category,
+                     m.MenuItem_TotalStocks, m.MenuItem_TotalSold
             ORDER BY m.MenuItem_Category, m.MenuItem_Name";
             
     $result = mysqli_query($conn, $sql);

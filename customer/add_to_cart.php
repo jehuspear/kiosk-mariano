@@ -36,6 +36,37 @@ try {
     logDebug("Decoded data: " . print_r($data, true));
 
     if ($data && isset($data['id'], $data['name'], $data['price'], $data['size'], $data['orderType'], $data['quantity'], $data['image'])) {
+        // Check stock availability
+        $sql = "SELECT MenuItemSize_Stock as stock, MenuItemSize_IsHot as temperature 
+                FROM menuitem_sizes 
+                WHERE MenuItem_ID = ? AND MenuItemSize_SizeName = ?";
+        
+        $stmt = $conn->prepare($sql);
+        if (!$stmt) {
+            throw new Exception('Failed to prepare stock check statement');
+        }
+        
+        $stmt->bind_param("is", $data['id'], $data['size']);
+        
+        if (!$stmt->execute()) {
+            throw new Exception('Failed to execute stock check');
+        }
+        
+        $result = $stmt->get_result();
+        $sizeInfo = $result->fetch_assoc();
+        
+        if (!$sizeInfo) {
+            throw new Exception('Size not found for this item');
+        }
+        
+        if ($sizeInfo['stock'] < $data['quantity']) {
+            $response['success'] = false;
+            $response['error'] = 'Not enough stock available';
+            logDebug("Insufficient stock: requested {$data['quantity']}, available {$sizeInfo['stock']}");
+            echo json_encode($response);
+            exit;
+        }
+
         // Create cart item
         $cartItem = array(
             'id' => intval($data['id']),
@@ -44,12 +75,50 @@ try {
             'size' => $data['size'],
             'price' => floatval($data['price']),
             'quantity' => intval($data['quantity']),
-            'orderType' => $data['orderType']
+            'orderType' => $data['orderType'],
+            'temperature' => $sizeInfo['temperature']
         );
         
         // Add to cart
         $_SESSION['cart'][] = $cartItem;
         logDebug("Item added to cart: " . print_r($cartItem, true));
+        
+        // Update stock in database
+        $newStock = $sizeInfo['stock'] - $data['quantity'];
+        $updateSql = "UPDATE menuitem_sizes 
+                      SET MenuItemSize_Stock = ? 
+                      WHERE MenuItem_ID = ? AND MenuItemSize_SizeName = ?";
+        
+        $updateStmt = $conn->prepare($updateSql);
+        if (!$updateStmt) {
+            throw new Exception('Failed to prepare stock update statement');
+        }
+        
+        $updateStmt->bind_param("iis", $newStock, $data['id'], $data['size']);
+        
+        if (!$updateStmt->execute()) {
+            throw new Exception('Failed to update stock');
+        }
+        
+        // Update total stocks in menuitem table
+        $updateTotalSql = "UPDATE menuitem m 
+                          SET MenuItem_TotalStocks = (
+                              SELECT SUM(MenuItemSize_Stock) 
+                              FROM menuitem_sizes 
+                              WHERE MenuItem_ID = m.MenuItem_ID
+                          ) 
+                          WHERE MenuItem_ID = ?";
+        
+        $updateTotalStmt = $conn->prepare($updateTotalSql);
+        if (!$updateTotalStmt) {
+            throw new Exception('Failed to prepare total stock update statement');
+        }
+        
+        $updateTotalStmt->bind_param("i", $data['id']);
+        
+        if (!$updateTotalStmt->execute()) {
+            throw new Exception('Failed to update total stock');
+        }
         
         // Calculate totals
         $totalAmount = 0;
@@ -60,8 +129,8 @@ try {
         }
         
         $response['success'] = true;
+        $response['cartCount'] = $totalQuantity;
         $response['totalAmount'] = $totalAmount;
-        $response['totalQuantity'] = $totalQuantity;
         $response['message'] = 'Item added to cart successfully';
         logDebug("New total quantity: $totalQuantity");
     } else {

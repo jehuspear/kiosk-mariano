@@ -14,7 +14,7 @@ if(isset($_POST['submit'])) {
     $name = $_POST['name'];
     $description = $_POST['description'];
     $category = $_POST['category'];
-    $totalStocks = $_POST['totalStocks'];
+    $totalStocks = 0; // Will be calculated from sizes
     
     // Handle file upload
     $targetDir = "Images/menu-item/";
@@ -27,7 +27,7 @@ if(isset($_POST['submit'])) {
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
     
     // Validate input
-    if(empty($name) || empty($description) || empty($category) || empty($totalStocks)) {
+    if(empty($name) || empty($description) || empty($category)) {
         $message = '<div class="alert alert-danger">All fields are required!</div>';
     } else {
         // Allow certain file formats
@@ -48,20 +48,58 @@ if(isset($_POST['submit'])) {
                         $menuItemId = mysqli_insert_id($conn);
                         
                         // Insert sizes
-                        $sizes = array('Uno', 'Dos', 'Tres', 'Quatro', 'Sinco');
-                        $sizeSql = "INSERT INTO menuitem_sizes (MenuItem_ID, MenuItemSize_Size, MenuItemSize_Price, MenuItemSize_IsHot, MenuItemSize_Stock) VALUES (?, ?, ?, ?, ?)";
-                        $sizeStmt = mysqli_stmt_init($conn);
-                        
-                        if(mysqli_stmt_prepare($sizeStmt, $sizeSql)) {
-                            foreach($sizes as $size) {
-                                $sizeLower = strtolower($size);
-                                $price = $_POST["price_" . $sizeLower];
-                                $isHot = isset($_POST["is_hot_" . $sizeLower]) ? 1 : 0;
-                                $stock = $_POST["stock_" . $sizeLower];
+                        $totalStocks = 0;
+                        foreach($_POST['sizes'] as $size) {
+                            if (!empty($size['name']) && isset($size['price']) && isset($size['stock'])) {
+                                $sizeName = $size['name'];
+                                $price = floatval($size['price']);
+                                $temperatureType = $size['temperature_type'];
+                                $stock = intval($size['stock']);
                                 
-                                mysqli_stmt_bind_param($sizeStmt, "isdii", $menuItemId, $size, $price, $isHot, $stock);
-                                mysqli_stmt_execute($sizeStmt);
+                                // Validate data
+                                if (empty($sizeName) || strlen($sizeName) > 50) {
+                                    throw new Exception('Invalid size name');
+                                }
+                                if ($price <= 0) {
+                                    throw new Exception('Invalid price');
+                                }
+                                if ($stock < 0) {
+                                    throw new Exception('Invalid stock quantity');
+                                }
+                                if (!in_array($temperatureType, ['Hot', 'Iced', 'Normal'])) {
+                                    throw new Exception('Invalid temperature type');
+                                }
+                                
+                                $sizeSql = "INSERT INTO menuitem_sizes (
+                                    MenuItem_ID, 
+                                    MenuItemSize_SizeName, 
+                                    MenuItemSize_Price, 
+                                    MenuItemSize_IsHot, 
+                                    MenuItemSize_Stock,
+                                    MenuItemSize_Sold
+                                ) VALUES (?, ?, ?, ?, ?, 0)";
+                                $sizeStmt = mysqli_stmt_init($conn);
+                                
+                                if(mysqli_stmt_prepare($sizeStmt, $sizeSql)) {
+                                    mysqli_stmt_bind_param($sizeStmt, "isdsi", 
+                                        $menuItemId, 
+                                        $sizeName, 
+                                        $price, 
+                                        $temperatureType, 
+                                        $stock
+                                    );
+                                    mysqli_stmt_execute($sizeStmt);
+                                    $totalStocks += $stock;
+                                }
                             }
+                        }
+                        
+                        // Update total stocks
+                        $updateStocksSql = "UPDATE menuitem SET MenuItem_TotalStocks = ? WHERE MenuItem_ID = ?";
+                        $updateStocksStmt = mysqli_stmt_init($conn);
+                        if(mysqli_stmt_prepare($updateStocksStmt, $updateStocksSql)) {
+                            mysqli_stmt_bind_param($updateStocksStmt, "ii", $totalStocks, $menuItemId);
+                            mysqli_stmt_execute($updateStocksStmt);
                         }
                         
                         mysqli_commit($conn);
@@ -98,11 +136,11 @@ if(isset($_POST['submit'])) {
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="Css-admin/menu-forms.css">
+    <link rel="stylesheet" href="Css-admin/add-menu-item.css">
 </head>
 <body>
-    <div class="form-container">
-        <h2 class="mb-4">Add New Menu Item</h2>
+    <div class="add-menu-form">
+        <h2>Add New Menu Item</h2>
         
         <?php echo $message; ?>
         
@@ -131,75 +169,88 @@ if(isset($_POST['submit'])) {
             </div>
             
             <div class="form-group">
-                <label for="totalStocks">Total Stocks:</label>
-                <input type="number" class="form-control" id="totalStocks" name="totalStocks" min="0" required>
-            </div>
-            
-            <div class="form-group">
                 <label for="image">Image:</label>
                 <input type="file" class="form-control" id="image" name="image" accept="image/*" required 
                        onchange="previewImage(this);">
-                <img id="preview" class="preview-image">
+                <div class="image-preview-container">
+                    <img id="preview" class="image-preview">
+                </div>
             </div>
             
             <!-- Sizes and Prices -->
-            <div class="form-group">
-                <h4>Sizes and Prices</h4>
-                <table class="sizes-table">
-                    <thead>
-                        <tr>
-                            <th>Size</th>
-                            <th>Price (₱)</th>
-                            <th>Type</th>
-                            <th>Stock</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $sizes = array(
-                            'uno' => 'Uno (8oz)',
-                            'dos' => 'Dos (12oz)',
-                            'tres' => 'Tres (12oz)',
-                            'quatro' => 'Quatro (16oz)',
-                            'sinco' => 'Sinco (22oz)'
-                        );
-                        foreach($sizes as $key => $label): ?>
-                        <tr>
-                            <td class="size-label"><?php echo $label; ?></td>
-                            <td>
-                                <input type="number" class="form-control" 
-                                       name="price_<?php echo $key; ?>" 
-                                       step="0.01" min="0" >
-                            </td>
-                            <td>
-                                <div class="hot-cold-toggle">
-                                    <label class="hot-label">
-                                        <input type="checkbox" name="is_hot_<?php echo $key; ?>">
-                                        <i class="fas fa-mug-hot"></i> HOT
-                                    </label>
-                                </div>
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" 
-                                       name="stock_<?php echo $key; ?>" 
-                                       min="0" >
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+            <div class="size-management">
+                <div class="size-management-header">
+                    <h4>Sizes and Prices</h4>
+                    <button type="button" class="add-size-btn" onclick="addSizeRow()">
+                        <i class="fas fa-plus"></i> Add Size
+                    </button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="size-table" id="sizesTable">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%">Size Name</th>
+                                <th style="width: 25%">Price (₱)</th>
+                                <th style="width: 25%">Temperature</th>
+                                <th style="width: 15%">Stock</th>
+                                <th style="width: 10%">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sizesTableBody">
+                            <!-- Size rows will be added here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
             <div class="form-group">
-                <button type="submit" name="submit" class="btn btn-primary">
+                <button type="submit" name="submit" class="submit-btn">
                     <i class="fas fa-plus"></i> Add Item
                 </button>
             </div>
         </form>
     </div>
 
+    <!-- Size Row Template (hidden) -->
+    <template id="sizeRowTemplate">
+        <tr class="size-row">
+            <td>
+                <input type="text" class="form-control" name="sizes[{index}][name]" 
+                       placeholder="Enter size name" maxlength="50" required>
+            </td>
+            <td>
+                <div class="price-input-group">
+                    <span class="input-group-text">₱</span>
+                    <input type="number" class="form-control" name="sizes[{index}][price]" 
+                           step="0.01" min="0" required>
+                </div>
+            </td>
+            <td>
+                <select class="form-control temperature-select" name="sizes[{index}][temperature_type]" required>
+                    <option value="">Select Temperature</option>
+                    <option value="Hot">Hot</option>
+                    <option value="Iced">Iced</option>
+                    <option value="Normal">Normal</option>
+                </select>
+            </td>
+            <td>
+                <input type="number" class="form-control" name="sizes[{index}][stock]" 
+                       min="0" required>
+            </td>
+            <td>
+                <button type="button" class="remove-size-btn" onclick="removeSizeRow(this)">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </template>
+
     <!-- Bootstrap JS -->
     <script src="Css-admin/bootstrap.bundle.min.js"></script>
+    
+    <!-- Menu Sizes JS -->
+    <script src="Javascript-admin/add-menu-sizes.js"></script>
     
     <script>
     function previewImage(input) {

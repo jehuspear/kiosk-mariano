@@ -8,17 +8,18 @@
 
 /* Card Styles */
 .card {
-    height: 100%;
+    border: none;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 1.5rem;
     background-color: #212121;
     border: 1px solid #404040;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .card-img-top {
@@ -37,45 +38,165 @@
 }
 
 .card-title {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
     color: #ffd700;
 }
 
 .card-text {
     color: #e0e0e0;
+    margin-bottom: 1rem;
     font-size: 0.95rem;
     line-height: 1.5;
+}
+
+/* Temperature Labels */
+.hot-label, .cold-label, .normal-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.hot-label {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: #ff6b6b;
+    border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.hot-label i {
+    color: #ff6b6b;
+}
+
+.cold-label {
+    background-color: rgba(13, 110, 253, 0.15);
+    color: #74c0fc;
+    border: 1px solid rgba(13, 110, 253, 0.3);
+}
+
+.cold-label i {
+    color: #74c0fc;
+}
+
+.normal-label {
+    background-color: rgba(25, 135, 84, 0.15);
+    color: #69db7c;
+    border: 1px solid rgba(25, 135, 84, 0.3);
+}
+
+.normal-label i {
+    color: #69db7c;
+}
+
+/* Price Section */
+.price-section {
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid #404040;
+    background-color: #2a2a2a;
+}
+
+.size-price-table {
+    width: 100%;
+    margin-bottom: 0;
+    color: #e0e0e0;
+}
+
+.size-price-table th,
+.size-price-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #404040;
+    vertical-align: middle;
+}
+
+.size-price-table th {
+    font-weight: 600;
+    color: #ffd700;
+    background-color: #212121;
+    border-bottom: 2px solid #404040;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+}
+
+.size-price-table tr:last-child td {
+    border-bottom: none;
+}
+
+.size-price-table td:last-child {
+    text-align: right;
+    font-weight: 500;
+    color: #ffd700;
 }
 
 /* Status Button */
 .status {
     width: 100%;
-    margin: 10px 0;
-    font-weight: bold;
+    margin-bottom: 1rem;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    padding: 0.5rem;
+}
+
+.btn-success.status {
+    background-color: #2b8a3e;
+    border-color: #2b8a3e;
+    color: #e0e0e0;
+}
+
+.btn-danger.status {
+    background-color: #c92a2a;
+    border-color: #c92a2a;
+    color: #e0e0e0;
 }
 
 /* Action Buttons */
 .actions {
     display: flex;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 0.5rem;
+    justify-content: flex-end;
 }
 
 .action-btn {
-    flex: 1;
-    padding: 8px 15px;
-    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2a2a2a;
+    border: 1px solid #404040;
 }
 
 .action-btn:hover {
     transform: translateY(-2px);
+    background-color: #343a40;
 }
 
 .action-btn i {
-    margin-right: 5px;
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+.action-btn.btn-warning {
+    background-color: #2b8a3e;
+    border-color: #2b8a3e;
+}
+
+.action-btn.btn-danger {
+    background-color: #c92a2a;
+    border-color: #c92a2a;
 }
 
 /* Add Menu Card */
@@ -104,7 +225,8 @@
     margin-bottom: 10px;
     width: 60px;
     height: 60px;
-    border-radius: 50%;
+    border-radius: 30px;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -142,11 +264,21 @@
     gap: 8px;
     font-weight: 500;
     transition: all 0.3s ease;
+    background-color: #2a2a2a;
+    border: 1px solid #404040;
+    color: #e0e0e0;
+}
+
+.view-btn:hover,
+.edit-btn:hover {
+    background-color: #343a40;
+    transform: translateY(-2px);
 }
 
 .view-btn i,
 .edit-btn i {
     font-size: 1.1rem;
+    color: #ffd700;
 }
 
 /* Stock and Sold Info */
@@ -173,20 +305,39 @@
     .edit-btn {
         flex: 1;
     }
+
+    .price-section {
+        overflow-x: auto;
+    }
+
+    .size-price-table {
+        min-width: 100%;
+    }
 }
 
 @media (max-width: 576px) {
     .menu-cards {
         grid-template-columns: 1fr;
+        padding: 5px;
     }
 
     .card {
-        margin: 0 auto;
+        margin: 0 auto 1rem;
         max-width: 320px;
     }
 
     .buttons button {
         padding: 8px 15px;
         font-size: 0.9rem;
+    }
+
+    .card-body {
+        padding: 12px;
+    }
+
+    .size-price-table th,
+    .size-price-table td {
+        padding: 0.5rem;
+        font-size: 0.875rem;
     }
 }

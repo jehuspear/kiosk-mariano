@@ -28,7 +28,7 @@ if(isset($_GET['id'])) {
         
         // Get sizes
         $sizeSql = "SELECT * FROM menuitem_sizes WHERE MenuItem_ID = ? ORDER BY 
-                    CASE MenuItemSize_Size 
+                    CASE MenuItemSize_SizeName 
                         WHEN 'Uno' THEN 1 
                         WHEN 'Dos' THEN 2 
                         WHEN 'Tres' THEN 3 
@@ -42,7 +42,7 @@ if(isset($_GET['id'])) {
             mysqli_stmt_execute($sizeStmt);
             $sizeResult = mysqli_stmt_get_result($sizeStmt);
             while($size = mysqli_fetch_assoc($sizeResult)) {
-                $sizes[$size['MenuItemSize_Size']] = $size;
+                $sizes[$size['MenuItemSize_SizeName']] = $size;
             }
         }
     }
@@ -103,45 +103,52 @@ if(isset($_POST['submit'])) {
         $sizeNames = array('Uno', 'Dos', 'Tres', 'Quatro', 'Sinco');
         foreach($sizeNames as $size) {
             $sizeLower = strtolower($size);
-            $price = $_POST["price_" . $sizeLower];
-            $isHot = isset($_POST["is_hot_" . $sizeLower]) ? 1 : 0;
-            $stock = $_POST["stock_" . $sizeLower];
-            
-            // Check if size exists
-            if(isset($sizes[$size])) {
-                // Update existing size
-                $updateSql = "UPDATE menuitem_sizes SET 
-                             MenuItemSize_Price=?, 
-                             MenuItemSize_IsHot=?, 
-                             MenuItemSize_Stock=? 
-                             WHERE MenuItemSize_ID=?";
-                $updateStmt = mysqli_stmt_init($conn);
-                
-                if(mysqli_stmt_prepare($updateStmt, $updateSql)) {
-                    mysqli_stmt_bind_param($updateStmt, "diii", 
-                        $price, 
-                        $isHot, 
-                        $stock, 
-                        $sizes[$size]['MenuItemSize_ID']
-                    );
-                    mysqli_stmt_execute($updateStmt);
+            if (isset($_POST["price_" . $sizeLower], $_POST["temperature_type_" . $sizeLower], $_POST["stock_" . $sizeLower])) {
+                $price = $_POST["price_" . $sizeLower];
+                $temperatureType = $_POST["temperature_type_" . $sizeLower];
+                $stock = $_POST["stock_" . $sizeLower];
+
+                // Validate temperature type
+                if (!in_array($temperatureType, ['Hot', 'Iced', 'Normal'])) {
+                    throw new Exception('Invalid temperature type');
                 }
-            } else {
-                // Insert new size
-                $insertSql = "INSERT INTO menuitem_sizes 
-                             (MenuItem_ID, MenuItemSize_Size, MenuItemSize_Price, MenuItemSize_IsHot, MenuItemSize_Stock) 
-                             VALUES (?, ?, ?, ?, ?)";
-                $insertStmt = mysqli_stmt_init($conn);
-                
-                if(mysqli_stmt_prepare($insertStmt, $insertSql)) {
-                    mysqli_stmt_bind_param($insertStmt, "isdii", 
-                        $id, 
-                        $size, 
-                        $price, 
-                        $isHot, 
-                        $stock
-                    );
-                    mysqli_stmt_execute($insertStmt);
+            
+                // Check if size exists
+                if(isset($sizes[$size])) {
+                    // Update existing size
+                    $updateSql = "UPDATE menuitem_sizes SET 
+                                MenuItemSize_Price=?, 
+                                MenuItemSize_IsHot=?,
+                                MenuItemSize_Stock=? 
+                                WHERE MenuItemSize_ID=?";
+                    $updateStmt = mysqli_stmt_init($conn);
+                    
+                    if(mysqli_stmt_prepare($updateStmt, $updateSql)) {
+                        mysqli_stmt_bind_param($updateStmt, "dsii", 
+                            $price, 
+                            $temperatureType, 
+                            $stock, 
+                            $sizes[$size]['MenuItemSize_ID']
+                        );
+                        mysqli_stmt_execute($updateStmt);
+                    }
+                } else {
+                    // Insert new size
+                    $insertSql = "INSERT INTO menuitem_sizes 
+                                (MenuItem_ID, MenuItemSize_SizeName, MenuItemSize_Price, MenuItemSize_IsHot, MenuItemSize_Stock) 
+                                VALUES (?, ?, ?, ?, ?)";
+                    $insertStmt = mysqli_stmt_init($conn);
+                    
+                    if(mysqli_stmt_prepare($insertStmt, $insertSql)) {
+                        mysqli_stmt_bind_param($insertStmt, "isdsi", 
+                            $id, 
+                            $size, 
+                            $price, 
+                            $temperatureType, 
+                            $stock
+                        );
+                        mysqli_stmt_execute($insertStmt);
+                    }
                 }
             }
         }
@@ -173,6 +180,7 @@ if(isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="Css-admin/menu-forms.css">
+    <link rel="stylesheet" href="Css-admin/menu-item-sizes.css">
 </head>
 <body>
     <div class="form-container">
@@ -232,14 +240,61 @@ if(isset($_POST['submit'])) {
             
             <!-- Sizes and Prices -->
             <div class="form-group">
-                <h4>Sizes and Prices</h4>
-                <table class="sizes-table">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4>Sizes and Prices</h4>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="showAddSizeForm()">
+                        <i class="fas fa-plus"></i> Add Size
+                    </button>
+                </div>
+
+                <!-- Add Size Form -->
+                <div id="addSizeForm" class="menu-item-size-form">
+                    <h5><i class="fas fa-plus-circle"></i> Add New Size</h5>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="newSizeName" class="form-label">Cup Size</label>
+                            <input type="text" id="newSizeName" class="form-control" 
+                                   placeholder="Enter size name" maxlength="50">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="newSizePrice" class="form-label">Price (₱)</label>
+                            <div class="input-group">
+                                <span class="input-group-text">₱</span>
+                                <input type="number" id="newSizePrice" class="form-control" placeholder="0.00" step="0.01" min="0">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="newTemperatureType" class="form-label">Temperature</label>
+                            <select id="newTemperatureType" class="form-control temperature-type-select">
+                                <option value="">Select Temperature</option>
+                                <option value="Hot">Hot</option>
+                                <option value="Iced">Iced</option>
+                                <option value="Normal">Normal</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="newSizeStock" class="form-label">Stock</label>
+                            <input type="number" id="newSizeStock" class="form-control" placeholder="0" min="0">
+                        </div>
+                    </div>
+                    <div class="menu-item-size-form-actions">
+                        <button type="button" class="save-btn" onclick="createMenuItemSize(<?php echo $menuItem['MenuItem_ID']; ?>)">
+                            Save Size
+                        </button>
+                        <button type="button" class="cancel-btn" onclick="hideAddSizeForm()">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+
+                <table class="menu-item-sizes-table">
                     <thead>
                         <tr>
-                            <th>Size</th>
-                            <th>Price (₱)</th>
-                            <th>Type</th>
-                            <th>Stock</th>
+                            <th style="width: 20%">Size</th>
+                            <th style="width: 25%">Price (₱)</th>
+                            <th style="width: 25%">Temperature</th>
+                            <th style="width: 15%">Stock</th>
+                            <th style="width: 15%">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -251,32 +306,49 @@ if(isset($_POST['submit'])) {
                             'Quatro' => 'Quatro (16oz)',
                             'Sinco' => 'Sinco (22oz)'
                         );
-                        foreach($sizeLabels as $size => $label): 
-                            $sizeData = isset($sizes[$size]) ? $sizes[$size] : null;
-                            $sizeLower = strtolower($size);
+                        foreach($sizes as $size): 
                         ?>
-                        <tr>
-                            <td class="size-label"><?php echo $label; ?></td>
+                        <tr data-size-id="<?php echo $size['MenuItemSize_ID']; ?>">
                             <td>
-                                <input type="number" class="form-control" 
-                                       name="price_<?php echo $sizeLower; ?>" 
-                                       value="<?php echo $sizeData ? $sizeData['MenuItemSize_Price'] : ''; ?>"
-                                       step="0.01" min="0" required>
+                                <input type="text" class="form-control" 
+                                       id="size_name_<?php echo $size['MenuItemSize_ID']; ?>" 
+                                       value="<?php echo htmlspecialchars($size['MenuItemSize_SizeName']); ?>"
+                                       maxlength="50">
                             </td>
                             <td>
-                                <div class="hot-cold-toggle">
-                                    <label class="hot-label">
-                                        <input type="checkbox" name="is_hot_<?php echo $sizeLower; ?>"
-                                               <?php echo ($sizeData && $sizeData['MenuItemSize_IsHot']) ? 'checked' : ''; ?>>
-                                        <i class="fas fa-mug-hot"></i> HOT
-                                    </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">₱</span>
+                                    <input type="number" class="form-control" 
+                                           id="price_<?php echo $size['MenuItemSize_ID']; ?>" 
+                                           value="<?php echo $size['MenuItemSize_Price']; ?>"
+                                           step="0.01" min="0">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <select class="form-control temperature-type-select" 
+                                            id="temperature_type_<?php echo $size['MenuItemSize_ID']; ?>">
+                                        <option value="Hot" <?php echo $size['MenuItemSize_IsHot'] === 'Hot' ? 'selected' : ''; ?>>Hot</option>
+                                        <option value="Iced" <?php echo $size['MenuItemSize_IsHot'] === 'Iced' ? 'selected' : ''; ?>>Iced</option>
+                                        <option value="Normal" <?php echo $size['MenuItemSize_IsHot'] === 'Normal' ? 'selected' : ''; ?>>Normal</option>
+                                    </select>
                                 </div>
                             </td>
                             <td>
                                 <input type="number" class="form-control" 
-                                       name="stock_<?php echo $sizeLower; ?>" 
-                                       value="<?php echo $sizeData ? $sizeData['MenuItemSize_Stock'] : '0'; ?>"
-                                       min="0" required>
+                                       id="stock_<?php echo $size['MenuItemSize_ID']; ?>" 
+                                       value="<?php echo $size['MenuItemSize_Stock']; ?>"
+                                       min="0" placeholder="0">
+                            </td>
+                            <td class="menu-item-size-actions">
+                                <button type="button" class="update-btn update-size-btn" 
+                                        data-size-id="<?php echo $size['MenuItemSize_ID']; ?>">
+                                    <i class="fas fa-save"></i>
+                                </button>
+                                <button type="button" class="delete-btn delete-size-btn"
+                                        data-size-id="<?php echo $size['MenuItemSize_ID']; ?>">
+                                    <i class="fas fa-trash"></i>
+                                </button>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -300,6 +372,9 @@ if(isset($_POST['submit'])) {
 
     <!-- Bootstrap JS -->
     <script src="Css-admin/bootstrap.bundle.min.js"></script>
+    
+    <!-- Menu Sizes JS -->
+    <script src="Javascript-admin/menu-sizes.js"></script>
     
     <script>
     function previewImage(input) {

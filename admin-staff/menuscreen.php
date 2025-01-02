@@ -12,18 +12,11 @@ include 'database_admin.php';
 // Fetch menu items and their sizes from database
 $sql = "SELECT m.MenuItem_ID, m.MenuItem_Name, m.MenuItem_Image, m.MenuItem_Description, 
         m.MenuItem_Category, m.MenuItem_TotalStocks, m.MenuItem_TotalSold,
-        ms.MenuItemSize_ID, ms.MenuItemSize_Size, ms.MenuItemSize_Price, 
+        ms.MenuItemSize_ID, ms.MenuItemSize_SizeName, ms.MenuItemSize_Price, 
         ms.MenuItemSize_IsHot, ms.MenuItemSize_Stock
         FROM menuitem m
         LEFT JOIN menuitem_sizes ms ON m.MenuItem_ID = ms.MenuItem_ID
-        ORDER BY m.MenuItem_ID, 
-        CASE ms.MenuItemSize_Size 
-            WHEN 'Uno' THEN 1 
-            WHEN 'Dos' THEN 2 
-            WHEN 'Tres' THEN 3 
-            WHEN 'Quatro' THEN 4 
-            WHEN 'Sinco' THEN 5 
-        END";
+        ORDER BY m.MenuItem_ID, ms.MenuItemSize_Price ASC";
 $result = mysqli_query($conn, $sql);
 
 // Group menu items with their sizes
@@ -45,7 +38,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     if ($row['MenuItemSize_ID']) {
         $menuItems[$itemId]['sizes'][] = array(
             'id' => $row['MenuItemSize_ID'],
-            'size' => $row['MenuItemSize_Size'],
+            'size' => $row['MenuItemSize_SizeName'],
             'price' => $row['MenuItemSize_Price'],
             'is_hot' => $row['MenuItemSize_IsHot'],
             'stock' => $row['MenuItemSize_Stock']
@@ -69,6 +62,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
   
   <!-- Custom Styles -->
   <link rel="stylesheet" href="Css-admin/menuscreen.css">
+  <link rel="stylesheet" href="Css-admin/menuscreen-custom.css">
   <link rel="stylesheet" href="Css-admin/modal.css">
   <link rel="stylesheet" href="Css-admin/delete-modal.css">
   <link rel="stylesheet" href="Css-admin/menu-sizes.css">
@@ -76,245 +70,6 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
-  <style>
-    /* Custom Styles */
-    .wrapper {
-      display: flex;
-      min-height: 100vh;
-      
-    }
-
-    .sidebar {
-  width: 250px;
-  height: 100%; 
-  background-color: #000;
-  flex-direction: column;
-  align-items: left;
-  position: fixed; /* Stays fixed on the screen */
-  padding: 1rem;
-  z-index: 1000; /* Ensures it stays above other content */
-}
-
-.logo h2 {
-  text-align: center;
-  color: white;
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-}
-
-.nav {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column; /* Items stacked vertically */
-  gap: 5px; /* Space between items */
-  width: 100%; /* Ensure full width */
-}
-
-.nav li {
-  margin-bottom: 13px;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  padding-right: 20px; /* Shift the item to the right */
-  position: relative; /* Allow shifting inside the li */
-}
-
-/* Move the icons a little to the left without affecting the background */
-.nav li i, .nav li img {
-  margin-right: 5px; /* Space between the icon and the text */
-  position: relative; /* Allow movement */
-  left: -10px; /* Move icon and text 5px to the left */
-}
-
-
-.nav li.active {
-  font-weight: bold;
-  background-color: #1B2223;
-  border-radius: 5px;
-}
-
-.nav li:hover {
-  background-color: #1B2223;
-  border-radius: 5px;
-}
-
-    /* Main Content Layout */
-    .main-content {
-      flex: 1;
-      margin-left: 250px;
-      padding: 20px;
-    }
-
-    /* Header Menu Styles */
-    .header-menu {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
-      background-color: #535353;
-      padding: 15px;
-      z-index: 1000;
-    }
-
-    .menu-item {
-      flex: 1;
-      min-width: 150px;
-      text-align: center;
-    }
-
-    .menu-item a {
-      text-decoration: none;
-      color: #343a40;
-      display: block;
-      padding: 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-
-    .menu-item i {
-      font-size: 24px;
-      margin-bottom: 5px;
-    }
-
-    .menu-item p {
-      margin: 0;
-    }
-
-    .buttons {
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-
-    .menu-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 10px;
-    }
-
-    .card {
-      height: 100%;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card-img-top {
-      height: 200px;
-      object-fit: cover;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-    }
-
-    .card-body {
-      padding: 15px;
-    }
-
-    .card-title {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .status {
-      width: 100%;
-      margin: 10px 0;
-    }
-
-    .actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .action-btn {
-      flex: 1;
-    }
-
-    .add-menu-card {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 200px;
-      border: 2px dashed #dee2e6;
-      background-color: #f8f9fa;
-    }
-
-    .add-menu-container {
-      text-align: center;
-    }
-
-    .add-menu-btn {
-      font-size: 24px;
-      margin-bottom: 10px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .sidebar {
-        width: 60px;
-        padding: 10px;
-      }
-
-      .sidebar .logo h2,
-      .sidebar .nav span {
-        display: none;
-      }
-
-      .main-content {
-        margin-left: 60px;
-      }
-
-      .menu-item {
-        min-width: 120px;
-      }
-
-      .card-title {
-        font-size: 1rem;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .menu-cards {
-        grid-template-columns: 1fr;
-      }
-
-      .header-menu {
-        flex-direction: column;
-        gap: 5px;
-      }
-
-      .menu-item {
-        width: 100%;
-      }
-
-      .buttons {
-        display: flex;
-        gap: 10px;
-      }
-
-      .buttons button {
-        flex: 1;
-      }
-    }
-  </style>
-
-  
 </head>
 <body>
   <!-- Modal Structure -->
@@ -354,8 +109,6 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
   </div>
 
   <div class="wrapper">
-    <!-- Previous sidebar content remains unchanged -->
-    
     <!-- Main Content -->
     <div class="main-content">
       <!-- Header Menu -->
@@ -395,8 +148,8 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
             <i class="fa-solid fa-pizza-slice"></i>
             <p>Snacks</p>
           </a>
-    </div>
-  </div>
+        </div>
+      </div>
 
       <!-- View & Edit Buttons -->
       <div class="buttons">
@@ -439,11 +192,18 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
                                     <tr>
                                         <td><?php echo htmlspecialchars($size['size']); ?></td>
                                         <td>
-                                            <?php if ($size['is_hot']): ?>
-                                                <span class="hot-label">HOT</span>
-                                            <?php else: ?>
-                                                <span class="cold-label">ICED</span>
-                                            <?php endif; ?>
+                                            <?php 
+                                            switch($size['is_hot']) {
+                                                case 'Hot':
+                                                    echo '<span class="hot-label"><i class="fas fa-fire"></i> HOT</span>';
+                                                    break;
+                                                case 'Iced':
+                                                    echo '<span class="cold-label"><i class="fas fa-snowflake"></i> ICED</span>';
+                                                    break;
+                                                default:
+                                                    echo '<span class="normal-label"><i class="fas fa-thermometer-half"></i> NORMAL</span>';
+                                            }
+                                            ?>
                                         </td>
                                         <td>₱<?php echo number_format($size['price'], 2); ?></td>
                                     </tr>
@@ -479,7 +239,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
         ?>
 
         <!-- Add Menu Card -->
-        <div class="card add-menu-card ">
+        <div class="card add-menu-card">
           <div class="add-menu-container">
             <button class="btn btn-outline-primary add-menu-btn" onclick="addMenuItem()">
               <i class="fa-solid fa-plus"></i>
@@ -491,109 +251,11 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
     </div>
   </div>
 
-
-  <!-- MODAL -->
-<!-- Edit Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editModalLabel">Edit Menu Item</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="menuName" class="form-label">Name</label>
-              <input type="text" class="form-control" id="menuName" value="Salted Caramel">
-            </div>
-            <div class="mb-3">
-              <label for="menuPrice" class="form-label">Price</label>
-              <input type="number" class="form-control" id="menuPrice" value="120">
-            </div>
-            <div class="mb-3">
-              <label for="menuDescription" class="form-label">Description</label>
-              <textarea class="form-control" id="menuDescription" rows="3">A delicious coffee drink with caramel flavor.</textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success">Save Changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
   <!-- Bootstrap JS -->
   <script src="Css-admin/bootstrap.bundle.min.js"></script>
+
+  <!-- Javascript for Menuscreen -->
+  <script src="Javascript-admin/menu-screen.js"></script>
   
-  <!-- Previous JavaScript code remains unchanged -->
-  <script>
-  let deleteItemId = null;
-
-  function openModal(url) {
-      document.getElementById('modalOverlay').classList.add('show');
-      document.getElementById('modalContainer').classList.add('show');
-      document.getElementById('modalIframe').src = url;
-  }
-
-  function closeModal() {
-      document.getElementById('modalOverlay').classList.remove('show');
-      document.getElementById('modalContainer').classList.remove('show');
-      document.getElementById('modalIframe').src = '';
-      // Reload the parent page to refresh the menu items
-      window.location.reload();
-  }
-
-  function editMenuItem(menuItemId) {
-      openModal('edit_menu_item.php?id=' + menuItemId);
-  }
-
-  function deleteMenuItem(menuItemId) {
-      deleteItemId = menuItemId;
-      document.getElementById('modalOverlay').classList.add('show');
-      document.getElementById('deleteModal').classList.add('show');
-  }
-
-  function cancelDelete() {
-      deleteItemId = null;
-      document.getElementById('modalOverlay').classList.remove('show');
-      document.getElementById('deleteModal').classList.remove('show');
-  }
-
-  function confirmDelete() {
-      if (deleteItemId) {
-          window.location.href = 'delete_menu_item.php?id=' + deleteItemId;
-      }
-  }
-
-  function addMenuItem() {
-      openModal('add_menu_item.php');
-  }
-
-  // Close modal when clicking outside
-  document.getElementById('modalOverlay').addEventListener('click', function(e) {
-      if (e.target === this) {
-          if (document.getElementById('deleteModal').classList.contains('show')) {
-              cancelDelete();
-          } else {
-              closeModal();
-          }
-      }
-  });
-
-  // Close modal with escape key
-  document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-          if (document.getElementById('deleteModal').classList.contains('show')) {
-              cancelDelete();
-          } else {
-              closeModal();
-          }
-      }
-  });
-  </script>
 </body>
 </html>

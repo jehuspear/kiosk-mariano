@@ -20,19 +20,13 @@ if (isset($_GET['itemId'])) {
     
     // Query to get sizes and their temperatures for this item
     $sql = "SELECT 
-                MenuItemSize_Size as size, 
-                MenuItemSize_IsHot as isHot,
+                MenuItemSize_SizeName as size, 
+                MenuItemSize_IsHot as temperature,
                 MenuItemSize_Stock as stock,
                 MenuItemSize_Price as price
             FROM menuitem_sizes 
             WHERE MenuItem_ID = ?
-            ORDER BY CASE MenuItemSize_Size
-                WHEN 'Uno' THEN 1
-                WHEN 'Dos' THEN 2
-                WHEN 'Tres' THEN 3
-                WHEN 'Quatro' THEN 4
-                WHEN 'Sinco' THEN 5
-            END";
+            ORDER BY MenuItemSize_Price ASC";
     
     logError("SQL Query: " . $sql);
             
@@ -62,11 +56,25 @@ if (isset($_GET['itemId'])) {
     $sizes = [];
     
     while ($row = $result->fetch_assoc()) {
+        // Map temperature values
+        $temperatureDisplay = 'NORMAL';
+        switch ($row['temperature']) {
+            case 'Hot':
+                $temperatureDisplay = 'HOT';
+                break;
+            case 'Iced':
+                $temperatureDisplay = 'ICED';
+                break;
+            case 'Normal':
+                $temperatureDisplay = 'NORMAL';
+                break;
+        }
+
         $sizes[] = [
             'size' => $row['size'],
-            'temperature' => $row['isHot'] ? 'HOT' : 'COLD',
-            'stock' => $row['stock'],
-            'price' => $row['price']
+            'temperature' => $temperatureDisplay,
+            'stock' => intval($row['stock']),
+            'price' => floatval($row['price'])
         ];
     }
     

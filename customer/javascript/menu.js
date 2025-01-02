@@ -1,5 +1,5 @@
 // Global variables
-let selectedSize = 'Uno';
+let selectedSize = null;
 let selectedOrderType = null;
 let currentQuantity = 1;
 let currentItemId = null;
@@ -13,7 +13,7 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
     currentItemId = itemId;
     
     // Reset selections
-    selectedSize = 'Uno';
+    selectedSize = null;
     selectedOrderType = null;
     currentQuantity = 1;
     
@@ -31,7 +31,6 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
     modal.setAttribute('data-item-id', itemId);
     
     document.getElementById('item-name').textContent = name;
-    document.getElementById('item-price').textContent = `₱${price.toFixed(2)}`;
     document.getElementById('item-description').textContent = description;
     document.getElementById('quantity').textContent = currentQuantity;
     document.getElementById('item-image').src = image;
@@ -51,8 +50,9 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
             throw new Error('Invalid JSON response');
         }
         
-        if (data.success) {
+        if (data.success && data.sizes.length > 0) {
             console.log('Received sizes:', data.sizes);
+            
             // Get the size buttons container
             const sizeGroup = document.querySelector('.options-group');
             
@@ -60,8 +60,7 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
             sizeGroup.innerHTML = '';
             
             // Create buttons with temperature badges
-            let isFirstButton = true;  // Track first button
-            data.sizes.forEach(sizeInfo => {
+            data.sizes.forEach((sizeInfo, index) => {
                 // Create size option container
                 const sizeOption = document.createElement('div');
                 sizeOption.className = 'size-option';
@@ -69,24 +68,51 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
                 // Create button
                 const button = document.createElement('button');
                 button.className = 'option-btn';
-                // Make first button active by default
-                if (isFirstButton) {
+                
+                // Make first (lowest price) button active by default
+                if (index === 0) {
                     button.classList.add('active');
                     selectedSize = sizeInfo.size;
-                    isFirstButton = false;
+                    window.currentItem.price = parseFloat(sizeInfo.price);
+                    document.getElementById('item-price').textContent = `₱${parseFloat(sizeInfo.price).toFixed(2)}`;
                 }
-                button.onclick = () => selectSize(sizeInfo.size, button);
                 
-                // Add size text
+                button.onclick = () => selectSize(sizeInfo.size, button, sizeInfo.price, sizeInfo.stock);
+                
+                // Add size text (use the size name directly from database)
                 button.textContent = sizeInfo.size;
                 
-                // Create temperature badge
+                // Create temperature badge with icon
                 const badge = document.createElement('span');
-                badge.className = `temp-badge ${sizeInfo.temperature === 'HOT' ? 'hot' : 'cold'}`;
-                badge.textContent = sizeInfo.temperature;
+                badge.className = `temp-badge ${sizeInfo.temperature.toLowerCase()}`;
+                
+                // Add icon based on temperature
+                let icon = '';
+                switch(sizeInfo.temperature) {
+                    case 'HOT':
+                        icon = '<i class="fas fa-fire"></i>';
+                        break;
+                    case 'ICED':
+                        icon = '<i class="fas fa-snowflake"></i>';
+                        break;
+                    case 'NORMAL':
+                        icon = '<i class="fas fa-thermometer-half"></i>';
+                        break;
+                }
+                
+                badge.innerHTML = `${icon} ${sizeInfo.temperature}`;
                 
                 // Add badge to button
                 button.appendChild(badge);
+                
+                // Add stock info
+                if (sizeInfo.stock <= 0) {
+                    const stockBadge = document.createElement('span');
+                    stockBadge.className = 'stock-badge out-of-stock';
+                    stockBadge.innerHTML = '<i class="fas fa-times-circle"></i> Out of Stock';
+                    button.appendChild(stockBadge);
+                    button.disabled = true;
+                }
                 
                 // Add button to size option container
                 sizeOption.appendChild(button);
@@ -94,13 +120,6 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
                 // Add size option to group
                 sizeGroup.appendChild(sizeOption);
             });
-            
-            // Update price for initial size
-            if (data.sizes.length > 0) {
-                const firstSize = data.sizes[0];
-                document.getElementById('item-price').textContent = `₱${parseFloat(firstSize.price).toFixed(2)}`;
-                window.currentItem.price = parseFloat(firstSize.price);
-            }
         } else {
             console.error('Server returned error:', data.message);
             showToast(data.message || 'Failed to load size information');
@@ -108,17 +127,6 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
     } catch (error) {
         console.error('Error fetching size information:', error);
         showToast('Error loading size information. Please try again.');
-    }
-
-    // Reset Size Option Buttons
-    const sizeButtons = document.querySelectorAll('.options-group .option-btn');
-    sizeButtons.forEach(btn => btn.classList.remove('active'));
-    
-    const firstButton = document.querySelector('.options-group .option-btn');
-    if (firstButton) {
-        firstButton.classList.add('active');
-        selectedSize = 'Uno';
-        updatePriceForSize('Uno');
     }
 
     // Reset order type buttons
@@ -226,7 +234,12 @@ function adjustQuantity(change) {
 }
 
 // Function to select size
-function selectSize(size, button) {
+function selectSize(size, button, price, stock) {
+    if (stock <= 0) {
+        showToast('This size is out of stock');
+        return;
+    }
+
     selectedSize = size;
     
     // Remove active class from all size buttons
@@ -237,54 +250,25 @@ function selectSize(size, button) {
     // Add active class to clicked button
     button.classList.add('active');
     
-    // Update price based on selected size
-    updatePriceForSize(size);
+    // Update price display
+    document.getElementById('item-price').textContent = `₱${parseFloat(price).toFixed(2)}`;
+    window.currentItem.price = parseFloat(price);
 }
 
-// Function to update price based on selected size
-function updatePriceForSize(size) {
-    if (!currentItemId) return;
+// Function to select order type
+function selectOrderType(type, button) {
+    selectedOrderType = type;
 
-    const formData = new FormData();
-    formData.append('itemId', currentItemId);
-    formData.append('size', size);
-
-    fetch('get_item_price.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            // Update price display
-            document.getElementById('item-price').textContent = `₱${parseFloat(data.price).toFixed(2)}`;
-            
-            // Update current item price
-            if (window.currentItem) {
-                window.currentItem.price = parseFloat(data.price);
-            }
-
-            // Handle out of stock status
-            const confirmBtn = document.querySelector('.btn-confirm');
-            if (data.stock <= 0) {
-                confirmBtn.disabled = true;
-                confirmBtn.style.opacity = '0.5';
-                confirmBtn.style.cursor = 'not-allowed';
-                showToast('Selected size is out of stock');
-            } else {
-                confirmBtn.disabled = false;
-                confirmBtn.style.opacity = '1';
-                confirmBtn.style.cursor = 'pointer';
-            }
-        } else {
-            console.error('Failed to get price:', data.message);
-            showToast('Failed to update price');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        showToast('Error updating price');
+    // Get all order type buttons
+    const buttons = document.querySelectorAll('.order-type-group .order-type-btn');
+    
+    // Loop through the buttons and deactivate them
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
     });
+
+    // Activate the clicked button
+    button.classList.add('active');
 }
 
 // Show toast message
@@ -410,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(console.error);
 });
 
-// Replace the proceedToCheckout function with server-side cart count check
+// Function to proceed to checkout
 function proceedToCheckout() {
     console.log('Proceeding to checkout...');
     

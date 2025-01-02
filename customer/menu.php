@@ -94,7 +94,7 @@ foreach ($_SESSION['cart'] as $item) {
                                     <img src="resources/menu-items/coffee-icon.png" alt="Coffee">
                                     <span>COFFEE</span>
                                 </a>
-                                <a href="#" class="category-item" data-category="Non Coffee">
+                                <a href="#" class="category-item" data-category="Non-Coffee">
                                     <img src="resources/menu-items/non-coffee-icon.png" alt="Non-Coffee">
                                     <span>NON COFFEE</span>
                                 </a>

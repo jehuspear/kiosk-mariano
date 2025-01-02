@@ -6849,3 +6849,165 @@
 
 [2025-01-02 21:29:11] New total quantity: 3
 [2025-01-02 21:29:11] Response sent: {"success":true,"cartCount":3,"totalAmount":300,"message":"Item added to cart successfully"}
+[2025-01-02 22:06:37] Raw POST data: {"id":13,"name":"Matcha Latte","price":100,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"12oz","orderType":"Take-out","quantity":1}
+[2025-01-02 22:06:37] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 100
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 12oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-01-02 22:06:37] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Iced
+)
+
+[2025-01-02 22:06:37] New total quantity: 1
+[2025-01-02 22:06:37] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-01-02 22:10:41] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","orderType":"Dine-in","quantity":2}
+[2025-01-02 22:10:41] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-01-02 22:10:41] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [price] => 120
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-01-02 22:10:41] New total quantity: 2
+[2025-01-02 22:10:41] Response sent: {"success":true,"cartCount":2,"totalAmount":240,"message":"Item added to cart successfully"}
+[2025-01-02 22:18:11] Raw POST data: {"id":13,"name":"Matcha Latte","price":100,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"12oz","orderType":"Take-out","quantity":1}
+[2025-01-02 22:18:11] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 100
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 12oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-01-02 22:18:11] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Iced
+)
+
+[2025-01-02 22:18:11] New total quantity: 1
+[2025-01-02 22:18:11] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-01-02 22:18:20] Raw POST data: {"id":12,"name":"Blue Punch Mocktail","price":100,"description":"A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.","image":"../admin-staff/Images/menu-item/blue_mocktail.jpg","size":"12oz","orderType":"Take-out","quantity":2}
+[2025-01-02 22:18:20] Decoded data: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [price] => 100
+    [description] => A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [orderType] => Take-out
+    [quantity] => 2
+)
+
+[2025-01-02 22:18:20] Item added to cart: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 2
+    [orderType] => Take-out
+    [temperature] => Iced
+)
+
+[2025-01-02 22:18:20] New total quantity: 3
+[2025-01-02 22:18:20] Response sent: {"success":true,"cartCount":3,"totalAmount":300,"message":"Item added to cart successfully"}
+[2025-01-02 22:20:53] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","orderType":"Dine-in","quantity":1}
+[2025-01-02 22:20:53] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-02 22:20:53] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-01-02 22:20:53] New total quantity: 1
+[2025-01-02 22:20:53] Response sent: {"success":true,"cartCount":1,"totalAmount":120,"message":"Item added to cart successfully"}
+[2025-01-02 22:21:05] Raw POST data: {"id":11,"name":"Banana","price":100,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Extra-Large","orderType":"Dine-in","quantity":1}
+[2025-01-02 22:21:05] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 100
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Extra-Large
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-02 22:21:05] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Extra-Large
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-01-02 22:21:05] New total quantity: 2
+[2025-01-02 22:21:05] Response sent: {"success":true,"cartCount":2,"totalAmount":220,"message":"Item added to cart successfully"}

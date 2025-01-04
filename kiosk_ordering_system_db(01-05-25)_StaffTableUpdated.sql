@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2025 at 04:57 PM
+-- Generation Time: Jan 04, 2025 at 09:13 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -356,7 +356,10 @@ CREATE TABLE `staff` (
 
 INSERT INTO `staff` (`Staff_ID`, `Staff_Username`, `Staff_Password`, `Staff_FirstName`, `Staff_MiddleName`, `Staff_LastName`, `Staff_ContactNumber`, `Staff_Email`, `Staff_Address`, `Staff_BirthDate`, `Staff_Role`, `Staff_Status`) VALUES
 (1, 'admin_tan', '$2y$10$Ui7nbTCCCwB18q0DyzTYOegtToXPOy80T/O54Yk5kL84te4S/VWru', 'Clarence', 'Allanson', 'Tan', '09123456789', 'clarence@admin.com', 'Merry Homes, Barangay 178, Caloocan City', '2003-06-12', 'Admin', 'Active'),
-(2, 'jehu_staff', '$2y$10$DReShyUhE8AT0jgnn3Iph.9FtONWMyjG8U1KodJUcQfaLa02UZm.C', 'Jehu', 'Ferrer', 'Galvez', '09123456789', 'jehu@staff.com', 'Star Apple Street, Barangay 178, Caloocan City', '2001-09-13', 'Admin', 'Active');
+(2, 'jehu_staff', '$2y$10$DReShyUhE8AT0jgnn3Iph.9FtONWMyjG8U1KodJUcQfaLa02UZm.C', 'Jehu Vincent', 'Ferrer', 'Galvez', '09123456789', 'jehu@admin.com', 'Star Apple Street, Barangay 178, Caloocan City', '2001-09-13', 'Admin', 'Active'),
+(3, 'zuhat_admin', '$2y$10$i80fkexxlrCZ4F5biQ0uHe5xyGw3HKvqXgIXVs2wAFrWf9wOeT5ti', 'Zuhat', 'O', 'Kaplan', '09123654129', 'zuhat@admin.com', 'North Fairview', '2000-01-05', 'Admin', 'Active'),
+(4, 'ej_admin', '$2y$10$aMgC9hwb78DyalxYLEkIKOGlUYMu.tP71FKLd6.uJ21UMrTR./d1q', 'Ej Karl', 'B', 'So', '09123654129', 'ej@admin.com', 'SJDM Bulacan', '2000-01-01', 'Admin', 'Active'),
+(5, 'juan_staff', '$2y$10$EUF48aOZ.gtVYko//2eXP.x52zAkgJ8ZrmiZf3cyt7o./3ZfroCW6', 'Juan', 'Rizal', 'Dela Cruz', '09123654129', 'juan@staff.com', 'Green Grove Street', '2025-01-01', 'Staff', 'Active');
 
 --
 -- Indexes for dumped tables
@@ -469,7 +472,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `Staff_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Staff_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

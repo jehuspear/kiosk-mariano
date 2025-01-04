@@ -30,33 +30,62 @@ if($_SESSION["role"] !== "Admin") {
             <!-- Sidebar -->
             <div class="sidebar">
                 <div class="logo">
+                    <img src="Images/logo/logo.png" alt="SINCO CAFE" class="logo-img">
                     <h2>SINCO CAFE</h2>
                 </div>
-                <ul class="nav">
-                    <li><a href="logout.php"><i class="fa-solid fa-sign-out"></i> <span>Logout</span></a></li>
-                    <li class="active"><a href="home.php"><i class="fa-solid fa-user"></i> <span>Home</span></a></li>
-                    <li><a href="menuscreen.php"><i class="fa-solid fa-book"></i> <span>Menu</span></a></li>
-                    <li><a href="pending-orders.php"><i class="fa-solid fa-mug-hot"></i> <span>Pending</span></a></li>
-                    <li><a href="preparing-orders.php"><i class="fa-solid fa-sort"></i> <span>Order list</span></a></li>
-                    <li><a href="completed-orders.php"><i class="fa-solid fa-check-to-slot"></i> <span>Completed</span></a></li>
-                    <li><a href="reports.php"><i class="fa-solid fa-newspaper"></i> <span>Dashboard</span></a></li>
-                    <li><a href="feedback.php"><i class="fa-regular fa-comment"></i> <span>Feedback</span></a></li>
-                    <li><a href="history.php"><i class="fa-solid fa-clock-rotate-left"></i> <span>History</span></a></li>
-                </ul>
+                
+                <div class="sidebar-content">
+                    <div class="sidebar-section">
+                        <h5 class="sidebar-heading">Management</h5>
+                        <ul class="nav">
+                            <li class="active"><a href="home.php"><i class="fa-solid fa-users"></i> <span>Staff</span></a></li>
+                            <li><a href="menuscreen.php"><i class="fa-solid fa-book-open"></i> <span>Menu</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h5 class="sidebar-heading">Orders</h5>
+                        <ul class="nav">
+                            <li><a href="pending-orders.php"><i class="fa-solid fa-hourglass-start"></i> <span>Pending</span></a></li>
+                            <li><a href="preparing-orders.php"><i class="fa-solid fa-mug-hot"></i> <span>Preparing</span></a></li>
+                            <li><a href="completed-orders.php"><i class="fa-solid fa-check-circle"></i> <span>Completed</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <h5 class="sidebar-heading">Analytics</h5>
+                        <ul class="nav">
+                            <li><a href="reports.php"><i class="fa-solid fa-chart-line"></i> <span>Dashboard</span></a></li>
+                            <li><a href="feedback.php"><i class="fa-solid fa-comments"></i> <span>Feedback</span></a></li>
+                            <li><a href="history.php"><i class="fa-solid fa-history"></i> <span>History</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-section mt-auto">
+                        <ul class="nav">
+                            <li><a href="logout.php" class="logout-link"><i class="fa-solid fa-sign-out-alt"></i> <span>Logout</span></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <!-- Main Content -->
             <div class="main-content">
-                <div class="container mt-4">
-                    <div class="row mb-4">
-                        <div class="col">
-                            <h2>Staff Management</h2>
-                        </div>
-                        <div class="col-auto">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStaffModal">
-                                <i class="fas fa-plus"></i> Add New Staff
+                <!-- Page Title Bar -->
+                <div class="page-title-bar">
+                    <div class="d-flex align-items-center">
+                        <div class="mobile-menu-toggle d-lg-none">
+                            <button class="btn btn-dark" id="sidebarToggle">
+                                <i class="fas fa-bars"></i>
                             </button>
                         </div>
+                        <h2>Staff Management</h2>
                     </div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStaffModal">
+                        <i class="fas fa-plus"></i> Add New Staff
+                    </button>
+                </div>
+
+                <div class="container">
                     
                     <!-- Search Bar -->
                     <div class="row mb-4">
@@ -223,5 +252,30 @@ if($_SESSION["role"] !== "Admin") {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- JavaScript -->
         <script src="Javascript-admin/staff-management.js"></script>
+        <script>
+            // Mobile menu toggle functionality
+            document.getElementById('sidebarToggle').addEventListener('click', function() {
+                document.querySelector('.sidebar').classList.toggle('show');
+            });
+
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener('click', function(event) {
+                const sidebar = document.querySelector('.sidebar');
+                const sidebarToggle = document.getElementById('sidebarToggle');
+                
+                if (window.innerWidth <= 991) {
+                    if (!sidebar.contains(event.target) && !sidebarToggle.contains(event.target)) {
+                        sidebar.classList.remove('show');
+                    }
+                }
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 991) {
+                    document.querySelector('.sidebar').classList.remove('show');
+                }
+            });
+        </script>
     </body>
 </html>

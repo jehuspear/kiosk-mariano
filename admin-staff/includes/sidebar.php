@@ -7,6 +7,7 @@ function renderSidebar($currentPage = '') {
         <div class="logo">
             <img src="Images/logo/logo.png" alt="SINCO CAFE" class="logo-img">
             <h2>SINCO CAFE</h2>
+            <p class="welcome-text">Hello, <?php echo isset($_SESSION['firstname']) ? $_SESSION['firstname'] : 'User'; ?></p>
         </div>
         
         <div class="sidebar-content">

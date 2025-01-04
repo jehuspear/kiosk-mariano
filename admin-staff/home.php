@@ -62,6 +62,7 @@ if($_SESSION["role"] !== "Admin") {
                         <table class="table table-hover">
                             <thead>
                                 <tr>
+                                    <th>Staff ID</th>
                                     <th>Email</th>
                                     <th>Full Name</th>
                                     <th>Role</th>

@@ -56,10 +56,22 @@ body {
     text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
+.sidebar .logo .welcome-text {
+    font-size: 1rem;
+    color: #a8a8a8;
+    margin-top: 10px;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    padding: 8px 15px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 20px;
+    display: inline-block;
+}
+
 .sidebar-content {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 200px);
     padding: 20px 0;
 }
 
@@ -239,6 +251,10 @@ body {
     .sidebar .logo-img {
         width: 60px;
         height: 60px;
+    }
+
+    .sidebar .logo .welcome-text {
+        font-size: 0.9rem;
     }
 
     .mobile-menu-toggle button {

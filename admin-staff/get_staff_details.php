@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
     echo json_encode($result->fetch_assoc());
 } else {
     // Get all staff members
-    $sql = "SELECT * FROM staff ORDER BY Staff_LastName";
+    $sql = "SELECT * FROM staff ORDER BY Staff_ID";
     $result = $conn->query($sql);
     $staff = array();
     

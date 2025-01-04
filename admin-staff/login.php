@@ -33,6 +33,7 @@ if (isset($_POST["login"])) {
                     $_SESSION["user_id"] = $staff["Staff_ID"];
                     $_SESSION["username"] = $staff["Staff_Username"];
                     $_SESSION["role"] = $staff["Staff_Role"];
+                    $_SESSION["firstname"] = $staff["Staff_FirstName"];
                     
                     // Handle Remember Me
                     if(isset($_POST["remember"]) && $_POST["remember"] == "on") {
@@ -102,9 +103,6 @@ if (isset($_POST["login"])) {
         </div>
         <button type="submit" name="login" class="login-button">Login</button>
       </form>
-      <p class="signup-text">
-        Don't have a Staff account? <a href="registrationadmin.php" class="signup-link">Sign up</a>
-      </p>
     </div>
 </body>
 </html>

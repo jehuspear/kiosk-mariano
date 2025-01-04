@@ -191,6 +191,7 @@ body {
 .table td {
     padding: 12px;
     vertical-align: middle;
+    text-align: center;
 }
 
 /* Form Styles */

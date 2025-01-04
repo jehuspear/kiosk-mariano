@@ -23,6 +23,7 @@ function loadStaffData() {
             data.forEach(staff => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
+                    <td>${staff.Staff_ID}</td>
                     <td>${staff.Staff_Email}</td>
                     <td>${staff.Staff_FirstName} ${staff.Staff_MiddleName} ${staff.Staff_LastName}</td>
                     <td>${staff.Staff_Role}</td>

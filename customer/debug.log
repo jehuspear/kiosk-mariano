@@ -4431,3 +4431,13 @@
             WHERE MenuItem_ID = ?
             ORDER BY MenuItemSize_Price ASC
 2025-01-02 22:21:00 - Successfully found 4 sizes for itemId: 11
+2025-01-03 17:43:41 - Received request for itemId: 4
+2025-01-03 17:43:41 - SQL Query: SELECT 
+                MenuItemSize_SizeName as size, 
+                MenuItemSize_IsHot as temperature,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY MenuItemSize_Price ASC
+2025-01-03 17:43:41 - Successfully found 5 sizes for itemId: 4

@@ -3,7 +3,7 @@ session_start();
 
 // Check if user is already logged in
 if(isset($_SESSION["user_id"])) {
-    header("Location: menuscreen.php");
+    header("Location: home.php");
     exit();
 }
 
@@ -41,8 +41,8 @@ if (isset($_POST["login"])) {
                         setcookie("user_password", $password, time() + (30 * 24 * 60 * 60), "/");
                     }
                     
-                    // Redirect to menu screen
-                    header("Location: menuscreen.php");
+                    // Redirect to the home screen
+                    header("Location: home.php");
                     exit();
                 } else {
                     $error = "Invalid password";

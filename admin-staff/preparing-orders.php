@@ -19,38 +19,35 @@ if(!isset($_SESSION["user_id"])) {
   <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
   
   <!-- Custom Styles -->
+  <link rel="stylesheet" href="Css-admin/sidebar.css">
   <link rel="stylesheet" href="Css-admin/orderlist.css">
   <link rel="stylesheet" href="Css-admin/preparing_orders.css">
   <link rel="stylesheet" href="Css-admin/preparing_status.css">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Toast Container -->
   <div class="toast-container"></div>
 </head>
 <body>
   <div class="wrapper">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <div class="logo">
-        <h2>SINCO CAFE</h2>
-      </div>
-      <ul class="nav">
-        <li><a href="logout.php"><i class="fa-solid fa-sign-out"></i> <span>Logout</span></a></li>
-        <li><a href="menuscreen.php"><i class="fa-solid fa-book"></i> Menu</a></li>
-        <li><a href="decodingscreen.php"><i class="fa-solid fa-ticket"></i> E-ticket</a></li>
-        <li><a href="pending-orders.php"><i class="fa-solid fa-mug-hot"></i> Orders</a></li>
-        <li class="active"><a href="preparing-orders.php"><i class="fa-solid fa-sort"></i> Order Lists</a></li>
-        <li><a href="completed-orders.php"><i class="fa-solid fa-check-to-slot"></i> Completed</a></li>
-        <li><a href="reports.php"><i class="fa-solid fa-newspaper"></i> Reports</a></li>
-        <li><a href="feedback.php"><i class="fa-regular fa-comment"></i> Feedback</a></li>
-        <li><a href="history.php"><i class="fa-solid fa-clock-rotate-left"></i> History</a></li>
-      </ul>
-    </div>
+    <?php 
+    require_once 'includes/sidebar.php';
+    renderSidebar('preparing');
+    ?>
 
-    <main class="content">
-        <h2>List of orders</h2>
+    <main class="main-content">
+        <!-- Mobile Menu Toggle -->
+        <div class="mobile-menu-toggle d-lg-none">
+            <button class="btn btn-dark" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <h2 style="text-align: center;">List of orders</h2>
         <div class="order-list">
             <?php
             require_once 'database_admin.php';
@@ -171,5 +168,6 @@ if(!isset($_SESSION["user_id"])) {
 <script src="Css-admin/bootstrap.bundle.min.js"></script>
 <!-- Custom Scripts -->
 <script src="Javascript-admin/order_status_handler.js"></script>
+<script src="Javascript-admin/mobile-menu.js"></script>
 </body>
 </html>

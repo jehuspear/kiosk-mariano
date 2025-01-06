@@ -291,65 +291,98 @@ function showToast(message) {
     }, 3000);
 }
 
-// Function to proceed to checkout
-// function proceedToCheckout() {
-//     // Get the cart count from the span element
-//     const orderCountText = document.getElementById('order-count').textContent;
-//     const orderCount = parseInt(orderCountText);
-//     console.log('Order count text:', orderCountText); // Debug log
-//     console.log('Parsed order count:', orderCount); // Debug log
+
+
+// THE SEARCH AND CATEGORY FUNCTIONALITY
+let currentCategory = 'all';
+let currentSearchTerm = '';
+let searchTimeout = null;
+
+// Function to filter menu items
+function filterMenuItems(searchTerm = '', category = 'all') {
+    const menuItems = document.querySelectorAll('.menu-item');
+    const normalizedSearchTerm = searchTerm.toLowerCase().trim();
     
-//     // Check if we have items in cart
-//     if (!isNaN(orderCount) && orderCount > 0) {
-//         window.location.href = 'checkout-list.php';
-//     } else {
-//         const emptyCartAlertEl = document.getElementById('emptyCartAlert');
-//         if (!emptyCartAlertEl) {
-//             console.error('Empty cart alert modal not found');
-//             return;
-//         }
-
-//         const emptyCartAlert = new bootstrap.Modal(emptyCartAlertEl);
-//         emptyCartAlert.show();
-//     }
-// } //End of proceedToCheckout Function
-
-// Function to select order type
-function selectOrderType(type, button) {
-    selectedOrderType = type;
-
-    // Get all order type buttons
-    const buttons = document.querySelectorAll('.order-type-group .order-type-btn');
-    
-    // Loop through the buttons and deactivate them
-    buttons.forEach(btn => {
-        btn.classList.remove('active');
+    menuItems.forEach(item => {
+        const itemName = item.querySelector('.item-name').textContent.toLowerCase();
+        const itemCategory = item.querySelector('.item-category').textContent.toLowerCase();
+        const itemContainer = item;
+        
+        const matchesSearch = !normalizedSearchTerm || 
+            itemName.includes(normalizedSearchTerm) || 
+            itemCategory.includes(normalizedSearchTerm);
+            
+        const matchesCategory = category === 'all' || 
+            itemCategory === category.toLowerCase();
+        
+        if (matchesSearch && matchesCategory) {
+            itemContainer.classList.remove('hidden');
+            setTimeout(() => {
+                itemContainer.style.display = '';
+            }, 50);
+        } else {
+            itemContainer.classList.add('hidden');
+            setTimeout(() => {
+                if (itemContainer.classList.contains('hidden')) {
+                    itemContainer.style.display = 'none';
+                }
+            }, 300);
+        }
     });
 
-    // Activate the clicked button
-    button.classList.add('active');
+    // Update "No results" message
+    updateNoResultsMessage(menuItems);
 }
 
+// Function to update "No results" message
+function updateNoResultsMessage(menuItems) {
+    let noResultsMsg = document.querySelector('.no-results-message');
+    const visibleItems = Array.from(menuItems).filter(item => item.style.display !== 'none');
 
-// THE SEARCH FUNCTIONALITY --Start--
+    if (visibleItems.length === 0) {
+        if (!noResultsMsg) {
+            noResultsMsg = document.createElement('div');
+            noResultsMsg.className = 'no-results-message';
+            noResultsMsg.style.textAlign = 'center';
+            noResultsMsg.style.padding = '20px';
+            noResultsMsg.style.color = '#666';
+            const container = document.getElementById('menu-items-container');
+            container.appendChild(noResultsMsg);
+        }
+        noResultsMsg.textContent = 'No items found';
+    } else if (noResultsMsg) {
+        noResultsMsg.remove();
+    }
+}
+
+// Function to set animation delays for menu items
+function setMenuItemAnimationDelays() {
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach((item, index) => {
+        item.style.setProperty('--item-index', index);
+    });
+}
+
 // Initialize event listeners when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize search functionality
+    // Set initial animation delays
+    setMenuItemAnimationDelays();
+    
+    // Initialize search functionality with debouncing
     const searchInput = document.querySelector('.search-input');
     if (searchInput) {
         searchInput.addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const menuItems = document.querySelectorAll('.menu-item');
+            currentSearchTerm = e.target.value;
             
-            menuItems.forEach(item => {
-                const itemName = item.querySelector('.item-name').textContent.toLowerCase();
-                const itemContainer = item.closest('.col');
-                if (itemName.includes(searchTerm)) {
-                    itemContainer.style.display = '';
-                } else {
-                    itemContainer.style.display = 'none';
-                }
-            });
+            // Clear existing timeout
+            if (searchTimeout) {
+                clearTimeout(searchTimeout);
+            }
+            
+            // Set new timeout
+            searchTimeout = setTimeout(() => {
+                filterMenuItems(currentSearchTerm, currentCategory);
+            }, 300); // 300ms delay
         });
     }
 
@@ -357,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.category-item').forEach(item => {
         item.addEventListener('click', function(e) {
             e.preventDefault();
-            const category = this.getAttribute('data-category');
+            currentCategory = this.getAttribute('data-category');
             
             // Update active state
             document.querySelectorAll('.category-item').forEach(i => {
@@ -367,21 +400,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Update section title
             const sectionTitle = document.querySelector('.section-title');
-            sectionTitle.textContent = category === 'all' ? 'ALL ITEMS' : category.toUpperCase();
+            sectionTitle.textContent = currentCategory === 'all' ? 'ALL ITEMS' : currentCategory.toUpperCase();
             
-            // Filter menu items
-            const menuItems = document.querySelectorAll('.menu-item');
-            menuItems.forEach(item => {
-                const itemCategory = item.querySelector('.item-category').textContent;
-                const itemContainer = item.closest('.col');
-                if (category === 'all' || itemCategory === category) {
-                    itemContainer.style.display = '';
-                } else {
-                    itemContainer.style.display = 'none';
-                }
-            });
+            // Reset animation delays and filter items
+            setMenuItemAnimationDelays();
+            filterMenuItems(currentSearchTerm, currentCategory);
         });
-    }); //END of Search Functionality
+    });
 
     // Update initial cart count from session
     fetch('get_cart_count.php')

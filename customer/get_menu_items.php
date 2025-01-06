@@ -68,8 +68,7 @@ function displayMenuItems() {
             );
         }
         ?>
-        <div class="col">
-            <div class="menu-item <?php echo $outOfStock ? 'out-of-stock-item' : ''; ?>" 
+        <div class="menu-item <?php echo $outOfStock ? 'out-of-stock-item' : ''; ?>" 
                  <?php if (!$outOfStock): ?>
                  data-bs-toggle="modal" 
                  data-bs-target="#itemModal"
@@ -88,14 +87,18 @@ function displayMenuItems() {
                 </div>
                 <?php endif; ?>
                 <?php echo $bestSellerBadge; ?>
-                <img src="<?php echo htmlspecialchars($item['image']); ?>" 
-                     alt="<?php echo htmlspecialchars($item['name']); ?>">
-                <div class="item-details">
-                    <p class="item-name"><?php echo htmlspecialchars($item['name']); ?></p>
-                    <p class="item-category"><?php echo htmlspecialchars($item['category']); ?></p>
-                    <p class="item-price">₱<?php echo number_format($item['price'], 2); ?></p>
+                <div class="menu-item-image">
+                    <img src="<?php echo htmlspecialchars($item['image']); ?>" 
+                         alt="<?php echo htmlspecialchars($item['name']); ?>">
                 </div>
-            </div>
+                <div class="item-details">
+                    <h3 class="item-name"><?php echo htmlspecialchars($item['name']); ?></h3>
+                    <p class="item-category"><?php echo htmlspecialchars($item['category']); ?></p>
+                    <p class="item-price">
+                        <span class="currency">₱</span>
+                        <span class="amount"><?php echo number_format($item['price'], 2); ?></span>
+                    </p>
+                </div>
         </div>
         <?php
     }

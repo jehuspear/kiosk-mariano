@@ -42,13 +42,15 @@ foreach ($_SESSION['cart'] as $item) {
     <link rel="stylesheet" href="css/modal-actions.css">
     <!-- Order Type CSS -->
     <link rel="stylesheet" href="css/order-type.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Mobile Phone Container -->
-    <div class="mobile-container">
-        <div class="mobile-content">
+    <!-- Main Container -->
+    <div class="main-container">
+        <div class="content">
             <!-- Header -->
             <header class="header">
                 <div class="container-fluid">
@@ -121,8 +123,8 @@ foreach ($_SESSION['cart'] as $item) {
                     <!-- Menu Items Section-->
                     <div class="col menu-content">
                         <div class="menu-section">
-                            <div class="section-title">ALL ITEMS</div>
-                            <div class="row row-cols-2 g-2" id="menu-items-container">
+                            <div class="section-title">ALL ITEMS Hello</div>
+                            <div id="menu-items-container">
                                 <!-- Menu items will be dynamically loaded here -->
                                 <?php displayMenuItems(); ?>
                             </div>
@@ -223,8 +225,8 @@ foreach ($_SESSION['cart'] as $item) {
     </div>  <!-- End of Alert Modal for Empty Check out list -->
 
 
-        </div> <!-- End of Mobile Content -->
-    </div> <!-- End of Mobile Container -->
+        </div> <!-- End of Content -->
+    </div> <!-- End of Main Container -->
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -26,7 +26,7 @@ if (isset($_GET['itemId'])) {
                 MenuItemSize_Price as price
             FROM menuitem_sizes 
             WHERE MenuItem_ID = ?
-            ORDER BY MenuItemSize_Price ASC";
+            ORDER BY MenuItemSize_ID ASC";
     
     logError("SQL Query: " . $sql);
             

@@ -16,7 +16,7 @@ $sql = "SELECT m.MenuItem_ID, m.MenuItem_Name, m.MenuItem_Image, m.MenuItem_Desc
         ms.MenuItemSize_IsHot, ms.MenuItemSize_Stock
         FROM menuitem m
         LEFT JOIN menuitem_sizes ms ON m.MenuItem_ID = ms.MenuItem_ID
-        ORDER BY m.MenuItem_ID, ms.MenuItemSize_Price ASC";
+        ORDER BY m.MenuItem_ID ASC";
 $result = mysqli_query($conn, $sql);
 
 // Group menu items with their sizes

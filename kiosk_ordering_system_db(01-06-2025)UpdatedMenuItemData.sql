@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2025 at 09:13 PM
+-- Generation Time: Jan 06, 2025 at 11:10 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -72,7 +72,8 @@ INSERT INTO `logs` (`Log_ID`, `Staff_ID`, `Log_DateTime`, `Log_Action`, `Log_Det
 (15, 2, '2025-01-03 04:30:30', 'Order marked as ready', 'Order #20 status changed to ReadyToClaim'),
 (16, 2, '2025-01-03 05:12:08', 'Order marked as ready', 'Order #21 status changed to ReadyToClaim'),
 (17, 2, '2025-01-03 05:19:30', 'Order marked as ready', 'Order #22 status changed to ReadyToClaim'),
-(18, 2, '2025-01-03 05:22:14', 'Order marked as ready', 'Order #23 status changed to ReadyToClaim');
+(18, 2, '2025-01-03 05:22:14', 'Order marked as ready', 'Order #23 status changed to ReadyToClaim'),
+(19, 5, '2025-01-06 18:09:19', 'Order marked as ready', 'Order #24 status changed to ReadyToClaim');
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,8 @@ INSERT INTO `menuitem` (`MenuItem_ID`, `MenuItem_Name`, `MenuItem_Image`, `MenuI
 (10, 'Espresso (Doppio)', 'Images/menu-items/Doppio_Espresso_Macchiato.jpg', 'Sample Coffee', 'Traditional Coffee', 20, 0, 'Available'),
 (11, 'Banana', 'Images/menu-items/banana.jpg', 'Banana', 'Snacks', 35, 0, 'Available'),
 (12, 'Blue Punch Mocktail', 'Images/menu-item/blue_mocktail.jpg', 'A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.', 'Mocktail', 5, 0, 'Available'),
-(13, 'Matcha Latte', 'Images/menu-item/matcha-latte.jpg', 'A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.', 'Non-Coffee', 25, 0, 'Available');
+(13, 'Matcha Latte', 'Images/menu-item/matcha-latte.jpg', 'A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.', 'Non-Coffee', 24, 0, 'Available'),
+(14, 'Black Forest cake ', 'Images/menu-item/black-forest-pastry.jpg', 'A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.', 'Pastries', 20, 0, 'Available');
 
 -- --------------------------------------------------------
 
@@ -144,26 +146,26 @@ INSERT INTO `menuitem_sizes` (`MenuItemSize_ID`, `MenuItem_ID`, `MenuItemSize_Si
 (13, 3, 'Tres', 'Iced', 90.00, 0, 30),
 (14, 3, 'Quatro', 'Iced', 125.00, 0, 20),
 (15, 3, 'Sinco', 'Iced', 135.00, 0, 15),
-(16, 4, 'Uno', '', 90.00, 0, 49),
-(17, 4, 'Dos', '', 120.00, 0, 40),
-(18, 4, 'Tres', '', 95.00, 0, 30),
-(19, 4, 'Quatro', '', 130.00, 0, 20),
-(20, 4, 'Sinco', '', 145.00, 0, 15),
-(21, 5, 'Uno', '', 95.00, 0, 49),
-(22, 5, 'Dos', '', 125.00, 0, 40),
-(23, 5, 'Tres', '', 100.00, 0, 30),
-(24, 5, 'Quatro', '', 135.00, 0, 20),
-(25, 5, 'Sinco', '', 150.00, 0, 15),
-(26, 6, 'Uno', '', 100.00, 0, 50),
-(27, 6, 'Dos', '', 130.00, 0, 40),
-(28, 6, 'Tres', '', 100.00, 0, 30),
-(29, 6, 'Quatro', '', 135.00, 0, 20),
-(30, 6, 'Sinco', '', 150.00, 0, 15),
-(31, 7, 'Uno', '', 100.00, 0, 50),
-(32, 7, 'Dos', '', 130.00, 0, 40),
-(33, 7, 'Tres', '', 105.00, 0, 30),
-(34, 7, 'Quatro', '', 140.00, 0, 20),
-(35, 7, 'Sinco', '', 155.00, 0, 15),
+(16, 4, 'Uno', 'Hot', 90.00, 0, 49),
+(17, 4, 'Dos', 'Hot', 120.00, 0, 40),
+(18, 4, 'Tres', 'Iced', 95.00, 0, 30),
+(19, 4, 'Quatro', 'Iced', 130.00, 0, 20),
+(20, 4, 'Sinco', 'Iced', 145.00, 0, 15),
+(21, 5, 'Uno', 'Hot', 95.00, 0, 49),
+(22, 5, 'Dos', 'Hot', 125.00, 0, 40),
+(23, 5, 'Tres', 'Iced', 100.00, 0, 30),
+(24, 5, 'Quatro', 'Iced', 135.00, 0, 20),
+(25, 5, 'Sinco', 'Iced', 150.00, 0, 15),
+(26, 6, 'Uno', 'Hot', 100.00, 0, 50),
+(27, 6, 'Dos', 'Hot', 130.00, 0, 40),
+(28, 6, 'Tres', 'Iced', 100.00, 0, 30),
+(29, 6, 'Quatro', 'Iced', 135.00, 0, 20),
+(30, 6, 'Sinco', 'Iced', 150.00, 0, 15),
+(31, 7, 'Uno', 'Hot', 100.00, 0, 50),
+(32, 7, 'Dos', 'Hot', 130.00, 0, 40),
+(33, 7, 'Tres', 'Iced', 105.00, 0, 30),
+(34, 7, 'Quatro', 'Iced', 140.00, 0, 20),
+(35, 7, 'Sinco', 'Iced', 155.00, 0, 15),
 (36, 10, 'Uno', 'Hot', 60.00, 0, 10),
 (37, 10, 'Dos', 'Hot', 70.00, 0, 2),
 (41, 11, 'Small', 'Normal', 50.00, 0, 9),
@@ -174,8 +176,11 @@ INSERT INTO `menuitem_sizes` (`MenuItemSize_ID`, `MenuItem_ID`, `MenuItemSize_Si
 (48, 12, '12oz', 'Iced', 100.00, 0, 1),
 (49, 12, '16oz', 'Iced', 120.00, 0, 2),
 (50, 13, '8oz', 'Hot', 70.00, 0, 10),
-(51, 13, '12oz', 'Iced', 100.00, 0, 8),
-(52, 13, '16oz', 'Iced', 120.00, 0, 7);
+(51, 13, '12oz', 'Iced', 100.00, 0, 7),
+(52, 13, '16oz', 'Iced', 120.00, 0, 7),
+(53, 14, '1 Piece', 'Normal', 60.00, 0, 12),
+(54, 14, 'Half Slice', 'Normal', 120.00, 0, 5),
+(55, 14, '1 Whole', 'Normal', 240.00, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -224,7 +229,8 @@ INSERT INTO `order` (`Order_ID`, `Order_CustomerName`, `Order_EatingOption`, `Or
 (20, NULL, 'Dine-in', 413, '2025-01-03 04:29:24', '2025-01-03 04:30:30', 400.00, 20, 'GCash', NULL, 'Completed'),
 (21, NULL, 'Dine-in', 225, '2025-01-03 05:10:50', '2025-01-03 05:12:08', 120.00, 21, 'Cash', NULL, 'Completed'),
 (22, NULL, 'Take-out', 637, '2025-01-03 05:18:34', '2025-01-03 05:19:30', 200.00, 22, 'GCash', NULL, 'ReadyToClaim'),
-(23, NULL, 'Dine-in', 233, '2025-01-03 05:21:14', '2025-01-03 05:22:14', 220.00, 23, 'Cash', NULL, 'ReadyToClaim');
+(23, NULL, 'Dine-in', 233, '2025-01-03 05:21:14', '2025-01-03 05:22:14', 220.00, 23, 'Cash', NULL, 'ReadyToClaim'),
+(24, NULL, 'Dine-in', 482, '2025-01-06 18:07:53', '2025-01-06 18:09:19', 220.00, 24, 'Cash', NULL, 'ReadyToClaim');
 
 -- --------------------------------------------------------
 
@@ -281,7 +287,9 @@ INSERT INTO `orderitem` (`OrderItem_ID`, `Order_ID`, `MenuItem_ID`, `OrderItem_C
 (33, 22, 13, '12oz', 1, 100.00),
 (34, 22, 12, '12oz', 1, 100.00),
 (35, 23, 13, '16oz', 1, 120.00),
-(36, 23, 11, 'Extra-Large', 1, 100.00);
+(36, 23, 11, 'Extra-Large', 1, 100.00),
+(37, 24, 14, 'Half Slice', 1, 120.00),
+(38, 24, 13, '12oz', 1, 100.00);
 
 -- --------------------------------------------------------
 
@@ -327,7 +335,8 @@ INSERT INTO `payment` (`Payment_ID`, `Payment_Method`, `Payment_DateTime`, `Orde
 (20, 'GCash', '2025-01-03 04:29:49', 400.00, NULL, 0.00, 400.00, 'Completed'),
 (21, 'Cash', '2025-01-03 05:11:48', 120.00, NULL, 0.00, 120.00, 'Completed'),
 (22, 'GCash', '2025-01-03 05:19:01', 200.00, NULL, 0.00, 200.00, 'Completed'),
-(23, 'Cash', '2025-01-03 05:21:48', 220.00, NULL, 0.00, 220.00, 'Completed');
+(23, 'Cash', '2025-01-03 05:21:48', 220.00, NULL, 0.00, 220.00, 'Completed'),
+(24, 'Cash', '2025-01-06 18:08:44', 220.00, NULL, 0.00, 220.00, 'Completed');
 
 -- --------------------------------------------------------
 
@@ -436,37 +445,37 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `Log_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `Log_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `menuitem`
 --
 ALTER TABLE `menuitem`
-  MODIFY `MenuItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `MenuItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `menuitem_sizes`
 --
 ALTER TABLE `menuitem_sizes`
-  MODIFY `MenuItemSize_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `MenuItemSize_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `orderitem`
 --
 ALTER TABLE `orderitem`
-  MODIFY `OrderItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `OrderItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `Payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `Payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `staff`

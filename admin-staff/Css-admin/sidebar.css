@@ -22,7 +22,7 @@ body {
 /* Sidebar Styles */
 .sidebar {
     width: 280px;
-    background: #1a1a1a;
+    background-color: #000;
     color: #fff;
     padding: 0;
     position: fixed;
@@ -32,6 +32,7 @@ body {
     z-index: 1000;
 }
 
+  
 .sidebar .logo {
     padding: 20px;
     text-align: center;
@@ -262,3 +263,4 @@ body {
         height: 35px;
     }
 }
+

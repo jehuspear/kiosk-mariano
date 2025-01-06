@@ -24,6 +24,7 @@ if($_SESSION["role"] !== "Admin") {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
         <link rel="stylesheet" href="Css-admin/home.css">
+        <link rel="stylesheet" href="Css-admin/sidebar.css">
     </head>
     <body>
         <div class="wrapper">
@@ -58,7 +59,7 @@ if($_SESSION["role"] !== "Admin") {
                     </div>
 
                     <!-- Staff Table -->
-                    <div class="table-responsive">
+                    <div class="table-responsive" style="text-align: center;">
                         <table class="table table-hover">
                             <thead>
                                 <tr>

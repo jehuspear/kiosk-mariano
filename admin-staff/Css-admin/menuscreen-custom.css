@@ -5,64 +5,7 @@
     
   }
 
-  .sidebar {
-width: 250px;
-height: 100%; 
-background-color: #000;
-flex-direction: column;
-align-items: left;
-position: fixed; /* Stays fixed on the screen */
-padding: 1rem;
-z-index: 1000; /* Ensures it stays above other content */
-}
-
-.logo h2 {
-text-align: center;
-color: white;
-font-size: 1.8rem;
-margin-bottom: 2rem;
-}
-
-.nav {
-list-style: none;
-padding: 0;
-display: flex;
-flex-direction: column; /* Items stacked vertically */
-gap: 5px; /* Space between items */
-width: 100%; /* Ensure full width */
-}
-
-.nav li {
-margin-bottom: 13px;
-padding: 10px 20px;
-font-size: 1.2rem;
-cursor: pointer;
-display: flex;
-align-items: center;
-gap: 10px;
-color: white;
-padding-right: 20px; /* Shift the item to the right */
-position: relative; /* Allow shifting inside the li */
-}
-
-/* Move the icons a little to the left without affecting the background */
-.nav li i, .nav li img {
-margin-right: 5px; /* Space between the icon and the text */
-position: relative; /* Allow movement */
-left: -10px; /* Move icon and text 5px to the left */
-}
-
-
-.nav li.active {
-font-weight: bold;
-background-color: #1B2223;
-border-radius: 5px;
-}
-
-.nav li:hover {
-background-color: #1B2223;
-border-radius: 5px;
-}
+ 
 
   /* Main Content Layout */
   .main-content {

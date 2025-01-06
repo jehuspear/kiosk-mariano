@@ -363,10 +363,43 @@ function setMenuItemAnimationDelays() {
     });
 }
 
+// Function to toggle search overlay
+function toggleSearchOverlay(show) {
+    const overlay = document.querySelector('.search-overlay');
+    const searchInput = overlay.querySelector('.search-input');
+    
+    if (show) {
+        overlay.classList.add('active');
+        // Focus the input after animation
+        setTimeout(() => {
+            searchInput.focus();
+        }, 300);
+    } else {
+        overlay.classList.remove('active');
+        searchInput.value = '';
+        // Reset search results
+        filterMenuItems('', currentCategory);
+    }
+}
+
 // Initialize event listeners when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Set initial animation delays
     setMenuItemAnimationDelays();
+    
+    // Initialize search toggle functionality
+    const searchToggleBtn = document.querySelector('.search-toggle-btn');
+    const searchCloseBtn = document.querySelector('.search-close-btn');
+    
+    searchToggleBtn.addEventListener('click', () => toggleSearchOverlay(true));
+    searchCloseBtn.addEventListener('click', () => toggleSearchOverlay(false));
+    
+    // Close search on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            toggleSearchOverlay(false);
+        }
+    });
     
     // Initialize search functionality with debouncing
     const searchInput = document.querySelector('.search-input');

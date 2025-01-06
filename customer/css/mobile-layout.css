@@ -34,61 +34,175 @@
     margin: 0;
 }
 
-/* Search Bar */
+/* Search Button */
+.search-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    color: #000;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px);
+}
+
+.search-toggle-btn:hover {
+    transform: scale(1.05);
+    background: #fff;
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.search-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 576px) {
+    .search-toggle-btn {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+}
+
+/* Search Overlay */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.98);
+    padding: 20px;
+    z-index: 999;
+    transform: translateY(-100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+.search-overlay.active {
+    transform: translateY(0);
+}
+
+/* Search Container */
 .search-container {
     position: relative;
-    padding: 10px 15px;
-    background: #000;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 60px;
 }
 
 .search-input {
     width: 100%;
-    padding: 12px 45px 12px 20px;
-    border-radius: 25px;
-    border: none;
-    background: #f8f9fa;
-    font-size: 14px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    padding: 20px 60px 20px 30px;
+    border-radius: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    font-size: 16px;
+    color: #333;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .search-input:focus {
     outline: none;
     background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.3);
 }
 
-.search-container::after {
-    content: '\f002';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
+.search-close-btn {
     position: absolute;
-    right: 30px;
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #666;
-    font-size: 15px;
-    pointer-events: none;
-    transition: color 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: rgba(49, 47, 47, 0.9);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
 }
 
-.search-input:focus ~ .search-container::after {
-    color: #333;
+.search-close-btn:hover {
+    color: #443f3f;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.search-close-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+@media (max-width: 576px) {
+    .search-overlay {
+        padding: 15px;
+    }
+    
+    .search-container {
+        margin-top: 45px;
+    }
+    
+    .search-input {
+        padding: 15px 50px 15px 20px;
+        font-size: 15px;
+    }
+    
+    .search-close-btn {
+        font-size: 18px;
+        padding: 6px;
+    }
 }
 
 /* Categories Sidebar */
 .categories-wrapper {
     width: 80px;
-    background: #fff;
+    background: linear-gradient(to bottom, #fff, #fafafa);
     border-right: 1px solid #eee;
-    height: calc(100vh - 220px);
+    height: auto;
     position: fixed;
-    overflow-y: auto;
-    z-index: 10;
+    top: 100px; /* Height of header + some padding */
+    left: 0;
+    z-index: 100;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+    padding-bottom: 70px; /* Space for cart section */
 }
 
 .categories {
     padding: 4px;
+}
+
+/* Menu Content Adjustments */
+.menu-content {
+    margin-left: 82px; /* Slightly reduced margin */
+    padding: 8px 8px 8px 12px;
+    min-height: calc(100vh - 160px);
+}
+
+/* Section Title Adjustment */
+.section-title {
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .category-header {
@@ -126,7 +240,8 @@
 }
 
 .category-item.active img {
-    filter: brightness(0) invert(1);
+    filter: brightness(1) invert(0);
+    border-radius: 30px;
 }
 
 .category-item:active {
@@ -147,12 +262,7 @@
     color: #000;
 }
 
-/* Menu Content */
-.menu-content {
-    margin-left: 80px;
-    padding: 8px 4px;
-}
-
+/* Menu Section */
 .menu-section {
     padding: 0;
 }
@@ -217,7 +327,7 @@
 }
 
 .menu-item:nth-child(n) {
-    animation-delay: calc(0.08s * var(--item-index, 0));
+    animation-delay: calc(0.03s * var(--item-index, 0));
 }
 
 /* Menu item transitions */
@@ -387,11 +497,12 @@
 @media screen and (min-width: 576px) {
     .categories-wrapper {
         width: 100px;
+        top: 110px;
     }
 
     .menu-content {
-        margin-left: 100px;
-        padding: 12px 8px;
+        margin-left: 108px;
+        padding: 12px 12px 12px 15px;
     }
 
     #menu-items-container {
@@ -479,11 +590,12 @@
 @media screen and (min-width: 992px) {
     .categories-wrapper {
         width: 120px;
+        top: 120px;
     }
 
     .menu-content {
-        margin-left: 120px;
-        padding: 15px;
+        margin-left: 130px;
+        padding: 15px 15px 15px 20px;
     }
 
     #menu-items-container {
@@ -528,10 +640,12 @@
 @media screen and (min-width: 1200px) {
     .categories-wrapper {
         width: 140px;
+        top: 120px;
     }
 
     .menu-content {
-        margin-left: 140px;
+        margin-left: 155px;
+        padding: 20px 20px 20px 25px;
     }
 
     #menu-items-container {
@@ -589,7 +703,7 @@
 }
 
 .categories::-webkit-scrollbar-thumb:hover {
-    background: #666;
+    background: #555;
 }
 
 /* iOS Safari bottom bar fix */

@@ -63,12 +63,22 @@ foreach ($_SESSION['cart'] as $item) {
                 </div>
             </header>
 
+            <!-- Search Button -->
+            <button class="search-toggle-btn">
+                <i class="fas fa-search"></i>
+            </button>
+
             <!-- Search Bar -->
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="search-container">
-                            <input type="text" class="search-input" placeholder="Search">
+            <div class="search-overlay">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <div class="search-container">
+                                <input type="text" class="search-input" placeholder="Search menu items...">
+                                <button class="search-close-btn">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -123,7 +133,7 @@ foreach ($_SESSION['cart'] as $item) {
                     <!-- Menu Items Section-->
                     <div class="col menu-content">
                         <div class="menu-section">
-                            <div class="section-title">ALL ITEMS Hello</div>
+                            <div class="section-title">ALL ITEMS</div>
                             <div id="menu-items-container">
                                 <!-- Menu items will be dynamically loaded here -->
                                 <?php displayMenuItems(); ?>

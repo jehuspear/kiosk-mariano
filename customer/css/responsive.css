@@ -75,7 +75,7 @@
     padding: 6px 2px;
     text-align: center;
     font-weight: bold;
-    color: #666;
+    color: #eeebeb;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     white-space: normal;
@@ -92,7 +92,7 @@
 }
 
 .category-item.active {
-    background: #e9ecef;
+    background: #141414;
     font-weight: 600;
 }
 
@@ -418,7 +418,8 @@
 /* Hover effects */
 @media (hover: hover) {
     .category-item:hover {
-        background: #e9ecef;
+        background: #373838;
+        color: #f1f1f1;
     }
     
     .cart-section .btn:hover {

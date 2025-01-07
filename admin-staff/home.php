@@ -36,13 +36,13 @@ if($_SESSION["role"] !== "Admin") {
             <div class="main-content">
                 <!-- Page Title Bar -->
                 <div class="page-title-bar">
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center" style="text-align: center;">
                         <div class="mobile-menu-toggle d-lg-none">
                             <button class="btn btn-dark" id="sidebarToggle">
                                 <i class="fas fa-bars"></i>
                             </button>
                         </div>
-                        <h2>Staff Management</h2>
+                        <h2 >Staff Management</h2>
                     </div>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStaffModal">
                         <i class="fas fa-plus"></i> Add New Staff

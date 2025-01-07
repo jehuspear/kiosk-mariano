@@ -38,6 +38,8 @@ if ($ticketNumber) {
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom Modal CSS -->
+    <link rel="stylesheet" href="css/order-status-modal.css">
     <style>
         body {
             background-color: black;
@@ -192,6 +194,26 @@ if ($ticketNumber) {
         .refresh-button:hover {
             color: #218838;
         }
+
+        /* New styles for Order Received button */
+        .btn-received {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin: 15px auto;
+            display: block;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .btn-received:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
@@ -212,6 +234,12 @@ if ($ticketNumber) {
                     <?php echo $orderDetails['Order_Status']; ?>
                 </div>
             </div>
+
+            <?php if ($orderDetails['Order_Status'] === 'ReadyToClaim'): ?>
+                <button id="orderReceivedBtn" class="btn-received">
+                    Order Received
+                </button>
+            <?php endif; ?>
 
             <div class="status-details">
                 <div class="status-label">Order Time</div>
@@ -251,5 +279,58 @@ if ($ticketNumber) {
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Modal JS -->
+    <script src="javascript/order-status-modal.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const orderReceivedBtn = document.getElementById('orderReceivedBtn');
+            if (orderReceivedBtn) {
+                orderReceivedBtn.addEventListener('click', async function() {
+                    const confirmed = await modal.confirm(
+                        'Confirm Order Receipt',
+                        'Have you received your order?'
+                    );
+                    
+                    if (confirmed) {
+                        const ticketNumber = <?php echo json_encode($ticketNumber); ?>;
+                        
+                        try {
+                            const response = await fetch('update_order_status.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/x-www-form-urlencoded',
+                                },
+                                body: 'ticket_number=' + ticketNumber + '&status=Completed'
+                            });
+                            
+                            const data = await response.json();
+                            
+                            if (data.success) {
+                                await modal.alert(
+                                    'Success',
+                                    'Your order has been marked as completed.',
+                                    'success'
+                                );
+                                location.reload();
+                            } else {
+                                await modal.alert(
+                                    'Error',
+                                    'Failed to update order status. Please try again.',
+                                    'error'
+                                );
+                            }
+                        } catch (error) {
+                            console.error('Error:', error);
+                            await modal.alert(
+                                'Error',
+                                'An error occurred. Please try again.',
+                                'error'
+                            );
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

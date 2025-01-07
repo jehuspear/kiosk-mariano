@@ -7,7 +7,7 @@ $claimOrders = [];
 
 $sql = "SELECT Order_TicketNumber, Order_Status FROM `order` 
         WHERE Order_Status IN ('Preparing', 'ReadyToClaim') 
-        ORDER BY Order_DateTime DESC";
+        ORDER BY Order_DateTime ASC";
 
 $result = $conn->query($sql);
 

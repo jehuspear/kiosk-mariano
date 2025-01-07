@@ -2,6 +2,21 @@
 function renderSidebar($currentPage = '') {
     // Get user's role from session
     $userRole = isset($_SESSION['role']) ? $_SESSION['role'] : '';
+    
+    // Add CSS and JS for notifications
+    static $resources_included = false;
+    if (!$resources_included) {
+        echo '<link rel="stylesheet" href="Css-admin/sidebar-notifications.css">';
+        echo '<script src="Javascript-admin/sidebar-notifications.js" defer></script>';
+        
+        // Add notification sound if not on pending orders page
+        if ($currentPage !== 'pending') {
+            echo '<audio id="notificationSound" style="display: none;">
+                    <source src="../customer/resources/sounds/notification.mp3" type="audio/mpeg">
+                  </audio>';
+        }
+        $resources_included = true;
+    }
     ?>
     <div class="sidebar">
         <div class="logo">
@@ -38,10 +53,18 @@ function renderSidebar($currentPage = '') {
                 <h5 class="sidebar-heading">Orders</h5>
                 <ul class="nav">
                     <li class="<?php echo $currentPage === 'pending' ? 'active' : ''; ?>">
-                        <a href="pending-orders.php"><i class="fa-solid fa-hourglass-start"></i> <span>Pending</span></a>
+                        <a href="pending-orders.php">
+                            <i class="fa-solid fa-hourglass-start"></i>
+                            <span>Pending</span>
+                            <!-- Pending badge will be added here by JavaScript -->
+                        </a>
                     </li>
                     <li class="<?php echo $currentPage === 'preparing' ? 'active' : ''; ?>">
-                        <a href="preparing-orders.php"><i class="fa-solid fa-mug-hot"></i> <span>Preparing</span></a>
+                        <a href="preparing-orders.php">
+                            <i class="fa-solid fa-mug-hot"></i>
+                            <span>Preparing</span>
+                            <!-- Preparing badge will be added here by JavaScript -->
+                        </a>
                     </li>
                     <li class="<?php echo $currentPage === 'completed' ? 'active' : ''; ?>">
                         <a href="completed-orders.php"><i class="fa-solid fa-check-circle"></i> <span>Completed</span></a>
@@ -71,6 +94,13 @@ function renderSidebar($currentPage = '') {
             </div>
         </div>
     </div>
+    <?php
+    // Add notification sound if not on pending or preparing orders pages
+    if ($currentPage !== 'pending' && $currentPage !== 'preparing'): ?>
+    <audio id="notificationSound" style="display: none;">
+        <source src="../customer/resources/sounds/notification.mp3" type="audio/mpeg">
+    </audio>
+    <?php endif; ?>
     <?php
 }
 ?>

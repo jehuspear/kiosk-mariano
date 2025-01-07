@@ -41,7 +41,7 @@
     width: calc(100% - 250px); 
     position: fixed; /* Stays fixed on the screen */
     top: 0; 
-    left: 250px;
+    left: auto;
     z-index: 2000; 
     justify-content: flex-start; 
     align-items: center;

@@ -118,6 +118,31 @@ if(!isset($_SESSION["user_id"])) {
         <script src="Javascript-admin/cancel_order.js"></script>
         <script src="Javascript-admin/search_order.js"></script>
         <script src="Javascript-admin/mobile-menu.js"></script>
-       
+        <script src="Javascript-admin/auto-refresh.js"></script>
+        
+        <!-- Add refresh indicator -->
+        <style>
+            .refresh-indicator {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: rgba(40, 167, 69, 0.9);
+                color: white;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 14px;
+                display: none;
+                animation: fadeInOut 1s ease;
+                z-index: 1000;
+            }
+            @keyframes fadeInOut {
+                0% { opacity: 0; }
+                50% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+        </style>
+        <div class="refresh-indicator">
+            <i class="fas fa-sync-alt"></i> Refreshing...
+        </div>
     </body>
 </html>

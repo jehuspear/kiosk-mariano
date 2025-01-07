@@ -260,3 +260,30 @@
 
 [2025-01-07 21:58:28] New total quantity: 2
 [2025-01-07 21:58:28] Response sent: {"success":true,"cartCount":2,"totalAmount":220,"message":"Item added to cart successfully"}
+[2025-01-07 22:34:39] Raw POST data: {"id":7,"name":"Kape de Cacao","price":140,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Quatro","orderType":"Dine-in","quantity":1}
+[2025-01-07 22:34:39] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 140
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Quatro
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-07 22:34:39] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Quatro
+    [price] => 140
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-01-07 22:34:39] New total quantity: 1
+[2025-01-07 22:34:39] Response sent: {"success":true,"cartCount":1,"totalAmount":140,"message":"Item added to cart successfully"}

@@ -210,8 +210,10 @@ if ($result->num_rows > 0) {
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Auto Complete Orders -->
+    <script src="javascript/auto-complete-orders.js"></script>
     <script>
-        // Auto refresh every 30 seconds
+        // Auto refresh every 5 seconds
         setInterval(function() {
             const refreshIndicator = document.querySelector('.refresh-indicator');
             refreshIndicator.style.display = 'block';

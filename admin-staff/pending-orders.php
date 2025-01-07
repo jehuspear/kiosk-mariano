@@ -19,9 +19,9 @@ if(!isset($_SESSION["user_id"])) {
         <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
         <link rel="stylesheet" href="Css-admin/sidebar.css">
         <link rel="stylesheet" href="Css-admin/order.css">
-        <link rel="stylesheet" href="Css-admin/cancel_order.css">
-        <link rel="stylesheet" href="Css-admin/confirm_order.css">
         <link rel="stylesheet" href="Css-admin/search_order.css">
+        <link rel="stylesheet" href="Css-admin/admin-modal.css">
+       
         
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -107,79 +107,17 @@ if(!isset($_SESSION["user_id"])) {
             </div>
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title" id="confirmationModalLabel">Confirmation</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" style="text-align: center;">
-                        <h4>Is the order paid?</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" id="noButton" data-bs-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-success" id="yesButton">Yes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal for Cancel Confirmation -->
-        <div class="modal fade" id="cancelConfirmationModal" tabindex="-1" aria-labelledby="cancelConfirmationModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="cancelConfirmationModalLabel">Cancel Order</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure you want to cancel this order?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                        <button type="button" class="btn btn-danger" id="confirmCancelButton">Yes, Cancel Order</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal for Discount -->
-        <div class="modal fade" id="discountModal" tabindex="-1" aria-labelledby="discountModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="discountModalLabel">Discount</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center">
-                <div id="discount-buttons">
-                    <button type="button" class="btn btn-primary me-2" data-discount="10">10%</button>
-                    <button type="button" class="btn btn-primary me-2" data-discount="15">15%</button>
-                    <button type="button" class="btn btn-primary me-2" data-discount="20">20%</button>
-                    <button type="button" class="btn btn-secondary" id="customDiscountButton">Custom</button>
-                </div>
-                <div id="customDiscountInput" class="mt-3" style="display: none;">
-                    <label for="customDiscountValue" class="form-label">Enter Custom Discount (%)</label>
-                    <input type="number" id="customDiscountValue" class="form-control" placeholder="e.g., 25">
-                    <button type="button" class="btn btn-success mt-2" id="applyCustomDiscount">Apply</button>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
+       
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Custom Modal -->
+        <script src="Javascript-admin/admin-modal.js"></script>
         <!-- JavaScript -->
         <script src="Javascript-admin/confirm_order.js"></script>
         <script src="Javascript-admin/cancel_order.js"></script>
         <script src="Javascript-admin/search_order.js"></script>
         <script src="Javascript-admin/mobile-menu.js"></script>
+       
     </body>
 </html>

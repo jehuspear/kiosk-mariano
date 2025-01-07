@@ -46,8 +46,30 @@ foreach ($_SESSION['cart'] as $item) {
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Floating Ticket CSS -->
+    <link rel="stylesheet" href="css/floating-ticket.css">
 </head>
 <body>
+    <?php 
+    if (isset($_SESSION['ticket_number'])):
+        // Get initial order status
+        $statusSql = "SELECT Order_Status FROM `order` WHERE Order_TicketNumber = ?";
+        $statusStmt = $conn->prepare($statusSql);
+        $statusStmt->bind_param("i", $_SESSION['ticket_number']);
+        $statusStmt->execute();
+        $statusResult = $statusStmt->get_result();
+        $initialStatus = '';
+        
+        if ($statusResult->num_rows > 0) {
+            $orderStatus = $statusResult->fetch_assoc();
+            $initialStatus = 'status-' . strtolower($orderStatus['Order_Status']);
+        }
+    ?>
+        <a href="orderstatus.php" class="floating-ticket <?php echo $initialStatus; ?>">
+            <i class="fas fa-ticket-alt"></i>
+            <span class="ticket-number">#<?php echo $_SESSION['ticket_number']; ?></span>
+        </a>
+    <?php endif; ?>
     <!-- Main Container -->
     <div class="main-container">
         <div class="content">
@@ -246,5 +268,7 @@ foreach ($_SESSION['cart'] as $item) {
     <!-- <script src="javascript/show-temperature.js"></script> -->
     <!-- Alert System -->
     <script src="javascript/alert-modals.js"></script>
+    <!-- Floating Ticket -->
+    <script src="javascript/floating-ticket.js"></script>
 </body>
 </html>

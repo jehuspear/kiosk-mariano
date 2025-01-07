@@ -1,22 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the confirmation modal
-    const confirmModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-    let currentOrderId = null;
-
     // Handle Confirm button clicks
     document.querySelectorAll('.done-button').forEach(button => {
-        button.addEventListener('click', function() {
-            currentOrderId = this.getAttribute('data-order-id');
-            confirmModal.show();
-        });
-    });
+        button.addEventListener('click', async function() {
+            const orderId = this.getAttribute('data-order-id');
+            const orderRow = this.closest('.order');
+            
+            // Get order details from the row
+            const orderDetails = {
+                ticketNumber: orderRow.querySelector('.order-item:nth-child(1)').textContent,
+                eatingOption: orderRow.querySelector('.order-item:nth-child(2)').textContent,
+                items: orderRow.querySelector('.order-item:nth-child(4)').innerHTML,
+                paymentMethod: orderRow.querySelector('.order-item:nth-child(5)').textContent,
+                totalAmount: orderRow.querySelector('.order-item:nth-child(8)').textContent.replace('₱', '')
+            };
+            
+            const confirmed = await adminModal.confirm({
+                title: 'Confirm Order',
+                message: 'Is the order paid?',
+                order: orderDetails
+            });
 
-    // Handle Yes button click in confirmation modal
-    document.getElementById('yesButton').addEventListener('click', function() {
-        if (currentOrderId) {
-            confirmOrder(currentOrderId);
-            confirmModal.hide();
-        }
+            if (confirmed) {
+                confirmOrder(orderId);
+            }
+        });
     });
 
     function confirmOrder(orderId) {
@@ -28,18 +35,29 @@ document.addEventListener('DOMContentLoaded', function() {
             body: formData
         })
         .then(response => response.json())
-        .then(data => {
+        .then(async data => {
             if(data.success) {
-                alert('Order confirmed and now preparing!');
-                // Refresh the page to show updated orders
+                await adminModal.alert({
+                    title: 'Success',
+                    message: 'Order confirmed and now preparing!',
+                    type: 'success'
+                });
                 location.reload();
             } else {
-                alert('Error confirming order: ' + (data.error || 'Unknown error'));
+                await adminModal.alert({
+                    title: 'Error',
+                    message: 'Error confirming order: ' + (data.error || 'Unknown error'),
+                    type: 'error'
+                });
             }
         })
-        .catch(error => {
+        .catch(async error => {
             console.error('Error:', error);
-            alert('Error confirming order');
+            await adminModal.alert({
+                title: 'Error',
+                message: 'Error confirming order',
+                type: 'error'
+            });
         });
     }
 });

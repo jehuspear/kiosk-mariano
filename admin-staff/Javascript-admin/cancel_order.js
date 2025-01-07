@@ -1,22 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the cancel confirmation modal
-    const cancelModal = new bootstrap.Modal(document.getElementById('cancelConfirmationModal'));
-    let currentOrderId = null;
-
     // Handle Cancel button clicks
     document.querySelectorAll('.button-cancel').forEach(button => {
-        button.addEventListener('click', function() {
-            currentOrderId = this.getAttribute('data-order-id');
-            cancelModal.show();
-        });
-    });
+        button.addEventListener('click', async function() {
+            const orderId = this.getAttribute('data-order-id');
+            const orderRow = this.closest('.order');
+            
+            // Get order details from the row
+            const orderDetails = {
+                ticketNumber: orderRow.querySelector('.order-item:nth-child(1)').textContent,
+                eatingOption: orderRow.querySelector('.order-item:nth-child(2)').textContent,
+                items: orderRow.querySelector('.order-item:nth-child(4)').innerHTML,
+                paymentMethod: orderRow.querySelector('.order-item:nth-child(5)').textContent,
+                totalAmount: orderRow.querySelector('.order-item:nth-child(8)').textContent.replace('₱', '')
+            };
+            
+            const confirmed = await adminModal.confirm({
+                title: 'Cancel Order',
+                message: 'Are you sure you want to cancel this order?',
+                order: orderDetails
+            });
 
-    // Handle confirm cancel button click
-    document.getElementById('confirmCancelButton').addEventListener('click', function() {
-        if (currentOrderId) {
-            cancelOrder(currentOrderId);
-            cancelModal.hide();
-        }
+            if (confirmed) {
+                cancelOrder(orderId);
+            }
+        });
     });
 
     function cancelOrder(orderId) {
@@ -28,18 +35,29 @@ document.addEventListener('DOMContentLoaded', function() {
             body: formData
         })
         .then(response => response.json())
-        .then(data => {
+        .then(async data => {
             if(data.success) {
-                alert('Order cancelled successfully!');
-                // Refresh the page to show updated orders
+                await adminModal.alert({
+                    title: 'Success',
+                    message: 'Order cancelled successfully!',
+                    type: 'success'
+                });
                 location.reload();
             } else {
-                alert('Error cancelling order: ' + (data.error || 'Unknown error'));
+                await adminModal.alert({
+                    title: 'Error',
+                    message: 'Error cancelling order: ' + (data.error || 'Unknown error'),
+                    type: 'error'
+                });
             }
         })
-        .catch(error => {
+        .catch(async error => {
             console.error('Error:', error);
-            alert('Error cancelling order');
+            await adminModal.alert({
+                title: 'Error',
+                message: 'Error cancelling order',
+                type: 'error'
+            });
         });
     }
 });

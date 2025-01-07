@@ -1,0 +1,79 @@
+.floating-ticket {
+    position: fixed;
+    top: 35px;
+    left: 10px;
+    z-index: 1002;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.floating-ticket:hover {
+    transform: scale(1.05);
+    color: white;
+    text-decoration: none;
+}
+
+.floating-ticket i {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+.floating-ticket .ticket-number {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Status-specific colors */
+.floating-ticket.status-pending {
+    background-color: #ffc107;
+    color: black;
+}
+
+.floating-ticket.status-preparing {
+    background-color: rgb(255, 251, 7);
+    color: black;
+}
+
+.floating-ticket.status-readytoclaim {
+    background-color: #28a745;
+    color: white;
+}
+
+.floating-ticket.status-completed {
+    background-color: #28a745;
+    color: white;
+}
+
+.floating-ticket.status-cancelled {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Status-specific hover colors */
+.floating-ticket.status-pending:hover {
+    background-color: #e0a800;
+}
+
+.floating-ticket.status-preparing:hover {
+    background-color: rgb(230, 226, 6);
+}
+
+.floating-ticket.status-readytoclaim:hover,
+.floating-ticket.status-completed:hover {
+    background-color: #218838;
+}
+
+.floating-ticket.status-cancelled:hover {
+    background-color: #c82333;
+}

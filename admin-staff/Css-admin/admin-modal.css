@@ -1,0 +1,290 @@
+.admin-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-modal {
+    background-color: white;
+    border-radius: 8px;
+    padding: 0;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.admin-modal-header {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Red header for cancel modals */
+.admin-modal.cancel .admin-modal-header {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Green header for confirm modals */
+.admin-modal.confirm .admin-modal-header {
+    background-color: #28a745;
+    color: white;
+}
+
+.admin-modal-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #212529;
+}
+
+/* White text for cancel modal title */
+.admin-modal.cancel .admin-modal-title {
+    color: white;
+}
+
+/* White text for confirm modal title */
+.admin-modal.confirm .admin-modal-title {
+    color: white;
+}
+
+.admin-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+/* White close button for cancel modal */
+.admin-modal.cancel .admin-modal-close {
+    color: white;
+}
+
+/* White close button for confirm modal */
+.admin-modal.confirm .admin-modal-close {
+    color: white;
+}
+
+.admin-modal-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.admin-modal-message {
+    font-size: 1.1rem;
+    color: #495057;
+    margin-bottom: 1rem;
+}
+
+.admin-modal-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.admin-modal-icon.confirm {
+    color: #28a745;
+}
+
+.admin-modal-icon.cancel {
+    color: #dc3545;
+}
+
+.admin-modal-icon.warning {
+    color: #dc3545;
+}
+
+.admin-modal-icon.success {
+    color: #28a745;
+}
+
+.admin-modal-icon.error {
+    color: #dc3545;
+}
+
+.admin-modal-footer {
+    padding: 1rem;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+/* Red border for cancel modal */
+.admin-modal.cancel .admin-modal-footer {
+    border-color: #f8d7da;
+}
+
+/* Green border for confirm modal */
+.admin-modal.confirm .admin-modal-footer {
+    border-color: #d4edda;
+}
+
+.admin-modal-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.admin-modal-btn-confirm {
+    background-color: #28a745;
+    color: white;
+}
+
+.admin-modal-btn-confirm:hover {
+    background-color: #218838;
+}
+
+.admin-modal-btn-cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+.admin-modal-btn-cancel:hover {
+    background-color: #c82333;
+}
+
+.admin-modal-btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.admin-modal-btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Cancel modal specific button styles */
+.admin-modal.cancel .admin-modal-btn-confirm {
+    background-color: #dc3545;
+}
+
+.admin-modal.cancel .admin-modal-btn-confirm:hover {
+    background-color: #c82333;
+}
+
+.admin-modal.cancel .admin-modal-btn-secondary {
+    background-color: #6c757d;
+    border: 1px solid #6c757d;
+}
+
+.admin-modal.cancel .admin-modal-btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Confirm modal specific button styles */
+.admin-modal.confirm .admin-modal-btn-confirm {
+    background-color: #28a745;
+}
+
+.admin-modal.confirm .admin-modal-btn-confirm:hover {
+    background-color: #218838;
+}
+
+.admin-modal.confirm .admin-modal-btn-secondary {
+    background-color: #6c757d;
+    border: 1px solid #6c757d;
+}
+
+.admin-modal.confirm .admin-modal-btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Order Details Styles */
+.order-details {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.ticket-number-display {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #28a745;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #e9ecef;
+    border-radius: 6px;
+}
+
+.admin-modal.cancel .ticket-number-display {
+    color: #dc3545;
+}
+
+.order-detail-item {
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.order-detail-label {
+    font-weight: 600;
+    color: #495057;
+    flex: 0 0 120px;
+}
+
+.order-detail-value {
+    color: #212529;
+    flex: 1;
+    text-align: right;
+}
+
+.order-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-items-list li {
+    padding: 0.25rem 0;
+    border-bottom: 1px dashed #dee2e6;
+}
+
+.order-items-list li:last-child {
+    border-bottom: none;
+}
+
+.total-amount {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 0.5rem;
+}
+
+.admin-modal.cancel .total-amount {
+    color: #dc3545;
+}

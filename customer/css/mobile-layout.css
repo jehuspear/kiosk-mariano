@@ -12,6 +12,7 @@
 .content {
     min-height: 100vh;
     padding-bottom: 80px;
+    padding-top: 90px;
     position: relative;
     background: #fff;
 }
@@ -20,6 +21,11 @@
 .header {
     padding: 15px 0;
     background: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
 }
 
 .logo-image {
@@ -37,7 +43,7 @@
 /* Search Button */
 .search-toggle-btn {
     position: fixed;
-    top: 20px;
+    top: 35px;
     right: 20px;
     width: 50px;
     height: 50px;
@@ -50,7 +56,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1002;
     box-shadow: 0 3px 15px rgba(0,0,0,0.3);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(5px);
@@ -69,7 +75,7 @@
 
 @media (max-width: 576px) {
     .search-toggle-btn {
-        top: 15px;
+        top: 35px;
         right: 15px;
         width: 45px;
         height: 45px;
@@ -85,7 +91,7 @@
     right: 0;
     background: rgba(0,0,0,0.98);
     padding: 20px;
-    z-index: 999;
+    z-index: 1001;
     transform: translateY(-100%);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
@@ -176,20 +182,53 @@
 
 /* Categories Sidebar */
 .categories-wrapper {
-    width: 80px;
+    width: 90px;
     background: linear-gradient(to bottom, #fff, #fafafa);
     border-right: 1px solid #eee;
     height: auto;
     position: fixed;
-    top: 100px; /* Height of header + some padding */
+    top: 110px;
     left: 0;
     z-index: 100;
     box-shadow: 2px 0 10px rgba(0,0,0,0.05);
-    padding-bottom: 70px; /* Space for cart section */
+    padding-bottom: 70px;
 }
 
 .categories {
     padding: 4px;
+}
+
+/* Base mobile font sizes */
+@media screen and (max-width: 320px) {
+    .category-header {
+        font-size: 7px;
+        padding: 5px 2px;
+    }
+    .category-item span {
+        font-size: 7px;
+    }
+}
+
+/* Small mobile devices */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+    .category-header {
+        font-size: 8px;
+        padding: 6px 2px;
+    }
+    .category-item span {
+        font-size: 8px;
+    }
+}
+
+/* Regular mobile devices */
+@media screen and (min-width: 376px) and (max-width: 575px) {
+    .category-header {
+        font-size: 8px;
+        padding: 6px 2px;
+    }
+    .category-item span {
+        font-size: 8px;
+    }
 }
 
 /* Menu Content Adjustments */
@@ -209,30 +248,49 @@
     background: #000;
     color: #fff;
     padding: 6px 2px;
-    font-size: 9px;
+    font-size: 8px;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 4px;
     border-radius: 4px;
-    line-height: 1.1;
-    word-break: break-word;
-    letter-spacing: 0.5px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .category-item {
-    width: 100%;
-    padding: 6px 3px;
+    width: 92%;
+    padding: 6px 1px;
     margin-bottom: 4px;
+    margin-left: auto;
+    margin-right: auto;
     background: #fff;
     border-radius: 6px;
     text-align: center;
     transition: all 0.2s ease;
     text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category-item span {
+    font-size: 8px;
+    line-height: 1.2;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #000;
+    padding: 0 1px;
+    max-width: 100%;
 }
 
 .category-item.active {
     background: #000;
+    color: #f1f1f1;
 }
 
 .category-item.active span {
@@ -252,14 +310,7 @@
     width: 22px;
     height: 22px;
     margin-bottom: 2px;
-}
-
-.category-item span {
-    font-size: 9px;
-    line-height: 1.1;
-    display: block;
-    word-wrap: break-word;
-    color: #000;
+    flex-shrink: 0;
 }
 
 /* Menu Section */
@@ -495,6 +546,9 @@
 
 /* Tablet Styles */
 @media screen and (min-width: 576px) {
+    .content {
+        padding-top: 110px;
+    }
     .categories-wrapper {
         width: 100px;
         top: 110px;
@@ -511,22 +565,21 @@
     }
 
     .category-header {
-        font-size: 11px;
+        font-size: 10px;
         padding: 8px 4px;
     }
-
     .category-item {
-        padding: 8px 4px;
+        padding: 8px 2px;
+        width: 94%;
     }
-
     .category-item img {
         width: 28px;
         height: 28px;
         margin-bottom: 4px;
     }
-
     .category-item span {
-        font-size: 11px;
+        font-size: 10px;
+        padding: 0 2px;
     }
 
     .menu-item-image {
@@ -544,7 +597,7 @@
     }
 
     .item-category {
-        font-size: 11px;
+        font-size: 10px;
         margin-bottom: 6px;
     }
 
@@ -588,11 +641,24 @@
 
 /* Desktop Styles */
 @media screen and (min-width: 992px) {
-    .categories-wrapper {
-        width: 120px;
-        top: 120px;
+    .content {
+        padding-top: 120px;
     }
-
+    .categories-wrapper {
+        width: 130px;
+    }
+    .category-header {
+        font-size: 11px;
+        padding: 8px 4px;
+    }
+    .category-item {
+        width: 95%;
+        padding: 8px 3px;
+    }
+    .category-item span {
+        font-size: 11px;
+        padding: 0 3px;
+    }
     .menu-content {
         margin-left: 130px;
         padding: 15px 15px 15px 20px;
@@ -639,10 +705,20 @@
 /* Large Desktop Styles */
 @media screen and (min-width: 1200px) {
     .categories-wrapper {
-        width: 140px;
-        top: 120px;
+        width: 150px;
     }
-
+    .category-header {
+        font-size: 12px;
+        padding: 8px 4px;
+    }
+    .category-item {
+        width: 96%;
+        padding: 8px 4px;
+    }
+    .category-item span {
+        font-size: 12px;
+        padding: 0 4px;
+    }
     .menu-content {
         margin-left: 155px;
         padding: 20px 20px 20px 25px;

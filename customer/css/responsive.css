@@ -67,11 +67,11 @@
 }
 
 .categories {
-    padding: 8px 4px;
+    padding: 16px 4px;
 }
 
 .category-header {
-    font-size: 0.8rem;
+    font-size: 0.63rem;
     padding: 6px 2px;
     text-align: center;
     font-weight: bold;
@@ -103,7 +103,7 @@
 }
 
 .category-item span {
-    font-size: 0.75rem;
+    font-size: 0.55rem;
     display: block;
     text-align: center;
     word-wrap: break-word;
@@ -111,6 +111,7 @@
 }
 
 .menu-content {
+    padding-top: 40px;
     padding-bottom: 90px;
     margin-left: 90px;
 }
@@ -231,7 +232,7 @@
     }
 
     .category-header {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         padding: 8px 4px;
     }
 
@@ -245,7 +246,7 @@
     }
 
     .category-item span {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     .menu-item-details {

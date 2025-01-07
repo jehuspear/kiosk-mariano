@@ -2,10 +2,10 @@
 session_start();
 
 // Check if user is not logged in
-if(!isset($_SESSION["user_id"])) {
-    header("Location: login.php");
-    exit();
-}
+// if(!isset($_SESSION["user_id"])) {
+//     header("Location: login.php");
+//     exit();
+// }
 
 include 'database_admin.php';
 
@@ -182,6 +182,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
                                         <th>Size</th>
                                         <th>Type</th>
                                         <th>Price</th>
+                                        <th>Stock</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -203,6 +204,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
                                             ?>
                                         </td>
                                         <td>₱<?php echo number_format($size['price'], 2); ?></td>
+                                        <td><?php echo $size['stock']; ?></td>
                                     </tr>
                                     <?php endforeach; ?>
                                 </tbody>

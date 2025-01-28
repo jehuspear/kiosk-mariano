@@ -15,7 +15,7 @@ if(!isset($_SESSION["user_id"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Completed Orders</title>
+    <title>History</title>
     <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
     <link rel="stylesheet" href="Css-admin/sidebar.css">
     <link rel="stylesheet" href="Css-admin/completed_orders.css">

@@ -2,9 +2,18 @@
 .content {
     margin-left: 250px;
     padding: 20px;
-    min-height: 100vh;
+    min-height: 200vh;
     background-color: #1a1a1a;
     color: white;
+}
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+    margin-left: 280px;
+    background: #1e1e1e;
+    color: white;
+    min-height: 200vh;
 }
 
 .content h2 {

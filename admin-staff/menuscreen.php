@@ -2,10 +2,10 @@
 session_start();
 
 // Check if user is not logged in
-// if(!isset($_SESSION["user_id"])) {
-//     header("Location: login.php");
-//     exit();
-// }
+ if(!isset($_SESSION["user_id"])) {
+     header("Location: login.php");
+     exit();
+ }
 
 include 'database_admin.php';
 
@@ -148,7 +148,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
         </div>
       </div>
 
-      <!-- View & Edit Buttons -->
+      <!-- View & Edit Buttons 
       <div class="buttons">
         <button class="btn btn-primary view-btn">
           <i class="fa-solid fa-eye"></i> View
@@ -156,7 +156,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
         <button class="btn btn-secondary edit-btn">
           <i class="fa-solid fa-pen"></i> Edit
         </button>
-      </div>
+      </div> -->
 
       <!-- Menu Cards Section -->
       <div class="menu-cards">

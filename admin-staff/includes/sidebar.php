@@ -75,14 +75,14 @@ function renderSidebar($currentPage = '') {
             <div class="sidebar-section">
                 <h5 class="sidebar-heading">Analytics</h5>
                 <ul class="nav">
-                    <li class="<?php echo $currentPage === 'dashboard' ? 'active' : ''; ?>">
-                        <a href=""><i class="fa-solid fa-chart-line"></i> <span>Dashboard</span></a>
+                    <li class="<?php echo $currentPage === 'reports' ? 'active' : ''; ?>">
+                        <a href="reports.php"><i class="fa-solid fa-chart-line"></i> <span>Dashboard</span></a>
                     </li>
                     <li class="<?php echo $currentPage === 'feedback' ? 'active' : ''; ?>">
-                        <a href=""><i class="fa-solid fa-comments"></i> <span>Feedback</span></a>
+                        <a href="feedback.php"><i class="fa-solid fa-comments"></i> <span>Feedback</span></a>
                     </li>
                     <li class="<?php echo $currentPage === 'history' ? 'active' : ''; ?>">
-                        <a href=""><i class="fa-solid fa-history"></i> <span>History</span></a>
+                        <a href="history.php"><i class="fa-solid fa-history"></i> <span>History</span></a>
                     </li>
                 </ul>
             </div>

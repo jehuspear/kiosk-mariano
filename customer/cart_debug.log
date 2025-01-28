@@ -287,3 +287,30 @@
 
 [2025-01-07 22:34:39] New total quantity: 1
 [2025-01-07 22:34:39] Response sent: {"success":true,"cartCount":1,"totalAmount":140,"message":"Item added to cart successfully"}
+[2025-01-24 03:17:45] Raw POST data: {"id":3,"name":"Cappuccino","price":135,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"22oz","orderType":"Take-out","quantity":1}
+[2025-01-24 03:17:45] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 135
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 22oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-01-24 03:17:45] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 22oz
+    [price] => 135
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Iced
+)
+
+[2025-01-24 03:17:45] New total quantity: 1
+[2025-01-24 03:17:45] Response sent: {"success":true,"cartCount":1,"totalAmount":135,"message":"Item added to cart successfully"}

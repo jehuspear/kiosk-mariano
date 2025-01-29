@@ -22,7 +22,7 @@ if (!isset($_SESSION["user_id"])) {
         .dashboard-container {
             padding: 20px;
             max-width: 1400px;
-            margin: 0 auto;
+            margin: 0 20%;
         }
         .chart-section {
             background: white;
@@ -159,7 +159,7 @@ if (!isset($_SESSION["user_id"])) {
                     <canvas id="customerChart" class="chart-canvas"></canvas>
                 </div>
 
-                <div class="chart-grid">
+                
                     <!-- Products Sold Section -->
                     <div class="chart-section">
                         <div class="chart-header">
@@ -207,8 +207,7 @@ if (!isset($_SESSION["user_id"])) {
                             </div>
                         </div>
                     </div>
-                </div>
-
+                
                 <!-- Top Products Section -->
                 <div class="chart-section">
                     <div class="chart-header">

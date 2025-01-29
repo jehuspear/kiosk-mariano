@@ -140,6 +140,7 @@
 
 .stock-badge.out-of-stock {
     background: #ff4e4e;
+    font-size: 0.45rem;
     color: white;
     box-shadow: 0 2px 4px rgba(255, 78, 78, 0.3);
 }
@@ -181,7 +182,7 @@
     }
     
     .stock-badge {
-        font-size: 0.65rem;
+        font-size: 0.45rem;
         padding: 2px 6px;
         bottom: -8px;
     }

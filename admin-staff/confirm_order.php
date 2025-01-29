@@ -31,6 +31,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "i", $payment_id);
         mysqli_stmt_execute($stmt);
+
+        // Get order items
+        $sql = "SELECT oi.MenuItem_ID, oi.OrderItem_CupSize, oi.OrderItem_Quantity 
+                FROM orderitem oi 
+                WHERE oi.Order_ID = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "i", $order_id);
+        
+        if (!mysqli_stmt_execute($stmt)) {
+            throw new Exception("Failed to fetch order items: " . mysqli_error($conn));
+        }
+        
+        $result = mysqli_stmt_get_result($stmt);
+        while ($item = mysqli_fetch_assoc($result)) {
+            // Update size stock and sold count
+            $sql = "UPDATE menuitem_sizes 
+                    SET MenuItemSize_Stock = MenuItemSize_Stock - ?,
+                        MenuItemSize_Sold = MenuItemSize_Sold + ?
+                    WHERE MenuItem_ID = ? AND MenuItemSize_SizeName = ?";
+            $updateStmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($updateStmt, "iiis", 
+                $item['OrderItem_Quantity'],
+                $item['OrderItem_Quantity'],
+                $item['MenuItem_ID'],
+                $item['OrderItem_CupSize']
+            );
+            
+            if (!mysqli_stmt_execute($updateStmt)) {
+                throw new Exception("Failed to update size stock and sold count: " . mysqli_error($conn));
+            }
+
+            // Update total stocks and sold count in menuitem table
+            $sql = "UPDATE menuitem m 
+                    SET MenuItem_TotalStocks = (
+                        SELECT SUM(MenuItemSize_Stock) 
+                        FROM menuitem_sizes 
+                        WHERE MenuItem_ID = m.MenuItem_ID
+                    ),
+                    MenuItem_TotalSold = (
+                        SELECT SUM(MenuItemSize_Sold) 
+                        FROM menuitem_sizes 
+                        WHERE MenuItem_ID = m.MenuItem_ID
+                    )
+                    WHERE MenuItem_ID = ?";
+            $updateTotalStmt = mysqli_prepare($conn, $sql);
+            mysqli_stmt_bind_param($updateTotalStmt, "i", $item['MenuItem_ID']);
+            
+            if (!mysqli_stmt_execute($updateTotalStmt)) {
+                throw new Exception("Failed to update total stock and sold count: " . mysqli_error($conn));
+            }
+        }
         
         // Commit transaction
         mysqli_commit($conn);

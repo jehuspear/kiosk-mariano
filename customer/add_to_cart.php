@@ -83,42 +83,6 @@ try {
         $_SESSION['cart'][] = $cartItem;
         logDebug("Item added to cart: " . print_r($cartItem, true));
         
-        // Update stock in database
-        $newStock = $sizeInfo['stock'] - $data['quantity'];
-        $updateSql = "UPDATE menuitem_sizes 
-                      SET MenuItemSize_Stock = ? 
-                      WHERE MenuItem_ID = ? AND MenuItemSize_SizeName = ?";
-        
-        $updateStmt = $conn->prepare($updateSql);
-        if (!$updateStmt) {
-            throw new Exception('Failed to prepare stock update statement');
-        }
-        
-        $updateStmt->bind_param("iis", $newStock, $data['id'], $data['size']);
-        
-        if (!$updateStmt->execute()) {
-            throw new Exception('Failed to update stock');
-        }
-        
-        // Update total stocks in menuitem table
-        $updateTotalSql = "UPDATE menuitem m 
-                          SET MenuItem_TotalStocks = (
-                              SELECT SUM(MenuItemSize_Stock) 
-                              FROM menuitem_sizes 
-                              WHERE MenuItem_ID = m.MenuItem_ID
-                          ) 
-                          WHERE MenuItem_ID = ?";
-        
-        $updateTotalStmt = $conn->prepare($updateTotalSql);
-        if (!$updateTotalStmt) {
-            throw new Exception('Failed to prepare total stock update statement');
-        }
-        
-        $updateTotalStmt->bind_param("i", $data['id']);
-        
-        if (!$updateTotalStmt->execute()) {
-            throw new Exception('Failed to update total stock');
-        }
         
         // Calculate totals
         $totalAmount = 0;

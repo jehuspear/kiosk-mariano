@@ -58,6 +58,7 @@ try {
     if (!mysqli_stmt_execute($stmt)) {
         throw new Exception("Failed to update order status: " . mysqli_error($conn));
     }
+
     
     // Update order completed time when approving
     if ($action === 'approve') {

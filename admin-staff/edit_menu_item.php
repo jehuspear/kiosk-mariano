@@ -53,11 +53,21 @@ if(isset($_POST['submit'])) {
     $name = $_POST['name'];
     $description = $_POST['description'];
     $category = $_POST['category'];
-    $totalStocks = $_POST['totalStocks'];
     
     // Start transaction
     mysqli_begin_transaction($conn);
     try {
+        // Calculate total stocks from size stocks
+        $totalStocksSql = "SELECT SUM(MenuItemSize_Stock) as total FROM menuitem_sizes WHERE MenuItem_ID = ?";
+        $totalStocksStmt = mysqli_stmt_init($conn);
+        if(mysqli_stmt_prepare($totalStocksStmt, $totalStocksSql)) {
+            mysqli_stmt_bind_param($totalStocksStmt, "i", $id);
+            mysqli_stmt_execute($totalStocksStmt);
+            $totalStocksResult = mysqli_stmt_get_result($totalStocksStmt);
+            $totalStocksRow = mysqli_fetch_assoc($totalStocksResult);
+            $totalStocks = $totalStocksRow['total'] ?? 0;
+        }
+
         // Update menu item
         $sql = "UPDATE menuitem SET MenuItem_Name=?, MenuItem_Description=?, MenuItem_Category=?, MenuItem_TotalStocks=? WHERE MenuItem_ID=?";
         $stmt = mysqli_stmt_init($conn);
@@ -223,7 +233,8 @@ if(isset($_POST['submit'])) {
             <div class="form-group">
                 <label for="totalStocks">Total Stocks:</label>
                 <input type="number" class="form-control" id="totalStocks" name="totalStocks" 
-                       value="<?php echo $menuItem['MenuItem_TotalStocks']; ?>" min="0" required>
+                       value="<?php echo $menuItem['MenuItem_TotalStocks']; ?>" min="0" required readonly>
+                <small style="padding: 5px; opacity: 0.5; color: white;">Total stocks is automatically calculated from the sum of all size stocks</small>
             </div>
             
             <div class="form-group">
@@ -388,6 +399,35 @@ if(isset($_POST['submit'])) {
             reader.readAsDataURL(input.files[0]);
         }
     }
+
+    // Function to calculate total stocks from size stocks
+    function calculateTotalStocks() {
+        let total = 0;
+        const stockInputs = document.querySelectorAll('input[id^="stock_"]');
+        stockInputs.forEach(input => {
+            total += parseInt(input.value) || 0;
+        });
+        document.getElementById('totalStocks').value = total;
+    }
+
+    // Add event listeners to stock inputs
+    document.addEventListener('DOMContentLoaded', function() {
+        const stockInputs = document.querySelectorAll('input[id^="stock_"]');
+        stockInputs.forEach(input => {
+            input.addEventListener('change', calculateTotalStocks);
+            input.addEventListener('keyup', calculateTotalStocks);
+        });
+        
+        // Calculate initial total
+        calculateTotalStocks();
+
+        // Also add event listener to new size stock input
+        const newSizeStock = document.getElementById('newSizeStock');
+        if (newSizeStock) {
+            newSizeStock.addEventListener('change', calculateTotalStocks);
+            newSizeStock.addEventListener('keyup', calculateTotalStocks);
+        }
+    });
     </script>
 </body>
 </html>

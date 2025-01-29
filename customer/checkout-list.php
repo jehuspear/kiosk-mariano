@@ -292,7 +292,6 @@ function showConfirmationModal() {
 
 
 function removeOrder(index) {
-    // Send AJAX request to remove the item from the session cart
     fetch('remove_item.php', {
         method: 'POST',
         headers: {
@@ -302,29 +301,51 @@ function removeOrder(index) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log("Response from remove_item.php:", data); // Add logging to check response
+        console.log("Response from remove_item.php:", data);
 
         if (data.success) {
+            // If cart is empty after removal, reload the page
+            if (data.empty) {
+                location.reload();
+                return;
+            }
+
             // Remove the item from the DOM
             const orderItem = document.getElementById(`order-item-${index}`);
             if (orderItem) {
                 orderItem.remove();
             }
 
-            showToast('Item removed');
+            // Update the IDs of remaining items
+            const remainingItems = document.querySelectorAll('.order-item');
+            remainingItems.forEach((item, newIndex) => {
+                // Update the item's ID
+                item.id = `order-item-${newIndex}`;
+                
+                // Update the quantity buttons
+                const minusBtn = item.querySelector('.quantity-btn:first-child');
+                const plusBtn = item.querySelector('.quantity-btn:last-child');
+                if (minusBtn) {
+                    minusBtn.setAttribute('onclick', `updateQuantity(${newIndex}, -1)`);
+                }
+                if (plusBtn) {
+                    plusBtn.setAttribute('onclick', `updateQuantity(${newIndex}, 1)`);
+                }
+                
+                // Update the remove button
+                const removeBtn = item.querySelector('.btn-remove');
+                if (removeBtn) {
+                    removeBtn.setAttribute('onclick', `removeOrder(${newIndex})`);
+                }
+            });
 
-            // Update the total values and check if the cart is empty
+            // Update the total values
             updateTotalValues();
 
-            if (data.empty) {
-                // If the cart is empty, show the empty cart message and disable the continue button
-                document.querySelector('.empty-cart').style.display = 'block';  // Show empty cart message
-                document.querySelector('.continue-btn').disabled = true;  // Disable continue button
-                document.querySelector('.cart-items').style.display = 'none';  // Hide cart items
-                document.querySelector('.checkout-logo').style.display = 'none';  // Hide logo (if needed)
-            }
+            // Show success message
+            showToast('Item removed');
         } else {
-            console.error("Error:", data.message);  // Log any errors
+            console.error("Error:", data.message);
             showToast('Failed to remove item');
         }
     })
@@ -348,16 +369,17 @@ function updateTotalValues() {
     });
 
     // Update the total values displayed on the page
-    document.querySelector('.total-quantity').textContent = totalQuantity;
-    document.querySelector('.total-amount').textContent = `Item total: ₱${totalAmount.toFixed(2)}`;
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Check if the cart is empty on page load and disable the continue button if so
-    if (document.querySelector('.empty-cart').style.display === 'block') {
-        document.querySelector('.continue-btn').disabled = true;
+    const totalQuantityElement = document.querySelector('.total-quantity');
+    const totalAmountElement = document.querySelector('.total-amount');
+    
+    if (totalQuantityElement) {
+        totalQuantityElement.textContent = totalQuantity;
     }
-});
+    
+    if (totalAmountElement) {
+        totalAmountElement.textContent = `Item total: ₱${totalAmount.toFixed(2)}`;
+    }
+}
 
 
     </script>

@@ -75,7 +75,7 @@ function displayMenuItems() {
                  data-item-id="<?php echo $item['id']; ?>"
                  onclick="showDetails('<?php echo htmlspecialchars($item['name']); ?>', 
                                     <?php echo $item['price']; ?>, 
-                                    '<?php echo htmlspecialchars($item['description']); ?>',
+                                    '<?php echo str_replace(array("\r\n", "\n", "\r"), " ", addslashes(htmlspecialchars($item['description']))); ?>',
                                     '<?php echo htmlspecialchars($item['image']); ?>',
                                     <?php echo $outOfStock ? 'true' : 'false'; ?>,
                                     <?php echo $item['id']; ?>)"

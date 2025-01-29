@@ -155,8 +155,19 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
                     <?php
                     foreach ($menuItems as $item) {
                         if ($item['MenuItem_Category'] == $selectedCategory) {
-                            $availabilityClass = $item['MenuItem_Availability'] === 'Available' ? 'btn-success' : 'btn-danger';
-                            $availabilityText = $item['MenuItem_Availability'] === 'Available' ? 'AVAILABLE' : 'UNAVAILABLE';
+                            // Check both stock and availability status
+                            $isAvailable = $item['MenuItem_TotalStocks'] > 0 && $item['MenuItem_Availability'] === 'Available';
+                            $availabilityClass = $isAvailable ? 'btn-success' : 'btn-danger';
+                            $availabilityText = $isAvailable ? 'AVAILABLE' : 'UNAVAILABLE';
+                            
+                            // If stock is 0, automatically update availability in database
+                            if ($item['MenuItem_TotalStocks'] <= 0) {
+                                $updateSql = "UPDATE menuitem SET MenuItem_Availability = 'Unavailable' WHERE MenuItem_ID = ?";
+                                $stmt = $conn->prepare($updateSql);
+                                $stmt->bind_param("i", $item['MenuItem_ID']);
+                                $stmt->execute();
+                                $stmt->close();
+                            }
                             ?>
                             <div class="card">
                                 <img src="<?php echo htmlspecialchars($item['MenuItem_Image']); ?>" 

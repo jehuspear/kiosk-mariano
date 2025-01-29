@@ -99,7 +99,7 @@ if(!isset($_SESSION["user_id"])) {
                             </div>
                         </div>
                         
-                        <div class="order-details">
+                        <div class="order-details" style="background-color: #2d2d2d;">
                             <div class="order-type">
                                 <i class="fas <?php echo $row['Order_EatingOption'] === 'Dine-in' ? 'fa-utensils' : 'fa-shopping-bag'; ?>"></i>
                                 <?php echo htmlspecialchars($row['Order_EatingOption']); ?>

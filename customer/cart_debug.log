@@ -314,3 +314,111 @@
 
 [2025-01-24 03:17:45] New total quantity: 1
 [2025-01-24 03:17:45] Response sent: {"success":true,"cartCount":1,"totalAmount":135,"message":"Item added to cart successfully"}
+[2025-01-29 12:16:53] Raw POST data: {"id":21,"name":"Banana Bread","price":50,"description":"This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.","image":"../admin-staff/Images/menu-item/banana bread.jpg","size":"Per slice","orderType":"Dine-in","quantity":2}
+[2025-01-29 12:16:53] Decoded data: Array
+(
+    [id] => 21
+    [name] => Banana Bread
+    [price] => 50
+    [description] => This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.
+    [image] => ../admin-staff/Images/menu-item/banana bread.jpg
+    [size] => Per slice
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-01-29 12:16:53] Item added to cart: Array
+(
+    [id] => 21
+    [name] => Banana Bread
+    [image] => ../admin-staff/Images/menu-item/banana bread.jpg
+    [size] => Per slice
+    [price] => 50
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-01-29 12:16:53] New total quantity: 2
+[2025-01-29 12:16:53] Response sent: {"success":true,"cartCount":2,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-01-29 12:17:03] Raw POST data: {"id":16,"name":"Chocolate Latte","price":100,"description":"A sweet chocolate flavored drink!","image":"../admin-staff/Images/menu-item/chocolate latte1.jpg","size":"16oz","orderType":"Dine-in","quantity":1}
+[2025-01-29 12:17:03] Decoded data: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [price] => 100
+    [description] => A sweet chocolate flavored drink!
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-29 12:17:03] Item added to cart: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 16oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-01-29 12:17:03] New total quantity: 3
+[2025-01-29 12:17:03] Response sent: {"success":true,"cartCount":3,"totalAmount":200,"message":"Item added to cart successfully"}
+[2025-01-29 12:20:13] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","orderType":"Dine-in","quantity":1}
+[2025-01-29 12:20:13] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-29 12:20:13] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-01-29 12:20:13] New total quantity: 1
+[2025-01-29 12:20:13] Response sent: {"success":true,"cartCount":1,"totalAmount":120,"message":"Item added to cart successfully"}
+[2025-01-29 12:20:20] Raw POST data: {"id":21,"name":"Banana Bread","price":50,"description":"This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.","image":"../admin-staff/Images/menu-item/banana bread.jpg","size":"Per slice","orderType":"Dine-in","quantity":3}
+[2025-01-29 12:20:20] Decoded data: Array
+(
+    [id] => 21
+    [name] => Banana Bread
+    [price] => 50
+    [description] => This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.
+    [image] => ../admin-staff/Images/menu-item/banana bread.jpg
+    [size] => Per slice
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 12:20:20] Item added to cart: Array
+(
+    [id] => 21
+    [name] => Banana Bread
+    [image] => ../admin-staff/Images/menu-item/banana bread.jpg
+    [size] => Per slice
+    [price] => 50
+    [quantity] => 3
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-01-29 12:20:20] New total quantity: 4
+[2025-01-29 12:20:20] Response sent: {"success":true,"cartCount":4,"totalAmount":270,"message":"Item added to cart successfully"}

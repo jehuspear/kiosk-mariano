@@ -149,6 +149,7 @@ while ($row = $result->fetch_assoc()) {
         </div>
     </div>
 
+    <!-- The Printable Function -->
     <script>
         window.onload = function() {
             window.print();

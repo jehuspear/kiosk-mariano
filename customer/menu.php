@@ -189,10 +189,13 @@ foreach ($_SESSION['cart'] as $item) {
                                 <button class="quantity-btn" onclick="adjustQuantity(-1)">-</button>
                                 <span id="quantity">1</span>
                                 <button class="quantity-btn" onclick="adjustQuantity(1)">+</button>
+                                
+                            </div>
+
+                            <!-- Stock Available Section -->
                                 <div class="stock-info" style="text-align: center; font-size: 0.9em; color: #666; margin-top: 5px;">
                                     Stock Available: <span id="stock-count">0</span>
                                 </div>
-                            </div>
 
                             <!-- Size Options -->
                             <div class="options-group">

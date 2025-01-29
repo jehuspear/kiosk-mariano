@@ -164,14 +164,64 @@ if(!isset($_SESSION["user_id"])) {
             
             
 
-<!-- Bootstrap JS -->
+<!-- Bootstrap JS and Dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="Css-admin/bootstrap.bundle.min.js"></script>
+
+<!-- Admin Modal -->
+<link rel="stylesheet" href="Css-admin/admin-modal.css">
+<script src="Javascript-admin/admin-modal.js"></script>
+
 <!-- Custom Scripts -->
 <script src="Javascript-admin/order_status_handler.js"></script>
 <script src="Javascript-admin/mobile-menu.js"></script>
 <script src="Javascript-admin/auto-refresh.js"></script>
 
-<!-- Add refresh indicator -->
+<script>
+// Initialize all components and handlers
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Bootstrap tooltips
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
+
+    // Initialize Bootstrap modals
+    const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'), {
+        backdrop: 'static',
+        keyboard: false
+    });
+    window.confirmationModal = confirmationModal;
+
+    // Initialize order handlers
+    if (window.initializeOrderHandlers) {
+        window.initializeOrderHandlers();
+    }
+
+    // Add hover effects to action buttons
+    document.querySelectorAll('.action-btn').forEach(btn => {
+        btn.addEventListener('mouseenter', () => btn.style.transform = 'scale(1.1)');
+        btn.addEventListener('mouseleave', () => btn.style.transform = 'scale(1)');
+    });
+
+    // Prevent modal from closing when clicking outside
+    document.getElementById('confirmationModal').addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+            e.stopPropagation();
+        }
+    });
+
+    // Handle modal close button
+    document.querySelector('#confirmationModal .btn-close').addEventListener('click', () => {
+        confirmationModal.hide();
+    });
+
+    // Handle modal No button
+    document.querySelector('#confirmationModal .btn-secondary').addEventListener('click', () => {
+        confirmationModal.hide();
+    });
+});
+</script>
+
+<!-- Add refresh indicator and button styles -->
 <style>
     .refresh-indicator {
         position: fixed;
@@ -190,6 +240,89 @@ if(!isset($_SESSION["user_id"])) {
         0% { opacity: 0; }
         50% { opacity: 1; }
         100% { opacity: 0; }
+    }
+
+    /* Enhanced Button Styles */
+    .action-btn {
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+        z-index: 1;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    .action-btn::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .action-btn:hover::before {
+        opacity: 1;
+    }
+
+    .action-btn.approve {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .action-btn.approve::before {
+        background-color: rgba(40, 167, 69, 0.2);
+    }
+
+    .action-btn.decline {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .action-btn.decline::before {
+        background-color: rgba(220, 53, 69, 0.2);
+    }
+
+    .action-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .action-btn:active {
+        transform: scale(0.95);
+    }
+
+    .action-btn:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    }
+
+    .action-buttons {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        gap: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .action-btn {
+            width: 36px;
+            height: 36px;
+        }
+
+        .action-btn i {
+            font-size: 1rem;
+        }
     }
 </style>
 <div class="refresh-indicator">

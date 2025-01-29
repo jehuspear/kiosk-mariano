@@ -53,6 +53,8 @@ class AutoRefresh {
         document.querySelectorAll('.action-btn.approve').forEach(button => {
             const orderId = button.getAttribute('data-order-id');
             button.onclick = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 if (window.handleOrderAction) {
                     window.handleOrderAction(orderId, 'ready');
                 }
@@ -62,6 +64,8 @@ class AutoRefresh {
         document.querySelectorAll('.action-btn.decline').forEach(button => {
             const orderId = button.getAttribute('data-order-id');
             button.onclick = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 if (window.handleOrderAction) {
                     window.handleOrderAction(orderId, 'cancel');
                 }
@@ -126,9 +130,21 @@ class AutoRefresh {
                     // Setup event listeners for the new content
                     this.setupEventListeners();
 
+                    // Initialize order handlers if available
+                    if (window.initializeOrderHandlers) {
+                        window.initializeOrderHandlers();
+                    }
+
                     // Update search functionality if it exists
                     if (window.orderSearch && !this.searchInput?.value.trim()) {
                         window.orderSearch.updateInitialOrders();
+                    }
+
+                    // Reinitialize Bootstrap components
+                    if (typeof bootstrap !== 'undefined') {
+                        document.querySelectorAll('[data-bs-toggle="modal"]').forEach(element => {
+                            new bootstrap.Modal(element);
+                        });
                     }
                 }
             })

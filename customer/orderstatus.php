@@ -208,7 +208,7 @@ if ($ticketNumber) {
             margin: 15px auto;
             display: block;
             width: 100%;
-            max-width: 200px;
+            /* max-width: 200px; */
         }
 
         .btn-received:hover {
@@ -235,11 +235,6 @@ if ($ticketNumber) {
                 </div>
             </div>
 
-            <?php if ($orderDetails['Order_Status'] === 'ReadyToClaim'): ?>
-                <button id="orderReceivedBtn" class="btn-received">
-                    Order Received
-                </button>
-            <?php endif; ?>
 
             <div class="status-details">
                 <div class="status-label">Order Time</div>
@@ -259,7 +254,14 @@ if ($ticketNumber) {
                 <div class="status-label">Total Amount</div>
                 <div class="status-value">₱<?php echo number_format($orderDetails['Order_TotalAmount'], 2); ?></div>
             </div>
+
+            <?php if ($orderDetails['Order_Status'] === 'ReadyToClaim'): ?>
+                <button id="orderReceivedBtn" class="btn-received">
+                    Click Here to Confirm Order Received
+                </button>
+            <?php endif; ?>
         </div>
+        
     <?php else: ?>
         <div class="no-ticket">
             <h3>No ticket found</h3>
@@ -282,6 +284,57 @@ if ($ticketNumber) {
     <!-- Custom Modal JS -->
     <script src="javascript/order-status-modal.js"></script>
     <script>
+        // Function to fetch and update order status
+        async function updateOrderStatus() {
+            const ticketNumber = <?php echo json_encode($ticketNumber); ?>;
+            if (!ticketNumber) return;
+
+            try {
+                const response = await fetch('get_order_status.php?ticket_number=' + ticketNumber);
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Update status badge
+                    const statusBadge = document.querySelector('.status-badge');
+                    if (statusBadge) {
+                        statusBadge.className = 'status-badge status-' + data.status.toLowerCase();
+                        statusBadge.textContent = data.status;
+                    }
+
+                    // Check if we need to reload the page to show/hide the Order Received button
+                    const currentHasButton = document.getElementById('orderReceivedBtn') !== null;
+                    const shouldHaveButton = data.status === 'ReadyToClaim';
+                    
+                    if (currentHasButton !== shouldHaveButton) {
+                        location.reload();
+                        return;
+                    }
+
+                    // Stop auto-refresh if status is not Pending, Preparing, or ReadyToClaim
+                    const refreshableStatuses = ['Pending', 'Preparing', 'ReadyToClaim'];
+                    if (!refreshableStatuses.includes(data.status)) {
+                        clearInterval(refreshInterval);
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching order status:', error);
+            }
+        }
+
+        // Set up auto-refresh interval only if there's a ticket number and initial status is refreshable
+        let refreshInterval;
+        const initialStatus = <?php echo json_encode($orderDetails ? $orderDetails['Order_Status'] : null); ?>;
+        const refreshableStatuses = ['Pending', 'Preparing', 'ReadyToClaim'];
+        
+        if (<?php echo json_encode($ticketNumber !== null); ?> && 
+            initialStatus && 
+            refreshableStatuses.includes(initialStatus)) {
+            refreshInterval = setInterval(updateOrderStatus, 3000);
+            
+            // Initial update
+            updateOrderStatus();
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const orderReceivedBtn = document.getElementById('orderReceivedBtn');
             if (orderReceivedBtn) {

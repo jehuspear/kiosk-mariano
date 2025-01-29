@@ -2255,3 +2255,57 @@
 
 [2025-01-29 15:37:31] New total quantity: 3
 [2025-01-29 15:37:31] Response sent: {"success":true,"cartCount":3,"totalAmount":375,"message":"Item added to cart successfully"}
+[2025-01-29 15:39:46] Raw POST data: {"id":12,"name":"Blue Punch Mocktail","price":100,"description":"A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.","image":"../admin-staff/Images/menu-item/blue_mocktail.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-01-29 15:39:46] Decoded data: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [price] => 100
+    [description] => A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-29 15:39:46] Item added to cart: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-01-29 15:39:46] New total quantity: 1
+[2025-01-29 15:39:46] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-01-29 15:40:02] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":1}
+[2025-01-29 15:40:02] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-29 15:40:02] Item added to cart: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [price] => 50
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-01-29 15:40:02] New total quantity: 1
+[2025-01-29 15:40:02] Response sent: {"success":true,"cartCount":1,"totalAmount":50,"message":"Item added to cart successfully"}

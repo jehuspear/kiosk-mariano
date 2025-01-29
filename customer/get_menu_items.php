@@ -9,6 +9,7 @@ function getAllMenuItems() {
     $bestSellersQuery = "SELECT m.MenuItem_ID, m.MenuItem_Name, m.MenuItem_Image, 
                    m.MenuItem_Description, m.MenuItem_Category,
                    m.MenuItem_TotalStocks, m.MenuItem_TotalSold,
+                   m.MenuItem_Availability,
                    MIN(ms.MenuItemSize_Price) as base_price
             FROM menuitem m
             LEFT JOIN menuitem_sizes ms ON m.MenuItem_ID = ms.MenuItem_ID
@@ -39,7 +40,8 @@ function getAllMenuItems() {
             'category' => $row['MenuItem_Category'],
             'price' => $row['base_price'],
             'stock' => $row['MenuItem_TotalStocks'],
-            'total_sold' => $row['MenuItem_TotalSold']
+            'total_sold' => $row['MenuItem_TotalSold'],
+            'availability' => $row['MenuItem_Availability']
         );
     }
     
@@ -47,6 +49,7 @@ function getAllMenuItems() {
     $remainingQuery = "SELECT m.MenuItem_ID, m.MenuItem_Name, m.MenuItem_Image, 
                    m.MenuItem_Description, m.MenuItem_Category,
                    m.MenuItem_TotalStocks, m.MenuItem_TotalSold,
+                   m.MenuItem_Availability,
                    MIN(ms.MenuItemSize_Price) as base_price,
                    CASE m.MenuItem_Category
                        WHEN 'Traditional Coffee' THEN 1
@@ -82,7 +85,8 @@ function getAllMenuItems() {
             'category' => $row['MenuItem_Category'],
             'price' => $row['base_price'],
             'stock' => $row['MenuItem_TotalStocks'],
-            'total_sold' => $row['MenuItem_TotalSold']
+            'total_sold' => $row['MenuItem_TotalSold'],
+            'availability' => $row['MenuItem_Availability']
         );
     }
     
@@ -93,8 +97,8 @@ function displayMenuItems() {
     $items = getAllMenuItems();
     
     foreach ($items as $item) {
-        // Check if item is out of stock
-        $outOfStock = $item['stock'] <= 0;
+        // Check if item is out of stock or unavailable
+        $outOfStock = $item['stock'] <= 0 || $item['availability'] === 'Unavailable';
         
         // Check if item is a best seller and get its rank
         $bestSellerRank = getBestSellerRank($item['id']);

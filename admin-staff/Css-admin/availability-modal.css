@@ -1,0 +1,63 @@
+.availability-modal .modal-content {
+    border-radius: 10px;
+}
+
+.availability-modal .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.availability-modal .modal-title {
+    color: #333;
+    font-weight: 600;
+}
+
+.availability-modal .modal-body {
+    padding: 20px;
+}
+
+.availability-modal .modal-footer {
+    border-top: 1px solid #dee2e6;
+    padding: 15px;
+}
+
+.availability-modal .btn-close:focus {
+    box-shadow: none;
+}
+
+.availability-modal .btn {
+    padding: 8px 20px;
+    font-weight: 500;
+}
+
+.availability-modal .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.availability-modal .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.availability-modal .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.availability-modal .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.availability-modal .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.availability-modal .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}

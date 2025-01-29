@@ -3267,3 +3267,23 @@
             WHERE MenuItem_ID = ?
             ORDER BY MenuItemSize_ID ASC
 2025-01-29 18:52:23 - Successfully found 1 sizes for itemId: 26
+2025-01-29 19:10:45 - Received request for itemId: 5
+2025-01-29 19:10:45 - SQL Query: SELECT 
+                MenuItemSize_SizeName as size, 
+                MenuItemSize_IsHot as temperature,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY MenuItemSize_ID ASC
+2025-01-29 19:10:45 - Successfully found 5 sizes for itemId: 5
+2025-01-29 19:17:59 - Received request for itemId: 1
+2025-01-29 19:17:59 - SQL Query: SELECT 
+                MenuItemSize_SizeName as size, 
+                MenuItemSize_IsHot as temperature,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY MenuItemSize_ID ASC
+2025-01-29 19:17:59 - Successfully found 5 sizes for itemId: 1

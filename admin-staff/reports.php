@@ -37,6 +37,11 @@ if (!isset($_SESSION["user_id"])) {
             align-items: center;
             margin-bottom: 20px;
         }
+        .chart-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
         .chart-title {
             font-size: 1.2em;
             font-weight: bold;
@@ -58,7 +63,7 @@ if (!isset($_SESSION["user_id"])) {
                 grid-template-columns: 1fr;
             }
         }
-        .period-select {
+        .period-select, .date-input {
             padding: 6px 12px;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -66,9 +71,18 @@ if (!isset($_SESSION["user_id"])) {
             color: #1565c0;
             font-size: 0.9em;
         }
-        .period-select:focus {
+        .period-select:focus, .date-input:focus {
             outline: none;
             border-color: #1565c0;
+        }
+        .revenue-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .revenue-chart {
+            flex-grow: 1;
+            min-height: 300px;
         }
         .revenue-totals {
             display: flex;
@@ -92,8 +106,8 @@ if (!isset($_SESSION["user_id"])) {
             border-left-color: #2196f3;
         }
         .total-item.grand-total {
-            border-left-color: #1565c0;
-            background: #e3f2fd;
+            border-left-color: #ffd700;
+            background: #fff8e1;
             font-weight: bold;
             font-size: 1.1em;
         }
@@ -106,7 +120,10 @@ if (!isset($_SESSION["user_id"])) {
         }
         .grand-total .total-label,
         .grand-total .total-value {
-            color: #1565c0;
+            color: #b8860b;
+        }
+        .date-input {
+            width: 150px;
         }
     </style>
 </head>
@@ -130,11 +147,14 @@ if (!isset($_SESSION["user_id"])) {
                 <div class="chart-section">
                     <div class="chart-header">
                         <h3 class="chart-title">Customer Count</h3>
-                        <select class="period-select" data-chart-type="customer">
-                            <option value="daily">Daily</option>
-                            <option value="weekly">Weekly</option>
-                            <option value="monthly">Monthly</option>
-                        </select>
+                        <div class="chart-controls">
+                            <select class="period-select" data-chart-type="customer">
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                            <input type="date" class="date-input" data-chart-type="customer">
+                        </div>
                     </div>
                     <canvas id="customerChart" class="chart-canvas"></canvas>
                 </div>
@@ -144,11 +164,14 @@ if (!isset($_SESSION["user_id"])) {
                     <div class="chart-section">
                         <div class="chart-header">
                             <h3 class="chart-title">Products Sold</h3>
-                            <select class="period-select" data-chart-type="product">
-                                <option value="daily">Daily</option>
-                                <option value="weekly">Weekly</option>
-                                <option value="monthly">Monthly</option>
-                            </select>
+                            <div class="chart-controls">
+                                <select class="period-select" data-chart-type="product">
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                                <input type="date" class="date-input" data-chart-type="product">
+                            </div>
                         </div>
                         <canvas id="productChart" class="chart-canvas"></canvas>
                     </div>
@@ -157,24 +180,30 @@ if (!isset($_SESSION["user_id"])) {
                     <div class="chart-section">
                         <div class="chart-header">
                             <h3 class="chart-title">Revenue</h3>
-                            <select class="period-select" data-chart-type="revenue" onchange="updateRevenueTotals(this.value)">
-                                <option value="daily">Daily</option>
-                                <option value="weekly">Weekly</option>
-                                <option value="monthly">Monthly</option>
-                            </select>
+                            <div class="chart-controls">
+                                <select class="period-select" data-chart-type="revenue">
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                                <input type="date" class="date-input" data-chart-type="revenue">
+                            </div>
                         </div>
-                        <div class="revenue-totals">
-                            <div class="total-item cash">
-                                <div class="total-label">Total Cash Sales</div>
-                                <div class="total-value" id="cashTotal">₱0.00</div>
-                            </div>
-                            <div class="total-item gcash">
-                                <div class="total-label">Total GCash Sales</div>
-                                <div class="total-value" id="gcashTotal">₱0.00</div>
-                            </div>
-                            <div class="total-item grand-total">
-                                <div class="total-label">Total Sales</div>
-                                <div class="total-value" id="grandTotal">₱0.00</div>
+                        <div class="revenue-section">
+                            <canvas id="revenueChart" class="chart-canvas"></canvas>
+                            <div class="revenue-totals">
+                                <div class="total-item cash">
+                                    <div class="total-label">Total Cash Sales</div>
+                                    <div class="total-value" id="cashTotal">₱0.00</div>
+                                </div>
+                                <div class="total-item gcash">
+                                    <div class="total-label">Total GCash Sales</div>
+                                    <div class="total-value" id="gcashTotal">₱0.00</div>
+                                </div>
+                                <div class="total-item grand-total">
+                                    <div class="total-label">Total Sales</div>
+                                    <div class="total-value" id="grandTotal">₱0.00</div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -2910,3 +2910,30 @@
 
 [2025-01-29 20:17:09] New total quantity: 2
 [2025-01-29 20:17:09] Response sent: {"success":true,"cartCount":2,"totalAmount":120,"message":"Item added to cart successfully"}
+[2025-01-29 21:14:08] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","orderType":"Dine-in","quantity":1}
+[2025-01-29 21:14:08] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-29 21:14:08] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-01-29 21:14:08] New total quantity: 1
+[2025-01-29 21:14:08] Response sent: {"success":true,"cartCount":1,"totalAmount":120,"message":"Item added to cart successfully"}

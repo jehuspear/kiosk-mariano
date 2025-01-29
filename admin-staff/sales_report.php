@@ -193,6 +193,37 @@ while ($row = $result->fetch_assoc()) {
             background-color: #bbdefb;
             color: #1565c0;
         }
+        @media print {
+            .wrapper { display: block !important; }
+            .sidebar, .mobile-menu-toggle, .filter-controls, .print-button { display: none !important; }
+            .main-content { margin-left: 0 !important; padding: 20px !important; }
+            .order-card {
+                page-break-inside: avoid;
+                border: 1px solid #ddd !important;
+                margin-bottom: 20px !important;
+                box-shadow: none !important;
+            }
+            body { background: white !important; }
+            h2 { color: #1565c0 !important; }
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+        }
+        .print-button {
+            background: #1565c0;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .print-button:hover {
+            background: #1976d2;
+        }
     </style>
 </head>
 <body>
@@ -212,15 +243,21 @@ while ($row = $result->fetch_assoc()) {
             <h2>Sales Report</h2>
 
             <!-- Filter Controls -->
-            <div class="filter-controls">
-                <form method="GET" class="d-flex gap-3">
+            <div class="filter-controls d-flex justify-content-between align-items-center mb-4">
+                <div class="d-flex gap-3 align-items-center">
+                    <form method="GET" class="d-flex gap-3 align-items-center">
                     <select name="period" class="form-select" style="width: auto;" onchange="this.form.submit()">
                         <option value="daily" <?php echo $period === 'daily' ? 'selected' : ''; ?>>Daily</option>
                         <option value="weekly" <?php echo $period === 'weekly' ? 'selected' : ''; ?>>Weekly</option>
                         <option value="monthly" <?php echo $period === 'monthly' ? 'selected' : ''; ?>>Monthly</option>
                     </select>
                     <input type="date" name="date" value="<?php echo $date; ?>" class="form-control" style="width: auto;" onchange="this.form.submit()">
-                </form>
+                    </form>
+                    <input type="text" id="ticketSearch" class="form-control" style="width: auto;" placeholder="Search Ticket #" onkeyup="searchTicket()">
+                </div>
+                <button onclick="window.print()" class="print-button">
+                    <i class="fas fa-print"></i> Print Report
+                </button>
             </div>
 
             <div class="date-label"><?php echo $dateLabel; ?></div>
@@ -232,6 +269,7 @@ while ($row = $result->fetch_assoc()) {
                         <div class="order-header">
                             <div>
                                 <strong>Order #<?php echo $orderId; ?></strong>
+                                <span class="ms-2">Ticket #<?php echo $order['ticket']; ?></span>
                                 <span class="ms-2 text-muted"><?php echo date('M d, Y h:i A', strtotime($order['datetime'])); ?></span>
                                 <span class="ms-2 badge-eating-option <?php echo $order['eating_option'] === 'Dine-in' ? 'badge-dine-in' : 'badge-take-out'; ?>">
                                     <?php echo $order['eating_option']; ?>
@@ -298,5 +336,37 @@ while ($row = $result->fetch_assoc()) {
 
     <script src="Css-admin/bootstrap.bundle.min.js"></script>
     <script src="Javascript-admin/mobile-menu.js"></script>
+    <script>
+        function searchTicket() {
+            const searchValue = document.getElementById('ticketSearch').value.toLowerCase();
+            const orderCards = document.querySelectorAll('.order-card');
+            let hasVisibleOrders = false;
+
+            orderCards.forEach(card => {
+                const ticketText = card.querySelector('span').textContent.toLowerCase();
+                if (ticketText.includes('ticket #' + searchValue)) {
+                    card.style.display = '';
+                    hasVisibleOrders = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results message
+            let noResultsMsg = document.getElementById('noResultsMsg');
+            if (!hasVisibleOrders) {
+                if (!noResultsMsg) {
+                    noResultsMsg = document.createElement('div');
+                    noResultsMsg.id = 'noResultsMsg';
+                    noResultsMsg.className = 'alert alert-info';
+                    noResultsMsg.textContent = 'No tickets found matching your search.';
+                    document.querySelector('.orders-container').appendChild(noResultsMsg);
+                }
+                noResultsMsg.style.display = '';
+            } else if (noResultsMsg) {
+                noResultsMsg.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>

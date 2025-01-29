@@ -2309,3 +2309,469 @@
 
 [2025-01-29 15:40:02] New total quantity: 1
 [2025-01-29 15:40:02] Response sent: {"success":true,"cartCount":1,"totalAmount":50,"message":"Item added to cart successfully"}
+[2025-01-29 17:26:36] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:26:36] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:26:36] Insufficient stock: requested 3, available 1
+[2025-01-29 17:26:37] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:26:37] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:26:37] Insufficient stock: requested 3, available 1
+[2025-01-29 17:26:38] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:26:38] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:26:38] Insufficient stock: requested 3, available 1
+[2025-01-29 17:26:38] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:26:38] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:26:38] Insufficient stock: requested 3, available 1
+[2025-01-29 17:26:39] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:26:39] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:26:39] Insufficient stock: requested 3, available 1
+[2025-01-29 17:26:47] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:26:47] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:26:47] Insufficient stock: requested 3, available 1
+[2025-01-29 17:26:47] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:26:47] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:26:47] Insufficient stock: requested 3, available 1
+[2025-01-29 17:26:47] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:26:47] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:26:47] Insufficient stock: requested 3, available 1
+[2025-01-29 17:26:48] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:26:48] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:26:48] Insufficient stock: requested 3, available 1
+[2025-01-29 17:26:59] Raw POST data: {"id":23,"name":"Air Fried French Fries","price":115,"description":"These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.","image":"../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg","size":"Large","orderType":"Dine-in","quantity":1}
+[2025-01-29 17:26:59] Decoded data: Array
+(
+    [id] => 23
+    [name] => Air Fried French Fries
+    [price] => 115
+    [description] => These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.
+    [image] => ../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg
+    [size] => Large
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-29 17:26:59] Item added to cart: Array
+(
+    [id] => 23
+    [name] => Air Fried French Fries
+    [image] => ../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg
+    [size] => Large
+    [price] => 115
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-01-29 17:26:59] New total quantity: 1
+[2025-01-29 17:26:59] Response sent: {"success":true,"cartCount":1,"totalAmount":115,"message":"Item added to cart successfully"}
+[2025-01-29 17:27:08] Raw POST data: {"id":3,"name":"Cappuccino","price":90,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"Tres","orderType":"Dine-in","quantity":1}
+[2025-01-29 17:27:08] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 90
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Tres
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-29 17:27:08] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => Tres
+    [price] => 90
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-01-29 17:27:08] New total quantity: 2
+[2025-01-29 17:27:08] Response sent: {"success":true,"cartCount":2,"totalAmount":205,"message":"Item added to cart successfully"}
+[2025-01-29 17:27:11] Raw POST data: {"id":7,"name":"Kape de Cacao","price":105,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Tres","orderType":"Dine-in","quantity":1}
+[2025-01-29 17:27:11] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 105
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Tres
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-29 17:27:11] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Tres
+    [price] => 105
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-01-29 17:27:11] New total quantity: 3
+[2025-01-29 17:27:11] Response sent: {"success":true,"cartCount":3,"totalAmount":310,"message":"Item added to cart successfully"}
+[2025-01-29 17:27:41] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","orderType":"Dine-in","quantity":2}
+[2025-01-29 17:27:41] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-01-29 17:27:41] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [price] => 120
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-01-29 17:27:41] New total quantity: 2
+[2025-01-29 17:27:41] Response sent: {"success":true,"cartCount":2,"totalAmount":240,"message":"Item added to cart successfully"}
+[2025-01-29 17:27:52] Raw POST data: {"id":11,"name":"Pretzel","price":70,"description":"Soft and chewy on the inside, crispy and golden on the outside, these Soft Pretzels are a fun snack that bake up in the oven and served with a delicious cheese sauce! ","image":"../admin-staff/Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg","size":"Large","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:27:52] Decoded data: Array
+(
+    [id] => 11
+    [name] => Pretzel
+    [price] => 70
+    [description] => Soft and chewy on the inside, crispy and golden on the outside, these Soft Pretzels are a fun snack that bake up in the oven and served with a delicious cheese sauce! 
+    [image] => ../admin-staff/Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg
+    [size] => Large
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:27:52] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Pretzel
+    [image] => ../admin-staff/Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg
+    [size] => Large
+    [price] => 70
+    [quantity] => 3
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-01-29 17:27:52] New total quantity: 5
+[2025-01-29 17:27:52] Response sent: {"success":true,"cartCount":5,"totalAmount":450,"message":"Item added to cart successfully"}
+[2025-01-29 17:27:58] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:27:58] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:27:58] Insufficient stock: requested 3, available 1
+[2025-01-29 17:27:58] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:27:58] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:27:58] Insufficient stock: requested 3, available 1
+[2025-01-29 17:27:58] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:27:58] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:27:58] Insufficient stock: requested 3, available 1
+[2025-01-29 17:27:58] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:27:58] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:27:58] Insufficient stock: requested 3, available 1
+[2025-01-29 17:27:58] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":3}
+[2025-01-29 17:27:58] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-01-29 17:27:58] Insufficient stock: requested 3, available 1
+[2025-01-29 17:28:01] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":1}
+[2025-01-29 17:28:01] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-29 17:28:01] Item added to cart: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [price] => 50
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-01-29 17:28:01] New total quantity: 6
+[2025-01-29 17:28:01] Response sent: {"success":true,"cartCount":6,"totalAmount":500,"message":"Item added to cart successfully"}
+[2025-01-29 17:55:09] Raw POST data: {"id":10,"name":"Espresso (Doppio)","price":70,"description":"Sample Coffee","image":"../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg","size":"Dos","orderType":"Dine-in","quantity":5}
+[2025-01-29 17:55:09] Decoded data: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [price] => 70
+    [description] => Sample Coffee
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 5
+)
+
+[2025-01-29 17:55:09] Item added to cart: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Dos
+    [price] => 70
+    [quantity] => 5
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-01-29 17:55:09] New total quantity: 5
+[2025-01-29 17:55:09] Response sent: {"success":true,"cartCount":5,"totalAmount":350,"message":"Item added to cart successfully"}
+[2025-01-29 17:55:12] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":1}
+[2025-01-29 17:55:12] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-29 17:55:12] Item added to cart: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [price] => 50
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-01-29 17:55:12] New total quantity: 6
+[2025-01-29 17:55:12] Response sent: {"success":true,"cartCount":6,"totalAmount":400,"message":"Item added to cart successfully"}
+[2025-01-29 18:00:39] Raw POST data: {"id":10,"name":"Espresso (Doppio)","price":60,"description":"Sample Coffee","image":"../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg","size":"Uno","orderType":"Dine-in","quantity":5}
+[2025-01-29 18:00:39] Decoded data: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [price] => 60
+    [description] => Sample Coffee
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 5
+)
+
+[2025-01-29 18:00:39] Item added to cart: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Uno
+    [price] => 60
+    [quantity] => 5
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-01-29 18:00:39] New total quantity: 5
+[2025-01-29 18:00:39] Response sent: {"success":true,"cartCount":5,"totalAmount":300,"message":"Item added to cart successfully"}
+[2025-01-29 18:21:54] Raw POST data: {"id":10,"name":"Espresso (Doppio)","price":60,"description":"Sample Coffee","image":"../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg","size":"Uno","orderType":"Take-out","quantity":5}
+[2025-01-29 18:21:54] Decoded data: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [price] => 60
+    [description] => Sample Coffee
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 5
+)
+
+[2025-01-29 18:21:54] Item added to cart: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Uno
+    [price] => 60
+    [quantity] => 5
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-01-29 18:21:54] New total quantity: 5
+[2025-01-29 18:21:54] Response sent: {"success":true,"cartCount":5,"totalAmount":300,"message":"Item added to cart successfully"}

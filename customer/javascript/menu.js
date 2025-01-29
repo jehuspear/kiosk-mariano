@@ -3,6 +3,7 @@ let selectedSize = null;
 let selectedOrderType = null;
 let currentQuantity = 1;
 let currentItemId = null;
+let currentStock = 0;
 
 // Function to show item details in modal (alias for showDetails for backward compatibility)
 const showDetails = showItemDetails;
@@ -16,6 +17,7 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
     selectedSize = null;
     selectedOrderType = null;
     currentQuantity = 1;
+    currentStock = 0;
     
     // Store current item details for adding to cart
     window.currentItem = {
@@ -34,6 +36,7 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
     document.getElementById('item-description').textContent = description;
     document.getElementById('quantity').textContent = currentQuantity;
     document.getElementById('item-image').src = image;
+    document.getElementById('stock-count').textContent = '0';
     
     // Get size and temperature information
     try {
@@ -73,8 +76,10 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
                 if (index === 0) {
                     button.classList.add('active');
                     selectedSize = sizeInfo.size;
+                    currentStock = sizeInfo.stock;
                     window.currentItem.price = parseFloat(sizeInfo.price);
                     document.getElementById('item-price').textContent = `₱${parseFloat(sizeInfo.price).toFixed(2)}`;
+                    document.getElementById('stock-count').textContent = sizeInfo.stock;
                 }
                 
                 button.onclick = () => selectSize(sizeInfo.size, button, sizeInfo.price, sizeInfo.stock);
@@ -229,8 +234,16 @@ async function addToCart() {
 
 // Function to adjust quantity
 function adjustQuantity(change) {
-    currentQuantity = Math.max(1, currentQuantity + change);
-    document.getElementById('quantity').textContent = currentQuantity;
+    const newQuantity = currentQuantity + change;
+    if (newQuantity >= 1 && newQuantity <= currentStock) {
+        currentQuantity = newQuantity;
+        document.getElementById('quantity').textContent = currentQuantity;
+    } else {
+        // Show toast message if trying to exceed stock
+        if (newQuantity > currentStock) {
+            showToast('Cannot exceed available stock');
+        }
+    }
 }
 
 // Function to select size
@@ -241,6 +254,14 @@ function selectSize(size, button, price, stock) {
     }
 
     selectedSize = size;
+    currentStock = stock;
+    
+    // Reset quantity to 1 when changing sizes
+    currentQuantity = 1;
+    document.getElementById('quantity').textContent = '1';
+    
+    // Update stock display
+    document.getElementById('stock-count').textContent = stock;
     
     // Remove active class from all size buttons
     button.closest('.options-group').querySelectorAll('.option-btn').forEach(btn => {
@@ -290,8 +311,6 @@ function showToast(message) {
         toast.remove();
     }, 3000);
 }
-
-
 
 // THE SEARCH AND CATEGORY FUNCTIONALITY
 let currentCategory = 'all';

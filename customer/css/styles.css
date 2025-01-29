@@ -74,21 +74,7 @@ body {
     object-fit: cover;
 }
 
-/* Out of Stock Badge */
-.out-of-stock {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 4px 8px;
-    border-radius: 15px;
-    font-size: 11px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    z-index: 1;
-}
+
 
 /* Modal Styles */
 .modal-content {

@@ -2937,3 +2937,84 @@
 
 [2025-01-29 21:14:08] New total quantity: 1
 [2025-01-29 21:14:08] Response sent: {"success":true,"cartCount":1,"totalAmount":120,"message":"Item added to cart successfully"}
+[2025-01-30 08:12:38] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","orderType":"Dine-in","quantity":2}
+[2025-01-30 08:12:38] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-01-30 08:12:38] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [price] => 120
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-01-30 08:12:38] New total quantity: 2
+[2025-01-30 08:12:38] Response sent: {"success":true,"cartCount":2,"totalAmount":240,"message":"Item added to cart successfully"}
+[2025-01-30 08:12:48] Raw POST data: {"id":14,"name":"Black Forest cake ","price":240,"description":"A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.","image":"../admin-staff/Images/menu-item/black-forest-pastry.jpg","size":"1 Whole","orderType":"Dine-in","quantity":1}
+[2025-01-30 08:12:48] Decoded data: Array
+(
+    [id] => 14
+    [name] => Black Forest cake 
+    [price] => 240
+    [description] => A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.
+    [image] => ../admin-staff/Images/menu-item/black-forest-pastry.jpg
+    [size] => 1 Whole
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-30 08:12:48] Item added to cart: Array
+(
+    [id] => 14
+    [name] => Black Forest cake 
+    [image] => ../admin-staff/Images/menu-item/black-forest-pastry.jpg
+    [size] => 1 Whole
+    [price] => 240
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-01-30 08:12:48] New total quantity: 3
+[2025-01-30 08:12:48] Response sent: {"success":true,"cartCount":3,"totalAmount":480,"message":"Item added to cart successfully"}
+[2025-01-30 08:12:56] Raw POST data: {"id":23,"name":"Air Fried French Fries","price":115,"description":"These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.","image":"../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg","size":"Large","orderType":"Dine-in","quantity":1}
+[2025-01-30 08:12:56] Decoded data: Array
+(
+    [id] => 23
+    [name] => Air Fried French Fries
+    [price] => 115
+    [description] => These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.
+    [image] => ../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg
+    [size] => Large
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-01-30 08:12:56] Item added to cart: Array
+(
+    [id] => 23
+    [name] => Air Fried French Fries
+    [image] => ../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg
+    [size] => Large
+    [price] => 115
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-01-30 08:12:56] New total quantity: 4
+[2025-01-30 08:12:56] Response sent: {"success":true,"cartCount":4,"totalAmount":595,"message":"Item added to cart successfully"}

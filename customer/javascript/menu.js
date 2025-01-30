@@ -238,6 +238,11 @@ function adjustQuantity(change) {
     if (newQuantity >= 1 && newQuantity <= currentStock) {
         currentQuantity = newQuantity;
         document.getElementById('quantity').textContent = currentQuantity;
+        
+        // Update price based on quantity
+        const basePrice = window.currentItem.price;
+        const totalPrice = basePrice * currentQuantity;
+        document.getElementById('item-price').textContent = `₱${totalPrice.toFixed(2)}`;
     } else {
         // Show toast message if trying to exceed stock
         if (newQuantity > currentStock) {
@@ -271,9 +276,9 @@ function selectSize(size, button, price, stock) {
     // Add active class to clicked button
     button.classList.add('active');
     
-    // Update price display
-    document.getElementById('item-price').textContent = `₱${parseFloat(price).toFixed(2)}`;
+    // Update base price and display initial total (quantity = 1)
     window.currentItem.price = parseFloat(price);
+    document.getElementById('item-price').textContent = `₱${parseFloat(price).toFixed(2)}`;
 }
 
 // Function to select order type

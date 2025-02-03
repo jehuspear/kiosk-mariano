@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2025 at 09:31 AM
+-- Generation Time: Feb 03, 2025 at 10:28 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -106,7 +106,11 @@ INSERT INTO `logs` (`Log_ID`, `Staff_ID`, `Log_DateTime`, `Log_Action`, `Log_Det
 (42, 2, '2025-01-30 01:22:15', 'Order marked as ready', 'Order #48 status changed to ReadyToClaim'),
 (43, 2, '2025-01-30 04:14:24', 'Order marked as ready', 'Order #50 status changed to ReadyToClaim'),
 (44, 2, '2025-01-30 04:38:51', 'Order marked as ready', 'Order #36 status changed to ReadyToClaim'),
-(45, 2, '2025-01-30 15:14:46', 'Order marked as ready', 'Order #51 status changed to ReadyToClaim');
+(45, 2, '2025-01-30 15:14:46', 'Order marked as ready', 'Order #51 status changed to ReadyToClaim'),
+(46, 2, '2025-02-03 17:13:53', 'Order marked as ready', 'Order #53 status changed to ReadyToClaim'),
+(47, 2, '2025-02-03 17:17:59', 'Order marked as ready', 'Order #53 status changed to ReadyToClaim'),
+(48, 2, '2025-02-03 17:18:04', 'Order marked as ready', 'Order #54 status changed to ReadyToClaim'),
+(49, 2, '2025-02-03 17:18:32', 'Order marked as ready', 'Order #51 status changed to ReadyToClaim');
 
 -- --------------------------------------------------------
 
@@ -140,9 +144,9 @@ INSERT INTO `menuitem` (`MenuItem_ID`, `MenuItem_Name`, `MenuItem_Image`, `MenuI
 (10, 'Espresso (Doppio)', 'Images/menu-items/Doppio_Espresso_Macchiato.jpg', 'Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning \"double\" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.', 'Traditional Coffee', 4, 24, 'Available'),
 (11, 'Pretzel', 'Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg', 'Soft and chewy on the inside, crispy and golden on the outside, these Soft Pretzels are a fun snack that bake up in the oven and served with a delicious cheese sauce!\r\n', 'Snacks', 899, 1, 'Available'),
 (12, 'Blue Punch Mocktail', 'Images/menu-item/blue_mocktail.jpg', 'A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.', 'Mocktail', 299, 0, 'Available'),
-(13, 'Matcha Latte', 'Images/menu-item/matcha-latte.jpg', 'A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.', 'Non-Coffee', 893, 3, 'Available'),
-(14, 'Black Forest cake ', 'Images/menu-item/black-forest-pastry.jpg', 'A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.', 'Pastries', 2, 1, 'Available'),
-(15, 'Strawberry Latte', 'Images/menu-item/sakura-strawberry-latte1.jpg', 'Enjoy a sip of this delicious strawberry flavored drink!', 'Non-Coffee', 1495, 0, 'Available'),
+(13, 'Matcha Latte', 'Images/menu-item/matcha-latte.jpg', 'A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.', 'Non-Coffee', 892, 4, 'Available'),
+(14, 'Black Forest cake ', 'Images/menu-item/black-forest-pastry.jpg', 'A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.', 'Pastries', 1, 2, 'Available'),
+(15, 'Strawberry Latte', 'Images/menu-item/sakura-strawberry-latte1.jpg', 'Enjoy a sip of this delicious strawberry flavored drink!', 'Non-Coffee', 1493, 2, 'Available'),
 (16, 'Chocolate Latte', 'Images/menu-item/chocolate latte1.jpg', 'A sweet chocolate flavored drink!', 'Non-Coffee', 1494, 0, 'Available'),
 (17, 'Shirley Temple', 'Images/menu-item/shirly temple.jpg', 'Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail', 'Mocktail', 299, 0, 'Available'),
 (18, 'Strawberry Kiss', 'Images/menu-item/strawberry-lemon-mocktail-5411.jpg', 'A delicious sweet strawberry drink that will mark your lips with a delight!', 'Mocktail', 299, 0, 'Available'),
@@ -218,14 +222,14 @@ INSERT INTO `menuitem_sizes` (`MenuItemSize_ID`, `MenuItem_ID`, `MenuItemSize_Si
 (48, 12, '12oz', 'Iced', 100.00, 0, 299),
 (50, 13, '8oz', 'Hot', 70.00, 0, 299),
 (51, 13, '12oz', 'Iced', 100.00, 0, 299),
-(52, 13, '16oz', 'Iced', 120.00, 3, 295),
+(52, 13, '16oz', 'Iced', 120.00, 4, 294),
 (53, 14, '1 Piece', 'Normal', 60.00, 0, 1),
-(54, 14, 'Half Slice', 'Normal', 120.00, 0, 1),
+(54, 14, 'Half Slice', 'Normal', 120.00, 1, 0),
 (55, 14, '1 Whole', 'Normal', 240.00, 1, 0),
 (56, 15, '8oz', 'Hot', 90.00, 0, 299),
 (57, 15, '12oz', 'Hot', 95.00, 0, 299),
 (58, 15, '12oz', 'Iced', 95.00, 0, 299),
-(60, 15, '16oz', 'Iced', 100.00, 0, 299),
+(60, 15, '16oz', 'Iced', 100.00, 2, 297),
 (61, 15, '22oz', 'Iced', 105.00, 0, 299),
 (62, 16, '8oz', 'Hot', 90.00, 0, 299),
 (63, 16, '12oz', 'Hot', 95.00, 0, 299),
@@ -319,9 +323,11 @@ INSERT INTO `order` (`Order_ID`, `Order_CustomerName`, `Order_EatingOption`, `Or
 (47, NULL, 'Dine-in', 133, '2025-01-30 00:55:21', '2025-01-30 00:55:45', 400.00, 47, 'Cash', NULL, 'Completed'),
 (48, NULL, 'Take-out', 388, '2025-01-30 01:21:57', '2025-01-30 01:22:15', 300.00, 48, 'Cash', NULL, 'Completed'),
 (49, NULL, 'Dine-in', 751, '2025-01-30 03:08:17', NULL, 390.00, 49, 'Cash', NULL, 'Completed'),
-(50, NULL, 'Dine-in', 122, '2025-01-30 04:14:12', '2025-01-30 04:14:30', 120.00, 50, 'GCash', NULL, 'Completed'),
-(51, NULL, 'Dine-in', 587, '2025-01-30 15:13:19', '2025-01-30 15:15:00', 475.00, 51, 'GCash', NULL, 'Completed'),
-(53, NULL, 'Dine-in', 1, '2025-02-03 16:27:19', NULL, 120.00, 53, 'Cash', NULL, 'Pending');
+(50, NULL, 'Dine-in', 3, '2025-02-03 16:30:19', NULL, 120.00, 50, 'GCash', NULL, 'Preparing'),
+(51, NULL, 'Dine-in', 2, '2025-02-03 16:28:19', '2025-02-03 17:18:32', 475.00, 51, 'GCash', NULL, 'Preparing'),
+(53, NULL, 'Dine-in', 1, '2025-02-03 16:27:19', '2025-02-03 17:20:25', 120.00, 53, 'Cash', NULL, 'Preparing'),
+(54, NULL, 'Dine-in', 4, '2025-02-03 17:17:27', '2025-02-03 17:19:49', 200.00, 54, 'GCash', NULL, 'Preparing'),
+(55, NULL, 'Dine-in', 5, '2025-02-03 17:21:15', NULL, 120.00, 55, 'GCash', NULL, 'Preparing');
 
 -- --------------------------------------------------------
 
@@ -422,7 +428,9 @@ INSERT INTO `orderitem` (`OrderItem_ID`, `Order_ID`, `MenuItem_ID`, `OrderItem_C
 (77, 51, 13, '16oz', 1, 120.00),
 (78, 51, 14, '1 Whole', 1, 240.00),
 (79, 51, 23, 'Large', 1, 115.00),
-(81, 53, 13, '16oz', 1, 120.00);
+(81, 53, 13, '16oz', 1, 120.00),
+(82, 54, 15, '16oz', 2, 100.00),
+(83, 55, 14, 'Half Slice', 1, 120.00);
 
 -- --------------------------------------------------------
 
@@ -500,7 +508,9 @@ INSERT INTO `payment` (`Payment_ID`, `Payment_Method`, `Payment_ReferenceNumber`
 (49, 'Cash', NULL, '2025-01-30 03:08:21', 390.00, NULL, 0.00, NULL, NULL, 390.00, 'Completed'),
 (50, 'GCash', NULL, '2025-01-30 04:14:18', 120.00, NULL, 0.00, NULL, NULL, 120.00, 'Completed'),
 (51, 'GCash', NULL, '2025-01-30 15:14:05', 475.00, NULL, 0.00, NULL, NULL, 475.00, 'Completed'),
-(53, 'Cash', NULL, '2025-02-03 16:27:19', 120.00, NULL, 0.00, NULL, NULL, 120.00, 'Pending');
+(53, 'Cash', NULL, '2025-02-03 17:03:54', 120.00, NULL, 0.00, NULL, NULL, 120.00, 'Completed'),
+(54, 'GCash', NULL, '2025-02-03 17:17:39', 200.00, NULL, 0.00, NULL, NULL, 200.00, 'Completed'),
+(55, 'GCash', NULL, '2025-02-03 17:26:18', 120.00, NULL, 0.00, NULL, NULL, 120.00, 'Completed');
 
 -- --------------------------------------------------------
 
@@ -610,7 +620,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `Log_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `Log_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `menuitem`
@@ -628,19 +638,19 @@ ALTER TABLE `menuitem_sizes`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `orderitem`
 --
 ALTER TABLE `orderitem`
-  MODIFY `OrderItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `OrderItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `Payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `Payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `staff`

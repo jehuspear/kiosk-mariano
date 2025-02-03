@@ -9,10 +9,10 @@ window.confirmOrderHandler = async function(e) {
         // Get order details from the row
         const orderDetails = {
             ticketNumber: orderRow.querySelector('.order-item:nth-child(1)').textContent,
-            eatingOption: orderRow.querySelector('.order-item:nth-child(2)').textContent,
-            items: orderRow.querySelector('.order-item:nth-child(4)').innerHTML,
-            paymentMethod: orderRow.querySelector('.order-item:nth-child(5)').textContent,
-            totalAmount: orderRow.querySelector('.order-item:nth-child(8)').textContent.replace('₱', '')
+            eatingOption: orderRow.querySelector('.order-item:nth-child(3)').textContent,
+            items: orderRow.querySelector('.order-item:nth-child(5)').innerHTML,
+            paymentMethod: orderRow.querySelector('.order-item:nth-child(4)').textContent,
+            totalAmount: orderRow.querySelector('.order-item:nth-child(7)').textContent.replace('₱', '')
         };
         
         const confirmed = await adminModal.confirm({

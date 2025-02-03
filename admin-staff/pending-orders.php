@@ -24,6 +24,7 @@ if(!isset($_SESSION["user_id"])) {
         <link rel="stylesheet" href="Css-admin/search_order.css">
         <link rel="stylesheet" href="Css-admin/admin-modal.css">
         <link rel="stylesheet" href="Css-admin/modal-order-details.css">
+        <link rel="stylesheet" href="Css-admin/receipt-print.css">
        
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -137,14 +138,15 @@ if(!isset($_SESSION["user_id"])) {
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Custom Modal -->
+        
+        <!-- Custom Scripts - Order matters! -->
+        <script src="Javascript-admin/receipt-printer.js"></script>
         <script src="Javascript-admin/admin-modal.js"></script>
-        <!-- JavaScript -->
         <script src="Javascript-admin/confirm_order.js"></script>
         <script src="Javascript-admin/cancel_order.js"></script>
         <script src="Javascript-admin/search_order.js"></script>
         <script src="Javascript-admin/mobile-menu.js"></script>
-        <!-- <script src="Javascript-admin/auto-refresh.js"></script> -->
+        <script src="Javascript-admin/auto-refresh.js"></script>
         
         <script>
             // Add event listeners after all scripts are loaded

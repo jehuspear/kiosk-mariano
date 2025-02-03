@@ -369,7 +369,7 @@ class AdminModal {
                 resolve({ confirmed: false });
             };
 
-            const handleYes = () => {
+            const handleYes = async () => {
                 if (isCancel) {
                     this.hide();
                     cleanup();
@@ -398,6 +398,11 @@ class AdminModal {
                     cashAmount: cashAmount ? parseFloat(cashAmount.value) || 0 : 0,
                     change: Math.max(0, change)
                 };
+
+                // Print receipt before hiding modal
+                if (options.order && window.receiptPrinter) {
+                    window.receiptPrinter.print(options.order, modalResult);
+                }
 
                 // Debug log the result
                 console.log('Modal Result:', modalResult);

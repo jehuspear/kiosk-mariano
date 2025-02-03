@@ -185,7 +185,7 @@ if (!$ticketNumber) {
         </div>
         
         <div class="ticket-frame">
-            <div class="ticket-number"><?php echo $ticketNumber; ?></div>
+            <div class="ticket-number"><?php echo str_pad($ticketNumber, 3, '0', STR_PAD_LEFT); ?></div>
             <div class="ticket-instructions">
                 Show this to the<br>
                 barista at the<br>

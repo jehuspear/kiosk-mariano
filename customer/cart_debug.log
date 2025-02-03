@@ -3018,3 +3018,84 @@
 
 [2025-01-30 08:12:56] New total quantity: 4
 [2025-01-30 08:12:56] Response sent: {"success":true,"cartCount":4,"totalAmount":595,"message":"Item added to cart successfully"}
+[2025-02-03 09:12:33] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":95,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+[2025-02-03 09:12:33] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 95
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-03 09:12:33] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Uno
+    [price] => 95
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-03 09:12:33] New total quantity: 1
+[2025-02-03 09:12:33] Response sent: {"success":true,"cartCount":1,"totalAmount":95,"message":"Item added to cart successfully"}
+[2025-02-03 09:26:09] Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"8oz","orderType":"Dine-in","quantity":1}
+[2025-02-03 09:26:09] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-03 09:26:09] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 8oz
+    [price] => 85
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-03 09:26:09] New total quantity: 1
+[2025-02-03 09:26:09] Response sent: {"success":true,"cartCount":1,"totalAmount":85,"message":"Item added to cart successfully"}
+[2025-02-03 09:27:15] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","orderType":"Dine-in","quantity":1}
+[2025-02-03 09:27:15] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-03 09:27:15] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-03 09:27:15] New total quantity: 1
+[2025-02-03 09:27:15] Response sent: {"success":true,"cartCount":1,"totalAmount":120,"message":"Item added to cart successfully"}

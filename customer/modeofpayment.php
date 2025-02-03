@@ -15,9 +15,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payment_method'])) {
             $eatingOption = $item['orderType']; // Get from first item
         }
         
-        // Generate and store ticket number in session before database operations
-        $ticketNumber = mt_rand(100, 999); // 3-digit number
-        $_SESSION['ticket_number'] = $ticketNumber;
+        // Get today's date in Y-m-d format for comparison
+        $today = date('Y-m-d');
+        
+        // Get the latest ticket number from today's orders
+        $sql = "SELECT Order_TicketNumber FROM `order` 
+                WHERE DATE(Order_DateTime) = ? 
+                ORDER BY Order_DateTime DESC, Order_ID DESC 
+                LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $today);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        // If there are no orders today, start from 1
+        // Otherwise, increment the last ticket number
+        if ($result->num_rows === 0) {
+            $ticketNumber = 1;
+        } else {
+            $row = $result->fetch_assoc();
+            $ticketNumber = $row['Order_TicketNumber'] + 1;
+        }
+        
+        // Format ticket number to have leading zeros (e.g., 001, 012, 123)
+        $formattedTicketNumber = str_pad($ticketNumber, 3, '0', STR_PAD_LEFT);
+        
+        $_SESSION['ticket_number'] = $formattedTicketNumber;
         
         // Begin transaction
         $conn->begin_transaction();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2025 at 09:08 AM
+-- Generation Time: Feb 03, 2025 at 09:31 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -320,7 +320,8 @@ INSERT INTO `order` (`Order_ID`, `Order_CustomerName`, `Order_EatingOption`, `Or
 (48, NULL, 'Take-out', 388, '2025-01-30 01:21:57', '2025-01-30 01:22:15', 300.00, 48, 'Cash', NULL, 'Completed'),
 (49, NULL, 'Dine-in', 751, '2025-01-30 03:08:17', NULL, 390.00, 49, 'Cash', NULL, 'Completed'),
 (50, NULL, 'Dine-in', 122, '2025-01-30 04:14:12', '2025-01-30 04:14:30', 120.00, 50, 'GCash', NULL, 'Completed'),
-(51, NULL, 'Dine-in', 587, '2025-01-30 15:13:19', '2025-01-30 15:15:00', 475.00, 51, 'GCash', NULL, 'Completed');
+(51, NULL, 'Dine-in', 587, '2025-01-30 15:13:19', '2025-01-30 15:15:00', 475.00, 51, 'GCash', NULL, 'Completed'),
+(53, NULL, 'Dine-in', 1, '2025-02-03 16:27:19', NULL, 120.00, 53, 'Cash', NULL, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -420,7 +421,8 @@ INSERT INTO `orderitem` (`OrderItem_ID`, `Order_ID`, `MenuItem_ID`, `OrderItem_C
 (76, 50, 13, '16oz', 1, 120.00),
 (77, 51, 13, '16oz', 1, 120.00),
 (78, 51, 14, '1 Whole', 1, 240.00),
-(79, 51, 23, 'Large', 1, 115.00);
+(79, 51, 23, 'Large', 1, 115.00),
+(81, 53, 13, '16oz', 1, 120.00);
 
 -- --------------------------------------------------------
 
@@ -436,6 +438,8 @@ CREATE TABLE `payment` (
   `Order_TotalAmount` decimal(10,2) NOT NULL,
   `Payment_DiscountType` varchar(50) DEFAULT NULL,
   `Payment_DiscountAmount` decimal(10,2) DEFAULT 0.00,
+  `Payment_CashPaid` int(12) DEFAULT NULL,
+  `Payment_Change` int(12) DEFAULT NULL,
   `Payment_TotalAmount` decimal(10,2) NOT NULL,
   `Payment_Status` enum('Pending','Completed','Cancelled') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -444,58 +448,59 @@ CREATE TABLE `payment` (
 -- Dumping data for table `payment`
 --
 
-INSERT INTO `payment` (`Payment_ID`, `Payment_Method`, `Payment_ReferenceNumber`, `Payment_DateTime`, `Order_TotalAmount`, `Payment_DiscountType`, `Payment_DiscountAmount`, `Payment_TotalAmount`, `Payment_Status`) VALUES
-(1, 'Cash', NULL, '2024-12-28 16:41:08', 100.00, NULL, 0.00, 100.00, 'Pending'),
-(2, 'Cash', NULL, '2024-12-28 20:54:01', 515.00, NULL, 0.00, 515.00, 'Completed'),
-(3, 'Cash', NULL, '2024-12-28 17:26:29', 190.00, NULL, 0.00, 190.00, 'Completed'),
-(4, 'GCash', NULL, '2024-12-28 22:12:08', 180.00, NULL, 0.00, 180.00, 'Completed'),
-(5, 'Cash', NULL, '2024-12-28 17:34:18', 200.00, NULL, 0.00, 200.00, 'Pending'),
-(6, 'Cash', NULL, '2024-12-28 19:57:58', 200.00, NULL, 0.00, 200.00, 'Completed'),
-(7, 'Cash', NULL, '2024-12-28 20:40:04', 375.00, NULL, 0.00, 375.00, 'Completed'),
-(8, 'GCash', NULL, '2024-12-28 20:36:12', 300.00, NULL, 0.00, 300.00, 'Completed'),
-(9, 'GCash', NULL, '2024-12-28 20:32:32', 650.00, NULL, 0.00, 650.00, 'Completed'),
-(10, 'GCash', NULL, '2024-12-28 20:50:15', 580.00, NULL, 0.00, 580.00, 'Completed'),
-(11, 'Cash', NULL, '2024-12-28 21:49:33', 120.00, NULL, 0.00, 120.00, 'Cancelled'),
-(12, 'Cash', NULL, '2024-12-28 21:53:09', 150.00, NULL, 0.00, 150.00, 'Completed'),
-(13, 'Cash', NULL, '2025-01-02 22:40:22', 280.00, NULL, 0.00, 280.00, 'Completed'),
-(14, 'Cash', NULL, '2025-01-02 22:54:41', 300.00, NULL, 0.00, 300.00, 'Completed'),
-(15, 'GCash', NULL, '2025-01-02 22:57:09', 300.00, NULL, 0.00, 300.00, 'Completed'),
-(16, 'GCash', NULL, '2025-01-02 23:14:20', 510.00, NULL, 0.00, 510.00, 'Completed'),
-(17, 'GCash', NULL, '2025-01-02 23:17:46', 140.00, NULL, 0.00, 140.00, 'Completed'),
-(18, 'GCash', NULL, '2025-01-03 00:08:38', 95.00, NULL, 0.00, 95.00, 'Completed'),
-(19, 'GCash', NULL, '2025-01-03 04:21:09', 340.00, NULL, 0.00, 340.00, 'Completed'),
-(20, 'GCash', NULL, '2025-01-03 04:29:49', 400.00, NULL, 0.00, 400.00, 'Completed'),
-(21, 'Cash', NULL, '2025-01-03 05:11:48', 120.00, NULL, 0.00, 120.00, 'Completed'),
-(22, 'GCash', NULL, '2025-01-03 05:19:01', 200.00, NULL, 0.00, 200.00, 'Completed'),
-(23, 'Cash', NULL, '2025-01-03 05:21:48', 220.00, NULL, 0.00, 220.00, 'Completed'),
-(24, 'Cash', NULL, '2025-01-06 18:08:44', 220.00, NULL, 0.00, 220.00, 'Completed'),
-(25, 'Cash', NULL, '2025-01-07 10:17:28', 120.00, NULL, 0.00, 120.00, 'Completed'),
-(26, 'Cash', NULL, '2025-01-07 10:21:09', 90.00, NULL, 0.00, 90.00, 'Completed'),
-(27, 'Cash', NULL, '2025-01-07 10:49:34', 1130.00, NULL, 0.00, 1130.00, 'Completed'),
-(28, 'GCash', NULL, '2025-01-07 10:54:12', 200.00, NULL, 0.00, 200.00, 'Completed'),
-(29, 'Cash', NULL, '2025-01-07 10:59:49', 120.00, NULL, 0.00, 120.00, 'Completed'),
-(30, 'Cash', NULL, '2025-01-07 11:13:47', 240.00, NULL, 0.00, 240.00, 'Completed'),
-(31, 'Cash', NULL, '2025-01-07 15:10:19', 125.00, NULL, 0.00, 125.00, 'Pending'),
-(32, 'Cash', NULL, '2025-01-08 15:54:57', 155.00, NULL, 0.00, 155.00, 'Pending'),
-(33, 'GCash', NULL, '2025-01-08 16:12:53', 190.00, NULL, 0.00, 190.00, 'Pending'),
-(34, 'Cash', NULL, '2025-01-08 16:15:58', 210.00, NULL, 0.00, 210.00, 'Completed'),
-(35, 'GCash', NULL, '2025-01-08 16:16:21', 400.00, NULL, 0.00, 400.00, 'Completed'),
-(36, 'GCash', NULL, '2025-01-08 16:17:39', 90.00, NULL, 0.00, 90.00, 'Completed'),
-(37, 'Cash', NULL, '2025-01-09 14:15:14', 455.00, NULL, 0.00, 455.00, 'Completed'),
-(38, 'Cash', NULL, '2025-01-24 10:18:46', 135.00, NULL, 0.00, 135.00, 'Completed'),
-(39, 'Cash', NULL, '2025-01-29 19:17:37', 200.00, NULL, 0.00, 200.00, 'Completed'),
-(40, 'Cash', NULL, '2025-01-29 19:20:52', 220.00, NULL, 0.00, 220.00, 'Completed'),
-(41, 'GCash', NULL, '2025-01-29 19:55:30', 155.00, NULL, 0.00, 155.00, 'Completed'),
-(42, 'Cash', NULL, '2025-01-29 20:38:22', 210.00, NULL, 0.00, 210.00, 'Completed'),
-(43, 'Cash', NULL, '2025-01-29 20:45:50', 300.00, NULL, 0.00, 300.00, 'Completed'),
-(44, 'Cash', NULL, '2025-01-29 22:13:03', 50.00, NULL, 0.00, 50.00, 'Completed'),
-(45, 'Cash', NULL, '2025-01-29 22:51:28', 200.00, NULL, 0.00, 200.00, 'Completed'),
-(46, 'Cash', NULL, '2025-01-30 00:28:29', 190.00, NULL, 0.00, 190.00, 'Completed'),
-(47, 'Cash', NULL, '2025-01-30 00:55:29', 400.00, NULL, 0.00, 400.00, 'Completed'),
-(48, 'Cash', NULL, '2025-01-30 01:22:03', 300.00, NULL, 0.00, 300.00, 'Completed'),
-(49, 'Cash', NULL, '2025-01-30 03:08:21', 390.00, NULL, 0.00, 390.00, 'Completed'),
-(50, 'GCash', NULL, '2025-01-30 04:14:18', 120.00, NULL, 0.00, 120.00, 'Completed'),
-(51, 'GCash', NULL, '2025-01-30 15:14:05', 475.00, NULL, 0.00, 475.00, 'Completed');
+INSERT INTO `payment` (`Payment_ID`, `Payment_Method`, `Payment_ReferenceNumber`, `Payment_DateTime`, `Order_TotalAmount`, `Payment_DiscountType`, `Payment_DiscountAmount`, `Payment_CashPaid`, `Payment_Change`, `Payment_TotalAmount`, `Payment_Status`) VALUES
+(1, 'Cash', NULL, '2024-12-28 16:41:08', 100.00, NULL, 0.00, NULL, NULL, 100.00, 'Pending'),
+(2, 'Cash', NULL, '2024-12-28 20:54:01', 515.00, NULL, 0.00, NULL, NULL, 515.00, 'Completed'),
+(3, 'Cash', NULL, '2024-12-28 17:26:29', 190.00, NULL, 0.00, NULL, NULL, 190.00, 'Completed'),
+(4, 'GCash', NULL, '2024-12-28 22:12:08', 180.00, NULL, 0.00, NULL, NULL, 180.00, 'Completed'),
+(5, 'Cash', NULL, '2024-12-28 17:34:18', 200.00, NULL, 0.00, NULL, NULL, 200.00, 'Pending'),
+(6, 'Cash', NULL, '2024-12-28 19:57:58', 200.00, NULL, 0.00, NULL, NULL, 200.00, 'Completed'),
+(7, 'Cash', NULL, '2024-12-28 20:40:04', 375.00, NULL, 0.00, NULL, NULL, 375.00, 'Completed'),
+(8, 'GCash', NULL, '2024-12-28 20:36:12', 300.00, NULL, 0.00, NULL, NULL, 300.00, 'Completed'),
+(9, 'GCash', NULL, '2024-12-28 20:32:32', 650.00, NULL, 0.00, NULL, NULL, 650.00, 'Completed'),
+(10, 'GCash', NULL, '2024-12-28 20:50:15', 580.00, NULL, 0.00, NULL, NULL, 580.00, 'Completed'),
+(11, 'Cash', NULL, '2024-12-28 21:49:33', 120.00, NULL, 0.00, NULL, NULL, 120.00, 'Cancelled'),
+(12, 'Cash', NULL, '2024-12-28 21:53:09', 150.00, NULL, 0.00, NULL, NULL, 150.00, 'Completed'),
+(13, 'Cash', NULL, '2025-01-02 22:40:22', 280.00, NULL, 0.00, NULL, NULL, 280.00, 'Completed'),
+(14, 'Cash', NULL, '2025-01-02 22:54:41', 300.00, NULL, 0.00, NULL, NULL, 300.00, 'Completed'),
+(15, 'GCash', NULL, '2025-01-02 22:57:09', 300.00, NULL, 0.00, NULL, NULL, 300.00, 'Completed'),
+(16, 'GCash', NULL, '2025-01-02 23:14:20', 510.00, NULL, 0.00, NULL, NULL, 510.00, 'Completed'),
+(17, 'GCash', NULL, '2025-01-02 23:17:46', 140.00, NULL, 0.00, NULL, NULL, 140.00, 'Completed'),
+(18, 'GCash', NULL, '2025-01-03 00:08:38', 95.00, NULL, 0.00, NULL, NULL, 95.00, 'Completed'),
+(19, 'GCash', NULL, '2025-01-03 04:21:09', 340.00, NULL, 0.00, NULL, NULL, 340.00, 'Completed'),
+(20, 'GCash', NULL, '2025-01-03 04:29:49', 400.00, NULL, 0.00, NULL, NULL, 400.00, 'Completed'),
+(21, 'Cash', NULL, '2025-01-03 05:11:48', 120.00, NULL, 0.00, NULL, NULL, 120.00, 'Completed'),
+(22, 'GCash', NULL, '2025-01-03 05:19:01', 200.00, NULL, 0.00, NULL, NULL, 200.00, 'Completed'),
+(23, 'Cash', NULL, '2025-01-03 05:21:48', 220.00, NULL, 0.00, NULL, NULL, 220.00, 'Completed'),
+(24, 'Cash', NULL, '2025-01-06 18:08:44', 220.00, NULL, 0.00, NULL, NULL, 220.00, 'Completed'),
+(25, 'Cash', NULL, '2025-01-07 10:17:28', 120.00, NULL, 0.00, NULL, NULL, 120.00, 'Completed'),
+(26, 'Cash', NULL, '2025-01-07 10:21:09', 90.00, NULL, 0.00, NULL, NULL, 90.00, 'Completed'),
+(27, 'Cash', NULL, '2025-01-07 10:49:34', 1130.00, NULL, 0.00, NULL, NULL, 1130.00, 'Completed'),
+(28, 'GCash', NULL, '2025-01-07 10:54:12', 200.00, NULL, 0.00, NULL, NULL, 200.00, 'Completed'),
+(29, 'Cash', NULL, '2025-01-07 10:59:49', 120.00, NULL, 0.00, NULL, NULL, 120.00, 'Completed'),
+(30, 'Cash', NULL, '2025-01-07 11:13:47', 240.00, NULL, 0.00, NULL, NULL, 240.00, 'Completed'),
+(31, 'Cash', NULL, '2025-01-07 15:10:19', 125.00, NULL, 0.00, NULL, NULL, 125.00, 'Pending'),
+(32, 'Cash', NULL, '2025-01-08 15:54:57', 155.00, NULL, 0.00, NULL, NULL, 155.00, 'Pending'),
+(33, 'GCash', NULL, '2025-01-08 16:12:53', 190.00, NULL, 0.00, NULL, NULL, 190.00, 'Pending'),
+(34, 'Cash', NULL, '2025-01-08 16:15:58', 210.00, NULL, 0.00, NULL, NULL, 210.00, 'Completed'),
+(35, 'GCash', NULL, '2025-01-08 16:16:21', 400.00, NULL, 0.00, NULL, NULL, 400.00, 'Completed'),
+(36, 'GCash', NULL, '2025-01-08 16:17:39', 90.00, NULL, 0.00, NULL, NULL, 90.00, 'Completed'),
+(37, 'Cash', NULL, '2025-01-09 14:15:14', 455.00, NULL, 0.00, NULL, NULL, 455.00, 'Completed'),
+(38, 'Cash', NULL, '2025-01-24 10:18:46', 135.00, NULL, 0.00, NULL, NULL, 135.00, 'Completed'),
+(39, 'Cash', NULL, '2025-01-29 19:17:37', 200.00, NULL, 0.00, NULL, NULL, 200.00, 'Completed'),
+(40, 'Cash', NULL, '2025-01-29 19:20:52', 220.00, NULL, 0.00, NULL, NULL, 220.00, 'Completed'),
+(41, 'GCash', NULL, '2025-01-29 19:55:30', 155.00, NULL, 0.00, NULL, NULL, 155.00, 'Completed'),
+(42, 'Cash', NULL, '2025-01-29 20:38:22', 210.00, NULL, 0.00, NULL, NULL, 210.00, 'Completed'),
+(43, 'Cash', NULL, '2025-01-29 20:45:50', 300.00, NULL, 0.00, NULL, NULL, 300.00, 'Completed'),
+(44, 'Cash', NULL, '2025-01-29 22:13:03', 50.00, NULL, 0.00, NULL, NULL, 50.00, 'Completed'),
+(45, 'Cash', NULL, '2025-01-29 22:51:28', 200.00, NULL, 0.00, NULL, NULL, 200.00, 'Completed'),
+(46, 'Cash', NULL, '2025-01-30 00:28:29', 190.00, NULL, 0.00, NULL, NULL, 190.00, 'Completed'),
+(47, 'Cash', NULL, '2025-01-30 00:55:29', 400.00, NULL, 0.00, NULL, NULL, 400.00, 'Completed'),
+(48, 'Cash', NULL, '2025-01-30 01:22:03', 300.00, NULL, 0.00, NULL, NULL, 300.00, 'Completed'),
+(49, 'Cash', NULL, '2025-01-30 03:08:21', 390.00, NULL, 0.00, NULL, NULL, 390.00, 'Completed'),
+(50, 'GCash', NULL, '2025-01-30 04:14:18', 120.00, NULL, 0.00, NULL, NULL, 120.00, 'Completed'),
+(51, 'GCash', NULL, '2025-01-30 15:14:05', 475.00, NULL, 0.00, NULL, NULL, 475.00, 'Completed'),
+(53, 'Cash', NULL, '2025-02-03 16:27:19', 120.00, NULL, 0.00, NULL, NULL, 120.00, 'Pending');
 
 -- --------------------------------------------------------
 
@@ -623,19 +628,19 @@ ALTER TABLE `menuitem_sizes`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `orderitem`
 --
 ALTER TABLE `orderitem`
-  MODIFY `OrderItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `OrderItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `Payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `Payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `staff`

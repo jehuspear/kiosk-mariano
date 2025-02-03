@@ -75,7 +75,7 @@
 
 .admin-modal-icon {
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 15px;
 }
 
@@ -103,7 +103,7 @@
 
 /* Footer colors based on modal type */
 .admin-modal.confirm .admin-modal-footer {
-    background: #e3eee4; /* Light green */
+    background: #bef1c2; /* Light green */
 }
 
 .admin-modal.cancel .admin-modal-footer {
@@ -123,7 +123,7 @@
 }
 
 .admin-modal-btn-secondary {
-    background-color: #6c757d;
+    background-color: #e03333;
     color: white;
 }
 

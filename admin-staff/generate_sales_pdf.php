@@ -95,7 +95,7 @@ while ($row = $result->fetch_assoc()) {
 </head>
 <body style="font-family: Arial, sans-serif; margin: 20px; font-size: 12px; line-height: 1.4;">
     <div style="max-width: 800px; margin: 0 auto;">
-        <h1 style="color: #1565c0; text-align: center; margin: 0 0 10px 0;">SINCO CAFE - Sales Report</h1>
+        <h1 style="color: #1565c0; text-align: center; margin: 0 0 10px 0;">SINCO CAFE - HELLO Sales Report</h1>
         <h2 style="color: #1565c0; text-align: center; margin: 0 0 20px 0; font-size: 18px;"><?php echo $dateLabel; ?></h2>
 
         <?php foreach ($orders as $orderId => $order): ?>
@@ -139,7 +139,7 @@ while ($row = $result->fetch_assoc()) {
         <?php endforeach; ?>
 
         <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border: 1px solid #ddd;">
-            <h3 style="color: #1565c0; margin: 0 0 15px 0;">Sales Summary</h3>
+            <h3 style="color: #1565c0; margin: 0 0 15px 0;">Sales Summary Hello</h3>
             <p><strong>Total Orders:</strong> <?php echo $totalOrders; ?></p>
             <p><strong>Cash Sales:</strong> ₱<?php echo number_format($cashSales, 2); ?></p>
             <p><strong>GCash Sales:</strong> ₱<?php echo number_format($gcashSales, 2); ?></p>

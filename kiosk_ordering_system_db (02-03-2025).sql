@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2025 at 07:19 PM
+-- Generation Time: Feb 03, 2025 at 09:08 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -103,7 +103,10 @@ INSERT INTO `logs` (`Log_ID`, `Staff_ID`, `Log_DateTime`, `Log_Action`, `Log_Det
 (39, 2, '2025-01-29 22:51:34', 'Order marked as ready', 'Order #45 status changed to ReadyToClaim'),
 (40, 2, '2025-01-30 00:28:44', 'Order marked as ready', 'Order #46 status changed to ReadyToClaim'),
 (41, 2, '2025-01-30 00:55:45', 'Order marked as ready', 'Order #47 status changed to ReadyToClaim'),
-(42, 2, '2025-01-30 01:22:15', 'Order marked as ready', 'Order #48 status changed to ReadyToClaim');
+(42, 2, '2025-01-30 01:22:15', 'Order marked as ready', 'Order #48 status changed to ReadyToClaim'),
+(43, 2, '2025-01-30 04:14:24', 'Order marked as ready', 'Order #50 status changed to ReadyToClaim'),
+(44, 2, '2025-01-30 04:38:51', 'Order marked as ready', 'Order #36 status changed to ReadyToClaim'),
+(45, 2, '2025-01-30 15:14:46', 'Order marked as ready', 'Order #51 status changed to ReadyToClaim');
 
 -- --------------------------------------------------------
 
@@ -127,18 +130,18 @@ CREATE TABLE `menuitem` (
 --
 
 INSERT INTO `menuitem` (`MenuItem_ID`, `MenuItem_Name`, `MenuItem_Image`, `MenuItem_Description`, `MenuItem_Category`, `MenuItem_TotalStocks`, `MenuItem_TotalSold`, `MenuItem_Availability`) VALUES
-(1, 'Kape Amerikano', 'Images/menu-item/kape-americano.jpg', 'Full-bodied espresso with hot water', 'Coffee', 1300, 3, 'Unavailable'),
-(2, 'Latte de Kape', 'Images/menu-item/latte-de-kape.jpg', 'Espresso with steamed milk and a thin layer of foam', 'Coffee', 1500, 5, 'Unavailable'),
+(1, 'Kape Amerikano', 'Images/menu-item/kape-americano.jpg', 'Full-bodied espresso with hot water', 'Coffee', 1300, 3, 'Available'),
+(2, 'Latte de Kape', 'Images/menu-item/latte-de-kape.jpg', 'Espresso with steamed milk and a thin layer of foam', 'Coffee', 1500, 5, 'Available'),
 (3, 'Cappuccino', 'Images/menu-item/cappuccino.jpg', 'Espresso with steamed milk and a thick layer of foam', 'Coffee', 1490, 0, 'Available'),
 (4, 'Latte Espanyol', 'Images/menu-item/latte-espanyol.jpg', 'Espresso combined with milk and a hint of condensed milk', 'Coffee', 1495, 7, 'Available'),
 (5, 'Kape Dulce Salty Caramelo', 'Images/menu-item/kape-dulce-salty-caramelo.jpg', 'Espresso combined with milk, infused with salted caramel syrup', 'Coffee', 1495, 10, 'Available'),
 (6, 'Kape con Canela', 'Images/menu-item/kape-con-canela.jpg', 'Espresso combined with steamed milk and infused with honey and cinnamon', 'Coffee', 1494, 0, 'Available'),
 (7, 'Kape de Cacao', 'Images/menu-item/kape-de-cacao.jpg', 'Espresso combined with steamed milk and rich chocolate syrup', 'Coffee', 1490, 0, 'Available'),
-(10, 'Espresso (Doppio)', 'Images/menu-items/Doppio_Espresso_Macchiato.jpg', 'Sample Coffee', 'Traditional Coffee', 6, 7, 'Available'),
+(10, 'Espresso (Doppio)', 'Images/menu-items/Doppio_Espresso_Macchiato.jpg', 'Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning \"double\" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.', 'Traditional Coffee', 4, 24, 'Available'),
 (11, 'Pretzel', 'Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg', 'Soft and chewy on the inside, crispy and golden on the outside, these Soft Pretzels are a fun snack that bake up in the oven and served with a delicious cheese sauce!\r\n', 'Snacks', 899, 1, 'Available'),
 (12, 'Blue Punch Mocktail', 'Images/menu-item/blue_mocktail.jpg', 'A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.', 'Mocktail', 299, 0, 'Available'),
-(13, 'Matcha Latte', 'Images/menu-item/matcha-latte.jpg', 'A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.', 'Non-Coffee', 895, 21, 'Available'),
-(14, 'Black Forest cake ', 'Images/menu-item/black-forest-pastry.jpg', 'A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.', 'Pastries', 3, 0, 'Available'),
+(13, 'Matcha Latte', 'Images/menu-item/matcha-latte.jpg', 'A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.', 'Non-Coffee', 893, 3, 'Available'),
+(14, 'Black Forest cake ', 'Images/menu-item/black-forest-pastry.jpg', 'A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.', 'Pastries', 2, 1, 'Available'),
 (15, 'Strawberry Latte', 'Images/menu-item/sakura-strawberry-latte1.jpg', 'Enjoy a sip of this delicious strawberry flavored drink!', 'Non-Coffee', 1495, 0, 'Available'),
 (16, 'Chocolate Latte', 'Images/menu-item/chocolate latte1.jpg', 'A sweet chocolate flavored drink!', 'Non-Coffee', 1494, 0, 'Available'),
 (17, 'Shirley Temple', 'Images/menu-item/shirly temple.jpg', 'Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail', 'Mocktail', 299, 0, 'Available'),
@@ -147,8 +150,8 @@ INSERT INTO `menuitem` (`MenuItem_ID`, `MenuItem_Name`, `MenuItem_Image`, `MenuI
 (20, 'Brownies', 'Images/menu-item/brownies.jpg', 'Dense, fudgy, chewy, chocolate brownies! These decadent brownies are a delicious combination of fresh, sweet cherries and chocolate!', 'Pastries', 299, 0, 'Available'),
 (21, 'Banana Bread', 'Images/menu-item/banana bread.jpg', 'This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.', 'Pastries', 294, 0, 'Available'),
 (22, 'Milky Donuts', 'Images/menu-item/milky donuts.jpg', 'These cream-filled doughnuts are what coffee-break dreams are made of. They are soft pillows with a super-easy cream filling. These yeast doughnuts are deep-fried to perfection, and then filling is piped inside for a delightful treat. ', 'Pastries', 297, 0, 'Available'),
-(23, 'Air Fried French Fries', 'Images/menu-item/Crispy Air Fried French Fries.jpg', 'These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.', 'Snacks', 600, 0, 'Available'),
-(24, 'Cafe BonBon', 'Images/menu-item/Bonbon.jpg', 'Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat.\r\n', 'Traditional Coffee', 0, 14, 'Available'),
+(23, 'Air Fried French Fries', 'Images/menu-item/Crispy Air Fried French Fries.jpg', 'These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.', 'Snacks', 599, 1, 'Available'),
+(24, 'Cafe BonBon', 'Images/menu-item/Bonbon.jpg', 'Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat.\r\n', 'Traditional Coffee', 1, 14, 'Unavailable'),
 (25, 'Traditional Macchiato', 'Images/menu-item/macchiatotraditonal-11.jpg', 'the macchiato is quite a literal drink - it is an espresso marked with a dollop of frothed milk, and nothing else (macchiato means marked in Italian). ', 'Traditional Coffee', 300, 0, 'Available'),
 (26, 'Piccolo', 'Images/menu-item/piccolo.jpg', 'a small coffee composed of a single espresso shot and heated milk.', 'Traditional Coffee', 299, 0, 'Available');
 
@@ -208,17 +211,17 @@ INSERT INTO `menuitem_sizes` (`MenuItemSize_ID`, `MenuItem_ID`, `MenuItemSize_Si
 (33, 7, 'Tres', 'Iced', 105.00, 0, 299),
 (34, 7, 'Quatro', 'Iced', 140.00, 0, 298),
 (35, 7, 'Sinco', 'Iced', 155.00, 0, 295),
-(36, 10, 'Uno', 'Hot', 60.00, 10, 3),
-(37, 10, 'Dos', 'Hot', 70.00, 8, 3),
+(36, 10, 'Uno', 'Hot', 60.00, 13, 2),
+(37, 10, 'Dos', 'Hot', 70.00, 11, 2),
 (41, 11, 'Small', 'Normal', 50.00, 0, 300),
 (42, 11, 'Medium', 'Normal', 60.00, 0, 300),
 (48, 12, '12oz', 'Iced', 100.00, 0, 299),
 (50, 13, '8oz', 'Hot', 70.00, 0, 299),
 (51, 13, '12oz', 'Iced', 100.00, 0, 299),
-(52, 13, '16oz', 'Iced', 120.00, 1, 297),
+(52, 13, '16oz', 'Iced', 120.00, 3, 295),
 (53, 14, '1 Piece', 'Normal', 60.00, 0, 1),
 (54, 14, 'Half Slice', 'Normal', 120.00, 0, 1),
-(55, 14, '1 Whole', 'Normal', 240.00, 0, 1),
+(55, 14, '1 Whole', 'Normal', 240.00, 1, 0),
 (56, 15, '8oz', 'Hot', 90.00, 0, 299),
 (57, 15, '12oz', 'Hot', 95.00, 0, 299),
 (58, 15, '12oz', 'Iced', 95.00, 0, 299),
@@ -236,8 +239,8 @@ INSERT INTO `menuitem_sizes` (`MenuItemSize_ID`, `MenuItem_ID`, `MenuItemSize_Si
 (71, 21, 'Per slice', 'Normal', 50.00, 0, 294),
 (72, 22, 'Per piece', 'Normal', 50.00, 0, 297),
 (73, 23, 'Medium', 'Normal', 75.00, 0, 300),
-(74, 23, 'Large', 'Normal', 115.00, 0, 300),
-(75, 24, '8oz', 'Hot', 50.00, 14, 0),
+(74, 23, 'Large', 'Normal', 115.00, 1, 299),
+(75, 24, '8oz', 'Hot', 50.00, 14, 1),
 (76, 25, '6oz', 'Hot', 35.00, 0, 300),
 (77, 26, '6oz', 'Hot', 45.00, 0, 299),
 (78, 11, 'Large', 'Normal', 70.00, 1, 299);
@@ -302,7 +305,7 @@ INSERT INTO `order` (`Order_ID`, `Order_CustomerName`, `Order_EatingOption`, `Or
 (33, NULL, 'Take-out', 813, '2025-01-08 16:12:53', NULL, 190.00, 33, 'GCash', NULL, 'Pending'),
 (34, NULL, 'Dine-in', 925, '2025-01-08 16:13:15', NULL, 210.00, 34, 'Cash', NULL, 'Preparing'),
 (35, NULL, 'Dine-in', 318, '2025-01-08 16:16:02', '2025-01-08 16:20:59', 400.00, 35, 'GCash', NULL, 'Completed'),
-(36, NULL, 'Dine-in', 851, '2025-01-08 16:17:11', NULL, 90.00, 36, 'GCash', NULL, 'Preparing'),
+(36, NULL, 'Dine-in', 851, '2025-01-08 16:17:11', '2025-01-30 04:38:51', 90.00, 36, 'GCash', NULL, 'Completed'),
 (37, NULL, 'Take-out', 115, '2025-01-09 14:13:59', '2025-01-09 14:15:44', 455.00, 37, 'Cash', NULL, 'Completed'),
 (38, NULL, 'Take-out', 833, '2025-01-24 10:18:26', '2025-01-24 10:19:11', 135.00, 38, 'Cash', NULL, 'Completed'),
 (39, NULL, 'Dine-in', 146, '2025-01-29 19:17:11', '2025-01-29 19:19:37', 200.00, 39, 'Cash', NULL, 'Completed'),
@@ -314,7 +317,10 @@ INSERT INTO `order` (`Order_ID`, `Order_CustomerName`, `Order_EatingOption`, `Or
 (45, NULL, 'Dine-in', 819, '2025-01-29 22:40:17', '2025-01-29 23:09:12', 200.00, 45, 'Cash', NULL, 'Completed'),
 (46, NULL, 'Dine-in', 816, '2025-01-30 00:28:18', '2025-01-30 00:29:00', 190.00, 46, 'Cash', NULL, 'Completed'),
 (47, NULL, 'Dine-in', 133, '2025-01-30 00:55:21', '2025-01-30 00:55:45', 400.00, 47, 'Cash', NULL, 'Completed'),
-(48, NULL, 'Take-out', 388, '2025-01-30 01:21:57', '2025-01-30 01:22:15', 300.00, 48, 'Cash', NULL, 'Completed');
+(48, NULL, 'Take-out', 388, '2025-01-30 01:21:57', '2025-01-30 01:22:15', 300.00, 48, 'Cash', NULL, 'Completed'),
+(49, NULL, 'Dine-in', 751, '2025-01-30 03:08:17', NULL, 390.00, 49, 'Cash', NULL, 'Completed'),
+(50, NULL, 'Dine-in', 122, '2025-01-30 04:14:12', '2025-01-30 04:14:30', 120.00, 50, 'GCash', NULL, 'Completed'),
+(51, NULL, 'Dine-in', 587, '2025-01-30 15:13:19', '2025-01-30 15:15:00', 475.00, 51, 'GCash', NULL, 'Completed');
 
 -- --------------------------------------------------------
 
@@ -408,7 +414,13 @@ INSERT INTO `orderitem` (`OrderItem_ID`, `Order_ID`, `MenuItem_ID`, `OrderItem_C
 (70, 46, 11, 'Large', 1, 70.00),
 (71, 47, 10, 'Dos', 5, 70.00),
 (72, 47, 24, '8oz', 1, 50.00),
-(73, 48, 10, 'Uno', 5, 60.00);
+(73, 48, 10, 'Uno', 5, 60.00),
+(74, 49, 10, 'Uno', 3, 60.00),
+(75, 49, 10, 'Dos', 3, 70.00),
+(76, 50, 13, '16oz', 1, 120.00),
+(77, 51, 13, '16oz', 1, 120.00),
+(78, 51, 14, '1 Whole', 1, 240.00),
+(79, 51, 23, 'Large', 1, 115.00);
 
 -- --------------------------------------------------------
 
@@ -419,6 +431,7 @@ INSERT INTO `orderitem` (`OrderItem_ID`, `Order_ID`, `MenuItem_ID`, `OrderItem_C
 CREATE TABLE `payment` (
   `Payment_ID` int(11) NOT NULL,
   `Payment_Method` varchar(50) NOT NULL,
+  `Payment_ReferenceNumber` varchar(20) DEFAULT NULL,
   `Payment_DateTime` datetime NOT NULL,
   `Order_TotalAmount` decimal(10,2) NOT NULL,
   `Payment_DiscountType` varchar(50) DEFAULT NULL,
@@ -431,55 +444,58 @@ CREATE TABLE `payment` (
 -- Dumping data for table `payment`
 --
 
-INSERT INTO `payment` (`Payment_ID`, `Payment_Method`, `Payment_DateTime`, `Order_TotalAmount`, `Payment_DiscountType`, `Payment_DiscountAmount`, `Payment_TotalAmount`, `Payment_Status`) VALUES
-(1, 'Cash', '2024-12-28 16:41:08', 100.00, NULL, 0.00, 100.00, 'Pending'),
-(2, 'Cash', '2024-12-28 20:54:01', 515.00, NULL, 0.00, 515.00, 'Completed'),
-(3, 'Cash', '2024-12-28 17:26:29', 190.00, NULL, 0.00, 190.00, 'Completed'),
-(4, 'GCash', '2024-12-28 22:12:08', 180.00, NULL, 0.00, 180.00, 'Completed'),
-(5, 'Cash', '2024-12-28 17:34:18', 200.00, NULL, 0.00, 200.00, 'Pending'),
-(6, 'Cash', '2024-12-28 19:57:58', 200.00, NULL, 0.00, 200.00, 'Completed'),
-(7, 'Cash', '2024-12-28 20:40:04', 375.00, NULL, 0.00, 375.00, 'Completed'),
-(8, 'GCash', '2024-12-28 20:36:12', 300.00, NULL, 0.00, 300.00, 'Completed'),
-(9, 'GCash', '2024-12-28 20:32:32', 650.00, NULL, 0.00, 650.00, 'Completed'),
-(10, 'GCash', '2024-12-28 20:50:15', 580.00, NULL, 0.00, 580.00, 'Completed'),
-(11, 'Cash', '2024-12-28 21:49:33', 120.00, NULL, 0.00, 120.00, 'Cancelled'),
-(12, 'Cash', '2024-12-28 21:53:09', 150.00, NULL, 0.00, 150.00, 'Completed'),
-(13, 'Cash', '2025-01-02 22:40:22', 280.00, NULL, 0.00, 280.00, 'Completed'),
-(14, 'Cash', '2025-01-02 22:54:41', 300.00, NULL, 0.00, 300.00, 'Completed'),
-(15, 'GCash', '2025-01-02 22:57:09', 300.00, NULL, 0.00, 300.00, 'Completed'),
-(16, 'GCash', '2025-01-02 23:14:20', 510.00, NULL, 0.00, 510.00, 'Completed'),
-(17, 'GCash', '2025-01-02 23:17:46', 140.00, NULL, 0.00, 140.00, 'Completed'),
-(18, 'GCash', '2025-01-03 00:08:38', 95.00, NULL, 0.00, 95.00, 'Completed'),
-(19, 'GCash', '2025-01-03 04:21:09', 340.00, NULL, 0.00, 340.00, 'Completed'),
-(20, 'GCash', '2025-01-03 04:29:49', 400.00, NULL, 0.00, 400.00, 'Completed'),
-(21, 'Cash', '2025-01-03 05:11:48', 120.00, NULL, 0.00, 120.00, 'Completed'),
-(22, 'GCash', '2025-01-03 05:19:01', 200.00, NULL, 0.00, 200.00, 'Completed'),
-(23, 'Cash', '2025-01-03 05:21:48', 220.00, NULL, 0.00, 220.00, 'Completed'),
-(24, 'Cash', '2025-01-06 18:08:44', 220.00, NULL, 0.00, 220.00, 'Completed'),
-(25, 'Cash', '2025-01-07 10:17:28', 120.00, NULL, 0.00, 120.00, 'Completed'),
-(26, 'Cash', '2025-01-07 10:21:09', 90.00, NULL, 0.00, 90.00, 'Completed'),
-(27, 'Cash', '2025-01-07 10:49:34', 1130.00, NULL, 0.00, 1130.00, 'Completed'),
-(28, 'GCash', '2025-01-07 10:54:12', 200.00, NULL, 0.00, 200.00, 'Completed'),
-(29, 'Cash', '2025-01-07 10:59:49', 120.00, NULL, 0.00, 120.00, 'Completed'),
-(30, 'Cash', '2025-01-07 11:13:47', 240.00, NULL, 0.00, 240.00, 'Completed'),
-(31, 'Cash', '2025-01-07 15:10:19', 125.00, NULL, 0.00, 125.00, 'Pending'),
-(32, 'Cash', '2025-01-08 15:54:57', 155.00, NULL, 0.00, 155.00, 'Pending'),
-(33, 'GCash', '2025-01-08 16:12:53', 190.00, NULL, 0.00, 190.00, 'Pending'),
-(34, 'Cash', '2025-01-08 16:15:58', 210.00, NULL, 0.00, 210.00, 'Completed'),
-(35, 'GCash', '2025-01-08 16:16:21', 400.00, NULL, 0.00, 400.00, 'Completed'),
-(36, 'GCash', '2025-01-08 16:17:39', 90.00, NULL, 0.00, 90.00, 'Completed'),
-(37, 'Cash', '2025-01-09 14:15:14', 455.00, NULL, 0.00, 455.00, 'Completed'),
-(38, 'Cash', '2025-01-24 10:18:46', 135.00, NULL, 0.00, 135.00, 'Completed'),
-(39, 'Cash', '2025-01-29 19:17:37', 200.00, NULL, 0.00, 200.00, 'Completed'),
-(40, 'Cash', '2025-01-29 19:20:52', 220.00, NULL, 0.00, 220.00, 'Completed'),
-(41, 'GCash', '2025-01-29 19:55:30', 155.00, NULL, 0.00, 155.00, 'Completed'),
-(42, 'Cash', '2025-01-29 20:38:22', 210.00, NULL, 0.00, 210.00, 'Completed'),
-(43, 'Cash', '2025-01-29 20:45:50', 300.00, NULL, 0.00, 300.00, 'Completed'),
-(44, 'Cash', '2025-01-29 22:13:03', 50.00, NULL, 0.00, 50.00, 'Completed'),
-(45, 'Cash', '2025-01-29 22:51:28', 200.00, NULL, 0.00, 200.00, 'Completed'),
-(46, 'Cash', '2025-01-30 00:28:29', 190.00, NULL, 0.00, 190.00, 'Completed'),
-(47, 'Cash', '2025-01-30 00:55:29', 400.00, NULL, 0.00, 400.00, 'Completed'),
-(48, 'Cash', '2025-01-30 01:22:03', 300.00, NULL, 0.00, 300.00, 'Completed');
+INSERT INTO `payment` (`Payment_ID`, `Payment_Method`, `Payment_ReferenceNumber`, `Payment_DateTime`, `Order_TotalAmount`, `Payment_DiscountType`, `Payment_DiscountAmount`, `Payment_TotalAmount`, `Payment_Status`) VALUES
+(1, 'Cash', NULL, '2024-12-28 16:41:08', 100.00, NULL, 0.00, 100.00, 'Pending'),
+(2, 'Cash', NULL, '2024-12-28 20:54:01', 515.00, NULL, 0.00, 515.00, 'Completed'),
+(3, 'Cash', NULL, '2024-12-28 17:26:29', 190.00, NULL, 0.00, 190.00, 'Completed'),
+(4, 'GCash', NULL, '2024-12-28 22:12:08', 180.00, NULL, 0.00, 180.00, 'Completed'),
+(5, 'Cash', NULL, '2024-12-28 17:34:18', 200.00, NULL, 0.00, 200.00, 'Pending'),
+(6, 'Cash', NULL, '2024-12-28 19:57:58', 200.00, NULL, 0.00, 200.00, 'Completed'),
+(7, 'Cash', NULL, '2024-12-28 20:40:04', 375.00, NULL, 0.00, 375.00, 'Completed'),
+(8, 'GCash', NULL, '2024-12-28 20:36:12', 300.00, NULL, 0.00, 300.00, 'Completed'),
+(9, 'GCash', NULL, '2024-12-28 20:32:32', 650.00, NULL, 0.00, 650.00, 'Completed'),
+(10, 'GCash', NULL, '2024-12-28 20:50:15', 580.00, NULL, 0.00, 580.00, 'Completed'),
+(11, 'Cash', NULL, '2024-12-28 21:49:33', 120.00, NULL, 0.00, 120.00, 'Cancelled'),
+(12, 'Cash', NULL, '2024-12-28 21:53:09', 150.00, NULL, 0.00, 150.00, 'Completed'),
+(13, 'Cash', NULL, '2025-01-02 22:40:22', 280.00, NULL, 0.00, 280.00, 'Completed'),
+(14, 'Cash', NULL, '2025-01-02 22:54:41', 300.00, NULL, 0.00, 300.00, 'Completed'),
+(15, 'GCash', NULL, '2025-01-02 22:57:09', 300.00, NULL, 0.00, 300.00, 'Completed'),
+(16, 'GCash', NULL, '2025-01-02 23:14:20', 510.00, NULL, 0.00, 510.00, 'Completed'),
+(17, 'GCash', NULL, '2025-01-02 23:17:46', 140.00, NULL, 0.00, 140.00, 'Completed'),
+(18, 'GCash', NULL, '2025-01-03 00:08:38', 95.00, NULL, 0.00, 95.00, 'Completed'),
+(19, 'GCash', NULL, '2025-01-03 04:21:09', 340.00, NULL, 0.00, 340.00, 'Completed'),
+(20, 'GCash', NULL, '2025-01-03 04:29:49', 400.00, NULL, 0.00, 400.00, 'Completed'),
+(21, 'Cash', NULL, '2025-01-03 05:11:48', 120.00, NULL, 0.00, 120.00, 'Completed'),
+(22, 'GCash', NULL, '2025-01-03 05:19:01', 200.00, NULL, 0.00, 200.00, 'Completed'),
+(23, 'Cash', NULL, '2025-01-03 05:21:48', 220.00, NULL, 0.00, 220.00, 'Completed'),
+(24, 'Cash', NULL, '2025-01-06 18:08:44', 220.00, NULL, 0.00, 220.00, 'Completed'),
+(25, 'Cash', NULL, '2025-01-07 10:17:28', 120.00, NULL, 0.00, 120.00, 'Completed'),
+(26, 'Cash', NULL, '2025-01-07 10:21:09', 90.00, NULL, 0.00, 90.00, 'Completed'),
+(27, 'Cash', NULL, '2025-01-07 10:49:34', 1130.00, NULL, 0.00, 1130.00, 'Completed'),
+(28, 'GCash', NULL, '2025-01-07 10:54:12', 200.00, NULL, 0.00, 200.00, 'Completed'),
+(29, 'Cash', NULL, '2025-01-07 10:59:49', 120.00, NULL, 0.00, 120.00, 'Completed'),
+(30, 'Cash', NULL, '2025-01-07 11:13:47', 240.00, NULL, 0.00, 240.00, 'Completed'),
+(31, 'Cash', NULL, '2025-01-07 15:10:19', 125.00, NULL, 0.00, 125.00, 'Pending'),
+(32, 'Cash', NULL, '2025-01-08 15:54:57', 155.00, NULL, 0.00, 155.00, 'Pending'),
+(33, 'GCash', NULL, '2025-01-08 16:12:53', 190.00, NULL, 0.00, 190.00, 'Pending'),
+(34, 'Cash', NULL, '2025-01-08 16:15:58', 210.00, NULL, 0.00, 210.00, 'Completed'),
+(35, 'GCash', NULL, '2025-01-08 16:16:21', 400.00, NULL, 0.00, 400.00, 'Completed'),
+(36, 'GCash', NULL, '2025-01-08 16:17:39', 90.00, NULL, 0.00, 90.00, 'Completed'),
+(37, 'Cash', NULL, '2025-01-09 14:15:14', 455.00, NULL, 0.00, 455.00, 'Completed'),
+(38, 'Cash', NULL, '2025-01-24 10:18:46', 135.00, NULL, 0.00, 135.00, 'Completed'),
+(39, 'Cash', NULL, '2025-01-29 19:17:37', 200.00, NULL, 0.00, 200.00, 'Completed'),
+(40, 'Cash', NULL, '2025-01-29 19:20:52', 220.00, NULL, 0.00, 220.00, 'Completed'),
+(41, 'GCash', NULL, '2025-01-29 19:55:30', 155.00, NULL, 0.00, 155.00, 'Completed'),
+(42, 'Cash', NULL, '2025-01-29 20:38:22', 210.00, NULL, 0.00, 210.00, 'Completed'),
+(43, 'Cash', NULL, '2025-01-29 20:45:50', 300.00, NULL, 0.00, 300.00, 'Completed'),
+(44, 'Cash', NULL, '2025-01-29 22:13:03', 50.00, NULL, 0.00, 50.00, 'Completed'),
+(45, 'Cash', NULL, '2025-01-29 22:51:28', 200.00, NULL, 0.00, 200.00, 'Completed'),
+(46, 'Cash', NULL, '2025-01-30 00:28:29', 190.00, NULL, 0.00, 190.00, 'Completed'),
+(47, 'Cash', NULL, '2025-01-30 00:55:29', 400.00, NULL, 0.00, 400.00, 'Completed'),
+(48, 'Cash', NULL, '2025-01-30 01:22:03', 300.00, NULL, 0.00, 300.00, 'Completed'),
+(49, 'Cash', NULL, '2025-01-30 03:08:21', 390.00, NULL, 0.00, 390.00, 'Completed'),
+(50, 'GCash', NULL, '2025-01-30 04:14:18', 120.00, NULL, 0.00, 120.00, 'Completed'),
+(51, 'GCash', NULL, '2025-01-30 15:14:05', 475.00, NULL, 0.00, 475.00, 'Completed');
 
 -- --------------------------------------------------------
 
@@ -589,7 +605,7 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `Log_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `Log_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `menuitem`
@@ -607,19 +623,19 @@ ALTER TABLE `menuitem_sizes`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `Order_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `orderitem`
 --
 ALTER TABLE `orderitem`
-  MODIFY `OrderItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `OrderItem_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `Payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `Payment_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `staff`

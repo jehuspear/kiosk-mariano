@@ -5,21 +5,56 @@ require_once 'database_customer.php';
 $preparingOrders = [];
 $claimOrders = [];
 
-$sql = "SELECT Order_TicketNumber, Order_Status FROM `order` 
-        WHERE Order_Status IN ('Preparing', 'ReadyToClaim') 
-        ORDER BY Order_DateTime ASC";
+// Get today's date in Y-m-d format
+$today = date('Y-m-d');
 
-$result = $conn->query($sql);
+// Debug information
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        if ($row['Order_Status'] === 'Preparing') {
-            $preparingOrders[] = $row['Order_TicketNumber'];
-        } else if ($row['Order_Status'] === 'ReadyToClaim') {
-            $claimOrders[] = $row['Order_TicketNumber'];
-        }
-    }
+// Debug output in HTML comments
+echo "<!-- Debug Info:\n";
+echo "Today's date: " . $today . "\n";
+
+// Get preparing orders
+$preparingSql = "SELECT Order_TicketNumber, Order_DateTime FROM `order` 
+                WHERE Order_Status = 'Preparing' 
+                AND DATE(Order_DateTime) = ?
+                ORDER BY Order_DateTime ASC";
+$stmt = $conn->prepare($preparingSql);
+$stmt->bind_param("s", $today);
+$stmt->execute();
+$result = $stmt->get_result();
+
+echo "\nPreparing Orders Query:\n" . $preparingSql . "\n";
+echo "Preparing Orders Found: " . $result->num_rows . "\n";
+
+while ($row = $result->fetch_assoc()) {
+    $formattedNumber = str_pad($row['Order_TicketNumber'], 3, '0', STR_PAD_LEFT);
+    $preparingOrders[] = $formattedNumber;
+    echo "Found Preparing order: " . $formattedNumber . " from " . $row['Order_DateTime'] . "\n";
 }
+
+// Get ready to claim orders
+$claimSql = "SELECT Order_TicketNumber, Order_DateTime FROM `order` 
+             WHERE Order_Status = 'ReadyToClaim' 
+             AND DATE(Order_DateTime) = ?
+             ORDER BY Order_DateTime ASC";
+$stmt = $conn->prepare($claimSql);
+$stmt->bind_param("s", $today);
+$stmt->execute();
+$result = $stmt->get_result();
+
+echo "\nClaim Orders Query:\n" . $claimSql . "\n";
+echo "Claim Orders Found: " . $result->num_rows . "\n";
+
+while ($row = $result->fetch_assoc()) {
+    $formattedNumber = str_pad($row['Order_TicketNumber'], 3, '0', STR_PAD_LEFT);
+    $claimOrders[] = $formattedNumber;
+    echo "Found ReadyToClaim order: " . $formattedNumber . " from " . $row['Order_DateTime'] . "\n";
+}
+
+echo " -->";
 ?>
 
 <!DOCTYPE html>
@@ -94,16 +129,39 @@ if ($result->num_rows > 0) {
         }
 
         .ticket-numbers {
-            padding: 20px;
-            text-align: center;
+            padding: 15px;
             color: black;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
             flex-grow: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            align-content: start;
         }
 
-        .ticket-number {
-            margin: 15px 0;
+        .preparing .ticket-number {
+            text-align: center;
+            padding: 10px;
+            border: 2px solid rgba(220, 53, 69, 0.3);  /* Light red from #dc3545 */
+            border-radius: 8px;
+            background-color: rgba(220, 53, 69, 0.05);
+        }
+
+        .claim .ticket-number {
+            text-align: center;
+            padding: 10px;
+            border: 2px solid rgba(40, 167, 69, 0.3);  /* Light green from #28a745 */
+            border-radius: 8px;
+            background-color: rgba(40, 167, 69, 0.05);
+        }
+
+        .empty-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #666;
+            padding: 20px;
+            font-style: italic;
         }
 
         .footer {
@@ -177,7 +235,7 @@ if ($result->num_rows > 0) {
             <h2>Preparing...</h2>
             <div class="ticket-numbers">
                 <?php if (empty($preparingOrders)): ?>
-                    <div class="empty-message">No orders in preparation</div>
+                    <!-- <div class="empty-message">No orders in preparation</div> -->
                 <?php else: ?>
                     <?php foreach ($preparingOrders as $ticketNumber): ?>
                         <div class="ticket-number"><?php echo $ticketNumber; ?></div>
@@ -189,7 +247,7 @@ if ($result->num_rows > 0) {
             <h2>Please Claim</h2>
             <div class="ticket-numbers">
                 <?php if (empty($claimOrders)): ?>
-                    <div class="empty-message">No orders ready for claim</div>
+                    <!-- <div class="empty-message">No orders ready for claim</div> -->
                 <?php else: ?>
                     <?php foreach ($claimOrders as $ticketNumber): ?>
                         <div class="ticket-number"><?php echo $ticketNumber; ?></div>

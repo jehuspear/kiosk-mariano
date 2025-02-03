@@ -12,10 +12,13 @@ if (!$ticketNumber) {
     exit;
 }
 
-// Get order status from database
-$sql = "SELECT Order_Status FROM `order` WHERE Order_TicketNumber = ?";
+// Get today's date in Y-m-d format
+$today = date('Y-m-d');
+
+// Get order status from database for today's orders only
+$sql = "SELECT Order_Status FROM `order` WHERE Order_TicketNumber = ? AND DATE(Order_DateTime) = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $ticketNumber);
+$stmt->bind_param("is", $ticketNumber, $today);
 $stmt->execute();
 $result = $stmt->get_result();
 

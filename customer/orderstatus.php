@@ -8,17 +8,20 @@ $ticketNumber = isset($_SESSION['ticket_number']) ? $_SESSION['ticket_number'] :
 // Get order details if ticket number exists
 $orderDetails = null;
 if ($ticketNumber) {
+    // Get today's date in Y-m-d format
+    $today = date('Y-m-d');
+    
     $sql = "SELECT o.*, p.Payment_Method, p.Payment_Status, 
             GROUP_CONCAT(CONCAT(m.MenuItem_Name, ' (', oi.OrderItem_CupSize, ') x', oi.OrderItem_Quantity) SEPARATOR ', ') as items
             FROM `order` o 
             JOIN payment p ON o.Payment_ID = p.Payment_ID 
             JOIN orderitem oi ON o.Order_ID = oi.Order_ID
             JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID
-            WHERE o.Order_TicketNumber = ?
+            WHERE o.Order_TicketNumber = ? AND DATE(o.Order_DateTime) = ?
             GROUP BY o.Order_ID";
     
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $ticketNumber);
+    $stmt->bind_param("is", $ticketNumber, $today);
     $stmt->execute();
     $result = $stmt->get_result();
     

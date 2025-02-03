@@ -3099,3 +3099,57 @@
 
 [2025-02-03 09:27:15] New total quantity: 1
 [2025-02-03 09:27:15] Response sent: {"success":true,"cartCount":1,"totalAmount":120,"message":"Item added to cart successfully"}
+[2025-02-03 10:17:20] Raw POST data: {"id":15,"name":"Strawberry Latte","price":100,"description":"Enjoy a sip of this delicious strawberry flavored drink!","image":"../admin-staff/Images/menu-item/sakura-strawberry-latte1.jpg","size":"16oz","orderType":"Dine-in","quantity":2}
+[2025-02-03 10:17:20] Decoded data: Array
+(
+    [id] => 15
+    [name] => Strawberry Latte
+    [price] => 100
+    [description] => Enjoy a sip of this delicious strawberry flavored drink!
+    [image] => ../admin-staff/Images/menu-item/sakura-strawberry-latte1.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-02-03 10:17:20] Item added to cart: Array
+(
+    [id] => 15
+    [name] => Strawberry Latte
+    [image] => ../admin-staff/Images/menu-item/sakura-strawberry-latte1.jpg
+    [size] => 16oz
+    [price] => 100
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-03 10:17:20] New total quantity: 2
+[2025-02-03 10:17:20] Response sent: {"success":true,"cartCount":2,"totalAmount":200,"message":"Item added to cart successfully"}
+[2025-02-03 10:21:12] Raw POST data: {"id":14,"name":"Black Forest cake ","price":120,"description":"A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.","image":"../admin-staff/Images/menu-item/black-forest-pastry.jpg","size":"Half Slice","orderType":"Dine-in","quantity":1}
+[2025-02-03 10:21:12] Decoded data: Array
+(
+    [id] => 14
+    [name] => Black Forest cake 
+    [price] => 120
+    [description] => A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.
+    [image] => ../admin-staff/Images/menu-item/black-forest-pastry.jpg
+    [size] => Half Slice
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-03 10:21:12] Item added to cart: Array
+(
+    [id] => 14
+    [name] => Black Forest cake 
+    [image] => ../admin-staff/Images/menu-item/black-forest-pastry.jpg
+    [size] => Half Slice
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-03 10:21:12] New total quantity: 1
+[2025-02-03 10:21:12] Response sent: {"success":true,"cartCount":1,"totalAmount":120,"message":"Item added to cart successfully"}

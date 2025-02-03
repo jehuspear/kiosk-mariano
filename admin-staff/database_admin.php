@@ -6,11 +6,11 @@ if (!defined('ALLOW_DIRECT_ACCESS') && basename($_SERVER['PHP_SELF']) == basenam
 
 // Set error reporting
 error_reporting(E_ALL);
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 error_log("Starting database connection - " . date('Y-m-d H:i:s'));
 
-// Database configuration
+// Database configuration for XAMPP
 $hostName = "localhost";
 $dbUser = "root";
 $dbPassword = "";
@@ -42,9 +42,6 @@ try {
     }
     logDebug("Basic connection successful");
 
-    // Set connection timeout
-    mysqli_options($conn, MYSQLI_OPT_CONNECT_TIMEOUT, 10);
-
     // Select database
     if (!mysqli_select_db($conn, $dbName)) {
         throw new Exception("Database selection failed: " . mysqli_error($conn));
@@ -57,39 +54,36 @@ try {
     }
     logDebug("Charset setting successful");
 
-    // Test query
-    $testResult = mysqli_query($conn, "SELECT 1");
-    if (!$testResult) {
-        throw new Exception("Test query failed: " . mysqli_error($conn));
-    }
-    logDebug("Test query successful");
-
-    // Set essential session variables with error handling
+    // Set essential session variables
     $queries = [
-        ["SET SESSION sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'", "SQL mode"],
-        ["SET SESSION time_zone='+08:00'", "Time zone"], // Set to Philippines timezone
-        ["SET NAMES utf8mb4", "Character set"]
+        "SET SESSION sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'",
+        "SET SESSION time_zone='+08:00'", // Philippines timezone
+        "SET NAMES utf8mb4",
+        "SET CHARACTER SET utf8mb4",
+        "SET character_set_results=utf8mb4",
+        // Set timeouts directly in the session
+        "SET SESSION wait_timeout=300",
+        "SET SESSION interactive_timeout=300"
     ];
 
-    foreach ($queries as [$query, $description]) {
+    foreach ($queries as $query) {
         if (!mysqli_query($conn, $query)) {
-            $error = mysqli_error($conn);
-            logDebug("Failed to set $description", ['error' => $error]);
-            // Log error but don't throw exception for non-critical settings
-            error_log("Warning: Failed to set $description: " . $error);
+            logDebug("Failed to execute query", [
+                'query' => $query,
+                'error' => mysqli_error($conn)
+            ]);
         }
     }
-    logDebug("Session variables set successfully");
+    logDebug("Session variables set");
 
-    // Set basic connection options
-    mysqli_options($conn, MYSQLI_OPT_CONNECT_TIMEOUT, 20);
+    // Set connection timeout
+    mysqli_options($conn, MYSQLI_OPT_CONNECT_TIMEOUT, 30);
+    
+    // Enable strict mode and error reporting
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     
     // Keep autocommit on by default
     mysqli_autocommit($conn, true);
-
-    // Enable error reporting
-    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-    logDebug("Error reporting enabled");
 
     // Final connection test
     if (!mysqli_ping($conn)) {

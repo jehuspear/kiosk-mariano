@@ -1,5 +1,8 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 
 // Check if user is not logged in
 if(!isset($_SESSION["user_id"])) {
@@ -24,178 +27,6 @@ if(!isset($_SESSION["user_id"])) {
        
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
-        
-        <style>
-            /* Modal Styles */
-            .admin-modal {
-                max-width: 600px;
-                width: 90%;
-                background: white;
-                border-radius: 8px;
-                /* padding: 20px; */
-            }
-
-            .order-items-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-
-            .order-items-list li {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin-bottom: 10px;
-                padding: 5px 0;
-                border-bottom: 1px solid #eee;
-            }
-
-            .item-price {
-                color: #666;
-                font-size: 0.9em;
-                margin-left: 15px;
-                text-align: right;
-            }
-
-            .order-detail-item {
-                margin-bottom: 15px;
-            }
-
-            .order-detail-label {
-                font-weight: bold;
-                display: block;
-                margin-bottom: 5px;
-                color: #333;
-            }
-
-            .order-detail-value {
-                color: #666;
-            }
-
-            .form-control {
-                width: 188px;
-                padding: 8px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-                margin-top: 5px;
-            }
-
-            .total-section {
-                margin-top: 20px;
-                padding-top: 15px;
-                border-top: 2px solid #eee;
-            }
-
-            .subtotal-amount,
-            .discount-amount,
-            .total-amount {
-                font-size: 1.1em;
-                font-weight: bold;
-            }
-
-            .total-amount {
-                color: #28a745;
-                font-size: 1.2em;
-            }
-
-            .ticket-number-display {
-                font-size: 1.2em;
-                font-weight: bold;
-                text-align: center;
-                margin-bottom: 20px;
-                padding: 10px;
-                background: #f8f9fa;
-                border-radius: 4px;
-            }
-
-            /* Table Layout Styles */
-            .navbar {
-                display: grid;
-                grid-template-columns: 0.8fr 0.8fr 1fr 1fr 1.5fr 1.5fr 0.8fr 1fr;
-                gap: 10px;
-                padding: 10px;
-                background-color: #333;
-                color: white;
-                font-weight: bold;
-            }
-
-            .navbar-item {
-                padding: 8px;
-                text-align: center;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .order {
-                display: grid;
-                grid-template-columns: 0.8fr 0.8fr 1fr 1fr 1.5fr 1.5fr 0.8fr 1fr;
-                gap: 10px;
-                padding: 10px;
-                align-items: center;
-                border-bottom: 1px solid #ddd;
-            }
-
-            .order-item {
-                padding: 8px;
-                text-align: center;
-            }
-
-            .order-item:nth-child(5),
-            .order-item:nth-child(6) {
-                text-align: center;
-            }
-
-            .order-buttons {
-                display: flex;
-                gap: 5px;
-                justify-content: center;
-            }
-
-            .button {
-                padding: 5px 15px;
-                border-radius: 5px;
-                border: none;
-                cursor: pointer;
-                font-size: 14px;
-            }
-
-            .done-button {
-                background-color: #28a745;
-                color: white;
-            }
-
-            .button-cancel {
-                background-color: #dc3545;
-                color: white;
-                padding: 5px 15px;
-                border-radius: 5px;
-                border: none;
-                cursor: pointer;
-                font-size: 14px;
-            }
-
-            /* Refresh Indicator */
-            .refresh-indicator {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                background-color: rgba(40, 167, 69, 0.9);
-                color: white;
-                padding: 8px 16px;
-                border-radius: 20px;
-                font-size: 14px;
-                display: none;
-                animation: fadeInOut 1s ease;
-                z-index: 1000;
-            }
-
-            @keyframes fadeInOut {
-                0% { opacity: 0; }
-                50% { opacity: 1; }
-                100% { opacity: 0; }
-            }
-        </style>
     </head>
     <body>
         <div class="wrapper">
@@ -229,7 +60,7 @@ if(!isset($_SESSION["user_id"])) {
                     <div class="navbar-item">Order Item</div>
                     <div class="navbar-item">Product Item Price</div>
                     <div class="navbar-item">Total</div>
-                    <div class="navbar-item">Status</div>
+                    <div class="navbar-item">Actions</div>
                 </div>
 
                 <!-- Order Details -->
@@ -242,8 +73,14 @@ if(!isset($_SESSION["user_id"])) {
                 
                 $sql = "SELECT 
                         o.*,
-                        GROUP_CONCAT(CONCAT(oi.OrderItem_Quantity, ' x ', m.MenuItem_Name, ' (', oi.OrderItem_CupSize, ')') SEPARATOR '<br>') as items,
-                        GROUP_CONCAT(CONCAT('₱', FORMAT(ms.MenuItemSize_Price, 2), ' x ', oi.OrderItem_Quantity, ' = ₱', FORMAT(ms.MenuItemSize_Price * oi.OrderItem_Quantity, 2)) SEPARATOR '<br>') as item_prices
+                        GROUP_CONCAT(
+                            CONCAT(oi.OrderItem_Quantity, ' x ', m.MenuItem_Name, ' (', oi.OrderItem_CupSize, ')')
+                            SEPARATOR '<br>'
+                        ) as items,
+                        GROUP_CONCAT(
+                            CONCAT('₱', FORMAT(ms.MenuItemSize_Price * oi.OrderItem_Quantity, 2))
+                            SEPARATOR '<br>'
+                        ) as item_prices
                         FROM `order` o
                         JOIN orderitem oi ON o.Order_ID = oi.Order_ID
                         JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID
@@ -255,32 +92,43 @@ if(!isset($_SESSION["user_id"])) {
 
                 // Prepare and execute the statement
                 $stmt = mysqli_prepare($conn, $sql);
+                if (!$stmt) {
+                    error_log("Failed to prepare statement: " . mysqli_error($conn));
+                    die("Database error occurred");
+                }
+
                 mysqli_stmt_bind_param($stmt, "s", $today);
-                mysqli_stmt_execute($stmt);
+                if (!mysqli_stmt_execute($stmt)) {
+                    error_log("Failed to execute statement: " . mysqli_error($conn));
+                    die("Database error occurred");
+                }
+
                 $result = mysqli_stmt_get_result($stmt);
                         
-                if ($result) {
-                    // Debug logging
-                    error_log("Fetching orders for date: " . $today);
+                if ($result && mysqli_num_rows($result) > 0) {
                     while($row = mysqli_fetch_assoc($result)) {
                         ?>
                         <div class="order">
                             <div class="order-item"><?php echo str_pad(htmlspecialchars($row['Order_TicketNumber']), 3, '0', STR_PAD_LEFT); ?></div>
-                            <div class="order-item"><?php echo date('m/d/y', strtotime($row['Order_DateTime'])); ?></div>
+                            <div class="order-item"><?php echo date('m/d/y h:i A', strtotime($row['Order_DateTime'])); ?></div>
                             <div class="order-item"><?php echo htmlspecialchars($row['Order_EatingOption']); ?></div>
                             <div class="order-item"><?php echo htmlspecialchars($row['Payment_Method']); ?></div>
                             <div class="order-item"><?php echo $row['items']; ?></div>
                             <div class="order-item"><?php echo $row['item_prices']; ?></div>
                             <div class="order-item">₱<?php echo number_format($row['Order_TotalAmount'], 2); ?></div>
                             <div class="order-buttons">
-                                <button class="button done-button" data-order-id="<?php echo $row['Order_ID']; ?>">Confirm</button>
-                                <button class="button-cancel" data-order-id="<?php echo $row['Order_ID']; ?>">Cancel</button>
+                                <button class="button done-button" data-order-id="<?php echo $row['Order_ID']; ?>" title="Confirm Order">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                                <button class="button-cancel" data-order-id="<?php echo $row['Order_ID']; ?>" title="Cancel Order">
+                                    <i class="fas fa-times"></i>
+                                </button>
                             </div>
                         </div>
                         <?php
                     }
                 } else {
-                    echo "Error: " . mysqli_error($conn);
+                    echo '<p class="no-orders">No pending orders at the moment.</p>';
                 }
                 ?>
                 </div>
@@ -313,8 +161,84 @@ if(!isset($_SESSION["user_id"])) {
             });
         </script>
         
-        <!-- Add refresh indicator -->
         <style>
+            /* Grid Layout Styles */
+            .navbar {
+                display: grid;
+                grid-template-columns: 0.8fr 0.8fr 1fr 1fr 1.5fr 1.5fr 0.8fr 1fr;
+                gap: 10px;
+                padding: 10px;
+                background-color: #333;
+                color: white;
+                font-weight: bold;
+                align-items: center;
+            }
+
+            .order {
+                display: grid;
+                grid-template-columns: 0.8fr 0.8fr 1fr 1fr 1.5fr 1.5fr 0.8fr 1fr;
+                gap: 10px;
+                padding: 10px;
+                align-items: center;
+                border-bottom: 1px solid #ddd;
+                background-color:rgb(41, 42, 43);
+            }
+
+            .order:hover {
+                background-color:rgb(48, 51, 54);
+            }
+
+            .order-item {
+                padding: 8px;
+                text-align: center;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                word-wrap: break-word;
+            }
+
+            .order-buttons {
+                display: flex;
+                gap: 5px;
+                justify-content: center;
+            }
+
+            .button {
+                padding: 8px 16px;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+                font-size: 14px;
+                transition: all 0.2s ease;
+            }
+
+            .done-button {
+                background-color: #28a745;
+                color: white;
+            }
+
+            .button-cancel {
+                background-color: #dc3545;
+                color: white;
+                padding: 8px 16px;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+                font-size: 14px;
+                transition: all 0.2s ease;
+            }
+
+            .button:hover,
+            .button-cancel:hover {
+                transform: scale(1.1);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
+            .button:active,
+            .button-cancel:active {
+                transform: scale(0.95);
+            }
+
+            /* Refresh Indicator */
             .refresh-indicator {
                 position: fixed;
                 bottom: 20px;
@@ -328,12 +252,40 @@ if(!isset($_SESSION["user_id"])) {
                 animation: fadeInOut 1s ease;
                 z-index: 1000;
             }
+
             @keyframes fadeInOut {
                 0% { opacity: 0; }
                 50% { opacity: 1; }
                 100% { opacity: 0; }
             }
+
+            /* Mobile Responsive */
+            @media (max-width: 768px) {
+                .navbar,
+                .order {
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                }
+
+                .navbar-item:nth-child(n+5),
+                .order-item:nth-child(n+5) {
+                    display: none;
+                }
+
+                .order-buttons {
+                    grid-column: span 4;
+                    justify-content: center;
+                    margin-top: 10px;
+                }
+
+                .button,
+                .button-cancel {
+                    padding: 6px 12px;
+                    font-size: 12px;
+                }
+            }
         </style>
+
+        <!-- Refresh Indicator -->
         <div class="refresh-indicator">
             <i class="fas fa-sync-alt"></i> Refreshing...
         </div>

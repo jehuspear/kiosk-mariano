@@ -41,20 +41,14 @@ class AdminModal {
         // Add styles
         const style = document.createElement('style');
         style.textContent = `
-            .payment-method-gcash {
-                color: #0066FF;
-                font-weight: bold;
-            }
-            .payment-method-cash {
-                color: #28a745;
-                font-weight: bold;
-            }
+
             .payment-input {
                 margin-top: 10px;
                 text-align: center;
             }
             .payment-input input {
-                width: 290px;
+                width: 250px;
+                font-size: 0.80em;
                 padding: 8px;
                 border: 1px solid #ddd;
                 border-radius: 4px;
@@ -73,11 +67,73 @@ class AdminModal {
                 margin-bottom: 10px;
                 text-align: center;
                 min-height: 20px;
-                text-aligh:left;
             }
             .admin-modal-btn-confirm:disabled {
                 opacity: 0.5;
                 cursor: not-allowed;
+            }
+            .order-items-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .order-items-list li {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 10px;
+                padding: 5px 0;
+                border-bottom: 1px solid #eee;
+            }
+            .item-price {
+                color: #666;
+                font-size: 0.9em;
+                margin-left: 15px;
+                text-align: right;
+            }
+            .order-detail-item {
+                margin-bottom: 15px;
+            }
+            .order-detail-label {
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+                color: #333;
+            }
+            .order-detail-value {
+                color: #666;
+            }
+                 .payment-method-gcash {
+                color: #0066FF;
+                font-weight: bold;
+            }
+            .payment-method-cash {
+                color: #28a745;
+                font-weight: bold;
+            }
+            .total-section {
+                margin-top: 20px;
+                padding-top: 15px;
+                border-top: 2px solid #eee;
+            }
+            .subtotal-amount,
+            .discount-amount,
+            .total-amount {
+                font-size: 1.1em;
+                font-weight: bold;
+            }
+            .total-amount {
+                color: #28a745;
+                font-size: 1.2em;
+            }
+            .ticket-number-display {
+                font-size: 1.2em;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+                padding: 10px;
+                background: #f8f9fa;
+                border-radius: 4px;
             }
         `;
         document.head.appendChild(style);
@@ -89,9 +145,7 @@ class AdminModal {
 
     hide() {
         this.modal.style.display = 'none';
-        // Remove any special modal classes
         this.modalContainer.classList.remove('cancel', 'confirm');
-        // Clear order details
         this.orderDetails.innerHTML = '';
     }
 
@@ -101,11 +155,8 @@ class AdminModal {
             return;
         }
 
-        // Log incoming order details
-        console.group('Incoming Order Details');
-        console.log('Raw Order Data:', order);
-        console.log('Is Cancel Operation:', isCancel);
-        console.groupEnd();
+        // Debug log incoming order details
+        console.log('Setting order details:', order);
 
         // Split items and prices into arrays
         const items = order.items.split('<br>');
@@ -114,21 +165,15 @@ class AdminModal {
         // Calculate subtotal
         const subtotal = parseFloat(order.totalAmount);
 
-        // Log processed order data
-        console.group('Processed Order Data');
-        console.log('Items:', items);
-        console.log('Prices:', prices);
-        console.log('Subtotal:', subtotal);
-        console.log('Payment Method:', order.paymentMethod);
-        console.log('Eating Option:', order.eatingOption);
-        console.log('Ticket Number:', order.ticketNumber);
-        console.groupEnd();
-
         // For cancel orders, we only show basic order details
         if (isCancel) {
             this.orderDetails.innerHTML = `
                 <div class="ticket-number-display">
                     Ticket #${order.ticketNumber}
+                </div>
+                <div class="order-detail-item">
+                    <span class="order-detail-label">Date:</span>
+                    <span class="order-detail-value">${order.date}</span>
                 </div>
                 <div class="order-detail-item">
                     <span class="order-detail-label">Eating Option:</span>
@@ -163,11 +208,11 @@ class AdminModal {
         const paymentMethodClass = order.paymentMethod === 'GCash' ? 'payment-method-gcash' : 'payment-method-cash';
         const paymentInputHtml = order.paymentMethod === 'GCash' 
             ? `<div class="payment-input">
-             <span class="order-detail-value ${paymentMethodClass}">${order.paymentMethod}</span>
+                <span class="order-detail-value ${paymentMethodClass}">${order.paymentMethod}</span>
                 <input type="text" id="referenceNumber" class="form-control" maxlength="6" placeholder="Enter last 6 digits of Reference Number" required>
                </div>`
             : `<div class="payment-input">
-             <span class="order-detail-value ${paymentMethodClass}">${order.paymentMethod}</span>
+                <span class="order-detail-value ${paymentMethodClass}">${order.paymentMethod}</span>
                 <input type="number" id="cashAmount" class="form-control" min="0" placeholder="Enter Cash Paid Amount" required>
                 <div class="payment-change">Change: ₱0.00</div>
                </div>`;
@@ -175,6 +220,10 @@ class AdminModal {
         this.orderDetails.innerHTML = `
             <div class="ticket-number-display">
                 Ticket #${order.ticketNumber}
+            </div>
+            <div class="order-detail-item">
+                <span class="order-detail-label">Date:</span>
+                <span class="order-detail-value">${order.date}</span>
             </div>
             <div class="order-detail-item">
                 <span class="order-detail-label">Eating Option:</span>
@@ -225,7 +274,6 @@ class AdminModal {
             </div>
             <div class="order-detail-item payment-section">
                 <span class="order-detail-label">Payment Method:</span>
-               
                 ${paymentInputHtml}
             </div>
         `;
@@ -285,7 +333,7 @@ class AdminModal {
             if (referenceNumber && !cashAmount) {
                 if (!referenceNumber.value || referenceNumber.value.length !== 6) {
                     isValid = false;
-                    message = 'Please enter a valid 6-digit GCash reference number';
+                    message = 'Please enter the last 6-digit GCash reference number';
                     referenceNumber.classList.add('error');
                 }
             }
@@ -373,20 +421,11 @@ class AdminModal {
 
             // Initial validation after a short delay to ensure DOM is ready
             setTimeout(validateFields, 100);
-
-            // Debug logging
-            console.log('Modal elements initialized:', {
-                discountType: !!discountType,
-                customDiscountType: !!customDiscountType,
-                discountPercent: !!discountPercent,
-                cashAmount: !!cashAmount,
-                referenceNumber: !!referenceNumber
-            });
         }, 0);
     }
 
     confirm(options) {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             this.title.textContent = options.title || 'Confirm';
             this.icon.innerHTML = '<i class="fas fa-question-circle"></i>';
             this.icon.className = 'admin-modal-icon confirm';
@@ -421,7 +460,6 @@ class AdminModal {
 
             const noBtn = this.footer.querySelector('#modalNoBtn');
             const yesBtn = this.footer.querySelector('#modalYesBtn');
-            const validationMessage = this.footer.querySelector('.validation-message');
 
             const cleanup = () => {
                 noBtn.removeEventListener('click', handleNo);
@@ -431,121 +469,45 @@ class AdminModal {
             const handleNo = () => {
                 this.hide();
                 cleanup();
-                resolve(false);
+                resolve({ confirmed: false });
             };
 
-            const handleYes = async () => {
-                try {
-                    if (!isCancel) {
-                        // Log initial order details
-                        console.group('Order Details Before Processing');
-                        console.log('Original Order:', options.order);
-                        console.groupEnd();
-
-                        const discountType = document.getElementById('discountType');
-                        const customDiscountType = document.getElementById('customDiscountType');
-                        const referenceNumber = document.getElementById('referenceNumber');
-                        const cashAmount = document.getElementById('cashAmount');
-
-                        // Get and validate total amount
-                        const finalTotal = parseFloat(document.querySelector('.total-amount').textContent.replace('₱', ''));
-                        if (isNaN(finalTotal) || finalTotal < 0) {
-                            throw new Error('Invalid total amount');
-                        }
-
-                        // Initialize payment values
-                        let cashValue = 0;
-                        let referenceNumberValue = '';
-                        let changeValue = 0;
-
-                        // Get payment values based on payment method
-                        if (cashAmount) {
-                            cashValue = parseFloat(cashAmount.value) || 0;
-                            if (cashValue <= 0) {
-                                throw new Error('Cash amount must be greater than 0');
-                            }
-                            if (cashValue < finalTotal) {
-                                throw new Error('Cash amount must cover the total amount');
-                            }
-                            changeValue = cashValue - finalTotal;
-                        } else if (referenceNumber) {
-                            referenceNumberValue = referenceNumber.value.trim();
-                            if (!referenceNumberValue) {
-                                throw new Error('Reference number is required');
-                            }
-                            if (referenceNumberValue.length !== 6) {
-                                throw new Error('Reference number must be 6 digits');
-                            }
-                        }
-
-                        // Log all form values
-                        console.group('Form Values Before Submission');
-                        console.log('Discount Type:', discountType.value);
-                        console.log('Custom Discount Type:', customDiscountType.value);
-                        console.log('Final Total:', finalTotal);
-                        console.log('Cash Amount:', cashValue);
-                        console.log('Reference Number:', referenceNumberValue);
-                        console.log('Change:', changeValue);
-                        console.groupEnd();
-
-                        // Get discount values
-                        const actualDiscountType = discountType.value === 'Custom' ? customDiscountType.value : discountType.value;
-                        const discountPercentValue = parseFloat(document.getElementById('discountPercent').value) || 0;
-                        const discountAmountValue = parseFloat(document.querySelector('.discount-amount').textContent.replace('₱', '')) || 0;
-
-                        // Log calculated values
-                        console.group('Calculated Values');
-                        console.log('Actual Discount Type:', actualDiscountType);
-                        console.log('Discount Percent:', discountPercentValue);
-                        console.log('Discount Amount:', discountAmountValue);
-                        console.groupEnd();
-
-                        // Create result object for confirm order
-                        const result = {
-                            confirmed: true,
-                            discountType: actualDiscountType,
-                            discountPercent: discountPercentValue,
-                            discountAmount: discountAmountValue,
-                            finalAmount: finalTotal,
-                            referenceNumber: referenceNumberValue,
-                            cashAmount: cashValue,
-                            change: changeValue,
-                            // Include original order details
-                            orderDetails: {
-                                ticketNumber: options.order.ticketNumber,
-                                eatingOption: options.order.eatingOption,
-                                items: options.order.items,
-                                itemPrices: options.order.itemPrices,
-                                paymentMethod: options.order.paymentMethod,
-                                originalTotal: options.order.totalAmount
-                            }
-                        };
-
-                        // Log final result object
-                        console.group('Final Result Object');
-                        console.log('Result:', result);
-                        console.log('JSON String:', JSON.stringify(result));
-                        console.groupEnd();
-
-                        // Clean up and resolve
-                        this.hide();
-                        cleanup();
-                        resolve(result);
-                    } else {
-                        // For cancel order, just resolve with true
-                        this.hide();
-                        cleanup();
-                        resolve(true);
-                    }
-                } catch (error) {
-                    console.error('Error in modal:', error);
-                    validationMessage.textContent = error.message;
-                    yesBtn.disabled = true;
-                    setTimeout(() => {
-                        validationMessage.textContent = '';
-                        yesBtn.disabled = false;
-                    }, 3000);
+            const handleYes = () => {
+                if (isCancel) {
+                    this.hide();
+                    cleanup();
+                    resolve({ confirmed: true });
+                    return;
                 }
+
+                // Get all form values
+                const discountType = document.getElementById('discountType');
+                const customDiscountType = document.getElementById('customDiscountType');
+                const discountPercent = document.getElementById('discountPercent');
+                const referenceNumber = document.getElementById('referenceNumber');
+                const cashAmount = document.getElementById('cashAmount');
+                const totalAmount = parseFloat(document.querySelector('.total-amount').textContent.replace('₱', ''));
+                const discountAmount = parseFloat(document.querySelector('.discount-amount').textContent.replace('₱', ''));
+                const change = cashAmount ? parseFloat(cashAmount.value || 0) - totalAmount : 0;
+
+                // Create result object
+                const modalResult = {
+                    confirmed: true,
+                    discountType: discountType.value === 'Custom' ? customDiscountType.value : discountType.value,
+                    discountPercent: parseFloat(discountPercent.value) || 0,
+                    discountAmount: discountAmount,
+                    finalAmount: totalAmount,
+                    referenceNumber: referenceNumber ? referenceNumber.value : '',
+                    cashAmount: cashAmount ? parseFloat(cashAmount.value) || 0 : 0,
+                    change: Math.max(0, change)
+                };
+
+                // Debug log the result
+                console.log('Modal Result:', modalResult);
+
+                this.hide();
+                cleanup();
+                resolve(modalResult);
             };
 
             noBtn.addEventListener('click', handleNo);

@@ -1,0 +1,215 @@
+/* Modal Order Details Styling */
+.modal-order-details {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 0 15px 15px 15px;
+    margin: 0 -15px;
+    background: white;
+}
+
+.modal-order-details::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-order-details::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.modal-order-details::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.modal-order-details .order-detail-item {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.modal-order-details .order-detail-label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.modal-order-details .order-detail-value {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.modal-order-details .order-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modal-order-details .order-items-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.modal-order-details .item-price {
+    color: #28a745;
+    font-weight: 600;
+    margin-left: 15px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.modal-order-details .ticket-number-display {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    color: #333;
+}
+
+/* Confirm modal specific styles */
+.admin-modal.confirm .modal-order-details .ticket-number-display {
+    background: #e8f5e9;
+    color: #f3f3f3;
+}
+
+/* Cancel modal specific styles */
+.admin-modal.cancel .modal-order-details .ticket-number-display {
+    background: #ffebee;
+    color: #b71c1c;
+}
+
+.modal-order-details .total-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #eee;
+}
+
+.modal-order-details .payment-section {
+    margin-top: 20px;
+}
+
+.modal-order-details .payment-input {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.modal-order-details .payment-input input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.modal-order-details .payment-input input.error {
+    border-color: #dc3545;
+    background-color: #fff8f8;
+}
+
+.modal-order-details .payment-change {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #28a745;
+    font-size: 0.9rem;
+}
+
+.modal-order-details .payment-method-gcash {
+    color: #0066FF;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.modal-order-details .payment-method-cash {
+    color: #28a745;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.modal-order-details .discount-type-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modal-order-details #discountType,
+.modal-order-details #customDiscountType,
+.modal-order-details #discountPercent {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.modal-order-details .validation-message {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin: 5px 0;
+    min-height: 20px;
+    text-align: center;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .modal-order-details {
+        max-height: 50vh;
+        padding: 0 10px 10px 10px;
+    }
+
+    .modal-order-details .order-detail-item {
+        margin-bottom: 12px;
+        padding: 8px;
+    }
+
+    .modal-order-details .order-detail-label,
+    .modal-order-details .order-detail-value {
+        font-size: 0.85rem;
+    }
+
+    .modal-order-details .order-items-list li {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .modal-order-details .payment-input input {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .modal-order-details .ticket-number-display {
+        font-size: 1.1rem;
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .modal-order-details .total-section,
+    .modal-order-details .payment-section {
+        margin-top: 15px;
+    }
+
+    .modal-order-details #discountType,
+    .modal-order-details #customDiscountType,
+    .modal-order-details #discountPercent {
+        font-size: 16px;
+    }
+}

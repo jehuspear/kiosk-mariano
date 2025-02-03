@@ -70,13 +70,12 @@ body {
 
 .order-buttons {
     display: block; /* Ensure buttons are stacked vertically */
-    margin-bottom: 30px; /* Optional, for spacing between the buttons */
+    margin-bottom: 10px; /* Optional, for spacing between the buttons */
 }
 
 .button {
     display: block; /* Ensure buttons occupy full width and line break */
-    width: 80%; /* Optional, to make the buttons the same width */
-    margin-top: 10px; /* Optional, to add space between buttons */
+    width: 100%; /* Optional, to make the buttons the same width */
 }
 
 .button {
@@ -87,7 +86,7 @@ body {
     border-radius: 15px;
     cursor: pointer;
     font-weight: bold;
-    width: 90px;
+    width: 100px;
 }
 .button-cancel {
     background-color: #b80b0b;
@@ -97,7 +96,7 @@ body {
     border-radius: 15px;
     cursor: pointer;
     font-weight: bold;
-    width: 90px;
+    width: 100px;
 }
 
 

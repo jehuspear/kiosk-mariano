@@ -3,7 +3,6 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-
 // Check if user is not logged in
 if(!isset($_SESSION["user_id"])) {
     header("Location: login.php");
@@ -24,6 +23,7 @@ if(!isset($_SESSION["user_id"])) {
         <link rel="stylesheet" href="Css-admin/order.css">
         <link rel="stylesheet" href="Css-admin/search_order.css">
         <link rel="stylesheet" href="Css-admin/admin-modal.css">
+        <link rel="stylesheet" href="Css-admin/modal-order-details.css">
        
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -118,10 +118,10 @@ if(!isset($_SESSION["user_id"])) {
                             <div class="order-item">₱<?php echo number_format($row['Order_TotalAmount'], 2); ?></div>
                             <div class="order-buttons">
                                 <button class="button done-button" data-order-id="<?php echo $row['Order_ID']; ?>" title="Confirm Order">
-                                    <i class="fas fa-check"></i>
+                                    <span>Confirm Payment</span>
                                 </button>
                                 <button class="button-cancel" data-order-id="<?php echo $row['Order_ID']; ?>" title="Cancel Order">
-                                    <i class="fas fa-times"></i>
+                                    <span>Cancel Order</span>
                                 </button>
                             </div>
                         </div>
@@ -144,7 +144,7 @@ if(!isset($_SESSION["user_id"])) {
         <script src="Javascript-admin/cancel_order.js"></script>
         <script src="Javascript-admin/search_order.js"></script>
         <script src="Javascript-admin/mobile-menu.js"></script>
-        <script src="Javascript-admin/auto-refresh.js"></script>
+        <!-- <script src="Javascript-admin/auto-refresh.js"></script> -->
         
         <script>
             // Add event listeners after all scripts are loaded
@@ -165,27 +165,30 @@ if(!isset($_SESSION["user_id"])) {
             /* Grid Layout Styles */
             .navbar {
                 display: grid;
-                grid-template-columns: 0.8fr 0.8fr 1fr 1fr 1.5fr 1.5fr 0.8fr 1fr;
-                gap: 10px;
-                padding: 10px;
+                grid-template-columns: 0.7fr 1fr 0.8fr 0.8fr 1.5fr 1fr 0.7fr 1fr;
+                gap: 8px;
+                padding: 12px;
                 background-color: #333;
                 color: white;
                 font-weight: bold;
                 align-items: center;
+                text-align: center;
+                font-size: 0.9rem;
             }
 
             .order {
                 display: grid;
-                grid-template-columns: 0.8fr 0.8fr 1fr 1fr 1.5fr 1.5fr 0.8fr 1fr;
-                gap: 10px;
-                padding: 10px;
-                align-items: center;
+                grid-template-columns: 0.7fr 1fr 0.8fr 0.8fr 1.5fr 1fr 0.7fr 1fr;
+                gap: 8px;
+                padding: 12px;
+                align-items: start;
                 border-bottom: 1px solid #ddd;
-                background-color:rgb(41, 42, 43);
+                background-color: rgb(41, 42, 43);
+                min-height: 60px;
             }
 
             .order:hover {
-                background-color:rgb(48, 51, 54);
+                background-color: rgb(48, 51, 54);
             }
 
             .order-item {
@@ -194,21 +197,32 @@ if(!isset($_SESSION["user_id"])) {
                 overflow: hidden;
                 text-overflow: ellipsis;
                 word-wrap: break-word;
+                color: #fff;
+                font-size: 0.9rem;
+                line-height: 1.4;
             }
 
             .order-buttons {
                 display: flex;
-                gap: 5px;
+                gap: 8px;
                 justify-content: center;
+                align-items: center;
+                flex-direction: column;
             }
 
-            .button {
-                padding: 8px 16px;
-                border-radius: 5px;
+            .button,
+            .button-cancel {
+                width: 100%;
+                padding: 8px;
+                border-radius: 4px;
                 border: none;
                 cursor: pointer;
-                font-size: 14px;
+                font-size: 0.85rem;
                 transition: all 0.2s ease;
+                text-align: center;
+                display: inline-block;
+                line-height: 1.2;
+                margin: 0;
             }
 
             .done-button {
@@ -219,23 +233,17 @@ if(!isset($_SESSION["user_id"])) {
             .button-cancel {
                 background-color: #dc3545;
                 color: white;
-                padding: 8px 16px;
-                border-radius: 5px;
-                border: none;
-                cursor: pointer;
-                font-size: 14px;
-                transition: all 0.2s ease;
             }
 
             .button:hover,
             .button-cancel:hover {
-                transform: scale(1.1);
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                transform: translateY(-1px);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
             }
 
             .button:active,
             .button-cancel:active {
-                transform: scale(0.95);
+                transform: translateY(1px);
             }
 
             /* Refresh Indicator */
@@ -275,12 +283,14 @@ if(!isset($_SESSION["user_id"])) {
                     grid-column: span 4;
                     justify-content: center;
                     margin-top: 10px;
+                    flex-direction: row;
                 }
 
                 .button,
                 .button-cancel {
                     padding: 6px 12px;
                     font-size: 12px;
+                    width: auto;
                 }
             }
         </style>

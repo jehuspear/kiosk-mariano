@@ -1,3 +1,4 @@
+/* Modal Overlay */
 .admin-modal-overlay {
     display: none;
     position: fixed;
@@ -9,168 +10,116 @@
     z-index: 1000;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
+/* Modal Container */
 .admin-modal {
     background-color: white;
     border-radius: 8px;
-    padding: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 90%;
-    max-width: 400px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: modalSlideIn 0.3s ease-out;
+    max-width: 500px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
-@keyframes modalSlideIn {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
+/* Modal Header */
 .admin-modal-header {
-    background-color: #f8f9fa;
-    padding: 1rem;
-    border-bottom: 1px solid #dee2e6;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 8px 8px 0 0;
 }
 
-/* Red header for cancel modals */
-.admin-modal.cancel .admin-modal-header {
-    background-color: #dc3545;
-    color: white;
-}
-
-/* Green header for confirm modals */
+/* Modal types */
 .admin-modal.confirm .admin-modal-header {
-    background-color: #28a745;
-    color: white;
+    background: #1bb341; /* Light green */
+}
+
+.admin-modal.cancel .admin-modal-header {
+    background: #ce2740; /* Light red */
 }
 
 .admin-modal-title {
     margin: 0;
     font-size: 1.25rem;
     font-weight: 600;
-    color: #212529;
-}
-
-/* White text for cancel modal title */
-.admin-modal.cancel .admin-modal-title {
-    color: white;
-}
-
-/* White text for confirm modal title */
-.admin-modal.confirm .admin-modal-title {
-    color: white;
+    color: #ffffff;
 }
 
 .admin-modal-close {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #6c757d;
     cursor: pointer;
     padding: 0;
+    color: #666;
     line-height: 1;
 }
 
-/* White close button for cancel modal */
-.admin-modal.cancel .admin-modal-close {
-    color: white;
+.admin-modal-close:hover {
+    color: #333;
 }
 
-/* White close button for confirm modal */
-.admin-modal.confirm .admin-modal-close {
-    color: white;
-}
-
+/* Modal Body */
 .admin-modal-body {
-    /* padding: 1.5rem; */
-    text-align: center;
-}
-
-.admin-modal-message {
-    font-size: 1.1rem;
-    color: #495057;
-    margin-bottom: 1rem;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(90vh - 140px);
 }
 
 .admin-modal-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 15px;
 }
 
-.admin-modal-icon.confirm {
-    color: #28a745;
+.admin-modal-icon.success { color: #28a745; }
+.admin-modal-icon.error { color: #dc3545; }
+.admin-modal-icon.warning { color: #ffc107; }
+.admin-modal-icon.confirm { color: #28a745; }
+
+.admin-modal-message {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1rem;
 }
 
-.admin-modal-icon.cancel {
-    color: #dc3545;
-}
-
-.admin-modal-icon.warning {
-    color: #dc3545;
-}
-
-.admin-modal-icon.success {
-    color: #28a745;
-}
-
-.admin-modal-icon.error {
-    color: #dc3545;
-}
-
+/* Modal Footer */
 .admin-modal-footer {
-    padding: 1rem;
-    border-top: 1px solid #dee2e6;
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
     display: flex;
     justify-content: flex-end;
-    gap: 0.5rem;
+    gap: 10px;
+    border-radius: 0 0 8px 8px;
 }
 
-/* Red border for cancel modal */
-.admin-modal.cancel .admin-modal-footer {
-    border-color: #f8d7da;
-}
-
-/* Green border for confirm modal */
+/* Footer colors based on modal type */
 .admin-modal.confirm .admin-modal-footer {
-    border-color: #d4edda;
+    background: #e3eee4; /* Light green */
+}
+
+.admin-modal.cancel .admin-modal-footer {
+    background: #e7b7be; /* Light red */
 }
 
 .admin-modal-btn {
-    padding: 0.5rem 1rem;
+    padding: 8px 16px;
     border-radius: 4px;
-    font-weight: 500;
-    cursor: pointer;
     border: none;
-    transition: all 0.2s;
-}
-
-.admin-modal-btn-confirm {
-    background-color: #28a745;
-    color: white;
-}
-
-.admin-modal-btn-confirm:hover {
-    background-color: #218838;
-}
-
-.admin-modal-btn-cancel {
-    background-color: #dc3545;
-    color: white;
-}
-
-.admin-modal-btn-cancel:hover {
-    background-color: #c82333;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    min-width: 80px;
+    position: relative;
+    overflow: hidden;
 }
 
 .admin-modal-btn-secondary {
@@ -178,113 +127,157 @@
     color: white;
 }
 
-.admin-modal-btn-secondary:hover {
-    background-color: #5a6268;
-}
-
-/* Cancel modal specific button styles */
-.admin-modal.cancel .admin-modal-btn-confirm {
-    background-color: #dc3545;
-}
-
-.admin-modal.cancel .admin-modal-btn-confirm:hover {
-    background-color: #c82333;
-}
-
-.admin-modal.cancel .admin-modal-btn-secondary {
-    background-color: #6c757d;
-    border: 1px solid #6c757d;
-}
-
-.admin-modal.cancel .admin-modal-btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
-}
-
-/* Confirm modal specific button styles */
-.admin-modal.confirm .admin-modal-btn-confirm {
+.admin-modal-btn-confirm {
     background-color: #28a745;
+    color: white;
 }
 
-.admin-modal.confirm .admin-modal-btn-confirm:hover {
-    background-color: #218838;
+.admin-modal-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.admin-modal.confirm .admin-modal-btn-secondary {
-    background-color: #6c757d;
-    border: 1px solid #6c757d;
+.admin-modal-btn:active:not(:disabled) {
+    transform: translateY(1px);
 }
 
-.admin-modal.confirm .admin-modal-btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
+/* Disabled button effect */
+.admin-modal-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+    position: relative;
+    transform: none;
+    box-shadow: none;
 }
 
-/* Order Details Styles */
-.order-details {
-    margin: 1rem 0;
-    padding: 1rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    text-align: left;
+/* Special styling for disabled confirm button in confirm modal */
+.admin-modal.confirm .admin-modal-btn-confirm:disabled {
+    background: #1bb341;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.ticket-number-display {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #28a745;
-    text-align: center;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    background-color: #e9ecef;
-    border-radius: 6px;
+.admin-modal-btn:disabled::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: shimmer 2s infinite ease-in-out;
 }
 
-.admin-modal.cancel .ticket-number-display {
-    color: #dc3545;
+.admin-modal.confirm .admin-modal-btn-confirm:disabled::after {
+    content: '⌛';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    opacity: 0.9;
+    animation: pulse 1.5s infinite ease-in-out;
 }
 
-.order-detail-item {
-    margin-bottom: 0.75rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+@keyframes shimmer {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
 }
 
-.order-detail-label {
-    font-weight: 600;
-    color: #495057;
-    flex: 0 0 120px;
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+        transform: translateY(-50%) scale(0.95);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.05);
+    }
+    100% {
+        opacity: 0.5;
+        transform: translateY(-50%) scale(0.95);
+    }
 }
 
-.order-detail-value {
-    color: #212529;
-    flex: 1;
-    text-align: right;
+/* Previous styles remain unchanged... */
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .admin-modal {
+        width: 95%;
+        margin: 10px;
+    }
+
+    .admin-modal-body {
+        padding: 15px;
+        max-height: calc(90vh - 120px);
+    }
+
+    .admin-modal-btn {
+        padding: 10px 16px;
+        font-size: 16px;
+        flex: 1;
+    }
+
+    .admin-modal-footer {
+        flex-direction: row;
+        padding: 10px 15px;
+    }
 }
 
-.order-items-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Dark Theme Support */
+.admin-modal.dark {
+    background-color: #2d2d2d;
+    color: #fff;
 }
 
-.order-items-list li {
-    padding: 0.25rem 0;
-    border-bottom: 1px dashed #dee2e6;
+.admin-modal.dark .admin-modal-header,
+.admin-modal.dark .admin-modal-footer {
+    background: #1a1a1a;
+    border-color: #404040;
 }
 
-.order-items-list li:last-child {
-    border-bottom: none;
+.admin-modal.dark.confirm .admin-modal-header,
+.admin-modal.dark.confirm .admin-modal-footer {
+    background: #1b5e20; /* Dark green */
 }
 
-.total-amount {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #28a745;
-    margin-top: 0.5rem;
+.admin-modal.dark.cancel .admin-modal-header,
+.admin-modal.dark.cancel .admin-modal-footer {
+    background: #b71c1c; /* Dark red */
 }
 
-.admin-modal.cancel .total-amount {
-    color: #dc3545;
+.admin-modal.dark .admin-modal-title {
+    color: #fff;
+}
+
+.admin-modal.dark .admin-modal-close {
+    color: #fff;
+}
+
+.admin-modal.dark .form-control {
+    background-color: #333;
+    border-color: #404040;
+    color: #fff;
+}
+
+.admin-modal.dark .form-control:focus {
+border-color: #4d90fe;
+box-shadow: 0 0 0 0.2rem rgba(77,144,254,.25);
+}
+.validation-message{
+color: red;
 }

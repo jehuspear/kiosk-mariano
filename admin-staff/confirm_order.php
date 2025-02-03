@@ -138,11 +138,13 @@ try {
             if (!mysqli_stmt_execute($stmt)) {
                 throw new Exception("Failed to update payment: " . mysqli_error($conn));
             }
-
+            //The Staff who Handles that Order
+            $staff_id = $_SESSION['user_id'];
             // Update order status
             $sql = "UPDATE `order` SET 
                     Order_Status = 'Preparing',
-                    Order_CompletedTime = NOW()
+                    Order_CompletedTime = NOW(),
+                    Staff_ID = $staff_id
                     WHERE Order_ID = ?";
             
             $stmt = mysqli_prepare($conn, $sql);
@@ -157,7 +159,7 @@ try {
             }
 
             // Log the payment
-            $staff_id = $_SESSION['user_id'];
+            
             $log_action = "Payment processed";
             $log_details = sprintf(
                 "Order #%d payment processed. Method: %s, Amount: ₱%.2f, Discount: %s",

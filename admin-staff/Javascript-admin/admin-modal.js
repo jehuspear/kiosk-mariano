@@ -15,7 +15,7 @@ class AdminModal {
                     <div class="admin-modal-body">
                         <div class="admin-modal-icon"></div>
                         <div class="admin-modal-message"></div>
-                        <div class="order-details"></div>
+                        <div class="order-details modal-order-details"></div>
                     </div>
                     <div class="admin-modal-footer"></div>
                 </div>
@@ -37,106 +37,6 @@ class AdminModal {
 
         // Add close button event
         this.closeBtn.addEventListener('click', () => this.hide());
-
-        // Add styles
-        const style = document.createElement('style');
-        style.textContent = `
-
-            .payment-input {
-                margin-top: 10px;
-                text-align: center;
-            }
-            .payment-input input {
-                width: 250px;
-                font-size: 0.80em;
-                padding: 8px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-                text-align: center;
-            }
-            .payment-input input.error {
-                border-color: #dc3545;
-            }
-            .payment-change {
-                margin-top: 5px;
-                font-weight: bold;
-                color: #28a745;
-            }
-            .validation-message {
-                color: #dc3545;
-                margin-bottom: 10px;
-                text-align: center;
-                min-height: 20px;
-            }
-            .admin-modal-btn-confirm:disabled {
-                opacity: 0.5;
-                cursor: not-allowed;
-            }
-            .order-items-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-            .order-items-list li {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                margin-bottom: 10px;
-                padding: 5px 0;
-                border-bottom: 1px solid #eee;
-            }
-            .item-price {
-                color: #666;
-                font-size: 0.9em;
-                margin-left: 15px;
-                text-align: right;
-            }
-            .order-detail-item {
-                margin-bottom: 15px;
-            }
-            .order-detail-label {
-                font-weight: bold;
-                display: block;
-                margin-bottom: 5px;
-                color: #333;
-            }
-            .order-detail-value {
-                color: #666;
-            }
-                 .payment-method-gcash {
-                color: #0066FF;
-                font-weight: bold;
-            }
-            .payment-method-cash {
-                color: #28a745;
-                font-weight: bold;
-            }
-            .total-section {
-                margin-top: 20px;
-                padding-top: 15px;
-                border-top: 2px solid #eee;
-            }
-            .subtotal-amount,
-            .discount-amount,
-            .total-amount {
-                font-size: 1.1em;
-                font-weight: bold;
-            }
-            .total-amount {
-                color: #28a745;
-                font-size: 1.2em;
-            }
-            .ticket-number-display {
-                font-size: 1.2em;
-                font-weight: bold;
-                text-align: center;
-                margin-bottom: 20px;
-                padding: 10px;
-                background: #f8f9fa;
-                border-radius: 4px;
-            }
-        `;
-        document.head.appendChild(style);
     }
 
     show() {
@@ -154,9 +54,6 @@ class AdminModal {
             this.orderDetails.innerHTML = '';
             return;
         }
-
-        // Debug log incoming order details
-        console.log('Setting order details:', order);
 
         // Split items and prices into arrays
         const items = order.items.split('<br>');

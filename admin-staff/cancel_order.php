@@ -1,5 +1,12 @@
 <?php
+session_start();
 require_once 'database_admin.php';
+
+// Check if user is not logged in
+if(!isset($_SESSION["user_id"])) {
+    echo json_encode(['success' => false, 'error' => 'User not logged in']);
+    exit();
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $order_id = $_POST['order_id'];
@@ -23,18 +30,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_bind_param($stmt, "i", $order_id);
         mysqli_stmt_execute($stmt);
         
-        // Update payment status and datetime
-        $sql = "UPDATE payment SET 
-                Payment_Status = 'Cancelled',
-                Payment_DateTime = NOW()
-                WHERE Payment_ID = ?";
+        // Update payment status to Cancelled
+        $sql = "UPDATE payment SET Payment_Status = 'Cancelled' WHERE Payment_ID = ?";
         $stmt = mysqli_prepare($conn, $sql);
         mysqli_stmt_bind_param($stmt, "i", $payment_id);
+        mysqli_stmt_execute($stmt);
+
+        // Log the cancellation
+        $staff_id = $_SESSION['user_id'];
+        $sql = "INSERT INTO logs (Staff_ID, Log_DateTime, Log_Action, Log_Details) 
+                VALUES (?, NOW(), 'Order cancelled', CONCAT('Order #', ?, ' status changed to Cancelled'))";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "ii", $staff_id, $order_id);
         mysqli_stmt_execute($stmt);
         
         // Commit transaction
         mysqli_commit($conn);
-        echo json_encode(['success' => true, 'message' => 'Order and payment cancelled successfully']);
+        echo json_encode(['success' => true, 'message' => 'Order cancelled successfully']);
         
     } catch (Exception $e) {
         // Rollback transaction on error

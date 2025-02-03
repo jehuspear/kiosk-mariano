@@ -26,6 +26,88 @@ if(!isset($_SESSION["user_id"])) {
         <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
         
         <style>
+            /* Modal Styles */
+            .admin-modal {
+                max-width: 600px;
+                width: 90%;
+                background: white;
+                border-radius: 8px;
+                /* padding: 20px; */
+            }
+
+            .order-items-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .order-items-list li {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 10px;
+                padding: 5px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .item-price {
+                color: #666;
+                font-size: 0.9em;
+                margin-left: 15px;
+                text-align: right;
+            }
+
+            .order-detail-item {
+                margin-bottom: 15px;
+            }
+
+            .order-detail-label {
+                font-weight: bold;
+                display: block;
+                margin-bottom: 5px;
+                color: #333;
+            }
+
+            .order-detail-value {
+                color: #666;
+            }
+
+            .form-control {
+                width: 188px;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                margin-top: 5px;
+            }
+
+            .total-section {
+                margin-top: 20px;
+                padding-top: 15px;
+                border-top: 2px solid #eee;
+            }
+
+            .subtotal-amount,
+            .discount-amount,
+            .total-amount {
+                font-size: 1.1em;
+                font-weight: bold;
+            }
+
+            .total-amount {
+                color: #28a745;
+                font-size: 1.2em;
+            }
+
+            .ticket-number-display {
+                font-size: 1.2em;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 20px;
+                padding: 10px;
+                background: #f8f9fa;
+                border-radius: 4px;
+            }
+
             /* Table Layout Styles */
             .navbar {
                 display: grid;
@@ -155,6 +237,9 @@ if(!isset($_SESSION["user_id"])) {
                 <?php
                 require_once 'database_admin.php';
                 
+                // Get current date in the same format as the database
+                $today = date('Y-m-d');
+                
                 $sql = "SELECT 
                         o.*,
                         GROUP_CONCAT(CONCAT(oi.OrderItem_Quantity, ' x ', m.MenuItem_Name, ' (', oi.OrderItem_CupSize, ')') SEPARATOR '<br>') as items,
@@ -164,12 +249,19 @@ if(!isset($_SESSION["user_id"])) {
                         JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID
                         JOIN menuitem_sizes ms ON m.MenuItem_ID = ms.MenuItem_ID AND oi.OrderItem_CupSize = ms.MenuItemSize_SizeName
                         WHERE o.Order_Status = 'Pending'
+                        AND DATE(o.Order_DateTime) = ?
                         GROUP BY o.Order_ID
                         ORDER BY o.Order_DateTime DESC";
-                        
-                $result = mysqli_query($conn, $sql);
 
+                // Prepare and execute the statement
+                $stmt = mysqli_prepare($conn, $sql);
+                mysqli_stmt_bind_param($stmt, "s", $today);
+                mysqli_stmt_execute($stmt);
+                $result = mysqli_stmt_get_result($stmt);
+                        
                 if ($result) {
+                    // Debug logging
+                    error_log("Fetching orders for date: " . $today);
                     while($row = mysqli_fetch_assoc($result)) {
                         ?>
                         <div class="order">
@@ -212,6 +304,11 @@ if(!isset($_SESSION["user_id"])) {
                 // Initialize confirm button handlers
                 document.querySelectorAll('.done-button').forEach(button => {
                     button.addEventListener('click', window.confirmOrderHandler);
+                });
+
+                // Initialize cancel button handlers
+                document.querySelectorAll('.button-cancel').forEach(button => {
+                    button.addEventListener('click', window.cancelOrderHandler);
                 });
             });
         </script>

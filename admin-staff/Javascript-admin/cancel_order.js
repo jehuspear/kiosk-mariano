@@ -9,19 +9,20 @@ window.cancelOrderHandler = async function(e) {
         // Get order details from the row
         const orderDetails = {
             ticketNumber: orderRow.querySelector('.order-item:nth-child(1)').textContent,
-            eatingOption: orderRow.querySelector('.order-item:nth-child(2)').textContent,
-            items: orderRow.querySelector('.order-item:nth-child(4)').innerHTML,
-            paymentMethod: orderRow.querySelector('.order-item:nth-child(5)').textContent,
-            totalAmount: orderRow.querySelector('.order-item:nth-child(8)').textContent.replace('₱', '')
+            eatingOption: orderRow.querySelector('.order-item:nth-child(3)').textContent,
+            items: orderRow.querySelector('.order-item:nth-child(5)').innerHTML,
+            itemPrices: orderRow.querySelector('.order-item:nth-child(6)').innerHTML,
+            paymentMethod: orderRow.querySelector('.order-item:nth-child(4)').textContent,
+            totalAmount: orderRow.querySelector('.order-item:nth-child(7)').textContent.replace('₱', '')
         };
         
-        const confirmed = await adminModal.confirm({
+        const result = await adminModal.confirm({
             title: 'Cancel Order',
-            message: 'Are you sure you want to cancel this order?',
+            message: 'Are you sure you want to cancel this order? This action cannot be undone.',
             order: orderDetails
         });
 
-        if (confirmed) {
+        if (result) {
             await cancelOrder(orderId);
         }
     } catch (error) {

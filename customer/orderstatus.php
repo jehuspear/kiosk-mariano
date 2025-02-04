@@ -8,20 +8,33 @@ $ticketNumber = isset($_SESSION['ticket_number']) ? $_SESSION['ticket_number'] :
 // Get order details if ticket number exists
 $orderDetails = null;
 if ($ticketNumber) {
-    // Get today's date in Y-m-d format
-    $today = date('Y-m-d');
+    // Set timezone to Philippines
+    date_default_timezone_set('Asia/Manila');
+
+    // Get today's date range in Manila time
+    $today_start = date('Y-m-d 00:00:00');
+    $today_end = date('Y-m-d 23:59:59');
     
     $sql = "SELECT o.*, p.Payment_Method, p.Payment_Status, 
-            GROUP_CONCAT(CONCAT(m.MenuItem_Name, ' (', oi.OrderItem_CupSize, ') x', oi.OrderItem_Quantity) SEPARATOR ', ') as items
+            GROUP_CONCAT(
+                CONCAT(
+                    m.MenuItem_Name, '|',
+                    oi.OrderItem_CupSize, '|',
+                    oi.OrderItem_Quantity, '|',
+                    oi.OrderItem_Price, '|',
+                    oi.OrderItem_ID
+                ) ORDER BY oi.OrderItem_ID ASC SEPARATOR '||'
+            ) as items
             FROM `order` o 
             JOIN payment p ON o.Payment_ID = p.Payment_ID 
             JOIN orderitem oi ON o.Order_ID = oi.Order_ID
             JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID
-            WHERE o.Order_TicketNumber = ? AND DATE(o.Order_DateTime) = ?
+            WHERE o.Order_TicketNumber = ? 
+            AND o.Order_DateTime BETWEEN ? AND ?
             GROUP BY o.Order_ID";
     
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("is", $ticketNumber, $today);
+    $stmt->bind_param("iss", $ticketNumber, $today_start, $today_end);
     $stmt->execute();
     $result = $stmt->get_result();
     
@@ -252,7 +265,20 @@ if ($ticketNumber) {
                 <div class="status-value"><?php echo $orderDetails['Payment_Method']; ?></div>
 
                 <div class="status-label">Items</div>
-                <div class="status-value"><?php echo $orderDetails['items']; ?></div>
+                <div class="status-value">
+                    <?php 
+                    $itemsList = explode('||', $orderDetails['items']);
+                    echo "<ul style='list-style-type: none; padding-left: 0; margin: 0;'>";
+                    foreach ($itemsList as $item) {
+                        list($name, $size, $quantity, $price) = explode('|', $item);
+                        $total = $price * $quantity;
+                        echo "<li style='margin-bottom: 5px;'>";
+                        echo "$name ($size) x$quantity - ₱" . number_format($total, 2);
+                        echo "</li>";
+                    }
+                    echo "</ul>";
+                    ?>
+                </div>
 
                 <div class="status-label">Total Amount</div>
                 <div class="status-value">₱<?php echo number_format($orderDetails['Order_TotalAmount'], 2); ?></div>

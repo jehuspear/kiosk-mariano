@@ -15,16 +15,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payment_method'])) {
             $eatingOption = $item['orderType']; // Get from first item
         }
         
-        // Get today's date in Y-m-d format for comparison
-        $today = date('Y-m-d');
+        // Set timezone to Philippines
+        date_default_timezone_set('Asia/Manila');
+
+        // Get today's date range in Manila time
+        $today_start = date('Y-m-d 00:00:00');
+        $today_end = date('Y-m-d 23:59:59');
         
         // Get the latest ticket number from today's orders
         $sql = "SELECT Order_TicketNumber FROM `order` 
-                WHERE DATE(Order_DateTime) = ? 
+                WHERE Order_DateTime BETWEEN ? AND ?
                 ORDER BY Order_DateTime DESC, Order_ID DESC 
                 LIMIT 1";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $today);
+        $stmt->bind_param("ss", $today_start, $today_end);
         $stmt->execute();
         $result = $stmt->get_result();
         

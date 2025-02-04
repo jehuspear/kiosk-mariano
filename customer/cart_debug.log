@@ -3396,3 +3396,246 @@
 
 [2025-02-04 16:26:51] New total quantity: 5
 [2025-02-04 16:26:51] Response sent: {"success":true,"cartCount":5,"totalAmount":425,"message":"Item added to cart successfully"}
+[2025-02-04 17:31:35] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":150,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Sinco","orderType":"Dine-in","quantity":1}
+[2025-02-04 17:31:35] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 150
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Sinco
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 17:31:35] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Sinco
+    [price] => 150
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-04 17:31:35] New total quantity: 1
+[2025-02-04 17:31:35] Response sent: {"success":true,"cartCount":1,"totalAmount":150,"message":"Item added to cart successfully"}
+[2025-02-04 17:31:39] Raw POST data: {"id":26,"name":"Piccolo","price":45,"description":"a small coffee composed of a single espresso shot and heated milk.","image":"../admin-staff/Images/menu-item/piccolo.jpg","size":"6oz","orderType":"Dine-in","quantity":1}
+[2025-02-04 17:31:39] Decoded data: Array
+(
+    [id] => 26
+    [name] => Piccolo
+    [price] => 45
+    [description] => a small coffee composed of a single espresso shot and heated milk.
+    [image] => ../admin-staff/Images/menu-item/piccolo.jpg
+    [size] => 6oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 17:31:39] Item added to cart: Array
+(
+    [id] => 26
+    [name] => Piccolo
+    [image] => ../admin-staff/Images/menu-item/piccolo.jpg
+    [size] => 6oz
+    [price] => 45
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-04 17:31:39] New total quantity: 2
+[2025-02-04 17:31:39] Response sent: {"success":true,"cartCount":2,"totalAmount":195,"message":"Item added to cart successfully"}
+[2025-02-04 17:31:49] Raw POST data: {"id":21,"name":"Banana Bread","price":50,"description":"This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.","image":"../admin-staff/Images/menu-item/banana bread.jpg","size":"Per slice","orderType":"Dine-in","quantity":3}
+[2025-02-04 17:31:49] Decoded data: Array
+(
+    [id] => 21
+    [name] => Banana Bread
+    [price] => 50
+    [description] => This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.
+    [image] => ../admin-staff/Images/menu-item/banana bread.jpg
+    [size] => Per slice
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-02-04 17:31:49] Item added to cart: Array
+(
+    [id] => 21
+    [name] => Banana Bread
+    [image] => ../admin-staff/Images/menu-item/banana bread.jpg
+    [size] => Per slice
+    [price] => 50
+    [quantity] => 3
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-04 17:31:49] New total quantity: 5
+[2025-02-04 17:31:49] Response sent: {"success":true,"cartCount":5,"totalAmount":345,"message":"Item added to cart successfully"}
+[2025-02-04 17:31:57] Raw POST data: {"id":11,"name":"Pretzel","price":70,"description":"Soft and chewy on the inside, crispy and golden on the outside, these Soft Pretzels are a fun snack that bake up in the oven and served with a delicious cheese sauce! ","image":"../admin-staff/Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg","size":"Large","orderType":"Dine-in","quantity":1}
+[2025-02-04 17:31:57] Decoded data: Array
+(
+    [id] => 11
+    [name] => Pretzel
+    [price] => 70
+    [description] => Soft and chewy on the inside, crispy and golden on the outside, these Soft Pretzels are a fun snack that bake up in the oven and served with a delicious cheese sauce! 
+    [image] => ../admin-staff/Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg
+    [size] => Large
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 17:31:57] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Pretzel
+    [image] => ../admin-staff/Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg
+    [size] => Large
+    [price] => 70
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-04 17:31:57] New total quantity: 6
+[2025-02-04 17:31:57] Response sent: {"success":true,"cartCount":6,"totalAmount":415,"message":"Item added to cart successfully"}
+[2025-02-04 17:46:34] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":95,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+[2025-02-04 17:46:34] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 95
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 17:46:34] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Uno
+    [price] => 95
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-04 17:46:34] New total quantity: 1
+[2025-02-04 17:46:34] Response sent: {"success":true,"cartCount":1,"totalAmount":95,"message":"Item added to cart successfully"}
+[2025-02-04 17:46:48] Raw POST data: {"id":19,"name":"Orange Sunrise","price":100,"description":"Need a fun brunch drink. This sunrise mocktail has you covered. It is eye-catching, tasty, and 100% alcohol-free.","image":"../admin-staff/Images/menu-item/orange sunrise.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-04 17:46:48] Decoded data: Array
+(
+    [id] => 19
+    [name] => Orange Sunrise
+    [price] => 100
+    [description] => Need a fun brunch drink. This sunrise mocktail has you covered. It is eye-catching, tasty, and 100% alcohol-free.
+    [image] => ../admin-staff/Images/menu-item/orange sunrise.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 17:46:48] Item added to cart: Array
+(
+    [id] => 19
+    [name] => Orange Sunrise
+    [image] => ../admin-staff/Images/menu-item/orange sunrise.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-04 17:46:48] New total quantity: 2
+[2025-02-04 17:46:48] Response sent: {"success":true,"cartCount":2,"totalAmount":195,"message":"Item added to cart successfully"}
+[2025-02-04 17:46:53] Raw POST data: {"id":21,"name":"Banana Bread","price":50,"description":"This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.","image":"../admin-staff/Images/menu-item/banana bread.jpg","size":"Per slice","orderType":"Dine-in","quantity":1}
+[2025-02-04 17:46:53] Decoded data: Array
+(
+    [id] => 21
+    [name] => Banana Bread
+    [price] => 50
+    [description] => This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.
+    [image] => ../admin-staff/Images/menu-item/banana bread.jpg
+    [size] => Per slice
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 17:46:53] Item added to cart: Array
+(
+    [id] => 21
+    [name] => Banana Bread
+    [image] => ../admin-staff/Images/menu-item/banana bread.jpg
+    [size] => Per slice
+    [price] => 50
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-04 17:46:53] New total quantity: 3
+[2025-02-04 17:46:53] Response sent: {"success":true,"cartCount":3,"totalAmount":245,"message":"Item added to cart successfully"}
+[2025-02-04 17:47:00] Raw POST data: {"id":16,"name":"Chocolate Latte","price":95,"description":"A sweet chocolate flavored drink!","image":"../admin-staff/Images/menu-item/chocolate latte1.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-04 17:47:00] Decoded data: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [price] => 95
+    [description] => A sweet chocolate flavored drink!
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 17:47:00] Item added to cart: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 12oz
+    [price] => 95
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-04 17:47:00] New total quantity: 4
+[2025-02-04 17:47:00] Response sent: {"success":true,"cartCount":4,"totalAmount":340,"message":"Item added to cart successfully"}
+[2025-02-04 18:28:37] Raw POST data: {"id":10,"name":"Espresso (Doppio)","price":70,"description":"Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning \"double\" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.","image":"../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg","size":"Dos","orderType":"Dine-in","quantity":1}
+[2025-02-04 18:28:37] Decoded data: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [price] => 70
+    [description] => Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning "double" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 18:28:37] Item added to cart: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Dos
+    [price] => 70
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-04 18:28:37] New total quantity: 1
+[2025-02-04 18:28:37] Response sent: {"success":true,"cartCount":1,"totalAmount":70,"message":"Item added to cart successfully"}

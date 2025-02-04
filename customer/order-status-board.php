@@ -5,8 +5,12 @@ require_once 'database_customer.php';
 $preparingOrders = [];
 $claimOrders = [];
 
-// Get today's date in Y-m-d format
-$today = date('Y-m-d');
+// Set timezone to Philippines
+date_default_timezone_set('Asia/Manila');
+
+// Get today's date range in Manila time
+$today_start = date('Y-m-d 00:00:00');
+$today_end = date('Y-m-d 23:59:59');
 
 // Debug information
 error_reporting(E_ALL);
@@ -14,15 +18,15 @@ ini_set('display_errors', 1);
 
 // Debug output in HTML comments
 echo "<!-- Debug Info:\n";
-echo "Today's date: " . $today . "\n";
+echo "Today's date range: " . $today_start . " to " . $today_end . "\n";
 
 // Get preparing orders
 $preparingSql = "SELECT Order_TicketNumber, Order_DateTime FROM `order` 
                 WHERE Order_Status = 'Preparing' 
-                AND DATE(Order_DateTime) = ?
+                AND Order_DateTime BETWEEN ? AND ?
                 ORDER BY Order_DateTime ASC";
 $stmt = $conn->prepare($preparingSql);
-$stmt->bind_param("s", $today);
+$stmt->bind_param("ss", $today_start, $today_end);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -38,10 +42,10 @@ while ($row = $result->fetch_assoc()) {
 // Get ready to claim orders
 $claimSql = "SELECT Order_TicketNumber, Order_DateTime FROM `order` 
              WHERE Order_Status = 'ReadyToClaim' 
-             AND DATE(Order_DateTime) = ?
+             AND Order_DateTime BETWEEN ? AND ?
              ORDER BY Order_DateTime ASC";
 $stmt = $conn->prepare($claimSql);
-$stmt->bind_param("s", $today);
+$stmt->bind_param("ss", $today_start, $today_end);
 $stmt->execute();
 $result = $stmt->get_result();
 

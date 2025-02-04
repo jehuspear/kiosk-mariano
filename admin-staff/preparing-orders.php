@@ -52,7 +52,14 @@ if(!isset($_SESSION["user_id"])) {
             <?php
             require_once 'database_admin.php';
             
-            // Query to get orders that are "Preparing" with "Completed" payment status
+            // Set timezone to Philippines
+            date_default_timezone_set('Asia/Manila');
+
+            // Get today's date range in Manila time
+            $today_start = date('Y-m-d 00:00:00');
+            $today_end = date('Y-m-d 23:59:59');
+
+            // Query to get orders that are "Preparing" with "Completed" payment status for today
             $sql = "SELECT 
                         o.Order_ID,
                         o.Order_TicketNumber,
@@ -68,6 +75,7 @@ if(!isset($_SESSION["user_id"])) {
                                 oi.OrderItem_CupSize,
                                 ')'
                             ) 
+                            ORDER BY oi.OrderItem_ID ASC
                             SEPARATOR '<br>'
                         ) as items,
                         p.Payment_Method,
@@ -78,10 +86,23 @@ if(!isset($_SESSION["user_id"])) {
                     JOIN payment p ON o.Payment_ID = p.Payment_ID
                     WHERE o.Order_Status = 'Preparing' 
                     AND p.Payment_Status = 'Completed'
+                    AND p.Payment_DateTime BETWEEN ? AND ?
                     GROUP BY o.Order_ID
                     ORDER BY p.Payment_DateTime ASC";
             
-            $result = mysqli_query($conn, $sql);
+            $stmt = mysqli_prepare($conn, $sql);
+            if (!$stmt) {
+                error_log("Failed to prepare statement: " . mysqli_error($conn));
+                die("Database error occurred");
+            }
+
+            mysqli_stmt_bind_param($stmt, "ss", $today_start, $today_end);
+            if (!mysqli_stmt_execute($stmt)) {
+                error_log("Failed to execute statement: " . mysqli_error($conn));
+                die("Database error occurred");
+            }
+
+            $result = mysqli_stmt_get_result($stmt);
             
             if ($result && mysqli_num_rows($result) > 0) {
                 while($row = mysqli_fetch_assoc($result)) {
@@ -89,7 +110,7 @@ if(!isset($_SESSION["user_id"])) {
                     <div class="order-card">
                         <div class="order-header">
                             <div class="ticket-info">
-                                <h3>Ticket #<?php echo htmlspecialchars($row['Order_TicketNumber']); ?></h3>
+                                <h3>Ticket #<?php echo str_pad(htmlspecialchars($row['Order_TicketNumber']), 3, '0', STR_PAD_LEFT);?></h3>
                                 <span class="status-badge <?php echo strtolower($row['Order_Status']); ?>">
                                     <?php echo $row['Order_Status']; ?>
                                 </span>
@@ -135,7 +156,15 @@ if(!isset($_SESSION["user_id"])) {
                     <?php
                 }
             } else {
-                echo '<p class="no-orders">No orders in preparation at the moment.</p>';
+                echo '
+                <div class="no-orders-container">
+                    <div class="no-orders-content">
+                        <i class="fas fa-utensils no-orders-icon"></i>
+                        <h3>No Orders in Preparation</h3>
+                        <p>There are no orders being prepared at the moment.</p>
+                        <p class="refresh-note">The page will automatically refresh when new orders arrive.</p>
+                    </div>
+                </div>';
             }
             ?>
         </div>
@@ -312,6 +341,47 @@ document.addEventListener('DOMContentLoaded', () => {
         z-index: 2;
         display: flex;
         gap: 10px;
+    }
+
+    /* No Orders Styling */
+    .no-orders-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 300px;
+        width: 100%;
+        background-color: #2d2d2d;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .no-orders-content {
+        text-align: center;
+        padding: 30px;
+        color: #fff;
+    }
+
+    .no-orders-icon {
+        font-size: 4rem;
+        color: #28a745;
+        margin-bottom: 20px;
+    }
+
+    .no-orders-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+
+    .no-orders-content p {
+        color: #aaa;
+        margin-bottom: 5px;
+    }
+
+    .refresh-note {
+        font-size: 0.9rem;
+        color: #666 !important;
+        margin-top: 15px;
     }
 
     @media (max-width: 768px) {

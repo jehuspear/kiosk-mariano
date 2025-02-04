@@ -69,17 +69,23 @@ if(!isset($_SESSION["user_id"])) {
                 <?php
                 require_once 'database_admin.php';
                 
-                // Get current date in the same format as the database
-                $today = date('Y-m-d');
+                // Set timezone to Philippines
+                date_default_timezone_set('Asia/Manila');
+
+                // Get today's date range in Manila time
+                $today_start = date('Y-m-d 00:00:00');
+                $today_end = date('Y-m-d 23:59:59');
                 
                 $sql = "SELECT 
                         o.*,
                         GROUP_CONCAT(
                             CONCAT(oi.OrderItem_Quantity, ' x ', m.MenuItem_Name, ' (', oi.OrderItem_CupSize, ')')
+                            ORDER BY oi.OrderItem_ID ASC
                             SEPARATOR '<br>'
                         ) as items,
                         GROUP_CONCAT(
                             CONCAT('₱', FORMAT(ms.MenuItemSize_Price * oi.OrderItem_Quantity, 2))
+                            ORDER BY oi.OrderItem_ID ASC
                             SEPARATOR '<br>'
                         ) as item_prices
                         FROM `order` o
@@ -87,7 +93,7 @@ if(!isset($_SESSION["user_id"])) {
                         JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID
                         JOIN menuitem_sizes ms ON m.MenuItem_ID = ms.MenuItem_ID AND oi.OrderItem_CupSize = ms.MenuItemSize_SizeName
                         WHERE o.Order_Status = 'Pending'
-                        AND DATE(o.Order_DateTime) = ?
+                        AND o.Order_DateTime BETWEEN ? AND ?
                         GROUP BY o.Order_ID
                         ORDER BY o.Order_DateTime DESC";
 
@@ -98,7 +104,7 @@ if(!isset($_SESSION["user_id"])) {
                     die("Database error occurred");
                 }
 
-                mysqli_stmt_bind_param($stmt, "s", $today);
+                mysqli_stmt_bind_param($stmt, "ss", $today_start, $today_end);
                 if (!mysqli_stmt_execute($stmt)) {
                     error_log("Failed to execute statement: " . mysqli_error($conn));
                     die("Database error occurred");
@@ -129,7 +135,15 @@ if(!isset($_SESSION["user_id"])) {
                         <?php
                     }
                 } else {
-                    echo '<p class="no-orders">No pending orders at the moment.</p>';
+                    echo '
+                    <div class="no-orders-container">
+                        <div class="no-orders-content">
+                            <i class="fas fa-clipboard-check no-orders-icon"></i>
+                            <h3>No Pending Orders</h3>
+                            <p>There are no pending orders at the moment.</p>
+                            <p class="refresh-note">The page will automatically refresh when new orders arrive.</p>
+                        </div>
+                    </div>';
                 }
                 ?>
                 </div>
@@ -267,6 +281,47 @@ if(!isset($_SESSION["user_id"])) {
                 0% { opacity: 0; }
                 50% { opacity: 1; }
                 100% { opacity: 0; }
+            }
+
+            /* No Orders Styling */
+            .no-orders-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 300px;
+                width: 100%;
+                background-color: rgb(41, 42, 43);
+                border-radius: 10px;
+                margin-top: 20px;
+            }
+
+            .no-orders-content {
+                text-align: center;
+                padding: 30px;
+                color: #fff;
+            }
+
+            .no-orders-icon {
+                font-size: 4rem;
+                color: #28a745;
+                margin-bottom: 20px;
+            }
+
+            .no-orders-content h3 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+                color: #fff;
+            }
+
+            .no-orders-content p {
+                color: #aaa;
+                margin-bottom: 5px;
+            }
+
+            .refresh-note {
+                font-size: 0.9rem;
+                color: #666 !important;
+                margin-top: 15px;
             }
 
             /* Mobile Responsive */

@@ -46,10 +46,10 @@ class ReceiptPrinter {
                         margin: 0;
                         padding: 0;
                         background: white;
-                        font-family: 'Courier New', monospace;
+                        font-family: "Consolas", "Lucida Console", Monaco, monospace;
                         font-size: 9pt;
                         color: black;
-                        width: 57mm;
+                        width: 58mm;
                         line-height: 1.2;
                     }
 
@@ -60,7 +60,7 @@ class ReceiptPrinter {
 
                     /* Logo */
                     .print-receipt .logo {
-                        width: 35mm;
+                        width: 45mm;
                         height: auto;
                         margin: 0 auto 3mm;
                         display: block;
@@ -69,7 +69,7 @@ class ReceiptPrinter {
 
                     /* Ticket number */
                     .print-receipt .ticket-number-display {
-                        font-size: 20pt;
+                        font-size: 21pt;
                         font-weight: bold;
                         text-align: center;
                         margin-bottom: 3mm;
@@ -136,6 +136,7 @@ class ReceiptPrinter {
                         margin-top: 3mm;
                         padding-top: 1.5mm;
                         border-top: 1px solid black;
+                        font-size: 12pt;
                     }
 
                     .print-receipt .total-section .order-detail-label,
@@ -174,9 +175,16 @@ class ReceiptPrinter {
                         line-height: 1.3;
                     }
 
+                    /* Cutting line */
+                    .print-receipt .cutting-line {
+                        margin-top: 20mm; /* 1cm space after footer content */
+                        border-top: 1px solid black;
+                        margin-bottom: 5mm; /* Some space after the cutting line */
+                    }
+
                     @media print {
                         body {
-                            width: 57mm !important;
+                            width: 58mm !important;
                             margin: 0 !important;
                             padding: 0 !important;
                         }
@@ -184,7 +192,8 @@ class ReceiptPrinter {
                         .print-receipt {
                             width: 100% !important;
                             margin: 0 !important;
-                            padding: 2mm !important;
+                            padding: 3mm !important;
+                           
                         }
 
                         * {
@@ -198,7 +207,7 @@ class ReceiptPrinter {
 
                     @page {
                         margin: 0;
-                        size: 57mm auto;
+                        size: 58mm auto;
                     }
                 </style>
             </head>
@@ -273,6 +282,7 @@ class ReceiptPrinter {
                         <p>Please keep this receipt for your records.</p>
                         <p>${orderDate}</p>
                     </div>
+                    <div class="cutting-line"></div>
                 </div>
                 <script>
                     window.onload = function() {

@@ -3153,3 +3153,246 @@
 
 [2025-02-03 10:21:12] New total quantity: 1
 [2025-02-03 10:21:12] Response sent: {"success":true,"cartCount":1,"totalAmount":120,"message":"Item added to cart successfully"}
+[2025-02-04 12:42:23] Raw POST data: {"id":16,"name":"Chocolate Latte","price":100,"description":"A sweet chocolate flavored drink!","image":"../admin-staff/Images/menu-item/chocolate latte1.jpg","size":"16oz","orderType":"Dine-in","quantity":1}
+[2025-02-04 12:42:23] Decoded data: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [price] => 100
+    [description] => A sweet chocolate flavored drink!
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 12:42:23] Item added to cart: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 16oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-04 12:42:23] New total quantity: 1
+[2025-02-04 12:42:23] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-04 12:42:28] Raw POST data: {"id":15,"name":"Strawberry Latte","price":100,"description":"Enjoy a sip of this delicious strawberry flavored drink!","image":"../admin-staff/Images/menu-item/sakura-strawberry-latte1.jpg","size":"16oz","orderType":"Dine-in","quantity":1}
+[2025-02-04 12:42:28] Decoded data: Array
+(
+    [id] => 15
+    [name] => Strawberry Latte
+    [price] => 100
+    [description] => Enjoy a sip of this delicious strawberry flavored drink!
+    [image] => ../admin-staff/Images/menu-item/sakura-strawberry-latte1.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 12:42:28] Item added to cart: Array
+(
+    [id] => 15
+    [name] => Strawberry Latte
+    [image] => ../admin-staff/Images/menu-item/sakura-strawberry-latte1.jpg
+    [size] => 16oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-04 12:42:28] New total quantity: 2
+[2025-02-04 12:42:28] Response sent: {"success":true,"cartCount":2,"totalAmount":200,"message":"Item added to cart successfully"}
+[2025-02-04 12:42:45] Raw POST data: {"id":7,"name":"Kape de Cacao","price":140,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Quatro","orderType":"Dine-in","quantity":1}
+[2025-02-04 12:42:45] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 140
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Quatro
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 12:42:45] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Quatro
+    [price] => 140
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-04 12:42:45] New total quantity: 3
+[2025-02-04 12:42:45] Response sent: {"success":true,"cartCount":3,"totalAmount":340,"message":"Item added to cart successfully"}
+[2025-02-04 12:44:07] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":150,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Sinco","orderType":"Dine-in","quantity":1}
+[2025-02-04 12:44:07] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 150
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Sinco
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 12:44:07] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Sinco
+    [price] => 150
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-04 12:44:07] New total quantity: 1
+[2025-02-04 12:44:07] Response sent: {"success":true,"cartCount":1,"totalAmount":150,"message":"Item added to cart successfully"}
+[2025-02-04 12:44:12] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","orderType":"Dine-in","quantity":1}
+[2025-02-04 12:44:12] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 12:44:12] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-04 12:44:12] New total quantity: 2
+[2025-02-04 12:44:12] Response sent: {"success":true,"cartCount":2,"totalAmount":270,"message":"Item added to cart successfully"}
+[2025-02-04 12:44:15] Raw POST data: {"id":16,"name":"Chocolate Latte","price":105,"description":"A sweet chocolate flavored drink!","image":"../admin-staff/Images/menu-item/chocolate latte1.jpg","size":"22oz","orderType":"Dine-in","quantity":1}
+[2025-02-04 12:44:15] Decoded data: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [price] => 105
+    [description] => A sweet chocolate flavored drink!
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 22oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 12:44:15] Item added to cart: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 22oz
+    [price] => 105
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-04 12:44:15] New total quantity: 3
+[2025-02-04 12:44:15] Response sent: {"success":true,"cartCount":3,"totalAmount":375,"message":"Item added to cart successfully"}
+[2025-02-04 16:26:27] Raw POST data: {"id":16,"name":"Chocolate Latte","price":105,"description":"A sweet chocolate flavored drink!","image":"../admin-staff/Images/menu-item/chocolate latte1.jpg","size":"22oz","orderType":"Dine-in","quantity":2}
+[2025-02-04 16:26:27] Decoded data: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [price] => 105
+    [description] => A sweet chocolate flavored drink!
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 22oz
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-02-04 16:26:27] Item added to cart: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 22oz
+    [price] => 105
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-04 16:26:27] New total quantity: 2
+[2025-02-04 16:26:27] Response sent: {"success":true,"cartCount":2,"totalAmount":210,"message":"Item added to cart successfully"}
+[2025-02-04 16:26:42] Raw POST data: {"id":22,"name":"Milky Donuts","price":50,"description":"These cream-filled doughnuts are what coffee-break dreams are made of. They are soft pillows with a super-easy cream filling. These yeast doughnuts are deep-fried to perfection, and then filling is piped inside for a delightful treat. ","image":"../admin-staff/Images/menu-item/milky donuts.jpg","size":"Per piece","orderType":"Dine-in","quantity":2}
+[2025-02-04 16:26:42] Decoded data: Array
+(
+    [id] => 22
+    [name] => Milky Donuts
+    [price] => 50
+    [description] => These cream-filled doughnuts are what coffee-break dreams are made of. They are soft pillows with a super-easy cream filling. These yeast doughnuts are deep-fried to perfection, and then filling is piped inside for a delightful treat. 
+    [image] => ../admin-staff/Images/menu-item/milky donuts.jpg
+    [size] => Per piece
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-02-04 16:26:42] Item added to cart: Array
+(
+    [id] => 22
+    [name] => Milky Donuts
+    [image] => ../admin-staff/Images/menu-item/milky donuts.jpg
+    [size] => Per piece
+    [price] => 50
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-04 16:26:42] New total quantity: 4
+[2025-02-04 16:26:42] Response sent: {"success":true,"cartCount":4,"totalAmount":310,"message":"Item added to cart successfully"}
+[2025-02-04 16:26:51] Raw POST data: {"id":23,"name":"Air Fried French Fries","price":115,"description":"These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.","image":"../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg","size":"Large","orderType":"Dine-in","quantity":1}
+[2025-02-04 16:26:51] Decoded data: Array
+(
+    [id] => 23
+    [name] => Air Fried French Fries
+    [price] => 115
+    [description] => These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.
+    [image] => ../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg
+    [size] => Large
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-04 16:26:51] Item added to cart: Array
+(
+    [id] => 23
+    [name] => Air Fried French Fries
+    [image] => ../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg
+    [size] => Large
+    [price] => 115
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-04 16:26:51] New total quantity: 5
+[2025-02-04 16:26:51] Response sent: {"success":true,"cartCount":5,"totalAmount":425,"message":"Item added to cart successfully"}

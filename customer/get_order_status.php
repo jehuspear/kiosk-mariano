@@ -12,13 +12,17 @@ if (!$ticketNumber) {
     exit;
 }
 
-// Get today's date in Y-m-d format
-$today = date('Y-m-d');
+// Set timezone to Philippines
+date_default_timezone_set('Asia/Manila');
+
+// Get today's date range in Manila time
+$today_start = date('Y-m-d 00:00:00');
+$today_end = date('Y-m-d 23:59:59');
 
 // Get order status from database for today's orders only
-$sql = "SELECT Order_Status FROM `order` WHERE Order_TicketNumber = ? AND DATE(Order_DateTime) = ?";
+$sql = "SELECT Order_Status FROM `order` WHERE Order_TicketNumber = ? AND Order_DateTime BETWEEN ? AND ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("is", $ticketNumber, $today);
+$stmt->bind_param("iss", $ticketNumber, $today_start, $today_end);
 $stmt->execute();
 $result = $stmt->get_result();
 

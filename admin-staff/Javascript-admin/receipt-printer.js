@@ -46,7 +46,7 @@ class ReceiptPrinter {
                         margin: 0;
                         padding: 0;
                         background: white;
-                        font-family: "Consolas", "Lucida Console", Monaco, monospace;
+                        font-family: "Consolas", monospace;
                         font-size: 9pt;
                         color: black;
                         width: 58mm;
@@ -310,8 +310,15 @@ class ReceiptPrinter {
     }
 
     print(orderDetails, modalResult) {
-        // Open a new window for printing
-        const printWindow = window.open('', '_blank', 'width=400,height=600');
+        // Calculate center position
+        const width = 400;
+        const height = 600;
+        const left = (window.screen.width - width) / 2;
+        const top = (window.screen.height - height) / 2;
+
+        // Open a new window for printing at center position
+        const printWindow = window.open('', '_blank', 
+            `width=${width},height=${height},left=${left},top=${top},scrollbars=yes`);
         if (printWindow) {
             printWindow.document.write(this.createPrintTemplate(orderDetails, modalResult));
             printWindow.document.close();

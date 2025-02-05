@@ -455,13 +455,14 @@ if ($ticketNumber) {
                             </div>
                         <?php endif; ?>
 
-                        <!-- Total Amount -->
-                        <div class="payment-row total">
+                        
+                    </div>
+                <?php endif; ?>
+                <!-- Total Amount -->
+                <div class="payment-row total">
                             <div class="payment-label">Total Amount</div>
                             <div class="payment-value">₱<?php echo number_format($orderDetails['Payment_TotalAmount'], 2); ?></div>
                         </div>
-                    </div>
-                <?php endif; ?>
             </div>
 
             <?php if ($orderDetails['Order_Status'] === 'ReadyToClaim'): ?>

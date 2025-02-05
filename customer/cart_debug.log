@@ -4017,3 +4017,138 @@
 
 [2025-02-05 19:50:32] New total quantity: 3
 [2025-02-05 19:50:32] Response sent: {"success":true,"cartCount":3,"totalAmount":245,"message":"Item added to cart successfully"}
+[2025-02-05 21:26:38] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":150,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Sinco","orderType":"Dine-in","quantity":1}
+[2025-02-05 21:26:38] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 150
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Sinco
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 21:26:38] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Sinco
+    [price] => 150
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-05 21:26:38] New total quantity: 1
+[2025-02-05 21:26:38] Response sent: {"success":true,"cartCount":1,"totalAmount":150,"message":"Item added to cart successfully"}
+[2025-02-05 21:26:46] Raw POST data: {"id":27,"name":"Caesar Salad","price":150,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Medium 500g","orderType":"Dine-in","quantity":1}
+[2025-02-05 21:26:46] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 150
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Medium 500g
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 21:26:46] Item added to cart: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Medium 500g
+    [price] => 150
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-05 21:26:46] New total quantity: 2
+[2025-02-05 21:26:46] Response sent: {"success":true,"cartCount":2,"totalAmount":300,"message":"Item added to cart successfully"}
+[2025-02-05 21:26:56] Raw POST data: {"id":16,"name":"Chocolate Latte","price":95,"description":"A sweet chocolate flavored drink!","image":"../admin-staff/Images/menu-item/chocolate latte1.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-05 21:26:56] Decoded data: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [price] => 95
+    [description] => A sweet chocolate flavored drink!
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 21:26:56] Item added to cart: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 12oz
+    [price] => 95
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-05 21:26:56] New total quantity: 3
+[2025-02-05 21:26:56] Response sent: {"success":true,"cartCount":3,"totalAmount":395,"message":"Item added to cart successfully"}
+[2025-02-05 21:34:42] Raw POST data: {"id":10,"name":"Espresso (Doppio)","price":90,"description":"Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning \"double\" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.","image":"../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg","size":"Tres","orderType":"Dine-in","quantity":1}
+[2025-02-05 21:34:42] Decoded data: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [price] => 90
+    [description] => Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning "double" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Tres
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 21:34:42] Item added to cart: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Tres
+    [price] => 90
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-05 21:34:42] New total quantity: 1
+[2025-02-05 21:34:42] Response sent: {"success":true,"cartCount":1,"totalAmount":90,"message":"Item added to cart successfully"}
+[2025-02-05 21:34:49] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Dine-in","quantity":1}
+[2025-02-05 21:34:49] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 21:34:49] Item added to cart: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [price] => 50
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-05 21:34:49] New total quantity: 2
+[2025-02-05 21:34:49] Response sent: {"success":true,"cartCount":2,"totalAmount":140,"message":"Item added to cart successfully"}

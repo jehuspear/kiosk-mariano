@@ -253,7 +253,7 @@ if(isset($_POST['submit'])) {
             <div class="form-group">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4>Sizes and Prices</h4>
-                    <button type="button" class="btn btn-primary btn-sm" onclick="showAddSizeForm()">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="menuSizeActionHandler.showAddSizeForm()">
                         <i class="fas fa-plus"></i> Add Size
                     </button>
                 </div>
@@ -276,12 +276,15 @@ if(isset($_POST['submit'])) {
                         </div>
                         <div class="col-md-3">
                             <label for="newTemperatureType" class="form-label">Temperature</label>
-                            <select id="newTemperatureType" class="form-control temperature-type-select">
-                                <option value="">Select Temperature</option>
-                                <option value="Hot">Hot</option>
-                                <option value="Iced">Iced</option>
-                                <option value="Normal">Normal</option>
-                            </select>
+                            <div class="input-group">
+                                <i class="fas fa-thermometer-half temperature-icon" style="color: #69db7c;"></i>
+                                <select id="newTemperatureType" class="form-control temperature-type-select normal">
+                                    <option value="">Select Temperature</option>
+                                    <option value="Hot">Hot</option>
+                                    <option value="Iced">Iced</option>
+                                    <option value="Normal">Normal</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-md-3">
                             <label for="newSizeStock" class="form-label">Stock</label>
@@ -289,10 +292,10 @@ if(isset($_POST['submit'])) {
                         </div>
                     </div>
                     <div class="menu-item-size-form-actions">
-                        <button type="button" class="save-btn" onclick="createMenuItemSize(<?php echo $menuItem['MenuItem_ID']; ?>)">
+                        <button type="button" class="save-btn" onclick="menuSizeActionHandler.createMenuItemSize(<?php echo $menuItem['MenuItem_ID']; ?>)">
                             Save Size
                         </button>
-                        <button type="button" class="cancel-btn" onclick="hideAddSizeForm()">
+                        <button type="button" class="cancel-btn" onclick="menuSizeActionHandler.hideAddSizeForm()">
                             Cancel
                         </button>
                     </div>
@@ -318,6 +321,24 @@ if(isset($_POST['submit'])) {
                             'Sinco' => 'Sinco (22oz)'
                         );
                         foreach($sizes as $size): 
+                            $currentTemp = $size['MenuItemSize_IsHot'];
+                            $tempClass = strtolower($currentTemp);
+                            $tempIcon = '';
+                            $tempColor = '';
+                            
+                            switch($currentTemp) {
+                                case 'Hot':
+                                    $tempIcon = 'fa-fire';
+                                    $tempColor = '#ff6b6b';
+                                    break;
+                                case 'Iced':
+                                    $tempIcon = 'fa-snowflake';
+                                    $tempColor = '#74c0fc';
+                                    break;
+                                default:
+                                    $tempIcon = 'fa-thermometer-half';
+                                    $tempColor = '#69db7c';
+                            }
                         ?>
                         <tr data-size-id="<?php echo $size['MenuItemSize_ID']; ?>">
                             <td>
@@ -337,11 +358,12 @@ if(isset($_POST['submit'])) {
                             </td>
                             <td>
                                 <div class="input-group">
-                                    <select class="form-control temperature-type-select" 
+                                    <i class="fas <?php echo $tempIcon; ?> temperature-icon" style="color: <?php echo $tempColor; ?>;"></i>
+                                    <select class="form-control temperature-type-select <?php echo $tempClass; ?>" 
                                             id="temperature_type_<?php echo $size['MenuItemSize_ID']; ?>">
-                                        <option value="Hot" <?php echo $size['MenuItemSize_IsHot'] === 'Hot' ? 'selected' : ''; ?>>Hot</option>
-                                        <option value="Iced" <?php echo $size['MenuItemSize_IsHot'] === 'Iced' ? 'selected' : ''; ?>>Iced</option>
-                                        <option value="Normal" <?php echo $size['MenuItemSize_IsHot'] === 'Normal' ? 'selected' : ''; ?>>Normal</option>
+                                        <option value="Hot" <?php echo $currentTemp === 'Hot' ? 'selected' : ''; ?>>Hot</option>
+                                        <option value="Iced" <?php echo $currentTemp === 'Iced' ? 'selected' : ''; ?>>Iced</option>
+                                        <option value="Normal" <?php echo $currentTemp === 'Normal' ? 'selected' : ''; ?>>Normal</option>
                                     </select>
                                 </div>
                             </td>
@@ -384,8 +406,6 @@ if(isset($_POST['submit'])) {
     <!-- Bootstrap JS -->
     <script src="Css-admin/bootstrap.bundle.min.js"></script>
     
-    <!-- Menu Sizes JS -->
-    <script src="Javascript-admin/menu-sizes.js"></script>
     <!-- Menu Size Actions JS -->
     <script src="Javascript-admin/menu-size-actions.js"></script>
     

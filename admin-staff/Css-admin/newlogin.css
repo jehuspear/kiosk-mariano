@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #212121, #3b3b41);
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box {
+    display: flex;
+    width: 80%;
+    height: 80vh;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.left-box {
+    background: #323232;
+    color: white;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+.left-box h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.left-box .register-btn {
+    margin-top: 20px;
+    background: white;
+    color: #3b3b41;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.left-box .register-btn:hover {
+    background: #eef2ff;
+}
+
+.right-box {
+    flex: 2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-box h1 {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-left: 40px;
+}
+
+.input-box .icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    color: #6c89ff;
+    text-decoration: none;
+}
+
+.login-btn {
+    width: 100%;
+    background: #3b3b41;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #5778e8;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-btn {
+    border: none;
+    background: #f1f1f1;
+    padding: 12px 18px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    background: #ddd;
+}
+
+/* Responsive for smaller screens */
+@media screen and (max-width: 768px) {
+    .form-box {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+
+    .left-box {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .right-box {
+        width: 100%;
+        padding: 30px;
+    }
+}
+
+.coffee-icon {
+    width: 200px;
+    height: 200px;
+    background: url('../Images/sample-removebg-preview.png') no-repeat center;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+
+

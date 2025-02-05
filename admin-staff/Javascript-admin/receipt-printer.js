@@ -46,7 +46,8 @@ class ReceiptPrinter {
                         margin: 0;
                         padding: 0;
                         background: white;
-                        font-family: "Consolas", monospace;
+                        font-family: "Recursive Mono", monospace;
+
                         font-size: 9pt;
                         color: black;
                         width: 58mm;
@@ -70,7 +71,7 @@ class ReceiptPrinter {
                     /* Ticket number */
                     .print-receipt .ticket-number-display {
                         font-size: 21pt;
-                        font-weight: bold;
+                        font-weight: 900;
                         text-align: center;
                         margin-bottom: 3mm;
                         padding: 1mm 0;
@@ -86,7 +87,7 @@ class ReceiptPrinter {
                     }
 
                     .print-receipt .order-detail-label {
-                        font-weight: bold;
+                        font-weight: 800;
                         font-size: 9pt;
                     }
 
@@ -121,7 +122,7 @@ class ReceiptPrinter {
                     .print-receipt .item-price {
                         white-space: nowrap;
                         margin-left: 2mm;
-                        font-weight: bold;
+                        font-weight: 800;
                     }
 
                     /* Subtotal section */
@@ -142,7 +143,7 @@ class ReceiptPrinter {
                     .print-receipt .total-section .order-detail-label,
                     .print-receipt .total-section .order-detail-value {
                         font-size: 10pt;
-                        font-weight: bold;
+                        font-weight: 800;
                     }
 
                     /* Payment section */
@@ -154,11 +155,11 @@ class ReceiptPrinter {
 
                     .print-receipt .payment-method-gcash,
                     .print-receipt .payment-method-cash {
-                        font-weight: bold;
+                        font-weight: 800;
                     }
 
                     .print-receipt .payment-change {
-                        font-weight: bold;
+                        font-weight: 800;
                     }
 
                     /* Footer */

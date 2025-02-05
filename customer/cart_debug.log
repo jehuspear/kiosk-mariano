@@ -3774,3 +3774,30 @@
 
 [2025-02-04 19:28:17] New total quantity: 2
 [2025-02-04 19:28:17] Response sent: {"success":true,"cartCount":2,"totalAmount":170,"message":"Item added to cart successfully"}
+[2025-02-05 17:54:31] Raw POST data: {"id":12,"name":"Blue Punch Mocktail","price":100,"description":"A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.","image":"../admin-staff/Images/menu-item/blue_mocktail.jpg","size":"12oz","orderType":"Take-out","quantity":1}
+[2025-02-05 17:54:31] Decoded data: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [price] => 100
+    [description] => A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-05 17:54:31] Item added to cart: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Iced
+)
+
+[2025-02-05 17:54:31] New total quantity: 1
+[2025-02-05 17:54:31] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}

@@ -190,6 +190,7 @@ if(!isset($_SESSION["user_id"])) {
                 align-items: center;
                 text-align: center;
                 font-size: 0.9rem;
+                /* font-family: "DejaVu Sans Mono", monospace;; */
             }
 
             .order {

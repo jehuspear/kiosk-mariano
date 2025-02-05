@@ -14,7 +14,7 @@ if (!isset($_SESSION['cart'])) {
 // Function to get menu item details
 function getMenuItemDetails($menuItemId) {
     global $conn;
-    $sql = "SELECT m.*, ms.MenuItemSize_Price, ms.MenuItemSize_Size 
+    $sql = "SELECT m.*, ms.MenuItemSize_Price, ms.MenuItemSize_Size, ms.MenuItemSize_IsHot 
             FROM menuitem m 
             JOIN menuitem_sizes ms ON m.MenuItem_ID = ms.MenuItem_ID 
             WHERE m.MenuItem_ID = ?";
@@ -46,6 +46,8 @@ foreach ($_SESSION['cart'] as $item) {
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/checkout-list.css">
     <link rel="stylesheet" href="css/cancel-order-modal.css">
+    <!-- Temperature Badge CSS -->
+    <link rel="stylesheet" href="css/temperature-badge.css">
     <!-- Bootstrap js -->
     <script src="Css-admin/bootstrap.bundle.min.js"></script>
 </head>
@@ -73,7 +75,31 @@ foreach ($_SESSION['cart'] as $item) {
                 <img src="<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>" class="item-image">
                 <div class="item-details ms-3">
                     <div class="item-name"><?php echo $item['name']; ?></div>
-                    <div class="item-size"><?php echo $item['size']; ?></div>
+                    <div class="item-size">
+                        <?php 
+                            echo $item['size']; 
+                            // Get temperature from session cart item
+                            $tempClass = 'normal';
+                            $tempIcon = 'fa-thermometer-half';
+                            $tempText = 'Normal';
+                            
+                            if (isset($item['temperature'])) {
+                                switch(strtolower($item['temperature'])) {
+                                    case 'hot':
+                                        $tempClass = 'hot';
+                                        $tempIcon = 'fa-fire';
+                                        $tempText = 'Hot';
+                                        break;
+                                    case 'iced':
+                                        $tempClass = 'iced';
+                                        $tempIcon = 'fa-snowflake';
+                                        $tempText = 'Iced';
+                                        break;
+                                }
+                            }
+                            echo " <span class='temp-badge {$tempClass}'><i class='fas {$tempIcon}'></i>{$tempText}</span>";
+                        ?>
+                    </div>
                     <div class="item-price">₱<?php echo number_format($item['price'], 2); ?></div>
                     <div class="order-type"><?php echo $item['orderType']; ?></div>
                     <div class="quantity-control">

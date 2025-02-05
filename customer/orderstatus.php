@@ -15,20 +15,24 @@ if ($ticketNumber) {
     $today_start = date('Y-m-d 00:00:00');
     $today_end = date('Y-m-d 23:59:59');
     
-    $sql = "SELECT o.*, p.Payment_Method, p.Payment_Status, 
+    $sql = "SELECT o.*, p.Payment_Method, p.Payment_Status, p.Payment_DiscountType,
+            p.Payment_DiscountAmount, p.Payment_ReferenceNumber, p.Payment_CashPaid,
+            p.Payment_Change, p.Payment_TotalAmount,
             GROUP_CONCAT(
                 CONCAT(
                     m.MenuItem_Name, '|',
                     oi.OrderItem_CupSize, '|',
                     oi.OrderItem_Quantity, '|',
                     oi.OrderItem_Price, '|',
-                    oi.OrderItem_ID
+                    oi.OrderItem_ID, '|',
+                    ms.MenuItemSize_IsHot
                 ) ORDER BY oi.OrderItem_ID ASC SEPARATOR '||'
             ) as items
             FROM `order` o 
             JOIN payment p ON o.Payment_ID = p.Payment_ID 
             JOIN orderitem oi ON o.Order_ID = oi.Order_ID
             JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID
+            JOIN menuitem_sizes ms ON oi.MenuItem_ID = ms.MenuItem_ID AND oi.OrderItem_CupSize = ms.MenuItemSize_SizeName
             WHERE o.Order_TicketNumber = ? 
             AND o.Order_DateTime BETWEEN ? AND ?
             GROUP BY o.Order_ID";
@@ -56,6 +60,8 @@ if ($ticketNumber) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Custom Modal CSS -->
     <link rel="stylesheet" href="css/order-status-modal.css">
+    <!-- Temperature Badge CSS -->
+    <link rel="stylesheet" href="css/order-status-temperature.css">
     <style>
         body {
             background-color: black;
@@ -92,7 +98,7 @@ if ($ticketNumber) {
             padding: 20px;
             margin: 20px;
             width: 90%;
-            max-width: 400px;
+            max-width: 450px;
             position: relative;
         }
 
@@ -124,6 +130,92 @@ if ($ticketNumber) {
             color: #333;
             margin-bottom: 15px;
             font-size: 1em;
+        }
+
+        /* Payment method badge styles */
+        .payment-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+            color: white;
+        }
+
+        .payment-badge.gcash {
+            background: linear-gradient(45deg, #0066FF, #00A4FF);
+        }
+
+        .payment-badge.cash {
+            background: linear-gradient(45deg, #28a745, #34ce57);
+        }
+
+        /* Item styles */
+        .status-value ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .item-info {
+            flex: 1;
+            padding-right: 10px;
+        }
+
+        .item-price {
+            white-space: nowrap;
+            font-weight: 500;
+            color: #444;
+        }
+
+        /* Payment details section */
+        .payment-details-section {
+            margin-top: 20px;
+            padding: 15px;
+            border-top: 2px solid #eee;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 4px 0;
+        }
+
+        .payment-label {
+            color: #666;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .payment-value {
+            color: #333;
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .payment-row.total {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 2px solid #ddd;
+        }
+
+        .payment-row.total .payment-label {
+            font-size: 1em;
+            color: #333;
+        }
+
+        .payment-row.total .payment-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #28a745;
         }
 
         .status-badge {
@@ -211,7 +303,6 @@ if ($ticketNumber) {
             color: #218838;
         }
 
-        /* New styles for Order Received button */
         .btn-received {
             background-color: #28a745;
             color: white;
@@ -224,11 +315,29 @@ if ($ticketNumber) {
             margin: 15px auto;
             display: block;
             width: 100%;
-            /* max-width: 200px; */
         }
 
         .btn-received:hover {
             background-color: #218838;
+        }
+
+        @media (max-width: 576px) {
+            .payment-badge {
+                font-size: 0.85em;
+                padding: 3px 10px;
+            }
+            
+            .payment-row.total .payment-value {
+                font-size: 1.1em;
+            }
+
+            .payment-label {
+                font-size: 0.85em;
+            }
+
+            .payment-value {
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>
@@ -251,7 +360,6 @@ if ($ticketNumber) {
                 </div>
             </div>
 
-
             <div class="status-details">
                 <div class="status-label">Order Time</div>
                 <div class="status-value">
@@ -262,7 +370,14 @@ if ($ticketNumber) {
                 <div class="status-value"><?php echo $orderDetails['Order_EatingOption']; ?></div>
 
                 <div class="status-label">Payment Method</div>
-                <div class="status-value"><?php echo $orderDetails['Payment_Method']; ?></div>
+                <div class="status-value">
+                    <span class="payment-badge <?php echo strtolower($orderDetails['Payment_Method']); ?>">
+                        <?php 
+                        $icon = $orderDetails['Payment_Method'] === 'GCash' ? 'fa-mobile-alt' : 'fa-money-bill-wave';
+                        echo "<i class='fas {$icon}'></i> " . $orderDetails['Payment_Method']; 
+                        ?>
+                    </span>
+                </div>
 
                 <div class="status-label">Items</div>
                 <div class="status-value">
@@ -270,18 +385,83 @@ if ($ticketNumber) {
                     $itemsList = explode('||', $orderDetails['items']);
                     echo "<ul style='list-style-type: none; padding-left: 0; margin: 0;'>";
                     foreach ($itemsList as $item) {
-                        list($name, $size, $quantity, $price) = explode('|', $item);
+                        list($name, $size, $quantity, $price, $itemId, $temperature) = explode('|', $item);
                         $total = $price * $quantity;
-                        echo "<li style='margin-bottom: 5px;'>";
-                        echo "$name ($size) x$quantity - ₱" . number_format($total, 2);
+                        
+                        // Determine temperature class and icon
+                        $tempClass = 'normal';
+                        $tempIcon = 'fa-thermometer-half';
+                        $tempText = 'Normal';
+                        
+                        switch($temperature) {
+                            case 'Hot':
+                                $tempClass = 'hot';
+                                $tempIcon = 'fa-fire';
+                                $tempText = 'Hot';
+                                break;
+                            case 'Iced':
+                                $tempClass = 'iced';
+                                $tempIcon = 'fa-snowflake';
+                                $tempText = 'Iced';
+                                break;
+                        }
+                        
+                        echo "<li>";
+                        echo "<div class='item-info'>";
+                        echo "$name ($size <span class='temp-badge {$tempClass}'><i class='fas {$tempIcon}'></i>{$tempText}</span>) ";
+                        echo "x$quantity";
+                        echo "</div>";
+                        echo "<div class='item-price'>₱" . number_format($total, 2) . "</div>";
                         echo "</li>";
                     }
                     echo "</ul>";
                     ?>
                 </div>
 
-                <div class="status-label">Total Amount</div>
-                <div class="status-value">₱<?php echo number_format($orderDetails['Order_TotalAmount'], 2); ?></div>
+                <?php if (in_array($orderDetails['Order_Status'], ['Preparing', 'ReadyToClaim', 'Completed'])): ?>
+                    <div class="payment-details-section">
+                        <!-- Subtotal -->
+                        <div class="payment-row">
+                            <div class="payment-label">Sub Total</div>
+                            <div class="payment-value">₱<?php echo number_format($orderDetails['Order_TotalAmount'], 2); ?></div>
+                        </div>
+
+                        <!-- Discount Information -->
+                        <?php if ($orderDetails['Payment_DiscountType']): ?>
+                            <div class="payment-row">
+                                <div class="payment-label">Discount Type</div>
+                                <div class="payment-value"><?php echo $orderDetails['Payment_DiscountType']; ?></div>
+                            </div>
+                            <div class="payment-row">
+                                <div class="payment-label">Discount Amount</div>
+                                <div class="payment-value">₱<?php echo number_format($orderDetails['Payment_DiscountAmount'], 2); ?></div>
+                            </div>
+                        <?php endif; ?>
+
+                        <!-- Payment Details -->
+                        <?php if ($orderDetails['Payment_Method'] === 'GCash'): ?>
+                            <div class="payment-row">
+                                <div class="payment-label">Reference Number</div>
+                                <div class="payment-value"><?php echo $orderDetails['Payment_ReferenceNumber']; ?></div>
+                            </div>
+                        <?php else: ?>
+                            <div class="payment-row">
+                                <div class="payment-label">Cash Paid</div>
+                                <div class="payment-value">₱<?php echo number_format($orderDetails['Payment_CashPaid'], 2); ?></div>
+                            </div>
+                            <div class="payment-row">
+                                <div class="payment-label">Change</div>
+                                <div class="payment-value">₱<?php echo number_format($orderDetails['Payment_Change'], 2); ?></div>
+                            </div>
+                        <?php endif; ?>
+
+                        <!-- Total Amount -->
+                        <div class="payment-row total">
+                            <div class="payment-label">Total Amount</div>
+                            <div class="payment-value">₱<?php echo number_format($orderDetails['Payment_TotalAmount'], 2); ?></div>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <?php if ($orderDetails['Order_Status'] === 'ReadyToClaim'): ?>

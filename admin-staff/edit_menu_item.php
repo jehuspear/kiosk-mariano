@@ -386,6 +386,8 @@ if(isset($_POST['submit'])) {
     
     <!-- Menu Sizes JS -->
     <script src="Javascript-admin/menu-sizes.js"></script>
+    <!-- Menu Size Actions JS -->
+    <script src="Javascript-admin/menu-size-actions.js"></script>
     
     <script>
     function previewImage(input) {

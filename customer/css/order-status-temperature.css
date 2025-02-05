@@ -1,0 +1,66 @@
+/* Temperature badge styles for order status */
+.status-value .temp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+    line-height: 1.2;
+}
+
+/* Temperature icons */
+.status-value .temp-badge i {
+    font-size: 0.7rem;
+    margin-right: 4px;
+    line-height: 1;
+}
+
+/* Hot temperature style */
+.status-value .temp-badge.hot {
+    background: linear-gradient(45deg, #ff4e50, #f9d423);
+    color: white;
+    box-shadow: 0 2px 4px rgba(255, 78, 80, 0.3);
+}
+
+/* Cold temperature style */
+.status-value .temp-badge.iced {
+    background: linear-gradient(45deg, #2193b0, #6dd5ed);
+    color: white;
+    box-shadow: 0 2px 4px rgba(33, 147, 176, 0.3);
+}
+
+/* Normal temperature style */
+.status-value .temp-badge.normal {
+    background: linear-gradient(45deg, #757F9A, #D7DDE8);
+    color: white;
+    box-shadow: 0 2px 4px rgba(117, 127, 154, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .status-value .temp-badge {
+        font-size: 0.65rem;
+        padding: 2px 6px;
+        margin: 0 3px;
+    }
+    
+    .status-value .temp-badge i {
+        font-size: 0.65rem;
+        margin-right: 3px;
+    }
+}
+
+/* Item list styles */
+.status-value ul li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    line-height: 1.4;
+}

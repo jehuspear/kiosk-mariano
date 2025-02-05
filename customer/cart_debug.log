@@ -3801,3 +3801,219 @@
 
 [2025-02-05 17:54:31] New total quantity: 1
 [2025-02-05 17:54:31] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-05 18:36:26] Raw POST data: {"id":18,"name":"Strawberry Kiss","price":100,"description":"A delicious sweet strawberry drink that will mark your lips with a delight!","image":"../admin-staff/Images/menu-item/strawberry-lemon-mocktail-5411.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-05 18:36:26] Decoded data: Array
+(
+    [id] => 18
+    [name] => Strawberry Kiss
+    [price] => 100
+    [description] => A delicious sweet strawberry drink that will mark your lips with a delight!
+    [image] => ../admin-staff/Images/menu-item/strawberry-lemon-mocktail-5411.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 18:36:26] Item added to cart: Array
+(
+    [id] => 18
+    [name] => Strawberry Kiss
+    [image] => ../admin-staff/Images/menu-item/strawberry-lemon-mocktail-5411.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-05 18:36:26] New total quantity: 1
+[2025-02-05 18:36:26] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-05 18:37:13] Raw POST data: {"id":6,"name":"Kape con Canela","price":130,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Dos","orderType":"Dine-in","quantity":1}
+[2025-02-05 18:37:13] Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 130
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 18:37:13] Item added to cart: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Dos
+    [price] => 130
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-05 18:37:13] New total quantity: 1
+[2025-02-05 18:37:13] Response sent: {"success":true,"cartCount":1,"totalAmount":130,"message":"Item added to cart successfully"}
+[2025-02-05 18:51:49] Raw POST data: {"id":6,"name":"Kape con Canela","price":135,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Quatro","orderType":"Dine-in","quantity":1}
+[2025-02-05 18:51:49] Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 135
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Quatro
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 18:51:49] Item added to cart: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Quatro
+    [price] => 135
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-05 18:51:49] New total quantity: 2
+[2025-02-05 18:51:49] Response sent: {"success":true,"cartCount":2,"totalAmount":265,"message":"Item added to cart successfully"}
+[2025-02-05 18:57:57] Raw POST data: {"id":14,"name":"Black Forest cake ","price":60,"description":"A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.","image":"../admin-staff/Images/menu-item/black-forest-pastry.jpg","size":"1 Piece","orderType":"Dine-in","quantity":1}
+[2025-02-05 18:57:57] Decoded data: Array
+(
+    [id] => 14
+    [name] => Black Forest cake 
+    [price] => 60
+    [description] => A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.
+    [image] => ../admin-staff/Images/menu-item/black-forest-pastry.jpg
+    [size] => 1 Piece
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 18:57:57] Item added to cart: Array
+(
+    [id] => 14
+    [name] => Black Forest cake 
+    [image] => ../admin-staff/Images/menu-item/black-forest-pastry.jpg
+    [size] => 1 Piece
+    [price] => 60
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-05 18:57:57] New total quantity: 3
+[2025-02-05 18:57:57] Response sent: {"success":true,"cartCount":3,"totalAmount":325,"message":"Item added to cart successfully"}
+[2025-02-05 19:15:14] Raw POST data: {"id":12,"name":"Blue Punch Mocktail","price":100,"description":"A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.","image":"../admin-staff/Images/menu-item/blue_mocktail.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-05 19:15:14] Decoded data: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [price] => 100
+    [description] => A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 19:15:14] Item added to cart: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-05 19:15:14] New total quantity: 3
+[2025-02-05 19:15:14] Response sent: {"success":true,"cartCount":3,"totalAmount":290,"message":"Item added to cart successfully"}
+[2025-02-05 19:50:09] Raw POST data: {"id":17,"name":"Shirley Temple","price":100,"description":"Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail","image":"../admin-staff/Images/menu-item/shirly temple.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-05 19:50:09] Decoded data: Array
+(
+    [id] => 17
+    [name] => Shirley Temple
+    [price] => 100
+    [description] => Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail
+    [image] => ../admin-staff/Images/menu-item/shirly temple.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 19:50:09] Item added to cart: Array
+(
+    [id] => 17
+    [name] => Shirley Temple
+    [image] => ../admin-staff/Images/menu-item/shirly temple.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-05 19:50:09] New total quantity: 1
+[2025-02-05 19:50:09] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-05 19:50:19] Raw POST data: {"id":23,"name":"Air Fried French Fries","price":75,"description":"These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.","image":"../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg","size":"Medium","orderType":"Dine-in","quantity":1}
+[2025-02-05 19:50:19] Decoded data: Array
+(
+    [id] => 23
+    [name] => Air Fried French Fries
+    [price] => 75
+    [description] => These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.
+    [image] => ../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg
+    [size] => Medium
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 19:50:19] Item added to cart: Array
+(
+    [id] => 23
+    [name] => Air Fried French Fries
+    [image] => ../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg
+    [size] => Medium
+    [price] => 75
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-05 19:50:19] New total quantity: 2
+[2025-02-05 19:50:19] Response sent: {"success":true,"cartCount":2,"totalAmount":175,"message":"Item added to cart successfully"}
+[2025-02-05 19:50:32] Raw POST data: {"id":13,"name":"Matcha Latte","price":70,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"8oz","orderType":"Dine-in","quantity":1}
+[2025-02-05 19:50:32] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 70
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 19:50:32] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 8oz
+    [price] => 70
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-05 19:50:32] New total quantity: 3
+[2025-02-05 19:50:32] Response sent: {"success":true,"cartCount":3,"totalAmount":245,"message":"Item added to cart successfully"}

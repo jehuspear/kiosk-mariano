@@ -79,7 +79,7 @@ if(!isset($_SESSION["user_id"])) {
                 $sql = "SELECT 
                         o.*,
                         GROUP_CONCAT(
-                            CONCAT(oi.OrderItem_Quantity, ' x ', m.MenuItem_Name, ' (', oi.OrderItem_CupSize, ')')
+                            CONCAT(oi.OrderItem_Quantity, ' x ', '[', ms.MenuItemSize_IsHot, '] ' ,m.MenuItem_Name, ' (', oi.OrderItem_CupSize, ')')
                             ORDER BY oi.OrderItem_ID ASC
                             SEPARATOR '<br>'
                         ) as items,

@@ -140,6 +140,72 @@ try {
             }
             //The Staff who Handles that Order
             $staff_id = $_SESSION['user_id'];
+            // Get order items with their size IDs to update stock and sold counts
+            $sql = "SELECT oi.MenuItem_ID, ms.MenuItemSize_ID, oi.OrderItem_Quantity 
+                   FROM orderitem oi 
+                   JOIN menuitem_sizes ms ON ms.MenuItem_ID = oi.MenuItem_ID 
+                   AND ms.MenuItemSize_SizeName = oi.OrderItem_CupSize
+                   WHERE oi.Order_ID = ?";
+            
+            $stmt = mysqli_prepare($conn, $sql);
+            if (!$stmt) {
+                throw new Exception("Failed to prepare order items statement: " . mysqli_error($conn));
+            }
+
+            mysqli_stmt_bind_param($stmt, "i", $order_id);
+            if (!mysqli_stmt_execute($stmt)) {
+                throw new Exception("Failed to get order items: " . mysqli_error($conn));
+            }
+
+            $result = mysqli_stmt_get_result($stmt);
+            while ($item = mysqli_fetch_assoc($result)) {
+                // Update menuitem_sizes table
+                $updateSizeSql = "UPDATE menuitem_sizes 
+                                SET MenuItemSize_Stock = MenuItemSize_Stock - ?,
+                                    MenuItemSize_Sold = MenuItemSize_Sold + ?
+                                WHERE MenuItemSize_ID = ?";
+                
+                $updateSizeStmt = mysqli_prepare($conn, $updateSizeSql);
+                if (!$updateSizeStmt) {
+                    throw new Exception("Failed to prepare size update statement: " . mysqli_error($conn));
+                }
+
+                mysqli_stmt_bind_param($updateSizeStmt, "iii", 
+                    $item['OrderItem_Quantity'],
+                    $item['OrderItem_Quantity'],
+                    $item['MenuItemSize_ID']
+                );
+                
+                if (!mysqli_stmt_execute($updateSizeStmt)) {
+                    throw new Exception("Failed to update size stock and sold count: " . mysqli_error($conn));
+                }
+
+                // Update total stocks and total sold in menuitem table
+                $updateItemSql = "UPDATE menuitem m 
+                                SET m.MenuItem_TotalStocks = (
+                                    SELECT COALESCE(SUM(ms.MenuItemSize_Stock), 0)
+                                    FROM menuitem_sizes ms 
+                                    WHERE ms.MenuItem_ID = m.MenuItem_ID
+                                ),
+                                m.MenuItem_TotalSold = (
+                                    SELECT COALESCE(SUM(ms.MenuItemSize_Sold), 0)
+                                    FROM menuitem_sizes ms 
+                                    WHERE ms.MenuItem_ID = m.MenuItem_ID
+                                )
+                                WHERE m.MenuItem_ID = ?";
+                
+                $updateItemStmt = mysqli_prepare($conn, $updateItemSql);
+                if (!$updateItemStmt) {
+                    throw new Exception("Failed to prepare item update statement: " . mysqli_error($conn));
+                }
+
+                mysqli_stmt_bind_param($updateItemStmt, "i", $item['MenuItem_ID']);
+                
+                if (!mysqli_stmt_execute($updateItemStmt)) {
+                    throw new Exception("Failed to update item total stocks: " . mysqli_error($conn));
+                }
+            }
+
             // Update order status
             $sql = "UPDATE `order` SET 
                     Order_Status = 'Preparing',

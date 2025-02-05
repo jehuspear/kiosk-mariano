@@ -4152,3 +4152,57 @@
 
 [2025-02-05 21:34:49] New total quantity: 2
 [2025-02-05 21:34:49] Response sent: {"success":true,"cartCount":2,"totalAmount":140,"message":"Item added to cart successfully"}
+[2025-02-05 22:12:47] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","orderType":"Dine-in","quantity":2}
+[2025-02-05 22:12:47] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-02-05 22:12:47] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [price] => 120
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-05 22:12:47] New total quantity: 2
+[2025-02-05 22:12:47] Response sent: {"success":true,"cartCount":2,"totalAmount":240,"message":"Item added to cart successfully"}
+[2025-02-05 22:12:54] Raw POST data: {"id":12,"name":"Blue Punch Mocktail","price":100,"description":"A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.","image":"../admin-staff/Images/menu-item/blue_mocktail.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-05 22:12:54] Decoded data: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [price] => 100
+    [description] => A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-05 22:12:54] Item added to cart: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-05 22:12:54] New total quantity: 3
+[2025-02-05 22:12:54] Response sent: {"success":true,"cartCount":3,"totalAmount":340,"message":"Item added to cart successfully"}

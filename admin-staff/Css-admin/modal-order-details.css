@@ -5,6 +5,7 @@
     padding: 0 15px 15px 15px;
     margin: 0 -15px;
     background: white;
+    position: relative;
 }
 
 .modal-order-details::-webkit-scrollbar {
@@ -79,6 +80,9 @@
     background: #f8f9fa;
     border-radius: 4px;
     color: #28a745;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 /* Confirm modal specific styles */

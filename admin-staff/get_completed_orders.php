@@ -4,6 +4,18 @@ ini_set('display_errors', 1);
 
 include 'database_admin.php';
 
+// Get the selected date from the request, default to today if not provided
+$selectedDate = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
+
+// Validate date format
+if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $selectedDate)) {
+    echo json_encode([
+        'success' => false,
+        'message' => "Invalid date format"
+    ]);
+    exit;
+}
+
 function calculateTimeDifference($orderDateTime, $completedTime) {
     $orderTime = new DateTime($orderDateTime);
     $completeTime = $completedTime ? new DateTime($completedTime) : new DateTime();
@@ -24,6 +36,7 @@ if (!$conn) {
     exit;
 }
 
+// Prepare the SQL query with date filtering
 $sql = "SELECT 
         o.Order_ID,
         o.Order_TicketNumber,
@@ -35,16 +48,26 @@ $sql = "SELECT
         p.Payment_DiscountAmount,
         p.Payment_TotalAmount,
         GROUP_CONCAT(DISTINCT m.MenuItem_ID) as MenuItemIDs,
-        GROUP_CONCAT(CONCAT(oi.OrderItem_Quantity, ' x ', m.MenuItem_Name, ' ', oi.OrderItem_CupSize) SEPARATOR '<br>') as OrderItems
+        GROUP_CONCAT(CONCAT(
+            oi.OrderItem_Quantity, ' x ',
+            '[', COALESCE(ms.MenuItemSize_IsHot, 'Normal'), '] ',
+            m.MenuItem_Name, ' ', '(', oi.OrderItem_CupSize, ')'
+        ) SEPARATOR '<br>') as OrderItems
         FROM `order` o
         LEFT JOIN payment p ON o.Payment_ID = p.Payment_ID
         LEFT JOIN orderitem oi ON o.Order_ID = oi.Order_ID
         LEFT JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID
+        LEFT JOIN menuitem_sizes ms ON m.MenuItem_ID = ms.MenuItem_ID AND oi.OrderItem_CupSize = ms.MenuItemSize_SizeName
         WHERE o.Order_Status IN ('ReadyToClaim', 'Completed')
+        AND DATE(o.Order_DateTime) = ?
         GROUP BY o.Order_ID
         ORDER BY o.Order_DateTime DESC";
 
-$result = mysqli_query($conn, $sql);
+// Use prepared statement to prevent SQL injection
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, 's', $selectedDate);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 
 if (!$result) {
     error_log("Query error: " . mysqli_error($conn));

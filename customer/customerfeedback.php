@@ -6,29 +6,32 @@ $password = "";
 $dbname = "kiosk_ordering_system_db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
 // Handle POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $customer_name = $conn->real_escape_string($_POST['customer_name']);
-    $rating = intval($_POST['rating']);
-    $feedback = $conn->real_escape_string($_POST['feedback']);
+    // Handle empty name as NULL
+    $Feedback_CustomerName = !empty($_POST['Feedback_CustomerName']) 
+        ? "'" . $conn->real_escape_string($_POST['Feedback_CustomerName']) . "'" 
+        : 'NULL'; 
 
-    // Insert data into the database
-    $sql = "INSERT INTO customerfeedback (customer_name, rating, feedback) VALUES ('$customer_name', $rating, '$feedback')";
+    $Feedback_Rating = intval($_POST['Feedback_Rating']);
+    $Feedback_Comments = $conn->real_escape_string($_POST['Feedback_Comments']);
+
+    $sql = "INSERT INTO feedback (Feedback_CustomerName, Feedback_Rating, Feedback_Comments) 
+            VALUES ($Feedback_CustomerName, $Feedback_Rating, '$Feedback_Comments')";
 
     if ($conn->query($sql) === TRUE) {
         echo json_encode(["status" => "success", "message" => "Feedback submitted successfully!"]);
     } else {
         echo json_encode(["status" => "error", "message" => "Error: " . $conn->error]);
     }
-}
 
-$conn->close();
+    $conn->close();
+    exit();
+}
 ?>
 
 
@@ -167,7 +170,7 @@ $conn->close();
             <i class="fas fa-star" data-value="4"></i>
             <i class="fas fa-star" data-value="5"></i>
         </div>
-        <input type="text" class="name-input" id="customer-name" placeholder="Enter Name Here">
+        <input type="text" class="name-input" id="customer-name" placeholder="Enter Name Here (Optional)">
         <button class="btn btn-primary" id="next-button">Next</button>
     </div>
 
@@ -204,125 +207,109 @@ $conn->close();
 
 <script>
     $(document).ready(function () {
-    let selectedRating = 0;
+        let selectedRating = 0;
 
-    // First screen star selection
-    $('#star-rating .fa-star').on('click', function () {
-        selectedRating = $(this).data('value');
-        $('#star-rating .fa-star').each(function () {
-            $(this).toggleClass('active', $(this).data('value') <= selectedRating);
-        });
-    });
-
-    // Hover effect on stars
-    $('#star-rating .fa-star').hover(
-        function () {
-            const hoverRating = $(this).data('value');
+        // First screen star selection
+        $('#star-rating .fa-star').on('click', function () {
+            selectedRating = $(this).data('value');
             $('#star-rating .fa-star').each(function () {
-                $(this).toggleClass('hover', $(this).data('value') <= hoverRating);
+                $(this).toggleClass('active', $(this).data('value') <= selectedRating);
             });
-        },
-        function () {
-            $('#star-rating .fa-star').removeClass('hover');
-        }
-    );
+        });
 
-    // Move to second screen
-    $('#next-button').on('click', function () {
-        const customerName = $('#customer-name').val().trim();
-        if (selectedRating === 0) {
-            alert('Please select a star rating.');
-        } else if (!customerName) {
-            alert('Please enter your name.');
-        } else {
-            $('#review-stars').html(''); // Clear previous stars
-            for (let i = 1; i <= 5; i++) {
-                $('#review-stars').append(
-                    `<i class="fas fa-star ${i <= selectedRating ? 'active' : ''}" data-value="${i}"></i>`
-                );
+        // Hover effect on stars
+        $('#star-rating .fa-star').hover(
+            function () {
+                const hoverRating = $(this).data('value');
+                $('#star-rating .fa-star').each(function () {
+                    $(this).toggleClass('hover', $(this).data('value') <= hoverRating);
+                });
+            },
+            function () {
+                $('#star-rating .fa-star').removeClass('hover');
+            }
+        );
+
+        // Move to second screen
+       // Inside the "Next" button click handler
+$('#next-button').on('click', function () {
+    const customerName = $('#customer-name').val().trim();
+    if (selectedRating === 0) {
+        alert('Please select a star rating.'); // Only check rating
+    } else {
+        // Proceed to next screen even if name is empty
+        $('#review-stars').html('');
+        for (let i = 1; i <= 5; i++) {
+            $('#review-stars').append(
+                `<i class="fas fa-star ${i <= selectedRating ? 'active' : ''}" data-value="${i}"></i>`
+            );
+        }
+        $('#screen1').removeClass('active-screen');
+        $('#screen2').addClass('active-screen');
+    }
+});
+
+        // Submit feedback (AJAX call to save feedback into the database)
+        $('#submit-feedback').on('click', function () {
+            const feedbackText = $('#feedback-text').val().trim();
+            const customerName = $('#customer-name').val().trim();
+
+            if (!feedbackText) {
+                alert('Please enter your feedback.');
+                return;
             }
 
-            $('#rating-message').text(`You rated us ${selectedRating} star${selectedRating > 1 ? 's' : ''}!`);
-            $('#screen1').removeClass('active-screen');
-            $('#screen2').addClass('active-screen');
-        }
-    });
-
-    // Submit feedback (AJAX call to save feedback into the database)
-    $('#submit-feedback').on('click', function () {
-        const feedbackText = $('#feedback-text').val().trim();
-        const customerName = $('#customer-name').val().trim();
-
-        if (!feedbackText) {
-            alert('Please enter your feedback.');
-            return;
-        }
-
-        // Send data to backend via AJAX
-        $.ajax({
-            url: 'customerfeedback.php',
-            method: 'POST',
-            data: {
-                customer_name: customerName,
-                rating: selectedRating,
-                feedback: feedbackText
-            },
-            success: function (response) {
+            // Send data to backend via AJAX
+            $.ajax({
+                url: 'customerfeedback.php',
+                method: 'POST',
+                data: {
+                    Feedback_CustomerName: customerName,
+                    Feedback_Rating: selectedRating,
+                    Feedback_Comments: feedbackText
+                },
+                success: function (response) {
     try {
-        // Log the raw response for debugging (optional, you can remove this in production)
-        console.log("Raw response:", response);  
-
-        // Ensure the response is in JSON format and parse it
         const result = JSON.parse(response.trim());
-
-        // If the response is successful, show the thank you modal
         if (result.status === 'success') {
-            // Show thank-you modal
             $('#thank-you-modal').modal('show');
-            
-            // Reset inputs and UI
+            // Reset form
             $('#customer-name, #feedback-text').val('');
             $('#star-rating .fa-star').removeClass('active');
             selectedRating = 0;
-            $('#screen2').removeClass('active-screen');
-            $('#screen1').addClass('active-screen');
-        } 
+        } else {
+            alert('Error: ' + result.message);
+        }
     } catch (e) {
-        // Error parsing the response, but just show the modal anyway (no alert)
-        console.error('Error parsing response:', e); // Log the error to the console (optional)
-        $('#thank-you-modal').modal('show'); // Show the modal even if there's an issue
+        console.error('Error:', e);
+        alert('An unexpected error occurred.');
     }
 },
-    error: function () {
-    // Show the modal even if an error occurs during the AJAX request
-    $('#thank-you-modal').modal('show'); 
+error: function (xhr, status, error) {
+    alert('Request failed: ' + error);
 }
+            });
+        });
 
+        // Back button logic
+        $('#back-button').on('click', function () {
+            $('#screen2').removeClass('active-screen');
+            $('#screen1').addClass('active-screen');
+        });
+
+        // Modal close event to go back to the first screen
+        $('#thank-you-modal').on('hidden.bs.modal', function () {
+            // When the modal is closed, go back to the first screen
+            $('#screen2').removeClass('active-screen');
+            $('#screen1').addClass('active-screen');
+
+            // Reset the name input, rating, and other fields to their defaults
+            $('#customer-name').val(''); // Clear the name input
+            $('#feedback-text').val(''); // Clear the feedback input
+            $('#star-rating .fa-star').removeClass('active'); // Reset stars
+            selectedRating = 0; // Reset rating
+        });
     });
-    });
-
-  // Back button logic
-$('#back-button').on('click', function () {
-    $('#screen2').removeClass('active-screen');
-    $('#screen1').addClass('active-screen');
-});
-
-// Modal close event to go back to the first screen
-$('#thank-you-modal').on('hidden.bs.modal', function () {
-    // When the modal is closed, go back to the first screen
-    $('#screen2').removeClass('active-screen');
-    $('#screen1').addClass('active-screen');
-
-    
-// Reset the name input, rating, and other fields to their defaults
-$('#customer-name').val(''); // Clear the name input
-    $('#feedback-text').val(''); // Clear the feedback input
-    $('#star-rating .fa-star').removeClass('active'); // Reset stars
-    selectedRating = 0; // Reset rating
-});
-});
-
 </script>
-
 </body>
 </html>

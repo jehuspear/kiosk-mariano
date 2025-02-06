@@ -68,6 +68,8 @@ $ratingChart = array_map(function($count) use ($totalRatings) {
         <link rel="stylesheet" href="Css-admin/search_order.css">
         <link rel="stylesheet" href="Css-admin/admin-modal.css">
         <link rel="stylesheet" href="Css-admin/reports.css">
+        <link rel="stylesheet" href="Css-admin/feedback.css">
+        <link rel="stylesheet" href="Javascript-admin/auto-refresh.js">
  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
   
 </head>
@@ -92,7 +94,9 @@ $ratingChart = array_map(function($count) use ($totalRatings) {
                 </div>
             <?php endforeach; ?>
         </div>
+        
     </div>
+    
 </div>
 
     <script>

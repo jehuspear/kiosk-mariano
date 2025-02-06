@@ -49,7 +49,7 @@ if (isset($_POST["login"])) {
                     $error = "Invalid password";
                 }
             } else {
-                $error = "User not found";
+                $error = "Username or Email not found";
             }
         } else {
             $error = "Something went wrong";
@@ -65,6 +65,9 @@ if (isset($_POST["login"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinco Cafe - Log In</title>
     <link rel="stylesheet" href="Css-admin/newlogin.css">
+    
+     <!-- Add Bootstrap CSS -->
+     <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
@@ -72,16 +75,17 @@ if (isset($_POST["login"])) {
             <div class="left-box">
             <div class="coffee-icon"></div>
                 <h1>Hello, Welcome!</h1>
-                <?php
-                if (isset($error)) {
-                echo '<div class="alert alert-danger">' . $error . '</div>';
-                }
-                ?>
+                
                 <p>Please Login using your account</p>
             </div>
             <div class="right-box">
                 <h1>Login</h1>
                 <form class="login-form" method="POST" action="">
+                <?php
+                if (isset($error)) {
+                echo '<div class="alert alert-danger" style="text-align:center;">' . $error . '</div>';
+                }
+                ?>
         <div class="input-box">
           <input
             type="text"

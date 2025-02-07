@@ -4260,3 +4260,84 @@
 
 [2025-02-06 15:22:55] New total quantity: 2
 [2025-02-06 15:22:55] Response sent: {"success":true,"cartCount":2,"totalAmount":370,"message":"Item added to cart successfully"}
+[2025-02-07 08:51:13] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","orderType":"Dine-in","quantity":1}
+[2025-02-07 08:51:13] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-07 08:51:13] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-07 08:51:13] New total quantity: 1
+[2025-02-07 08:51:13] Response sent: {"success":true,"cartCount":1,"totalAmount":120,"message":"Item added to cart successfully"}
+[2025-02-07 09:01:34] Raw POST data: {"id":26,"name":"Piccolo","price":45,"description":"a small coffee composed of a single espresso shot and heated milk.","image":"../admin-staff/Images/menu-item/piccolo.jpg","size":"6oz","orderType":"Dine-in","quantity":1}
+[2025-02-07 09:01:34] Decoded data: Array
+(
+    [id] => 26
+    [name] => Piccolo
+    [price] => 45
+    [description] => a small coffee composed of a single espresso shot and heated milk.
+    [image] => ../admin-staff/Images/menu-item/piccolo.jpg
+    [size] => 6oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-07 09:01:34] Item added to cart: Array
+(
+    [id] => 26
+    [name] => Piccolo
+    [image] => ../admin-staff/Images/menu-item/piccolo.jpg
+    [size] => 6oz
+    [price] => 45
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-07 09:01:34] New total quantity: 1
+[2025-02-07 09:01:34] Response sent: {"success":true,"cartCount":1,"totalAmount":45,"message":"Item added to cart successfully"}
+[2025-02-07 09:47:22] Raw POST data: {"id":10,"name":"Espresso (Doppio)","price":70,"description":"Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning \"double\" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.","image":"../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg","size":"Dos","orderType":"Take-out","quantity":1}
+[2025-02-07 09:47:22] Decoded data: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [price] => 70
+    [description] => Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning "double" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Dos
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-07 09:47:22] Item added to cart: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Dos
+    [price] => 70
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-07 09:47:22] New total quantity: 1
+[2025-02-07 09:47:22] Response sent: {"success":true,"cartCount":1,"totalAmount":70,"message":"Item added to cart successfully"}

@@ -7065,3 +7065,168 @@
 
 [2025-01-06 11:07:33] New total quantity: 2
 [2025-01-06 11:07:33] Response sent: {"success":true,"cartCount":2,"totalAmount":220,"message":"Item added to cart successfully"}
+[2025-01-07 10:03:15] Raw POST data: {"id":11,"name":"Banana","price":100,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Extra-Large","orderType":"Dine-in","quantity":11}
+[2025-01-07 10:03:15] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 100
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Extra-Large
+    [orderType] => Dine-in
+    [quantity] => 11
+)
+
+[2025-01-07 10:03:15] Insufficient stock: requested 11, available 9
+[2025-01-07 10:03:16] Raw POST data: {"id":11,"name":"Banana","price":100,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Extra-Large","orderType":"Dine-in","quantity":11}
+[2025-01-07 10:03:16] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 100
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Extra-Large
+    [orderType] => Dine-in
+    [quantity] => 11
+)
+
+[2025-01-07 10:03:16] Insufficient stock: requested 11, available 9
+[2025-01-07 10:03:16] Raw POST data: {"id":11,"name":"Banana","price":100,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Extra-Large","orderType":"Dine-in","quantity":11}
+[2025-01-07 10:03:16] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 100
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Extra-Large
+    [orderType] => Dine-in
+    [quantity] => 11
+)
+
+[2025-01-07 10:03:16] Insufficient stock: requested 11, available 9
+[2025-01-07 10:03:17] Raw POST data: {"id":11,"name":"Banana","price":100,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Extra-Large","orderType":"Dine-in","quantity":11}
+[2025-01-07 10:03:17] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 100
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Extra-Large
+    [orderType] => Dine-in
+    [quantity] => 11
+)
+
+[2025-01-07 10:03:17] Insufficient stock: requested 11, available 9
+[2025-01-07 10:03:17] Raw POST data: {"id":11,"name":"Banana","price":100,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Extra-Large","orderType":"Dine-in","quantity":11}
+[2025-01-07 10:03:17] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 100
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Extra-Large
+    [orderType] => Dine-in
+    [quantity] => 11
+)
+
+[2025-01-07 10:03:17] Insufficient stock: requested 11, available 9
+[2025-01-07 10:03:17] Raw POST data: {"id":11,"name":"Banana","price":100,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Extra-Large","orderType":"Dine-in","quantity":11}
+[2025-01-07 10:03:17] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 100
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Extra-Large
+    [orderType] => Dine-in
+    [quantity] => 11
+)
+
+[2025-01-07 10:03:17] Insufficient stock: requested 11, available 9
+[2025-01-07 10:03:23] Raw POST data: {"id":11,"name":"Banana","price":100,"description":"Banana","image":"../admin-staff/Images/menu-items/banana.jpg","size":"Extra-Large","orderType":"Dine-in","quantity":2}
+[2025-01-07 10:03:23] Decoded data: Array
+(
+    [id] => 11
+    [name] => Banana
+    [price] => 100
+    [description] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Extra-Large
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-01-07 10:03:23] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Banana
+    [image] => ../admin-staff/Images/menu-items/banana.jpg
+    [size] => Extra-Large
+    [price] => 100
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-01-07 10:03:23] New total quantity: 2
+[2025-01-07 10:03:23] Response sent: {"success":true,"cartCount":2,"totalAmount":200,"message":"Item added to cart successfully"}
+[2025-01-07 10:03:31] Raw POST data: {"id":13,"name":"Matcha Latte","price":100,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"12oz","orderType":"Dine-in","quantity":2}
+[2025-01-07 10:03:31] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 100
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-01-07 10:03:31] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-01-07 10:03:31] New total quantity: 4
+[2025-01-07 10:03:31] Response sent: {"success":true,"cartCount":4,"totalAmount":400,"message":"Item added to cart successfully"}
+[2025-01-07 10:12:07] Raw POST data: {"id":1,"name":"Kape Amerikano","price":85,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Tres","orderType":"Take-out","quantity":1}
+[2025-01-07 10:12:07] Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 85
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Tres
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-01-07 10:12:07] Item added to cart: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Tres
+    [price] => 85
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Iced
+)
+
+[2025-01-07 10:12:07] New total quantity: 1
+[2025-01-07 10:12:07] Response sent: {"success":true,"cartCount":1,"totalAmount":85,"message":"Item added to cart successfully"}

@@ -20,24 +20,27 @@ const colors = {
 // Common chart options for consistent styling
 const commonChartOptions = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
         title: {
             color: colors.text,
             font: {
-                size: 18,
+                size: 14,
                 weight: 'bold'
             },
             padding: {
-                top: 20,
-                bottom: 20
+                top: 10,
+                bottom: 10
             }
         },
         legend: {
             labels: {
                 color: colors.text,
                 font: {
-                    size: 14
-                }
+                    size: 12
+                },
+                boxWidth: 15,
+                padding: 10
             }
         }
     },
@@ -189,13 +192,13 @@ async function updateCustomerChart(period = 'daily', date = new Date().toISOStri
                             text: `${result.total || 0}`,
                             color: '#B9F2FF',
                             font: {
-                                size: 48,
+                                size: 32,
                                 weight: 'bold',
                                 family: "'Arial Black', 'Arial Bold', Gadget, sans-serif"
                             },
                             padding: {
-                                top: 10,
-                                bottom: 30
+                                top: 5,
+                                bottom: 15
                             }
                         },
                         afterSubtitle: {
@@ -275,8 +278,12 @@ async function updateProductChart(period = 'daily', date = new Date().toISOStrin
                                 formatDateRangeTitle(period, date),
                                 `Total Products Sold: ${result.total || 0}`
                             ],
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
                             padding: {
-                                bottom: 10
+                                bottom: 5
                             },
                             color: colors.text
                         }
@@ -377,8 +384,12 @@ async function updateRevenueChart(period = 'daily', date = new Date().toISOStrin
                                 `Cash Sales: ${formatCurrency(result.totals.cash_total)}`,
                                 `GCash Sales: ${formatCurrency(result.totals.gcash_total)}`
                             ],
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
                             padding: {
-                                bottom: 10
+                                bottom: 5
                             },
                             color: colors.text
                         }
@@ -405,7 +416,7 @@ async function updateRevenueChart(period = 'daily', date = new Date().toISOStrin
     }
 }
 
-// Function to create product images above bars
+// Function to create product images at bar tips
 function createProductImages(chart, data) {
     const chartArea = chart.chartArea;
     const ctx = chart.ctx;
@@ -418,12 +429,17 @@ function createProductImages(chart, data) {
         
         img.onload = () => {
             const xPos = xAxis.getPixelForValue(index);
-            const yPos = chartArea.top - 60; // Position above the bar
+            const yValue = item.total_sold;
+            const yPos = yAxis.getPixelForValue(yValue); // Position at the tip of the bar
             
-            // Draw circular background
+            // Draw circular background with shadow
             ctx.save();
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+            ctx.shadowBlur = 5;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
             ctx.beginPath();
-            ctx.arc(xPos, yPos + 25, 25, 0, Math.PI * 2);
+            ctx.arc(xPos, yPos - 25, 20, 0, Math.PI * 2);
             ctx.fillStyle = 'white';
             ctx.fill();
             ctx.restore();
@@ -431,9 +447,9 @@ function createProductImages(chart, data) {
             // Draw image in circle
             ctx.save();
             ctx.beginPath();
-            ctx.arc(xPos, yPos + 25, 25, 0, Math.PI * 2);
+            ctx.arc(xPos, yPos - 25, 20, 0, Math.PI * 2);
             ctx.clip();
-            ctx.drawImage(img, xPos - 25, yPos, 50, 50);
+            ctx.drawImage(img, xPos - 20, yPos - 45, 40, 40);
             ctx.restore();
         };
     });
@@ -471,11 +487,17 @@ async function updateTopProductsChart() {
                         ...commonChartOptions.plugins,
                         title: {
                             display: true,
-                            text: 'Top 5 Best-Selling Products',
-                            padding: {
-                                top: 60  // Make room for images
+                            text: ['✨ Top 5 Best-Selling Products ✨', 'Most Popular Items'],
+                            font: {
+                                size: 18,
+                                weight: 'bold',
+                                family: "'Arial Black', 'Arial Bold', Gadget, sans-serif"
                             },
-                            color: colors.text
+                            padding: {
+                                top: 20,
+                                bottom: 15
+                            },
+                            color: '#B9F2FF'
                         },
                         legend: {
                             display: false

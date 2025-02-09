@@ -13,6 +13,19 @@ date_default_timezone_set('Asia/Manila');
 // Get today's date range in Manila time
 $today_start = date('Y-m-d 00:00:00');
 $today_end = date('Y-m-d 23:59:59');
+
+// Get low stock items
+include 'database_admin.php';
+$low_stock_query = "SELECT MenuItem_Name, MenuItem_TotalStocks 
+                    FROM menuitem 
+                    WHERE MenuItem_TotalStocks <= 10 
+                    ORDER BY MenuItem_TotalStocks ASC 
+                    LIMIT 5";
+$low_stock_result = $conn->query($low_stock_query);
+$low_stock_items = [];
+while ($row = $low_stock_result->fetch_assoc()) {
+    $low_stock_items[] = $row;
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +38,8 @@ $today_end = date('Y-m-d 23:59:59');
     <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
     <link rel="stylesheet" href="Css-admin/sidebar.css">
     <link rel="stylesheet" href="Css-admin/dashboard-dark.css">
+    <link rel="stylesheet" href="Css-admin/reports.css">
+
 </head>
 <body>
     <div class="wrapper">
@@ -93,6 +108,28 @@ $today_end = date('Y-m-d 23:59:59');
                                 <span class="revenue-value" id="grandTotal">₱0.00</span>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Low Stock Items Panel -->
+                    <div class="low-stock-panel">
+                        <div class="low-stock-title">
+                            <i class="fas fa-exclamation-triangle"></i> Low Stock Alert
+                        </div>
+                        <?php if (!empty($low_stock_items)): ?>
+                            <?php foreach ($low_stock_items as $item): ?>
+                                <div class="low-stock-item">
+                                    <span class="item-name"><?php echo $item['MenuItem_Name']; ?></span>
+                                    <span class="stock-count"><?php echo $item['MenuItem_TotalStocks']; ?> left</span>
+                                </div>
+                            <?php endforeach; ?>
+                            <div class="stock-warning">
+                                These items need to be restocked soon!
+                            </div>
+                        <?php else: ?>
+                            <div class="text-center">
+                                No items are running low on stock.
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

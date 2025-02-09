@@ -283,14 +283,9 @@ function getRevenue($period, $date) {
 
 function getTopProducts() {
     global $conn;
-    $sql = "SELECT m.MenuItem_Name, m.MenuItem_Image, m.MenuItem_TotalSold as total_sold
-            FROM menuitem m
-            JOIN orderitem oi ON m.MenuItem_ID = oi.MenuItem_ID
-            JOIN `order` o ON oi.Order_ID = o.Order_ID
-            JOIN payment p ON o.Payment_ID = p.Payment_ID
-            WHERE p.Payment_Status = 'Completed'
-            GROUP BY m.MenuItem_ID
-            ORDER BY SUM(oi.OrderItem_Quantity) DESC
+    $sql = "SELECT MenuItem_Name, MenuItem_Image, MenuItem_TotalSold as total_sold
+            FROM menuitem
+            ORDER BY MenuItem_TotalSold DESC
             LIMIT 5";
     
     $result = $conn->query($sql);

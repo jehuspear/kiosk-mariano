@@ -4746,3 +4746,165 @@
 
 [2025-02-09 18:57:16] New total quantity: 6
 [2025-02-09 18:57:16] Response sent: {"success":true,"cartCount":6,"totalAmount":640,"message":"Item added to cart successfully"}
+[2025-02-09 19:41:23] Raw POST data: {"id":13,"name":"Matcha Latte","price":100,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 19:41:23] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 100
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 19:41:23] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-09 19:41:23] New total quantity: 1
+[2025-02-09 19:41:23] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-09 19:41:26] Raw POST data: {"id":25,"name":"Traditional Macchiato","price":35,"description":"the macchiato is quite a literal drink - it is an espresso marked with a dollop of frothed milk, and nothing else (macchiato means marked in Italian). ","image":"../admin-staff/Images/menu-item/macchiatotraditonal-11.jpg","size":"6oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 19:41:26] Decoded data: Array
+(
+    [id] => 25
+    [name] => Traditional Macchiato
+    [price] => 35
+    [description] => the macchiato is quite a literal drink - it is an espresso marked with a dollop of frothed milk, and nothing else (macchiato means marked in Italian). 
+    [image] => ../admin-staff/Images/menu-item/macchiatotraditonal-11.jpg
+    [size] => 6oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 19:41:26] Item added to cart: Array
+(
+    [id] => 25
+    [name] => Traditional Macchiato
+    [image] => ../admin-staff/Images/menu-item/macchiatotraditonal-11.jpg
+    [size] => 6oz
+    [price] => 35
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-09 19:41:26] New total quantity: 2
+[2025-02-09 19:41:26] Response sent: {"success":true,"cartCount":2,"totalAmount":135,"message":"Item added to cart successfully"}
+[2025-02-09 19:41:45] Raw POST data: {"id":18,"name":"Strawberry Kiss","price":100,"description":"A delicious sweet strawberry drink that will mark your lips with a delight!","image":"../admin-staff/Images/menu-item/strawberry-lemon-mocktail-5411.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 19:41:45] Decoded data: Array
+(
+    [id] => 18
+    [name] => Strawberry Kiss
+    [price] => 100
+    [description] => A delicious sweet strawberry drink that will mark your lips with a delight!
+    [image] => ../admin-staff/Images/menu-item/strawberry-lemon-mocktail-5411.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 19:41:45] Item added to cart: Array
+(
+    [id] => 18
+    [name] => Strawberry Kiss
+    [image] => ../admin-staff/Images/menu-item/strawberry-lemon-mocktail-5411.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-09 19:41:45] New total quantity: 1
+[2025-02-09 19:41:45] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-09 19:41:48] Raw POST data: {"id":12,"name":"Blue Punch Mocktail","price":100,"description":"A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.","image":"../admin-staff/Images/menu-item/blue_mocktail.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 19:41:48] Decoded data: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [price] => 100
+    [description] => A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 19:41:48] Item added to cart: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-09 19:41:48] New total quantity: 2
+[2025-02-09 19:41:48] Response sent: {"success":true,"cartCount":2,"totalAmount":200,"message":"Item added to cart successfully"}
+[2025-02-09 19:41:50] Raw POST data: {"id":19,"name":"Orange Sunrise","price":100,"description":"Need a fun brunch drink. This sunrise mocktail has you covered. It is eye-catching, tasty, and 100% alcohol-free.","image":"../admin-staff/Images/menu-item/orange sunrise.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 19:41:50] Decoded data: Array
+(
+    [id] => 19
+    [name] => Orange Sunrise
+    [price] => 100
+    [description] => Need a fun brunch drink. This sunrise mocktail has you covered. It is eye-catching, tasty, and 100% alcohol-free.
+    [image] => ../admin-staff/Images/menu-item/orange sunrise.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 19:41:50] Item added to cart: Array
+(
+    [id] => 19
+    [name] => Orange Sunrise
+    [image] => ../admin-staff/Images/menu-item/orange sunrise.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-09 19:41:50] New total quantity: 3
+[2025-02-09 19:41:50] Response sent: {"success":true,"cartCount":3,"totalAmount":300,"message":"Item added to cart successfully"}
+[2025-02-09 19:41:51] Raw POST data: {"id":17,"name":"Shirley Temple","price":100,"description":"Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail","image":"../admin-staff/Images/menu-item/shirly temple.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 19:41:51] Decoded data: Array
+(
+    [id] => 17
+    [name] => Shirley Temple
+    [price] => 100
+    [description] => Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail
+    [image] => ../admin-staff/Images/menu-item/shirly temple.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 19:41:51] Item added to cart: Array
+(
+    [id] => 17
+    [name] => Shirley Temple
+    [image] => ../admin-staff/Images/menu-item/shirly temple.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-09 19:41:51] New total quantity: 4
+[2025-02-09 19:41:51] Response sent: {"success":true,"cartCount":4,"totalAmount":400,"message":"Item added to cart successfully"}

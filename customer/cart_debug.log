@@ -4341,3 +4341,111 @@
 
 [2025-02-07 09:47:22] New total quantity: 1
 [2025-02-07 09:47:22] Response sent: {"success":true,"cartCount":1,"totalAmount":70,"message":"Item added to cart successfully"}
+[2025-02-09 18:13:20] Raw POST data: {"id":14,"name":"Black Forest cake ","price":240,"description":"A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.","image":"../admin-staff/Images/menu-item/black-forest-pastry.jpg","size":"1 Whole","orderType":"Dine-in","quantity":1}
+[2025-02-09 18:13:20] Decoded data: Array
+(
+    [id] => 14
+    [name] => Black Forest cake 
+    [price] => 240
+    [description] => A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.
+    [image] => ../admin-staff/Images/menu-item/black-forest-pastry.jpg
+    [size] => 1 Whole
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 18:13:20] Item added to cart: Array
+(
+    [id] => 14
+    [name] => Black Forest cake 
+    [image] => ../admin-staff/Images/menu-item/black-forest-pastry.jpg
+    [size] => 1 Whole
+    [price] => 240
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-09 18:13:20] New total quantity: 1
+[2025-02-09 18:13:20] Response sent: {"success":true,"cartCount":1,"totalAmount":240,"message":"Item added to cart successfully"}
+[2025-02-09 18:13:28] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 18:13:28] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 18:13:28] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-09 18:13:28] New total quantity: 2
+[2025-02-09 18:13:28] Response sent: {"success":true,"cartCount":2,"totalAmount":360,"message":"Item added to cart successfully"}
+[2025-02-09 18:14:43] Raw POST data: {"id":3,"name":"Cappuccino","price":105,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 18:14:43] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 105
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 18:14:43] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 12oz
+    [price] => 105
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-09 18:14:43] New total quantity: 3
+[2025-02-09 18:14:43] Response sent: {"success":true,"cartCount":3,"totalAmount":465,"message":"Item added to cart successfully"}
+[2025-02-09 18:15:08] Raw POST data: {"id":1,"name":"Kape Amerikano","price":75,"description":"Full-bodied espresso with hot water","image":"../admin-staff/Images/menu-item/kape-americano.jpg","size":"Dos","orderType":"Dine-in","quantity":1}
+[2025-02-09 18:15:08] Decoded data: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [price] => 75
+    [description] => Full-bodied espresso with hot water
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 18:15:08] Item added to cart: Array
+(
+    [id] => 1
+    [name] => Kape Amerikano
+    [image] => ../admin-staff/Images/menu-item/kape-americano.jpg
+    [size] => Dos
+    [price] => 75
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-09 18:15:08] New total quantity: 4
+[2025-02-09 18:15:08] Response sent: {"success":true,"cartCount":4,"totalAmount":540,"message":"Item added to cart successfully"}

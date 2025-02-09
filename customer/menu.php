@@ -52,10 +52,17 @@ foreach ($_SESSION['cart'] as $item) {
 <body>
     <?php 
     if (isset($_SESSION['ticket_number'])):
+         // Set timezone to Philippines
+        date_default_timezone_set('Asia/Manila');
+
+        // Get today's date range in Manila time
+        $today_start = date('Y-m-d 00:00:00');
+        $today_end = date('Y-m-d 23:59:59');
+
         // Get initial order status
-        $statusSql = "SELECT Order_Status FROM `order` WHERE Order_TicketNumber = ?";
+        $statusSql = "SELECT Order_Status FROM `order` WHERE Order_TicketNumber = ?  AND Order_DateTime BETWEEN ? AND ? ";
         $statusStmt = $conn->prepare($statusSql);
-        $statusStmt->bind_param("i", $_SESSION['ticket_number']);
+        $statusStmt->bind_param("iss", $_SESSION['ticket_number'], $today_start, $today_end);
         $statusStmt->execute();
         $statusResult = $statusStmt->get_result();
         $initialStatus = '';

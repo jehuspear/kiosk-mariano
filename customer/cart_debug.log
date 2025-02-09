@@ -4449,3 +4449,300 @@
 
 [2025-02-09 18:15:08] New total quantity: 4
 [2025-02-09 18:15:08] Response sent: {"success":true,"cartCount":4,"totalAmount":540,"message":"Item added to cart successfully"}
+[2025-02-09 18:51:08] Raw POST data: {"id":13,"name":"Matcha Latte","price":100,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 18:51:08] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 100
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 18:51:08] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-09 18:51:08] New total quantity: 1
+[2025-02-09 18:51:08] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-09 18:51:19] Raw POST data: {"id":27,"name":"Caesar Salad","price":250,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Family 1000g","orderType":"Dine-in","quantity":1}
+[2025-02-09 18:51:19] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 250
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Family 1000g
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 18:51:19] Item added to cart: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Family 1000g
+    [price] => 250
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-09 18:51:19] New total quantity: 2
+[2025-02-09 18:51:19] Response sent: {"success":true,"cartCount":2,"totalAmount":350,"message":"Item added to cart successfully"}
+[2025-02-09 18:51:52] Raw POST data: {"id":12,"name":"Blue Punch Mocktail","price":100,"description":"A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.","image":"../admin-staff/Images/menu-item/blue_mocktail.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 18:51:52] Decoded data: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [price] => 100
+    [description] => A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 18:51:52] Item added to cart: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-09 18:51:52] New total quantity: 1
+[2025-02-09 18:51:52] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-09 18:54:20] Raw POST data: {"id":16,"name":"Chocolate Latte","price":105,"description":"A sweet chocolate flavored drink!","image":"../admin-staff/Images/menu-item/chocolate latte1.jpg","size":"22oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 18:54:20] Decoded data: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [price] => 105
+    [description] => A sweet chocolate flavored drink!
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 22oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 18:54:20] Item added to cart: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 22oz
+    [price] => 105
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-09 18:54:20] New total quantity: 1
+[2025-02-09 18:54:20] Response sent: {"success":true,"cartCount":1,"totalAmount":105,"message":"Item added to cart successfully"}
+[2025-02-09 18:54:32] Raw POST data: {"id":21,"name":"Banana Bread","price":50,"description":"This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.","image":"../admin-staff/Images/menu-item/banana bread.jpg","size":"Per slice","orderType":"Dine-in","quantity":2}
+[2025-02-09 18:54:32] Decoded data: Array
+(
+    [id] => 21
+    [name] => Banana Bread
+    [price] => 50
+    [description] => This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.
+    [image] => ../admin-staff/Images/menu-item/banana bread.jpg
+    [size] => Per slice
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-02-09 18:54:32] Item added to cart: Array
+(
+    [id] => 21
+    [name] => Banana Bread
+    [image] => ../admin-staff/Images/menu-item/banana bread.jpg
+    [size] => Per slice
+    [price] => 50
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-09 18:54:32] New total quantity: 3
+[2025-02-09 18:54:32] Response sent: {"success":true,"cartCount":3,"totalAmount":205,"message":"Item added to cart successfully"}
+[2025-02-09 18:54:36] Raw POST data: {"id":20,"name":"Brownies","price":50,"description":"Dense, fudgy, chewy, chocolate brownies! These decadent brownies are a delicious combination of fresh, sweet cherries and chocolate!","image":"../admin-staff/Images/menu-item/brownies.jpg","size":"Per slice","orderType":"Dine-in","quantity":2}
+[2025-02-09 18:54:36] Decoded data: Array
+(
+    [id] => 20
+    [name] => Brownies
+    [price] => 50
+    [description] => Dense, fudgy, chewy, chocolate brownies! These decadent brownies are a delicious combination of fresh, sweet cherries and chocolate!
+    [image] => ../admin-staff/Images/menu-item/brownies.jpg
+    [size] => Per slice
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-02-09 18:54:36] Item added to cart: Array
+(
+    [id] => 20
+    [name] => Brownies
+    [image] => ../admin-staff/Images/menu-item/brownies.jpg
+    [size] => Per slice
+    [price] => 50
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-09 18:54:36] New total quantity: 5
+[2025-02-09 18:54:36] Response sent: {"success":true,"cartCount":5,"totalAmount":305,"message":"Item added to cart successfully"}
+[2025-02-09 18:54:47] Raw POST data: {"id":7,"name":"Kape de Cacao","price":130,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Dos","orderType":"Dine-in","quantity":1}
+[2025-02-09 18:54:47] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 130
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Dos
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 18:54:47] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Dos
+    [price] => 130
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-09 18:54:47] New total quantity: 6
+[2025-02-09 18:54:47] Response sent: {"success":true,"cartCount":6,"totalAmount":435,"message":"Item added to cart successfully"}
+[2025-02-09 18:56:59] Raw POST data: {"id":15,"name":"Strawberry Latte","price":105,"description":"Enjoy a sip of this delicious strawberry flavored drink!","image":"../admin-staff/Images/menu-item/sakura-strawberry-latte1.jpg","size":"22oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 18:56:59] Decoded data: Array
+(
+    [id] => 15
+    [name] => Strawberry Latte
+    [price] => 105
+    [description] => Enjoy a sip of this delicious strawberry flavored drink!
+    [image] => ../admin-staff/Images/menu-item/sakura-strawberry-latte1.jpg
+    [size] => 22oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 18:56:59] Item added to cart: Array
+(
+    [id] => 15
+    [name] => Strawberry Latte
+    [image] => ../admin-staff/Images/menu-item/sakura-strawberry-latte1.jpg
+    [size] => 22oz
+    [price] => 105
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-09 18:56:59] New total quantity: 1
+[2025-02-09 18:56:59] Response sent: {"success":true,"cartCount":1,"totalAmount":105,"message":"Item added to cart successfully"}
+[2025-02-09 18:57:06] Raw POST data: {"id":7,"name":"Kape de Cacao","price":105,"description":"Espresso combined with steamed milk and rich chocolate syrup","image":"../admin-staff/Images/menu-item/kape-de-cacao.jpg","size":"Tres","orderType":"Dine-in","quantity":2}
+[2025-02-09 18:57:06] Decoded data: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [price] => 105
+    [description] => Espresso combined with steamed milk and rich chocolate syrup
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Tres
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-02-09 18:57:06] Item added to cart: Array
+(
+    [id] => 7
+    [name] => Kape de Cacao
+    [image] => ../admin-staff/Images/menu-item/kape-de-cacao.jpg
+    [size] => Tres
+    [price] => 105
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-09 18:57:06] New total quantity: 3
+[2025-02-09 18:57:06] Response sent: {"success":true,"cartCount":3,"totalAmount":315,"message":"Item added to cart successfully"}
+[2025-02-09 18:57:10] Raw POST data: {"id":3,"name":"Cappuccino","price":105,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"12oz","orderType":"Dine-in","quantity":2}
+[2025-02-09 18:57:10] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 105
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-02-09 18:57:10] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 12oz
+    [price] => 105
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-09 18:57:10] New total quantity: 5
+[2025-02-09 18:57:10] Response sent: {"success":true,"cartCount":5,"totalAmount":525,"message":"Item added to cart successfully"}
+[2025-02-09 18:57:16] Raw POST data: {"id":23,"name":"Air Fried French Fries","price":115,"description":"These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.","image":"../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg","size":"Large","orderType":"Dine-in","quantity":1}
+[2025-02-09 18:57:16] Decoded data: Array
+(
+    [id] => 23
+    [name] => Air Fried French Fries
+    [price] => 115
+    [description] => These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.
+    [image] => ../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg
+    [size] => Large
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 18:57:16] Item added to cart: Array
+(
+    [id] => 23
+    [name] => Air Fried French Fries
+    [image] => ../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg
+    [size] => Large
+    [price] => 115
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-09 18:57:16] New total quantity: 6
+[2025-02-09 18:57:16] Response sent: {"success":true,"cartCount":6,"totalAmount":640,"message":"Item added to cart successfully"}

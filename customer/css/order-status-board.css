@@ -1,0 +1,242 @@
+/* Base styles */
+body {
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.header {
+    background-color: black;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.logo-image {
+    width: 200px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.header p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+/* Order board styles */
+.order-board {
+    display: flex;
+    margin: 20px auto;
+    width: 95%;
+    max-width: 1200px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.column {
+    flex: 1;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.column:first-child {
+    border-right: 2px solid #ddd;
+}
+
+.column h2 {
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.preparing h2 {
+    background-color: #dc3545;
+}
+
+.claim h2 {
+    background-color: #28a745;
+}
+
+/* Ticket numbers grid */
+.ticket-numbers {
+    padding: 15px;
+    color: black;
+    font-size: 2rem;
+    font-weight: bold;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    align-content: start;
+}
+
+.ticket-number {
+    text-align: center;
+    padding: 15px 10px;
+    border-radius: 8px;
+    /* transition: transform 0.2s; */
+}
+
+.preparing .ticket-number {
+    border: 2px solid rgba(220, 53, 69, 0.3);
+    background-color: rgba(220, 53, 69, 0.05);
+}
+
+.claim .ticket-number {
+    border: 2px solid rgba(40, 167, 69, 0.3);
+    background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Footer styles */
+.footer {
+    background-color: black;
+    padding: 15px 0;
+    margin-top: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.footer-logo {
+    width: 25px;
+    height: auto;
+}
+
+.footer-text {
+    margin: 0;
+    font-size: 1rem;
+    color: white;
+}
+
+/* Refresh indicator */
+.refresh-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 20px;
+    animation: spin 2s linear infinite;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Empty state */
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #666;
+    padding: 20px;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .order-board {
+        width: 90%;
+        margin: 10px auto;
+        flex-direction: column;
+    }
+
+    .column:first-child {
+        border-right: none;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .column h2 {
+        font-size: 1.2rem;
+        padding: 12px;
+    }
+
+    .ticket-numbers {
+        font-size: 1.8rem;
+        padding: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 8px;
+    }
+
+    .ticket-number {
+        padding: 10px 5px;
+    }
+
+    .logo-image {
+        width: 150px;
+        margin-top: 15px;
+    }
+
+    .footer-content {
+        gap: 10px;
+    }
+
+    .footer-logo {
+        width: 20px;
+    }
+
+    .footer-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-board {
+        width: 95%;
+        margin: 5px auto;
+    }
+
+    .ticket-numbers {
+        font-size: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 5px;
+    }
+
+    .ticket-number {
+        padding: 8px 4px;
+    }
+
+    .logo-image {
+        width: 120px;
+    }
+
+    .footer-text {
+        font-size: 0.8rem;
+    }
+}
+
+/* Animation for new tickets */
+/* @keyframes ticketAppear {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.ticket-number {
+    animation: ticketAppear 0.3s ease-out;
+} */

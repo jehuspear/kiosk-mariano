@@ -66,6 +66,7 @@ class ReceiptPrinter {
                         margin: 0 auto 3mm;
                         display: block;
                         filter: invert(1) !important;
+                        margin-top: 20mm; /* 2cm space */
                     }
 
                     /* Ticket number */
@@ -178,9 +179,9 @@ class ReceiptPrinter {
 
                     /* Cutting line */
                     .print-receipt .cutting-line {
-                        margin-top: 20mm; /* 1cm space after footer content */
+                        margin-top: 30mm; /* 3cm space after footer content */
                         border-top: 1px solid black;
-                        margin-bottom: 5mm; /* Some space after the cutting line */
+                        margin-bottom: 10mm; /* Some space after the cutting line */
                     }
 
                     @media print {

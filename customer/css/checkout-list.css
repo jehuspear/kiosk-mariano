@@ -62,7 +62,7 @@
 /* Order List Styles */
 .order-list {
     padding: 1rem;
-    margin-top: 140px; /* Add margin to prevent content from being hidden under fixed header */
+    margin-top: 150px; /* Add margin to prevent content from being hidden under fixed header */
 }
 
 .order-item {

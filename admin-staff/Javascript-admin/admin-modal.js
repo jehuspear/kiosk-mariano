@@ -69,6 +69,10 @@ class AdminModal {
                     Ticket #${order.ticketNumber}
                 </div>
                 <div class="order-detail-item">
+                    <span class="order-detail-label">Order ID:</span>
+                    <span class="order-detail-value">#${order.orderId.toString().padStart(8, '0')}</span>
+                </div>
+                <div class="order-detail-item">
                     <span class="order-detail-label">Date:</span>
                     <span class="order-detail-value">${order.date}</span>
                 </div>
@@ -117,6 +121,10 @@ class AdminModal {
         this.orderDetails.innerHTML = `
             <div class="ticket-number-display">
                 Ticket #${order.ticketNumber}
+            </div>
+            <div class="order-detail-item">
+                <span class="order-detail-label">Order ID:</span>
+                <span class="order-detail-value">#${order.orderId.toString().padStart(8, '0')}</span>
             </div>
             <div class="order-detail-item">
                 <span class="order-detail-label">Date:</span>
@@ -401,7 +409,9 @@ class AdminModal {
 
                 // Print receipt before hiding modal
                 if (options.order && window.receiptPrinter) {
-                    window.receiptPrinter.print(options.order, modalResult);
+                    // Ensure orderId is included in the order details
+                    const orderWithId = { ...options.order, orderId: options.order.orderId };
+                    window.receiptPrinter.print(orderWithId, modalResult);
                 }
 
                 // Debug log the result

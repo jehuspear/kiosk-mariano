@@ -12,6 +12,7 @@ window.confirmOrderHandler = async function(e) {
         
         // Get order details from the row based on grid layout
         const orderDetails = {
+            orderId: orderId,  // Add orderId to the details
             ticketNumber: orderRow.querySelector('.order-item:nth-child(1)').textContent.trim(),
             date: orderRow.querySelector('.order-item:nth-child(2)').textContent.trim(), // Now includes time
             eatingOption: orderRow.querySelector('.order-item:nth-child(3)').textContent.trim(),

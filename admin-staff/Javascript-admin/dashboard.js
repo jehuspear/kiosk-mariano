@@ -6,14 +6,61 @@ let topProductsChart = null;
 
 // Colors for charts
 const colors = {
-    primary: '#1565c0',
+    primary: '#B9F2FF',
     secondary: '#1976d2',
     tertiary: '#2196f3',
     success: '#4caf50',  // Green for Cash Sales
     info: '#2196f3',     // Blue for GCash Sales
     warning: '#ffd700',  // Gold for Total Sales
-    light: '#e3f2fd',
-    dark: '#0d47a1'
+    light: '#B9F2FF20',  // Light version of primary color with opacity
+    dark: '#0d47a1',
+    text: '#FFFFFF'      // White text color
+};
+
+// Common chart options for consistent styling
+const commonChartOptions = {
+    responsive: true,
+    plugins: {
+        title: {
+            color: colors.text,
+            font: {
+                size: 18,
+                weight: 'bold'
+            },
+            padding: {
+                top: 20,
+                bottom: 20
+            }
+        },
+        legend: {
+            labels: {
+                color: colors.text,
+                font: {
+                    size: 14
+                }
+            }
+        }
+    },
+    scales: {
+        x: {
+            ticks: {
+                color: colors.text,
+                maxRotation: 45,
+                minRotation: 45
+            },
+            grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+            }
+        },
+        y: {
+            ticks: {
+                color: colors.text
+            },
+            grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+            }
+        }
+    }
 };
 
 // Bar chart colors
@@ -117,36 +164,63 @@ async function updateCustomerChart(period = 'daily', date = new Date().toISOStri
                     fill: true
                 }]
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: [
-                            'Customer Count',
-                            formatDateRangeTitle(period, date),
-                            `Total Customers: ${result.total || 0}`
-                        ],
-                        padding: {
-                            bottom: 10
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            maxRotation: 45,
-                            minRotation: 45
+                options: {
+                    ...commonChartOptions,
+                    plugins: {
+                        ...commonChartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: [
+                                'Customer Count',
+                                formatDateRangeTitle(period, date)
+                            ],
+                            font: {
+                                size: 20,
+                                weight: 'bold'
+                            },
+                            padding: {
+                                top: 20,
+                                bottom: 10
+                            },
+                            color: colors.text
+                        },
+                        subtitle: {
+                            display: true,
+                            text: `${result.total || 0}`,
+                            color: '#B9F2FF',
+                            font: {
+                                size: 48,
+                                weight: 'bold',
+                                family: "'Arial Black', 'Arial Bold', Gadget, sans-serif"
+                            },
+                            padding: {
+                                top: 10,
+                                bottom: 30
+                            }
+                        },
+                        afterSubtitle: {
+                            id: 'afterSubtitle',
+                            beforeDraw(chart, args, options) {
+                                const {ctx, chartArea: {top, bottom, left, right, width, height}} = chart;
+                                ctx.save();
+                                ctx.fillStyle = 'rgba(185, 242, 255, 0.1)';
+                                ctx.fillRect(left, top + 80, width, 60);
+                                ctx.restore();
+                            }
                         }
                     },
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            stepSize: 1
+                    scales: {
+                        ...commonChartOptions.scales,
+                        y: {
+                            ...commonChartOptions.scales.y,
+                            beginAtZero: true,
+                            ticks: {
+                                ...commonChartOptions.scales.y.ticks,
+                                stepSize: 1
+                            }
                         }
                     }
                 }
-            }
         });
     } catch (error) {
         console.error('Error updating customer chart:', error);
@@ -169,6 +243,9 @@ async function updateProductChart(period = 'daily', date = new Date().toISOStrin
             values = result.data.map(item => item.count);
         }
         
+        // Update the Products Sold value in the side panel
+        document.getElementById('productsSold').textContent = result.total || 0;
+
         if (productChart) {
             productChart.destroy();
         }
@@ -187,36 +264,35 @@ async function updateProductChart(period = 'daily', date = new Date().toISOStrin
                     fill: true
                 }]
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: [
-                            'Products Sold',
-                            formatDateRangeTitle(period, date),
-                            `Total Products Sold: ${result.total || 0}`
-                        ],
-                        padding: {
-                            bottom: 10
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            maxRotation: 45,
-                            minRotation: 45
+                options: {
+                    ...commonChartOptions,
+                    plugins: {
+                        ...commonChartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: [
+                                'Products Sold',
+                                formatDateRangeTitle(period, date),
+                                `Total Products Sold: ${result.total || 0}`
+                            ],
+                            padding: {
+                                bottom: 10
+                            },
+                            color: colors.text
                         }
                     },
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            stepSize: 1
+                    scales: {
+                        ...commonChartOptions.scales,
+                        y: {
+                            ...commonChartOptions.scales.y,
+                            beginAtZero: true,
+                            ticks: {
+                                ...commonChartOptions.scales.y.ticks,
+                                stepSize: 1
+                            }
                         }
                     }
                 }
-            }
         });
     } catch (error) {
         console.error('Error updating product chart:', error);
@@ -229,6 +305,15 @@ async function updateRevenueChart(period = 'daily', date = new Date().toISOStrin
         const response = await fetch(`api/get_dashboard_data.php?action=revenue&period=${period}&date=${date}`);
         const result = await response.json();
         
+        // Update the Revenue panel values first
+        if (result.totals) {
+            document.getElementById('totalRevenue').textContent = formatCurrency(result.totals.total);
+            document.getElementById('cashTotal').textContent = formatCurrency(result.totals.cash_total);
+            document.getElementById('gcashTotal').textContent = formatCurrency(result.totals.gcash_total);
+            document.getElementById('grandTotal').textContent = formatCurrency(result.totals.total);
+        }
+
+        // Prepare chart data
         let labels;
         const cashData = [];
         const gcashData = [];
@@ -241,9 +326,9 @@ async function updateRevenueChart(period = 'daily', date = new Date().toISOStrin
         }
         
         result.data.forEach(item => {
-            cashData.push(item.cash_total);
-            gcashData.push(item.gcash_total);
-            totalData.push(item.total);
+            cashData.push(parseFloat(item.cash_total) || 0);
+            gcashData.push(parseFloat(item.gcash_total) || 0);
+            totalData.push(parseFloat(item.total) || 0);
         });
         
         if (revenueChart) {
@@ -279,46 +364,41 @@ async function updateRevenueChart(period = 'daily', date = new Date().toISOStrin
                     }
                 ]
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: [
-                            'Revenue',
-                            formatDateRangeTitle(period, date),
-                            `Total Revenue: ${formatCurrency(result.totals.total)}`,
-                            `Cash Sales: ${formatCurrency(result.totals.cash_total)}`,
-                            `GCash Sales: ${formatCurrency(result.totals.gcash_total)}`
-                        ],
-                        padding: {
-                            bottom: 10
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            maxRotation: 45,
-                            minRotation: 45
+                options: {
+                    ...commonChartOptions,
+                    plugins: {
+                        ...commonChartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: [
+                                'Revenue',
+                                formatDateRangeTitle(period, date),
+                                `Total Revenue: ${formatCurrency(result.totals.total)}`,
+                                `Cash Sales: ${formatCurrency(result.totals.cash_total)}`,
+                                `GCash Sales: ${formatCurrency(result.totals.gcash_total)}`
+                            ],
+                            padding: {
+                                bottom: 10
+                            },
+                            color: colors.text
                         }
                     },
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function(value) {
-                                return formatCurrency(value);
+                    scales: {
+                        ...commonChartOptions.scales,
+                        y: {
+                            ...commonChartOptions.scales.y,
+                            beginAtZero: true,
+                            ticks: {
+                                ...commonChartOptions.scales.y.ticks,
+                                callback: function(value) {
+                                    return formatCurrency(value);
+                                }
                             }
                         }
                     }
                 }
-            }
         });
         
-        // Update the DOM elements
-        document.getElementById('cashTotal').textContent = formatCurrency(result.totals.cash_total);
-        document.getElementById('gcashTotal').textContent = formatCurrency(result.totals.gcash_total);
-        document.getElementById('grandTotal').textContent = formatCurrency(result.totals.total);
         
     } catch (error) {
         console.error('Error updating revenue chart:', error);
@@ -385,101 +465,81 @@ async function updateTopProductsChart() {
                     borderWidth: 1
                 }]
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Top 5 Best-Selling Products',
-                        padding: {
-                            top: 60  // Make room for images
+                options: {
+                    ...commonChartOptions,
+                    plugins: {
+                        ...commonChartOptions.plugins,
+                        title: {
+                            display: true,
+                            text: 'Top 5 Best-Selling Products',
+                            padding: {
+                                top: 60  // Make room for images
+                            },
+                            color: colors.text
+                        },
+                        legend: {
+                            display: false
                         }
                     },
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            stepSize: 1
+                    scales: {
+                        ...commonChartOptions.scales,
+                        y: {
+                            ...commonChartOptions.scales.y,
+                            beginAtZero: true,
+                            ticks: {
+                                ...commonChartOptions.scales.y.ticks,
+                                stepSize: 1
+                            }
+                        }
+                    },
+                    animation: {
+                        onComplete: function() {
+                            createProductImages(this, data);
                         }
                     }
-                },
-                animation: {
-                    onComplete: function() {
-                        createProductImages(this, data);
-                    }
                 }
-            }
         });
     } catch (error) {
         console.error('Error updating top products chart:', error);
     }
 }
 
+// Function to update all data based on customer section controls
+function updateAllData(period, date) {
+    updateCustomerChart(period, date);
+    updateProductChart(period, date);
+    updateRevenueChart(period, date);
+    updateTopProductsChart();
+}
+
 // Function to handle period changes
-function handlePeriodChange(chartType, selectElement) {
+function handlePeriodChange(selectElement) {
     const period = selectElement.value;
-    const dateInput = document.querySelector(`.date-input[data-chart-type="${chartType}"]`);
+    const dateInput = document.querySelector('.date-input[data-chart-type="customer"]');
     const date = dateInput.value || new Date().toISOString().split('T')[0];
-    
-    switch(chartType) {
-        case 'customer':
-            updateCustomerChart(period, date);
-            break;
-        case 'product':
-            updateProductChart(period, date);
-            break;
-        case 'revenue':
-            updateRevenueChart(period, date);
-            break;
-    }
+    updateAllData(period, date);
 }
 
 // Function to handle date changes
-function handleDateChange(chartType, dateInput) {
-    const period = document.querySelector(`.period-select[data-chart-type="${chartType}"]`).value;
+function handleDateChange(dateInput) {
+    const period = document.querySelector('.period-select[data-chart-type="customer"]').value;
     const date = dateInput.value;
-    
-    switch(chartType) {
-        case 'customer':
-            updateCustomerChart(period, date);
-            break;
-        case 'product':
-            updateProductChart(period, date);
-            break;
-        case 'revenue':
-            updateRevenueChart(period, date);
-            break;
-    }
+    updateAllData(period, date);
 }
 
 // Initialize all charts and totals
 document.addEventListener('DOMContentLoaded', () => {
-    // Set default date to today
-    const today = new Date().toISOString().split('T')[0];
-    document.querySelectorAll('.date-input').forEach(input => {
-        input.value = today;
-    });
+    // Set default date to Manila time
+    const dateInput = document.querySelector('.date-input[data-chart-type="customer"]');
+    dateInput.value = window.manilaTime;
     
-    updateCustomerChart();
-    updateProductChart();
-    updateRevenueChart();
-    updateTopProductsChart();
+    // Initial update of all data
+    updateAllData('daily', window.manilaTime);
     
-    // Set up period change listeners
-    document.querySelectorAll('.period-select').forEach(select => {
-        select.addEventListener('change', (e) => {
-            handlePeriodChange(e.target.dataset.chartType, e.target);
-        });
-    });
+    // Set up period change listener for customer select
+    const periodSelect = document.querySelector('.period-select[data-chart-type="customer"]');
+    periodSelect.addEventListener('change', (e) => handlePeriodChange(e.target));
     
-    // Set up date change listeners
-    document.querySelectorAll('.date-input').forEach(input => {
-        input.addEventListener('change', (e) => {
-            handleDateChange(e.target.dataset.chartType, e.target);
-        });
-    });
+    // Set up date change listener for customer date input
+    dateInput.addEventListener('change', (e) => handleDateChange(e.target));
 });

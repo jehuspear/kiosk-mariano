@@ -5,18 +5,20 @@ function getDailyCustomerCount($date) {
     global $conn;
     
     // Get hourly data
-    $sql = "SELECT Order_DateTime as datetime, COUNT(DISTINCT Order_ID) as count 
-            FROM `order` 
-            WHERE DATE(Order_DateTime) = ?
-            AND Order_Status = 'Completed'
-            GROUP BY HOUR(Order_DateTime)
-            ORDER BY Order_DateTime";
+    $sql = "SELECT o.Order_DateTime as datetime, COUNT(DISTINCT o.Order_ID) as count 
+            FROM `order` o
+            JOIN payment p ON o.Payment_ID = p.Payment_ID
+            WHERE DATE(o.Order_DateTime) = ?
+            AND p.Payment_Status = 'Completed'
+            GROUP BY HOUR(o.Order_DateTime)
+            ORDER BY o.Order_DateTime";
     
     // Get total for the day
-    $totalSql = "SELECT COUNT(DISTINCT Order_ID) as total
-                 FROM `order`
-                 WHERE DATE(Order_DateTime) = ?
-                 AND Order_Status = 'Completed'";
+    $totalSql = "SELECT COUNT(DISTINCT o.Order_ID) as total
+                 FROM `order` o
+                 JOIN payment p ON o.Payment_ID = p.Payment_ID
+                 WHERE DATE(o.Order_DateTime) = ?
+                 AND p.Payment_Status = 'Completed'";
     
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $date);
@@ -38,18 +40,20 @@ function getWeeklyCustomerCount($startDate) {
     global $conn;
     
     // Get daily data
-    $sql = "SELECT DATE(Order_DateTime) as date, COUNT(DISTINCT Order_ID) as count 
-            FROM `order` 
-            WHERE Order_DateTime >= ? AND Order_DateTime < DATE_ADD(?, INTERVAL 7 DAY)
-            AND Order_Status = 'Completed'
-            GROUP BY DATE(Order_DateTime)
+    $sql = "SELECT DATE(o.Order_DateTime) as date, COUNT(DISTINCT o.Order_ID) as count 
+            FROM `order` o
+            JOIN payment p ON o.Payment_ID = p.Payment_ID
+            WHERE o.Order_DateTime >= ? AND o.Order_DateTime < DATE_ADD(?, INTERVAL 7 DAY)
+            AND p.Payment_Status = 'Completed'
+            GROUP BY DATE(o.Order_DateTime)
             ORDER BY date";
     
     // Get total for the week
-    $totalSql = "SELECT COUNT(DISTINCT Order_ID) as total
-                 FROM `order`
-                 WHERE Order_DateTime >= ? AND Order_DateTime < DATE_ADD(?, INTERVAL 7 DAY)
-                 AND Order_Status = 'Completed'";
+    $totalSql = "SELECT COUNT(DISTINCT o.Order_ID) as total
+                 FROM `order` o
+                 JOIN payment p ON o.Payment_ID = p.Payment_ID
+                 WHERE o.Order_DateTime >= ? AND o.Order_DateTime < DATE_ADD(?, INTERVAL 7 DAY)
+                 AND p.Payment_Status = 'Completed'";
     
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $startDate, $startDate);
@@ -71,18 +75,20 @@ function getMonthlyCustomerCount($startDate) {
     global $conn;
     
     // Get daily data
-    $sql = "SELECT DATE(Order_DateTime) as date, COUNT(DISTINCT Order_ID) as count 
-            FROM `order` 
-            WHERE DATE_FORMAT(Order_DateTime, '%Y-%m') = DATE_FORMAT(?, '%Y-%m')
-            AND Order_Status = 'Completed'
-            GROUP BY DATE(Order_DateTime)
+    $sql = "SELECT DATE(o.Order_DateTime) as date, COUNT(DISTINCT o.Order_ID) as count 
+            FROM `order` o
+            JOIN payment p ON o.Payment_ID = p.Payment_ID
+            WHERE DATE_FORMAT(o.Order_DateTime, '%Y-%m') = DATE_FORMAT(?, '%Y-%m')
+            AND p.Payment_Status = 'Completed'
+            GROUP BY DATE(o.Order_DateTime)
             ORDER BY date";
     
     // Get total for the month
-    $totalSql = "SELECT COUNT(DISTINCT Order_ID) as total
-                 FROM `order`
-                 WHERE DATE_FORMAT(Order_DateTime, '%Y-%m') = DATE_FORMAT(?, '%Y-%m')
-                 AND Order_Status = 'Completed'";
+    $totalSql = "SELECT COUNT(DISTINCT o.Order_ID) as total
+                 FROM `order` o
+                 JOIN payment p ON o.Payment_ID = p.Payment_ID
+                 WHERE DATE_FORMAT(o.Order_DateTime, '%Y-%m') = DATE_FORMAT(?, '%Y-%m')
+                 AND p.Payment_Status = 'Completed'";
     
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $startDate);
@@ -110,20 +116,22 @@ function getProductsSold($period, $date) {
     switch($period) {
         case 'daily':
             $sql = "SELECT 
-                    Order_DateTime as datetime,
+                    o.Order_DateTime as datetime,
                     SUM(oi.OrderItem_Quantity) as count
                     FROM `order` o 
                     JOIN orderitem oi ON o.Order_ID = oi.Order_ID 
+                    JOIN payment p ON o.Payment_ID = p.Payment_ID
                     WHERE DATE(o.Order_DateTime) = ?
-                    AND o.Order_Status = 'Completed'
-                    GROUP BY HOUR(Order_DateTime)
-                    ORDER BY Order_DateTime";
+                    AND p.Payment_Status = 'Completed'
+                    GROUP BY HOUR(o.Order_DateTime)
+                    ORDER BY o.Order_DateTime";
             $totalSql = "SELECT 
                         SUM(oi.OrderItem_Quantity) as total
                         FROM `order` o 
                         JOIN orderitem oi ON o.Order_ID = oi.Order_ID 
+                        JOIN payment p ON o.Payment_ID = p.Payment_ID
                         WHERE DATE(o.Order_DateTime) = ?
-                        AND o.Order_Status = 'Completed'";
+                        AND p.Payment_Status = 'Completed'";
             $params = [$date];
             $types = "s";
             break;
@@ -134,16 +142,18 @@ function getProductsSold($period, $date) {
                     SUM(oi.OrderItem_Quantity) as count
                     FROM `order` o 
                     JOIN orderitem oi ON o.Order_ID = oi.Order_ID 
+                    JOIN payment p ON o.Payment_ID = p.Payment_ID
                     WHERE o.Order_DateTime >= ? AND o.Order_DateTime < DATE_ADD(?, INTERVAL 7 DAY)
-                    AND o.Order_Status = 'Completed'
+                    AND p.Payment_Status = 'Completed'
                     GROUP BY DATE(o.Order_DateTime)
                     ORDER BY date";
             $totalSql = "SELECT 
                         SUM(oi.OrderItem_Quantity) as total
                         FROM `order` o 
                         JOIN orderitem oi ON o.Order_ID = oi.Order_ID 
+                        JOIN payment p ON o.Payment_ID = p.Payment_ID
                         WHERE o.Order_DateTime >= ? AND o.Order_DateTime < DATE_ADD(?, INTERVAL 7 DAY)
-                        AND o.Order_Status = 'Completed'";
+                        AND p.Payment_Status = 'Completed'";
             $params = [$date, $date];
             $types = "ss";
             break;
@@ -154,16 +164,18 @@ function getProductsSold($period, $date) {
                     SUM(oi.OrderItem_Quantity) as count
                     FROM `order` o 
                     JOIN orderitem oi ON o.Order_ID = oi.Order_ID 
+                    JOIN payment p ON o.Payment_ID = p.Payment_ID
                     WHERE DATE_FORMAT(o.Order_DateTime, '%Y-%m') = DATE_FORMAT(?, '%Y-%m')
-                    AND o.Order_Status = 'Completed'
+                    AND p.Payment_Status = 'Completed'
                     GROUP BY DATE(o.Order_DateTime)
                     ORDER BY date";
             $totalSql = "SELECT 
                         SUM(oi.OrderItem_Quantity) as total
                         FROM `order` o 
                         JOIN orderitem oi ON o.Order_ID = oi.Order_ID 
+                        JOIN payment p ON o.Payment_ID = p.Payment_ID
                         WHERE DATE_FORMAT(o.Order_DateTime, '%Y-%m') = DATE_FORMAT(?, '%Y-%m')
-                        AND o.Order_Status = 'Completed'";
+                        AND p.Payment_Status = 'Completed'";
             $params = [$date];
             $types = "s";
             break;
@@ -196,29 +208,31 @@ function getRevenue($period, $date) {
     switch($period) {
         case 'daily':
             $sql = "SELECT 
-                    Order_DateTime as datetime,
-                    SUM(CASE WHEN Payment_Method = 'Cash' THEN Order_TotalAmount ELSE 0 END) as cash_total,
-                    SUM(CASE WHEN Payment_Method = 'GCash' THEN Order_TotalAmount ELSE 0 END) as gcash_total,
-                    SUM(Order_TotalAmount) as total
-                    FROM `order` 
-                    WHERE DATE(Order_DateTime) = ?
-                    AND Order_Status = 'Completed'
-                    GROUP BY HOUR(Order_DateTime)
-                    ORDER BY Order_DateTime";
+                    o.Order_DateTime as datetime,
+                    SUM(CASE WHEN o.Payment_Method = 'Cash' THEN p.Payment_TotalAmount ELSE 0 END) as cash_total,
+                    SUM(CASE WHEN o.Payment_Method = 'GCash' THEN p.Payment_TotalAmount ELSE 0 END) as gcash_total,
+                    SUM(p.Payment_TotalAmount) as total
+                    FROM `order` o
+                    JOIN payment p ON o.Payment_ID = p.Payment_ID
+                    WHERE DATE(o.Order_DateTime) = ?
+                    AND p.Payment_Status = 'Completed'
+                    GROUP BY HOUR(o.Order_DateTime)
+                    ORDER BY o.Order_DateTime";
             $params = [$date];
             $types = "s";
             break;
             
         case 'weekly':
             $sql = "SELECT 
-                    DATE(Order_DateTime) as date,
-                    SUM(CASE WHEN Payment_Method = 'Cash' THEN Order_TotalAmount ELSE 0 END) as cash_total,
-                    SUM(CASE WHEN Payment_Method = 'GCash' THEN Order_TotalAmount ELSE 0 END) as gcash_total,
-                    SUM(Order_TotalAmount) as total
-                    FROM `order`
-                    WHERE Order_DateTime >= ? AND Order_DateTime < DATE_ADD(?, INTERVAL 7 DAY)
-                    AND Order_Status = 'Completed'
-                    GROUP BY DATE(Order_DateTime)
+                    DATE(o.Order_DateTime) as date,
+                    SUM(CASE WHEN o.Payment_Method = 'Cash' THEN p.Payment_TotalAmount ELSE 0 END) as cash_total,
+                    SUM(CASE WHEN o.Payment_Method = 'GCash' THEN p.Payment_TotalAmount ELSE 0 END) as gcash_total,
+                    SUM(p.Payment_TotalAmount) as total
+                    FROM `order` o
+                    JOIN payment p ON o.Payment_ID = p.Payment_ID
+                    WHERE o.Order_DateTime >= ? AND o.Order_DateTime < DATE_ADD(?, INTERVAL 7 DAY)
+                    AND p.Payment_Status = 'Completed'
+                    GROUP BY DATE(o.Order_DateTime)
                     ORDER BY date";
             $params = [$date, $date];
             $types = "ss";
@@ -226,14 +240,15 @@ function getRevenue($period, $date) {
             
         case 'monthly':
             $sql = "SELECT 
-                    DATE(Order_DateTime) as date,
-                    SUM(CASE WHEN Payment_Method = 'Cash' THEN Order_TotalAmount ELSE 0 END) as cash_total,
-                    SUM(CASE WHEN Payment_Method = 'GCash' THEN Order_TotalAmount ELSE 0 END) as gcash_total,
-                    SUM(Order_TotalAmount) as total
-                    FROM `order`
-                    WHERE DATE_FORMAT(Order_DateTime, '%Y-%m') = DATE_FORMAT(?, '%Y-%m')
-                    AND Order_Status = 'Completed'
-                    GROUP BY DATE(Order_DateTime)
+                    DATE(o.Order_DateTime) as date,
+                    SUM(CASE WHEN o.Payment_Method = 'Cash' THEN p.Payment_TotalAmount ELSE 0 END) as cash_total,
+                    SUM(CASE WHEN o.Payment_Method = 'GCash' THEN p.Payment_TotalAmount ELSE 0 END) as gcash_total,
+                    SUM(p.Payment_TotalAmount) as total
+                    FROM `order` o
+                    JOIN payment p ON o.Payment_ID = p.Payment_ID
+                    WHERE DATE_FORMAT(o.Order_DateTime, '%Y-%m') = DATE_FORMAT(?, '%Y-%m')
+                    AND p.Payment_Status = 'Completed'
+                    GROUP BY DATE(o.Order_DateTime)
                     ORDER BY date";
             $params = [$date];
             $types = "s";
@@ -268,9 +283,14 @@ function getRevenue($period, $date) {
 
 function getTopProducts() {
     global $conn;
-    $sql = "SELECT MenuItem_Name, MenuItem_Image, MenuItem_TotalSold as total_sold
-            FROM menuitem
-            ORDER BY MenuItem_TotalSold DESC
+    $sql = "SELECT m.MenuItem_Name, m.MenuItem_Image, m.MenuItem_TotalSold as total_sold
+            FROM menuitem m
+            JOIN orderitem oi ON m.MenuItem_ID = oi.MenuItem_ID
+            JOIN `order` o ON oi.Order_ID = o.Order_ID
+            JOIN payment p ON o.Payment_ID = p.Payment_ID
+            WHERE p.Payment_Status = 'Completed'
+            GROUP BY m.MenuItem_ID
+            ORDER BY SUM(oi.OrderItem_Quantity) DESC
             LIMIT 5";
     
     $result = $conn->query($sql);

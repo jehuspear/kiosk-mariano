@@ -2,6 +2,9 @@
 session_start();
 include 'database_admin.php';
 
+// Set timezone to Philippines
+date_default_timezone_set('Asia/Manila');
+
 // Check if user is not logged in
 if(!isset($_SESSION["user_id"])) {
     header("Location: login.php");
@@ -50,12 +53,14 @@ $sql = "SELECT o.Order_ID, o.Order_DateTime, o.Order_TicketNumber,
                o.Order_EatingOption, o.Order_TotalAmount, o.Payment_Method,
                oi.MenuItem_ID, m.MenuItem_Name, oi.OrderItem_CupSize,
                oi.OrderItem_Quantity, oi.OrderItem_Price,
-               p.Payment_DiscountType, p.Payment_DiscountAmount
+               p.Payment_DiscountType, p.Payment_DiscountAmount,
+               p.Payment_CashPaid, p.Payment_Change, p.Payment_ReferenceNumber,
+               p.Payment_TotalAmount
         FROM `order` o
         LEFT JOIN orderitem oi ON o.Order_ID = oi.Order_ID
         LEFT JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID
         LEFT JOIN payment p ON o.Payment_ID = p.Payment_ID
-        WHERE o.Order_Status = 'Completed'
+        WHERE p.Payment_Status = 'Completed'
         AND o.Order_DateTime BETWEEN ? AND ?
         ORDER BY o.Order_DateTime DESC";
 
@@ -80,20 +85,24 @@ while ($row = $result->fetch_assoc()) {
             'ticket' => $row['Order_TicketNumber'],
             'eating_option' => $row['Order_EatingOption'],
             'payment_method' => $row['Payment_Method'],
-            'total' => $row['Order_TotalAmount'],
+            'subtotal' => $row['Order_TotalAmount'],
+            'total' => $row['Payment_TotalAmount'],
             'discount_type' => $row['Payment_DiscountType'],
             'discount_amount' => $row['Payment_DiscountAmount'],
+            'cash_paid' => $row['Payment_CashPaid'],
+            'change' => $row['Payment_Change'],
+            'reference_number' => $row['Payment_ReferenceNumber'],
             'items' => []
         ];
         
         // Update totals
         $totalOrders++;
         if ($row['Payment_Method'] === 'Cash') {
-            $cashSales += $row['Order_TotalAmount'];
+            $cashSales += $row['Payment_TotalAmount'];
         } else if ($row['Payment_Method'] === 'GCash') {
-            $gcashSales += $row['Order_TotalAmount'];
+            $gcashSales += $row['Payment_TotalAmount'];
         }
-        $totalSales += $row['Order_TotalAmount'];
+        $totalSales += $row['Payment_TotalAmount'];
     }
     
     $orders[$orderId]['items'][] = [
@@ -114,6 +123,7 @@ while ($row = $result->fetch_assoc()) {
     <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
     <link rel="stylesheet" href="Css-admin/sidebar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Css-admin/payment-details.css">
     <style>
         .main-content {
             padding: 20px;
@@ -357,10 +367,21 @@ while ($row = $result->fetch_assoc()) {
                                     <?php echo $order['eating_option']; ?>
                                 </span>
                             </div>
-                            <div>
+                            <div class="payment-info">
                                 <span class="payment-method <?php echo $order['payment_method'] === 'Cash' ? 'payment-cash' : 'payment-gcash'; ?>">
                                     <?php echo $order['payment_method']; ?>
                                 </span>
+                                <?php if ($order['payment_method'] === 'Cash'): ?>
+                                    <div class="payment-details">
+                                        <span class="payment-amount">Cash: ₱<?php echo number_format($order['cash_paid'], 2); ?></span>
+                                        <span class="payment-separator">|</span>
+                                        <span class="payment-amount">Change: ₱<?php echo number_format($order['change'], 2); ?></span>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="payment-details">
+                                        Ref #: <span class="reference-number"><?php echo $order['reference_number']; ?></span>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                         <div class="order-items">
@@ -376,6 +397,9 @@ while ($row = $result->fetch_assoc()) {
                                 </div>
                             <?php endforeach; ?>
                         </div>
+                        <div class="order-total text-muted">
+                            Sub Total: ₱<?php echo number_format($order['subtotal'], 2); ?>
+                        </div>
                         <?php if ($order['discount_amount'] > 0): ?>
                             <div class="order-total text-muted">
                                 Discount (<?php echo $order['discount_type']; ?>): 
@@ -383,7 +407,7 @@ while ($row = $result->fetch_assoc()) {
                             </div>
                         <?php endif; ?>
                         <div class="order-total">
-                            Total: ₱<?php echo number_format($order['total'], 2); ?>
+                            Total Amount: ₱<?php echo number_format($order['total'], 2); ?>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -400,13 +424,11 @@ while ($row = $result->fetch_assoc()) {
                     <span>Total Orders:</span>
                     <span><?php echo $totalOrders; ?></span>
                 </div>
-                <div class="summary-item" style="background-color: #c8e6c9;
-            color: #2e7d32;">
+                <div class="summary-item" style="background-color: #c8e6c9; color: #2e7d32;">
                     <span>Cash Sales:</span>
                     <span>₱<?php echo number_format($cashSales, 2); ?></span>
                 </div>
-                <div class="summary-item" style=" background-color: #bbdefb;
-            color: #1565c0;">
+                <div class="summary-item" style="background-color: #bbdefb; color: #1565c0;">
                     <span>GCash Sales:</span>
                     <span>₱<?php echo number_format($gcashSales, 2); ?></span>
                 </div>
@@ -417,7 +439,6 @@ while ($row = $result->fetch_assoc()) {
             </div>
         </div>
     </div>
- 
 
     <script src="Css-admin/bootstrap.bundle.min.js"></script>
     <script src="Javascript-admin/mobile-menu.js"></script>

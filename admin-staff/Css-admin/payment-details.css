@@ -1,0 +1,73 @@
+.payment-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.payment-details {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 5px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reference-number {
+    font-family: monospace;
+    background: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: #1565c0;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.payment-method {
+    margin-bottom: 2px;
+}
+
+.payment-cash {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.payment-gcash {
+    background-color: #bbdefb;
+    color: #1565c0;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.payment-amount {
+    font-weight: 500;
+}
+
+.payment-separator {
+    color: #999;
+    margin: 0 4px;
+}
+
+@media print {
+    .payment-details {
+        color: #333 !important;
+    }
+    .reference-number {
+        background: #f8f9fa !important;
+        color: #1565c0 !important;
+    }
+    .payment-cash {
+        background-color: #c8e6c9 !important;
+        color: #2e7d32 !important;
+    }
+    .payment-gcash {
+        background-color: #bbdefb !important;
+        color: #1565c0 !important;
+    }
+}

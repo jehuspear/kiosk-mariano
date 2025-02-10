@@ -4989,3 +4989,138 @@
 
 [2025-02-10 16:53:42] New total quantity: 14
 [2025-02-10 16:53:42] Response sent: {"success":true,"cartCount":14,"totalAmount":630,"message":"Item added to cart successfully"}
+[2025-02-10 18:46:23] Raw POST data: {"id":12,"name":"Blue Punch Mocktail","price":100,"description":"A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.","image":"../admin-staff/Images/menu-item/blue_mocktail.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-10 18:46:23] Decoded data: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [price] => 100
+    [description] => A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-10 18:46:23] Item added to cart: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-10 18:46:23] New total quantity: 1
+[2025-02-10 18:46:23] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-10 18:48:44] Raw POST data: {"id":17,"name":"Shirley Temple","price":100,"description":"Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail","image":"../admin-staff/Images/menu-item/shirly temple.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-10 18:48:44] Decoded data: Array
+(
+    [id] => 17
+    [name] => Shirley Temple
+    [price] => 100
+    [description] => Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail
+    [image] => ../admin-staff/Images/menu-item/shirly temple.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-10 18:48:44] Item added to cart: Array
+(
+    [id] => 17
+    [name] => Shirley Temple
+    [image] => ../admin-staff/Images/menu-item/shirly temple.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-10 18:48:44] New total quantity: 1
+[2025-02-10 18:48:44] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-10 18:49:28] Raw POST data: {"id":17,"name":"Shirley Temple","price":100,"description":"Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail","image":"../admin-staff/Images/menu-item/shirly temple.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-10 18:49:28] Decoded data: Array
+(
+    [id] => 17
+    [name] => Shirley Temple
+    [price] => 100
+    [description] => Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail
+    [image] => ../admin-staff/Images/menu-item/shirly temple.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-10 18:49:28] Item added to cart: Array
+(
+    [id] => 17
+    [name] => Shirley Temple
+    [image] => ../admin-staff/Images/menu-item/shirly temple.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-10 18:49:28] New total quantity: 1
+[2025-02-10 18:49:28] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-10 18:53:09] Raw POST data: {"id":17,"name":"Shirley Temple","price":100,"description":"Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail","image":"../admin-staff/Images/menu-item/shirly temple.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-10 18:53:09] Decoded data: Array
+(
+    [id] => 17
+    [name] => Shirley Temple
+    [price] => 100
+    [description] => Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail
+    [image] => ../admin-staff/Images/menu-item/shirly temple.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-10 18:53:09] Item added to cart: Array
+(
+    [id] => 17
+    [name] => Shirley Temple
+    [image] => ../admin-staff/Images/menu-item/shirly temple.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-10 18:53:09] New total quantity: 1
+[2025-02-10 18:53:09] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-10 18:55:36] Raw POST data: {"id":19,"name":"Orange Sunrise","price":100,"description":"Need a fun brunch drink. This sunrise mocktail has you covered. It is eye-catching, tasty, and 100% alcohol-free.","image":"../admin-staff/Images/menu-item/orange sunrise.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-10 18:55:36] Decoded data: Array
+(
+    [id] => 19
+    [name] => Orange Sunrise
+    [price] => 100
+    [description] => Need a fun brunch drink. This sunrise mocktail has you covered. It is eye-catching, tasty, and 100% alcohol-free.
+    [image] => ../admin-staff/Images/menu-item/orange sunrise.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-10 18:55:36] Item added to cart: Array
+(
+    [id] => 19
+    [name] => Orange Sunrise
+    [image] => ../admin-staff/Images/menu-item/orange sunrise.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-10 18:55:36] New total quantity: 1
+[2025-02-10 18:55:36] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}

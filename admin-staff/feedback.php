@@ -69,7 +69,7 @@ $averageRating = $totalRatings > 0 ? round($totalScore / $totalRatings, 1) : 0;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feedbackscreen</title>
+  <title>Customer Feedback - SINCO CAFE</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    <!-- Add Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -138,33 +138,81 @@ $averageRating = $totalRatings > 0 ? round($totalScore / $totalRatings, 1) : 0;
                 border-radius: 4px;
                 margin: 10px 0;
             }
+            .stats-container {
+                max-width: 100%;
+                margin: 0 auto 20px;
+                padding: 0 10px;
+            }
             .feedback-summary {
                 display: flex;
                 justify-content: center;
-                gap: 40px;
-                margin: 20px 0 30px;
-                padding: 20px;
+                gap: 15px;
+                margin: 15px 0;
+                padding: 12px;
                 background: #fff;
                 border-radius: 8px;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .feedback-summary:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.15);
             }
             .summary-item {
                 text-align: center;
-                padding: 0 20px;
+                padding: 0 12px;
+                flex: 1;
+                min-width: 100px;
             }
             .summary-item h3 {
-                font-size: 24px;
+                font-size: clamp(16px, 2.5vw, 20px);
                 margin: 0;
                 color: #333;
+                white-space: nowrap;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
             }
             .summary-item h3 i {
                 color: #ffc107;
-                font-size: 20px;
+                font-size: 0.8em;
             }
             .summary-item p {
-                margin: 5px 0 0;
+                margin: 3px 0 0;
                 color: #666;
-                font-size: 0.9em;
+                font-size: clamp(0.75em, 1.8vw, 0.85em);
+            }
+            .chart-container {
+                background: linear-gradient(145deg, #383838, #2a2a2a);
+                padding: 12px;
+                border-radius: 8px;
+                box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+                height: 512px;
+                width: 100%;
+            }
+            @media (max-width: 576px) {
+                .stats-container {
+                    padding: 0 8px;
+                    margin-bottom: 15px;
+                }
+                .feedback-summary {
+                    padding: 8px;
+                    gap: 8px;
+                    margin: 10px 0;
+                }
+                .summary-item {
+                    padding: 0 8px;
+                }
+                .chart-container {
+                    height: 130px;
+                    padding: 8px;
+                }
+            }
+            h1 {
+                margin: clamp(15px, 3vw, 25px) 0;
+                font-size: clamp(24px, 4vw, 32px);
+                text-align: center;
             }
         </style>
 </head>
@@ -177,18 +225,22 @@ $averageRating = $totalRatings > 0 ? round($totalScore / $totalRatings, 1) : 0;
     <div class="main-content">
     <h1>Customer Feedback</h1>
     
-    <div class="feedback-summary">
-        <div class="summary-item">
-            <h3><?php echo $totalRatings; ?></h3>
-            <p>Total Feedbacks</p>
+    <div class="stats-container">
+        <div class="feedback-summary">
+            <div class="summary-item">
+                <h3><?php echo $totalRatings; ?></h3>
+                <p>Total Feedbacks</p>
+            </div>
+            <div class="summary-item">
+                <h3><?php echo $averageRating; ?> <i class="fas fa-star"></i></h3>
+                <p>Average Rating</p>
+            </div>
         </div>
-        <div class="summary-item">
-            <h3><?php echo $averageRating; ?> <i class="fas fa-star"></i></h3>
-            <p>Average Rating</p>
+
+        <div class="chart-container">
+            <canvas id="ratingChart"></canvas>
         </div>
     </div>
-
-    <canvas id="ratingChart"></canvas> <!-- Chart with margin -->
 
     <!-- Feedback List -->
     <div class="feedback-container">
@@ -236,47 +288,116 @@ $averageRating = $totalRatings > 0 ? round($totalScore / $totalRatings, 1) : 0;
             datasets: [{
                 label: 'Rating Distribution',
                 data: <?php echo json_encode(array_values($ratingChart)); ?>,
-                backgroundColor: [
-                    '#ff6b6b',  // Red for 1 star
-                    '#ffd93d',  // Yellow for 2 stars
-                    '#6c757d',  // Gray for 3 stars
-                    '#4dabf7',  // Blue for 4 stars
-                    '#51cf66'   // Green for 5 stars
+                backgroundColor: function(context) {
+                    const chart = context.chart;
+                    const {ctx, chartArea} = chart;
+                    
+                    if (!chartArea) {
+                        return null;
+                    }
+                    
+                    const colors = [
+                        ['#ff6b6b', '#ff4444'],  // Red gradient
+                        ['#ffd93d', '#ffc107'],  // Yellow gradient
+                        ['#6c757d', '#495057'],  // Gray gradient
+                        ['#4dabf7', '#339af0'],  // Blue gradient
+                        ['#51cf66', '#40c057']   // Green gradient
+                    ];
+                    
+                    const index = context.dataIndex;
+                    const gradient = ctx.createLinearGradient(0, 0, chartArea.right, 0);
+                    gradient.addColorStop(0, colors[index][0]);
+                    gradient.addColorStop(1, colors[index][1]);
+                    
+                    return gradient;
+                },
+                hoverBackgroundColor: [
+                    '#ff4444',  // Darker red
+                    '#ffc107',  // Darker yellow
+                    '#495057',  // Darker gray
+                    '#339af0',  // Darker blue
+                    '#40c057'   // Darker green
                 ]
             }]
         },
-        options: {
-            indexAxis: 'y',
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 1000,
+                    easing: 'easeInOutQuart'
                 },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            return context.raw.toFixed(1) + '% of ratings';
-                        }
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    max: 100,
-                    ticks: {
-                        callback: function(value) {
-                            return value + '%';
-                        }
+                layout: {
+                    padding: {
+                        left: 5,
+                        right: 10,
+                        top: 5,
+                        bottom: 5
                     }
                 },
-                y: {
-                    grid: {
+                color: '#fff',
+                plugins: {
+                    legend: {
                         display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(40, 40, 40, 0.95)',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        padding: 8,
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw.toFixed(1) + '% of ratings';
+                            }
+                        },
+                        titleFont: {
+                            size: 10,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 10
+                        },
+                        borderColor: 'rgba(255, 255, 255, 0.1)',
+                        borderWidth: 1
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            },
+                            font: {
+                                size: function(context) {
+                                    const width = context.chart.width;
+                                    return width < 400 ? 9 : 11;
+                                }
+                            },
+                            color: '#fff'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: function(context) {
+                                    const width = context.chart.width;
+                                    return width < 400 ? 9 : 11;
+                                }
+                            },
+                            color: '#fff'
+                        }
                     }
                 }
             }
-        }
     });
 </script>
 

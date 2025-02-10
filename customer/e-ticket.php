@@ -154,8 +154,8 @@ if (!$ticketNumber) {
         }
 
         .btn-status {
-            background-color: white;
-            color: black;
+            background-color: #28a745;
+            color: white;
         }
 
         .btn-next {
@@ -165,10 +165,12 @@ if (!$ticketNumber) {
 
         .btn-status:hover {
             background-color: #f0f0f0;
+            color: #333;
         }
 
         .btn-next:hover {
-            background-color: #218838;
+            background-color: #f0f0f0;
+            color: #333;
         }
     </style>
 </head>
@@ -204,12 +206,13 @@ if (!$ticketNumber) {
         <style>
     /* Add to existing button styles */
     .btn-feedback {
-        background-color: white; 
-        color: black;
+        background-color: #28a745;
+        color: white;
     }
     
     .btn-feedback:hover {
-        background-color: white;
+        background-color: #f0f0f0;
+        color: #333;
     }
 </style>
     </div>

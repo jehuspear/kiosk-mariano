@@ -96,6 +96,7 @@
     font-weight: 600;
 }
 
+
 .category-item img {
     width: 28px;
     height: 28px;
@@ -109,6 +110,9 @@
     word-wrap: break-word;
     line-height: 1.2;
 }
+.category-item:hover span {
+    color: #fff;
+ }
 
 .menu-content {
     padding-top: 40px;

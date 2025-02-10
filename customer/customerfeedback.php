@@ -143,6 +143,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .btn-primary {
             background-color: #28a745;
             border: none;
+            color: white;
+            border: none;
+            padding: 12px;
+            /* border-radius: 25px; */
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            text-align: center;
         }
 
         .btn-secondary {
@@ -153,6 +162,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .btn:hover {
             opacity: 0.9;
             cursor: pointer;
+            background-color: #218838;
+            color: white;
+            text-decoration: none;
         }
 
         /* Modal Styling */
@@ -186,6 +198,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <input type="text" class="name-input" id="customer-name" placeholder="Enter Name Here (Optional)">
         <button class="btn btn-primary" id="next-button">Next</button>
+        <div class="">
+        <a href="e-ticket.php" class="btn btn-primary">Back to your E-Ticket Number</a>
+    </div>
     </div>
 
     <!-- Second Screen -->

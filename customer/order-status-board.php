@@ -30,8 +30,8 @@ $stmt->bind_param("ss", $today_start, $today_end);
 $stmt->execute();
 $result = $stmt->get_result();
 
-echo "\nPreparing Orders Query:\n" . $preparingSql . "\n";
-echo "Preparing Orders Found: " . $result->num_rows . "\n";
+// echo "\nPreparing Orders Query:\n" . $preparingSql . "\n";
+// echo "Preparing Orders Found: " . $result->num_rows . "\n";
 
 while ($row = $result->fetch_assoc()) {
     $formattedNumber = str_pad($row['Order_TicketNumber'], 3, '0', STR_PAD_LEFT);
@@ -49,8 +49,8 @@ $stmt->bind_param("ss", $today_start, $today_end);
 $stmt->execute();
 $result = $stmt->get_result();
 
-echo "\nClaim Orders Query:\n" . $claimSql . "\n";
-echo "Claim Orders Found: " . $result->num_rows . "\n";
+// echo "\nClaim Orders Query:\n" . $claimSql . "\n";
+// echo "Claim Orders Found: " . $result->num_rows . "\n";
 
 while ($row = $result->fetch_assoc()) {
     $formattedNumber = str_pad($row['Order_TicketNumber'], 3, '0', STR_PAD_LEFT);

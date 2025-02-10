@@ -200,6 +200,18 @@ if (!$ticketNumber) {
     <div class="action-buttons">
         <button class="btn btn-status" onclick="window.location.href='orderstatus.php'">View Your Order Details</button>
         <button class="btn btn-next" onclick="window.open('order-status-board.php', '_blank')">View Order Status Board</button>
+        <button class="btn btn-feedback" onclick="window.location.href='customerfeedback.php'">Submit Feedback</button>
+        <style>
+    /* Add to existing button styles */
+    .btn-feedback {
+        background-color: white; 
+        color: black;
+    }
+    
+    .btn-feedback:hover {
+        background-color: white;
+    }
+</style>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->

@@ -48,7 +48,7 @@ function renderSidebar($currentPage = '') {
                     <h5 class="sidebar-heading">Management</h5>
                     <ul class="nav">
                         <li class="<?php echo $currentPage === 'home' ? 'active' : ''; ?>">
-                            <a href="home.php"><i class="fa-solid fa-chart-line"></i> <span>Dashboard</span></a>
+                            <a href="home.php"><i class="fa-solid fa-home"></i> <span>Home Dashboard</span></a>
                         </li>
                         <li class="<?php echo $currentPage === 'staff-management' ? 'active' : ''; ?>">
                             <a href="staff-management.php"><i class="fa-solid fa-users"></i> <span>Staff</span></a>

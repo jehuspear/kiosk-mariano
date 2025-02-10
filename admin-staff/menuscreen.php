@@ -1,12 +1,10 @@
 <?php
-session_start();
-
-// Check if user is not logged in
-if(!isset($_SESSION["user_id"])) {
-    header("Location: login.php");
-    exit();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
 
+// Include access control
+require_once 'check_admin_access.php';
 include 'database_admin.php';
 
 // Fetch menu items and their sizes from database

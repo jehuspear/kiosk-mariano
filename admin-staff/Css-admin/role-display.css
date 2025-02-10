@@ -1,0 +1,47 @@
+/* Role display styling */
+.welcome-text {
+    text-align: center;
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.welcome-text small {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    margin-top: 5px;
+}
+
+/* Error message styling */
+.alert {
+    margin: 15px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.alert-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.alert .btn-close {
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+}
+
+.alert .btn-close:hover {
+    opacity: 1;
+}
+
+/* Role-specific colors */
+.welcome-text small.role-admin {
+    background: #28a745;
+}
+
+.welcome-text small.role-staff {
+    background: #007bff;
+}

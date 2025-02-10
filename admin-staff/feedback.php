@@ -8,6 +8,9 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
+// Include access control
+require_once 'check_admin_access.php';
+
 // Fetch username for the sidebar
 // $username = $_SESSION['Staff_Username'];
 

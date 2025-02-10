@@ -1,15 +1,27 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['error_message'] = 'Please log in to access this page.';
+    header('Location: login.php');
+    exit;
+}
+
+// Check if user has admin role
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'Admin') {
+    // $_SESSION['error_message'] = 'Access denied. This page is only accessible to administrators.';
+    header('Location: pending-orders.php');
+    exit;
+}
+
+// Include database connection
 include 'database_admin.php';
 
 // Set timezone to Philippines
 date_default_timezone_set('Asia/Manila');
-
-// Check if user is not logged in
-if(!isset($_SESSION["user_id"])) {
-    header("Location: login.php");
-    exit();
-}
 
 // Get staff details
 $staff_query = "SELECT Staff_FirstName, Staff_MiddleName, Staff_LastName 

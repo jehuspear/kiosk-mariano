@@ -1,222 +1,153 @@
 <?php
 session_start();
 
-// Check if user is not logged in
-if(!isset($_SESSION["user_id"])) {
-    header("Location: login.php");
-    exit();
+// Redirect if not logged in
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
 }
 
-// Check if user is not admin
-if($_SESSION["role"] !== "Admin") {
-    header("Location: login.php");
-    exit();
+// Include access control
+require_once 'check_admin_access.php';
+
+// Include error message display
+// require_once 'includes/error_message.php';
+
+// Set timezone to Philippines
+date_default_timezone_set('Asia/Manila');
+
+// Get today's date range in Manila time
+$today_start = date('Y-m-d 00:00:00');
+$today_end = date('Y-m-d 23:59:59');
+
+// Get low stock items
+include 'database_admin.php';
+$low_stock_query = "SELECT MenuItem_Name, MenuItem_TotalStocks 
+                    FROM menuitem 
+                    WHERE MenuItem_TotalStocks <= 10 
+                    ORDER BY MenuItem_TotalStocks ASC 
+                    LIMIT 5";
+$low_stock_result = $conn->query($low_stock_query);
+$low_stock_items = [];
+while ($row = $low_stock_result->fetch_assoc()) {
+    $low_stock_items[] = $row;
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Staff Management</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
-        <link rel="stylesheet" href="Css-admin/home.css">
-        <link rel="stylesheet" href="Css-admin/sidebar.css">
-    </head>
-    <body>
-        <div class="wrapper">
-            <?php 
-            require_once 'includes/sidebar.php';
-            renderSidebar('staff');
-            ?>
-            <!-- Main Content -->
-            <div class="main-content">
-                <!-- Page Title Bar -->
-                <div class="page-title-bar">
-                    <div class="d-flex align-items-center" style="text-align: center;">
-                        <div class="mobile-menu-toggle d-lg-none">
-                            <button class="btn btn-dark" id="sidebarToggle">
-                                <i class="fas fa-bars"></i>
-                            </button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SINCO CAFE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
+    <link rel="stylesheet" href="Css-admin/sidebar.css">
+    <link rel="stylesheet" href="Css-admin/dashboard-dark.css">
+    <link rel="stylesheet" href="Css-admin/reports.css">
+
+</head>
+<body>
+    <div class="wrapper">
+        <?php 
+        require_once 'includes/sidebar.php';
+        renderSidebar('home');
+        ?>
+
+        <div class="main-content">
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle d-lg-none">
+                <button class="btn btn-dark" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="dashboard-container">
+                <div class="main-chart-area">
+                    <!-- Customer Count Section -->
+                    <div class="chart-section">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Customer Count</h3>
+                            <div class="chart-controls">
+                                <select class="period-select" data-chart-type="customer">
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                </select>
+                                <input type="date" class="date-input" data-chart-type="customer">
+                            </div>
                         </div>
-                        <h2 >Staff Management</h2>
+                        <canvas id="customerChart" class="chart-canvas"></canvas>
                     </div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addStaffModal">
-                        <i class="fas fa-plus"></i> Add New Staff
-                    </button>
+                    <!-- Top Products Section -->
+                    <div class="chart-section">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Top 5 Best-Selling Products</h3>
+                        </div>
+                        <canvas id="topProductsChart" class="chart-canvas"></canvas>
+                    </div>
                 </div>
 
-                <div class="container">
-                    
-                    <!-- Search Bar -->
-                    <div class="row mb-4">
-                        <div class="col">
-                            <input type="text" id="searchStaff" class="form-control" placeholder="Search staff...">
+                <div class="side-panels">
+                    <!-- Products Sold Panel -->
+                    <div class="stat-panel">
+                        <div class="stat-title">Products Sold</div>
+                        <div class="stat-value" id="productsSold">0</div>
+                    </div>
+
+                    <!-- Revenue Panel -->
+                    <div class="stat-panel">
+                        <div class="stat-title">Revenue</div>
+                        <div class="stat-value" id="totalRevenue">₱0.00</div>
+
+                        <div class="revenue-details">
+                            <div class="revenue-item">
+                                <span class="revenue-label">Cash Sales</span>
+                                <span class="revenue-value" id="cashTotal">₱0.00</span>
+                            </div>
+                            <div class="revenue-item">
+                                <span class="revenue-label">GCash Sales</span>
+                                <span class="revenue-value" id="gcashTotal">₱0.00</span>
+                            </div>
+                            <div class="revenue-item total-sales">
+                                <span class="revenue-label">Total Sales</span>
+                                <span class="revenue-value" id="grandTotal">₱0.00</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Staff Table -->
-                    <div class="table-responsive" style="text-align: center;">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Staff ID</th>
-                                    <th>Email</th>
-                                    <th>Full Name</th>
-                                    <th>Role</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="staffTableBody">
-                                <!-- Staff data will be loaded here dynamically -->
-                            </tbody>
-                        </table>
+                    <!-- Low Stock Items Panel -->
+                    <div class="low-stock-panel">
+                        <div class="low-stock-title">
+                            <i class="fas fa-exclamation-triangle"></i> Low Stock Alert
+                        </div>
+                        <?php if (!empty($low_stock_items)): ?>
+                            <?php foreach ($low_stock_items as $item): ?>
+                                <div class="low-stock-item">
+                                    <span class="item-name"><?php echo $item['MenuItem_Name']; ?></span>
+                                    <span class="stock-count"><?php echo $item['MenuItem_TotalStocks']; ?> left</span>
+                                </div>
+                            <?php endforeach; ?>
+                            <div class="stock-warning">
+                                These items need to be restocked soon!
+                            </div>
+                        <?php else: ?>
+                            <div class="text-center">
+                                No items are running low on stock.
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Add Staff Modal -->
-        <div class="modal fade" id="addStaffModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Add New Staff</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="addStaffForm">
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="firstName" placeholder="First Name" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="middleName" placeholder="Middle Name" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="lastName" placeholder="Last Name" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="email" class="form-control" name="email" placeholder="Email" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="username" placeholder="Username" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" class="form-control" name="password" placeholder="Password" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="contactNumber" placeholder="Contact Number" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="address" placeholder="Address" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="date" class="form-control" name="birthDate" required>
-                            </div>
-                            <div class="mb-3">
-                                <select class="form-control" name="role" required>
-                                    <option value="Staff">Staff</option>
-                                    <option value="Admin">Admin</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <select class="form-control" name="status" required>
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="saveStaffBtn">Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Edit Staff Modal -->
-        <div class="modal fade" id="editStaffModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Edit Staff</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="editStaffForm">
-                            <input type="hidden" name="staffId">
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="firstName" placeholder="First Name" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="middleName" placeholder="Middle Name" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="lastName" placeholder="Last Name" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="email" class="form-control" name="email" placeholder="Email" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="contactNumber" placeholder="Contact Number" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="text" class="form-control" name="address" placeholder="Address" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="date" class="form-control" name="birthDate" required>
-                            </div>
-                            <div class="mb-3">
-                                <select class="form-control" name="role" required>
-                                    <option value="Staff">Staff</option>
-                                    <option value="Admin">Admin</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <select class="form-control" name="status" required>
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="updateStaffBtn">Update</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Delete Confirmation Modal -->
-        <div class="modal fade" id="deleteStaffModal" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Delete Staff</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure you want to delete this staff member?</p>
-                        <input type="hidden" id="deleteStaffId">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- JavaScript -->
-        <script src="Javascript-admin/staff-management.js"></script>
-        <script src="Javascript-admin/mobile-menu.js"></script>
-    </body>
+    <script>
+        // Set PHP's Manila time for JavaScript to use
+        window.manilaTime = '<?php echo date('Y-m-d'); ?>';
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="Javascript-admin/mobile-menu.js"></script>
+    <script src="Javascript-admin/dashboard.js"></script>
+</body>
 </html>

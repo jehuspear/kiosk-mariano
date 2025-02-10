@@ -20,14 +20,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $Feedback_Rating = intval($_POST['Feedback_Rating']);
     $Feedback_Comments = $conn->real_escape_string($_POST['Feedback_Comments']);
     
-    // Get the latest order ID (assuming this feedback is for the most recent order)
-    $orderQuery = "SELECT Order_ID FROM `order` ORDER BY Order_DateTime DESC LIMIT 1";
-    $orderResult = $conn->query($orderQuery);
-    $Order_ID = 1; // Default to 1 if no orders exist
+    // Start session to get ticket number
+    session_start();
     
-    if ($orderResult && $orderResult->num_rows > 0) {
-        $orderRow = $orderResult->fetch_assoc();
-        $Order_ID = $orderRow['Order_ID'];
+    // Get Order_ID based on ticket number from session
+    $Order_ID = null;
+    if (isset($_SESSION['ticket_number'])) {
+        $ticketNumber = $_SESSION['ticket_number'];
+        
+        // Get today's date range in Manila time
+        date_default_timezone_set('Asia/Manila');
+        $today_start = date('Y-m-d 00:00:00');
+        $today_end = date('Y-m-d 23:59:59');
+        
+        $orderQuery = "SELECT Order_ID, Order_Status FROM `order` 
+                      WHERE Order_TicketNumber = ? 
+                      AND Order_DateTime BETWEEN ? AND ?";
+        $stmt = $conn->prepare($orderQuery);
+        $stmt->bind_param("iss", $ticketNumber, $today_start, $today_end);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if ($result && $result->num_rows > 0) {
+            $orderRow = $result->fetch_assoc();
+            $Order_ID = $orderRow['Order_ID'];
+            
+            // Check if order is completed
+            if ($orderRow['Order_Status'] !== 'Completed') {
+                echo json_encode(["status" => "error", "message" => "Feedback can only be submitted for completed orders"]);
+                exit();
+            }
+            
+            // Check if feedback already exists for this order
+            $feedbackCheck = $conn->prepare("SELECT COUNT(*) as count FROM feedback WHERE Order_ID = ?");
+            $feedbackCheck->bind_param("i", $Order_ID);
+            $feedbackCheck->execute();
+            $feedbackResult = $feedbackCheck->get_result();
+            $feedbackCount = $feedbackResult->fetch_assoc()['count'];
+            $feedbackCheck->close();
+            
+            if ($feedbackCount > 0) {
+                echo json_encode(["status" => "error", "message" => "Feedback has already been submitted for this order"]);
+                exit();
+            }
+        } else {
+            echo json_encode(["status" => "error", "message" => "Order not found for this ticket number"]);
+            exit();
+        }
+        $stmt->close();
+    } else {
+        echo json_encode(["status" => "error", "message" => "No ticket number found in session"]);
+        exit();
     }
 
     $sql = "INSERT INTO feedback (Order_ID, Feedback_CustomerName, Feedback_DateTime, Feedback_Rating, Feedback_Comments) 
@@ -49,6 +92,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 
+<?php
+// Start session at the beginning to check for ticket number
+session_start();
+
+// Check if user has a valid ticket number
+if (!isset($_SESSION['ticket_number'])) {
+    header('Location: e-ticket.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -242,7 +295,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Your feedback has been submitted.</p>
+                <p>Thank you for your feedback for Order #<?php echo htmlspecialchars($_SESSION['ticket_number']); ?>!</p>
+                <p>We appreciate your time in helping us improve our service.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
@@ -277,11 +331,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         );
 
-        // Function to show alert modal
-        function showAlert(message) {
+        // Function to show alert modal with optional title and callback
+        function showAlert(message, title = 'Alert', callback = null) {
+            $('#alertModalLabel').text(title);
             $('#alert-message').text(message);
-            $('#alert-modal').modal('show');
+            const modal = $('#alert-modal');
+            
+            if (callback) {
+                modal.one('hidden.bs.modal', callback);
+            }
+            
+            modal.modal('show');
         }
+
+        // Check session status periodically
+        function checkSession() {
+            $.get('check_session.php', function(response) {
+                if (!response.hasTicket) {
+                    if (response.message) {
+                        showAlert(response.message, 'Feedback Already Submitted', function() {
+                            window.location.href = 'e-ticket.php';
+                        });
+                    } else {
+                        showAlert('Your session has expired. You will be redirected to the e-ticket page.', 'Session Expired', function() {
+                            window.location.href = 'e-ticket.php';
+                        });
+                    }
+                }
+            });
+        }
+
+        // Initial session check
+        checkSession();
+
+        // Check session every 30 seconds
+        setInterval(checkSession, 30000);
 
         // Move to second screen
         $('#next-button').on('click', function () {

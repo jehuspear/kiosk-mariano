@@ -10,7 +10,7 @@
 .main-content {
     flex: 1;
     padding: 30px;
-    margin-left: 280px;
+    /* margin-left: 280px; */
     background: #1e1e1e;
     color: white;
     min-height: 200vh;

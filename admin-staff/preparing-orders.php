@@ -20,6 +20,7 @@ if(!isset($_SESSION["user_id"])) {
   
   <!-- Custom Styles -->
   <link rel="stylesheet" href="Css-admin/sidebar.css">
+  <link rel="stylesheet" href="Css-admin/sidebar-toggle.css">
   <link rel="stylesheet" href="Css-admin/orderlist.css">
   <link rel="stylesheet" href="Css-admin/preparing_orders.css">
   <link rel="stylesheet" href="Css-admin/preparing_status.css">
@@ -41,9 +42,9 @@ if(!isset($_SESSION["user_id"])) {
     ?>
 
     <main class="main-content">
-        <!-- Mobile Menu Toggle -->
-        <div class="mobile-menu-toggle d-lg-none">
-            <button class="btn btn-dark" id="sidebarToggle">
+        <!-- Menu Toggle -->
+        <div class="mobile-menu-toggle">
+            <button class="btn" id="sidebarToggle">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -193,9 +194,6 @@ if(!isset($_SESSION["user_id"])) {
     </div>
 </div>
 
-            
-            
-
 <!-- Bootstrap JS and Dependencies -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="Css-admin/bootstrap.bundle.min.js"></script>
@@ -208,6 +206,7 @@ if(!isset($_SESSION["user_id"])) {
 <script src="Javascript-admin/order_status_handler.js"></script>
 <script src="Javascript-admin/mobile-menu.js"></script>
 <script src="Javascript-admin/auto-refresh.js"></script>
+<script src="Javascript-admin/sidebar-toggle.js"></script>
 
 <script>
 // Initialize all components and handlers
@@ -396,6 +395,20 @@ document.addEventListener('DOMContentLoaded', () => {
         .action-btn i {
             font-size: 1rem;
         }
+    }
+
+    /* Always show toggle button */
+    .mobile-menu-toggle {
+        display: block !important;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1031;
+    }
+
+    #sidebarToggle {
+        background-color: #2d2d2d;
+        color: white;
     }
 </style>
 <div class="refresh-indicator">

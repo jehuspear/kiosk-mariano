@@ -8,13 +8,14 @@ window.cancelOrderHandler = async function(e) {
         
         // Get order details from the row
         const orderDetails = {
-            ticketNumber: orderRow.querySelector('.order-item:nth-child(1)').textContent,
-            date: orderRow.querySelector('.order-item:nth-child(2)').textContent.trim(), // Now includes time
-            eatingOption: orderRow.querySelector('.order-item:nth-child(3)').textContent,
-            items: orderRow.querySelector('.order-item:nth-child(5)').innerHTML,
-            itemPrices: orderRow.querySelector('.order-item:nth-child(6)').innerHTML,
-            paymentMethod: orderRow.querySelector('.order-item:nth-child(4)').textContent,
-            totalAmount: orderRow.querySelector('.order-item:nth-child(7)').textContent.replace('₱', '')
+            orderId: orderId,  // Include orderId in the details
+            ticketNumber: orderRow.querySelector('.order-item:nth-child(1)').textContent.trim(),
+            date: orderRow.querySelector('.order-item:nth-child(2)').textContent.trim(),
+            eatingOption: orderRow.querySelector('.order-item:nth-child(3)').textContent.trim(),
+            items: orderRow.querySelector('.order-item:nth-child(5)').innerHTML.trim(),
+            itemPrices: orderRow.querySelector('.order-item:nth-child(6)').innerHTML.trim(),
+            paymentMethod: orderRow.querySelector('.order-item:nth-child(4)').textContent.trim(),
+            totalAmount: orderRow.querySelector('.order-item:nth-child(7)').textContent.replace('₱', '').replace(/,/g, '').trim()
         };
         
         const modalResult = await adminModal.confirm({

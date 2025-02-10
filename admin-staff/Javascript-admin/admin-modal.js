@@ -50,7 +50,7 @@ class AdminModal {
     }
 
     setOrderDetails(order, isCancel = false) {
-        if (!order) {
+        if (!order || !order.items || !order.itemPrices || !order.totalAmount) {
             this.orderDetails.innerHTML = '';
             return;
         }
@@ -70,7 +70,7 @@ class AdminModal {
                 </div>
                 <div class="order-detail-item">
                     <span class="order-detail-label">Order ID:</span>
-                    <span class="order-detail-value">#${order.orderId.toString().padStart(8, '0')}</span>
+                    <span class="order-detail-value">#${(order.orderId || '').toString().padStart(8, '0')}</span>
                 </div>
                 <div class="order-detail-item">
                     <span class="order-detail-label">Date:</span>
@@ -95,7 +95,7 @@ class AdminModal {
                 </div>
                 <div class="order-detail-item">
                     <span class="order-detail-label">Total Amount:</span>
-                    <span class="order-detail-value total-amount">₱${subtotal.toFixed(2)}</span>
+                    <span class="order-detail-value total-amount">₱${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 <div class="order-detail-item">
                     <span class="order-detail-label">Payment Method:</span>
@@ -124,7 +124,7 @@ class AdminModal {
             </div>
             <div class="order-detail-item">
                 <span class="order-detail-label">Order ID:</span>
-                <span class="order-detail-value">#${order.orderId.toString().padStart(8, '0')}</span>
+                <span class="order-detail-value">#${(order.orderId || '').toString().padStart(8, '0')}</span>
             </div>
             <div class="order-detail-item">
                 <span class="order-detail-label">Date:</span>
@@ -149,7 +149,7 @@ class AdminModal {
             </div>
             <div class="order-detail-item">
                 <span class="order-detail-label">Sub Total:</span>
-                <span class="order-detail-value subtotal-amount">₱${subtotal.toFixed(2)}</span>
+                <span class="order-detail-value subtotal-amount">₱${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
             </div>
             <div class="order-detail-item">
                 <span class="order-detail-label">Discount Type:</span>
@@ -175,7 +175,7 @@ class AdminModal {
             </div>
             <div class="order-detail-item total-section">
                 <span class="order-detail-label">Total Amount:</span>
-                <span class="order-detail-value total-amount">₱${subtotal.toFixed(2)}</span>
+                <span class="order-detail-value total-amount">₱${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
             </div>
             <div class="order-detail-item payment-section">
                 <span class="order-detail-label">Payment Method:</span>
@@ -199,14 +199,14 @@ class AdminModal {
             const discountAmount = (subtotal * percent) / 100;
             const finalAmount = subtotal - discountAmount;
 
-            document.querySelector('.discount-amount').textContent = `₱${discountAmount.toFixed(2)}`;
-            document.querySelector('.total-amount').textContent = `₱${finalAmount.toFixed(2)}`;
+            document.querySelector('.discount-amount').textContent = `₱${discountAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.querySelector('.total-amount').textContent = `₱${finalAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
             // Update change if cash payment
             if (cashAmount) {
                 const paid = parseFloat(cashAmount.value) || 0;
                 const change = paid - finalAmount;
-                document.querySelector('.payment-change').textContent = `Change: ₱${Math.max(0, change).toFixed(2)}`;
+                document.querySelector('.payment-change').textContent = `Change: ₱${Math.max(0, change).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             }
         };
 
@@ -216,7 +216,7 @@ class AdminModal {
             const customDiscountType = document.getElementById('customDiscountType');
             const referenceNumber = document.getElementById('referenceNumber');
             const cashAmount = document.getElementById('cashAmount');
-            const totalAmount = parseFloat(document.querySelector('.total-amount').textContent.replace('₱', ''));
+            const totalAmount = parseFloat(document.querySelector('.total-amount').textContent.replace('₱', '').replace(/,/g, ''));
             const yesBtn = document.getElementById('modalYesBtn');
 
             let isValid = true;
@@ -391,8 +391,8 @@ class AdminModal {
                 const discountPercent = document.getElementById('discountPercent');
                 const referenceNumber = document.getElementById('referenceNumber');
                 const cashAmount = document.getElementById('cashAmount');
-                const totalAmount = parseFloat(document.querySelector('.total-amount').textContent.replace('₱', ''));
-                const discountAmount = parseFloat(document.querySelector('.discount-amount').textContent.replace('₱', ''));
+                const totalAmount = parseFloat(document.querySelector('.total-amount').textContent.replace('₱', '').replace(/,/g, ''));
+                const discountAmount = parseFloat(document.querySelector('.discount-amount').textContent.replace('₱', '').replace(/,/g, ''));
                 const change = cashAmount ? parseFloat(cashAmount.value || 0) - totalAmount : 0;
 
                 // Create result object

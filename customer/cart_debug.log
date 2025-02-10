@@ -4908,3 +4908,84 @@
 
 [2025-02-09 19:41:51] New total quantity: 4
 [2025-02-09 19:41:51] Response sent: {"success":true,"cartCount":4,"totalAmount":400,"message":"Item added to cart successfully"}
+[2025-02-10 16:48:01] Raw POST data: {"id":4,"name":"Latte Espanyol","price":145,"description":"Espresso combined with milk and a hint of condensed milk","image":"../admin-staff/Images/menu-item/latte-espanyol.jpg","size":"Sinco","orderType":"Take-out","quantity":15}
+[2025-02-10 16:48:01] Decoded data: Array
+(
+    [id] => 4
+    [name] => Latte Espanyol
+    [price] => 145
+    [description] => Espresso combined with milk and a hint of condensed milk
+    [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+    [size] => Sinco
+    [orderType] => Take-out
+    [quantity] => 15
+)
+
+[2025-02-10 16:48:01] Item added to cart: Array
+(
+    [id] => 4
+    [name] => Latte Espanyol
+    [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+    [size] => Sinco
+    [price] => 145
+    [quantity] => 15
+    [orderType] => Take-out
+    [temperature] => Iced
+)
+
+[2025-02-10 16:48:01] New total quantity: 15
+[2025-02-10 16:48:01] Response sent: {"success":true,"cartCount":15,"totalAmount":2175,"message":"Item added to cart successfully"}
+[2025-02-10 16:49:58] Raw POST data: {"id":6,"name":"Kape con Canela","price":150,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Sinco","orderType":"Take-out","quantity":10}
+[2025-02-10 16:49:58] Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 150
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Sinco
+    [orderType] => Take-out
+    [quantity] => 10
+)
+
+[2025-02-10 16:49:58] Item added to cart: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Sinco
+    [price] => 150
+    [quantity] => 10
+    [orderType] => Take-out
+    [temperature] => Iced
+)
+
+[2025-02-10 16:49:58] New total quantity: 10
+[2025-02-10 16:49:58] Response sent: {"success":true,"cartCount":10,"totalAmount":1500,"message":"Item added to cart successfully"}
+[2025-02-10 16:53:42] Raw POST data: {"id":26,"name":"Piccolo","price":45,"description":"a small coffee composed of a single espresso shot and heated milk.","image":"../admin-staff/Images/menu-item/piccolo.jpg","size":"6oz","orderType":"Dine-in","quantity":14}
+[2025-02-10 16:53:42] Decoded data: Array
+(
+    [id] => 26
+    [name] => Piccolo
+    [price] => 45
+    [description] => a small coffee composed of a single espresso shot and heated milk.
+    [image] => ../admin-staff/Images/menu-item/piccolo.jpg
+    [size] => 6oz
+    [orderType] => Dine-in
+    [quantity] => 14
+)
+
+[2025-02-10 16:53:42] Item added to cart: Array
+(
+    [id] => 26
+    [name] => Piccolo
+    [image] => ../admin-staff/Images/menu-item/piccolo.jpg
+    [size] => 6oz
+    [price] => 45
+    [quantity] => 14
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-10 16:53:42] New total quantity: 14
+[2025-02-10 16:53:42] Response sent: {"success":true,"cartCount":14,"totalAmount":630,"message":"Item added to cart successfully"}

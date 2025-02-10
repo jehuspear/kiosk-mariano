@@ -19,7 +19,7 @@ window.confirmOrderHandler = async function(e) {
             paymentMethod: orderRow.querySelector('.order-item:nth-child(4)').textContent.trim(),
             items: orderRow.querySelector('.order-item:nth-child(5)').innerHTML.trim(),
             itemPrices: orderRow.querySelector('.order-item:nth-child(6)').innerHTML.trim(),
-            totalAmount: orderRow.querySelector('.order-item:nth-child(7)').textContent.trim().replace('₱', '')
+            totalAmount: orderRow.querySelector('.order-item:nth-child(7)').textContent.trim().replace('₱', '').replace(/,/g, '')
         };
 
         // Debug log order details

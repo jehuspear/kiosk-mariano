@@ -334,19 +334,25 @@ error: function (xhr, status, error) {
             $('#screen1').addClass('active-screen');
         });
 
-        // Modal close event to go back to the first screen
-        $('#thank-you-modal').on('hidden.bs.modal', function () {
-            // When the modal is closed, go back to the first screen
-            $('#screen2').removeClass('active-screen');
-            $('#screen1').addClass('active-screen');
+       // In customerfeedback.php's script section, replace this:
+$('#thank-you-modal').on('hidden.bs.modal', function () {
+    // When the modal is closed, go back to the first screen
+    $('#screen2').removeClass('active-screen');
+    $('#screen1').addClass('active-screen');
 
-            // Reset the name input, rating, and other fields to their defaults
-            $('#customer-name').val(''); // Clear the name input
-            $('#feedback-text').val(''); // Clear the feedback input
-            $('#star-rating .fa-star').removeClass('active'); // Reset stars
-            selectedRating = 0; // Reset rating
-        });
+    // Reset the name input, rating, and other fields to their defaults
+    $('#customer-name').val(''); 
+    $('#feedback-text').val(''); 
+    $('#star-rating .fa-star').removeClass('active');
+    selectedRating = 0;
+});
+
+    // With this redirect code:
+        $('#thank-you-modal').on('hidden.bs.modal', function () {
+    // Redirect to e-ticket.php after closing modal
+        window.location.href = 'e-ticket.php';
     });
+ });
 </script>
 </body>
 </html>

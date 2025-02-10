@@ -120,18 +120,7 @@ if(!isset($_SESSION["user_id"])) {
                             <div class="order-item"><?php echo date('m/d/y h:i A', strtotime($row['Order_DateTime'])); ?></div>
                             <div class="order-item"><?php echo htmlspecialchars($row['Order_EatingOption']); ?></div>
                             <div class="order-item"><?php echo htmlspecialchars($row['Payment_Method']); ?></div>
-                            <div class="order-item">
-                                <?php 
-                                echo $row['items']; 
-                                echo ' <button class="thermal-print-btn" 
-                                      data-ticket="' . str_pad($row['Order_TicketNumber'], 3, '0', STR_PAD_LEFT) . '"
-                                      data-datetime="' . date('m/d/y h:i A', strtotime($row['Order_DateTime'])) . '"
-                                      data-items="' . htmlspecialchars($row['items']) . '"
-                                      title="Print Thermal Labels">
-                                      <i class="fas fa-tag"></i>
-                                      </button>';
-                                ?>
-                            </div>
+                            <div class="order-item"><?php echo $row['items']; ?></div>
                             <div class="order-item"><?php echo $row['item_prices']; ?></div>
                             <div class="order-item">₱<?php echo number_format($row['Order_TotalAmount'], 2); ?></div>
                             <div class="order-buttons">
@@ -165,7 +154,8 @@ if(!isset($_SESSION["user_id"])) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         
         <!-- Custom Scripts - Order matters! -->
-        <script src="Javascript-admin/thermal-label-printer.js"></script>
+         
+        <script src="Javascript-admin/receipt-printer.js"></script>
         <script src="Javascript-admin/admin-modal.js"></script>
         <script src="Javascript-admin/confirm_order.js"></script>
         <script src="Javascript-admin/cancel_order.js"></script>
@@ -361,37 +351,6 @@ if(!isset($_SESSION["user_id"])) {
                     font-size: 12px;
                     width: auto;
                 }
-            }
-        </style>
-        <style>
-            /* Thermal Print Button Styles */
-            .thermal-print-btn {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 24px;
-                height: 24px;
-                padding: 0;
-                margin-left: 4px;
-                border: none;
-                border-radius: 4px;
-                background-color: #17a2b8;
-                color: white;
-                cursor: pointer;
-                transition: all 0.2s ease;
-            }
-
-            .thermal-print-btn:hover {
-                background-color: #138496;
-                transform: translateY(-1px);
-            }
-
-            .thermal-print-btn:active {
-                transform: translateY(1px);
-            }
-
-            .thermal-print-btn i {
-                font-size: 12px;
             }
         </style>
 

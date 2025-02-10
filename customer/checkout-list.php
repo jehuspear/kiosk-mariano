@@ -58,6 +58,10 @@ foreach ($_SESSION['cart'] as $item) {
             <img src="resources/images/logo.png" alt="SINCO CAFE Logo" class="logo-image">
             <p class="header-tagline">Where Good Coffee Starts</p>
             <h5 class="mt-2 mb-0">Order List</h5>
+            <a href="menu.php" class="menu-btn">
+                <i class="fas fa-arrow-left"></i>
+                Menu
+            </a>
         </header>
 
         <!-- Order List -->
@@ -153,7 +157,11 @@ foreach ($_SESSION['cart'] as $item) {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Are you sure your order is final?</p>
+    <i class="fa-solid fa-clipboard-check" style="font-size: 3rem;
+        color:#28a745;
+        margin-bottom: 1rem;
+    "></i>
+                <p>Do you want to Proceed to Payment?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" id="confirmOrderButton">Yes, Proceed to Payment</button>

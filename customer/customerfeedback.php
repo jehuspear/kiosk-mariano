@@ -12,23 +12,37 @@ if ($conn->connect_error) {
 
 // Handle POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Handle empty name as NULL
+    // Handle empty name as empty string (since NOT NULL constraint)
     $Feedback_CustomerName = !empty($_POST['Feedback_CustomerName']) 
-        ? "'" . $conn->real_escape_string($_POST['Feedback_CustomerName']) . "'" 
-        : 'NULL'; 
+        ? $conn->real_escape_string($_POST['Feedback_CustomerName'])
+        : 'Anonymous'; 
 
     $Feedback_Rating = intval($_POST['Feedback_Rating']);
     $Feedback_Comments = $conn->real_escape_string($_POST['Feedback_Comments']);
-
-    $sql = "INSERT INTO feedback (Feedback_CustomerName, Feedback_Rating, Feedback_Comments) 
-            VALUES ($Feedback_CustomerName, $Feedback_Rating, '$Feedback_Comments')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo json_encode(["status" => "success", "message" => "Feedback submitted successfully!"]);
-    } else {
-        echo json_encode(["status" => "error", "message" => "Error: " . $conn->error]);
+    
+    // Get the latest order ID (assuming this feedback is for the most recent order)
+    $orderQuery = "SELECT Order_ID FROM `order` ORDER BY Order_DateTime DESC LIMIT 1";
+    $orderResult = $conn->query($orderQuery);
+    $Order_ID = 1; // Default to 1 if no orders exist
+    
+    if ($orderResult && $orderResult->num_rows > 0) {
+        $orderRow = $orderResult->fetch_assoc();
+        $Order_ID = $orderRow['Order_ID'];
     }
 
+    $sql = "INSERT INTO feedback (Order_ID, Feedback_CustomerName, Feedback_DateTime, Feedback_Rating, Feedback_Comments) 
+            VALUES (?, ?, NOW(), ?, ?)";
+            
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("isis", $Order_ID, $Feedback_CustomerName, $Feedback_Rating, $Feedback_Comments);
+
+    if ($stmt->execute()) {
+        echo json_encode(["status" => "success", "message" => "Feedback submitted successfully!"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "Error: " . $stmt->error]);
+    }
+
+    $stmt->close();
     $conn->close();
     exit();
 }
@@ -186,7 +200,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button class="btn btn-secondary" id="back-button">Cancel</button>
     </div>
 
-   <!-- Thank You Modal -->
+   <!-- Alert Modals -->
+<div id="alert-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="alertModalLabel">Alert</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="alert-message"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Thank You Modal -->
 <div id="thank-you-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="thankYouModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -230,24 +262,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         );
 
-        // Move to second screen
-       // Inside the "Next" button click handler
-$('#next-button').on('click', function () {
-    const customerName = $('#customer-name').val().trim();
-    if (selectedRating === 0) {
-        alert('Please select a star rating.'); // Only check rating
-    } else {
-        // Proceed to next screen even if name is empty
-        $('#review-stars').html('');
-        for (let i = 1; i <= 5; i++) {
-            $('#review-stars').append(
-                `<i class="fas fa-star ${i <= selectedRating ? 'active' : ''}" data-value="${i}"></i>`
-            );
+        // Function to show alert modal
+        function showAlert(message) {
+            $('#alert-message').text(message);
+            $('#alert-modal').modal('show');
         }
-        $('#screen1').removeClass('active-screen');
-        $('#screen2').addClass('active-screen');
-    }
-});
+
+        // Move to second screen
+        $('#next-button').on('click', function () {
+            const customerName = $('#customer-name').val().trim();
+            if (selectedRating === 0) {
+                showAlert('Please select a star rating.');
+            } else {
+                // Proceed to next screen even if name is empty
+                $('#review-stars').html('');
+                for (let i = 1; i <= 5; i++) {
+                    $('#review-stars').append(
+                        `<i class="fas fa-star ${i <= selectedRating ? 'active' : ''}" data-value="${i}"></i>`
+                    );
+                }
+                $('#screen1').removeClass('active-screen');
+                $('#screen2').addClass('active-screen');
+            }
+        });
 
         // Submit feedback (AJAX call to save feedback into the database)
         $('#submit-feedback').on('click', function () {
@@ -255,7 +292,7 @@ $('#next-button').on('click', function () {
             const customerName = $('#customer-name').val().trim();
 
             if (!feedbackText) {
-                alert('Please enter your feedback.');
+                showAlert('Please enter your feedback.');
                 return;
             }
 
@@ -278,15 +315,15 @@ $('#next-button').on('click', function () {
             $('#star-rating .fa-star').removeClass('active');
             selectedRating = 0;
         } else {
-            alert('Error: ' + result.message);
+            showAlert('Error: ' + result.message);
         }
     } catch (e) {
         console.error('Error:', e);
-        alert('An unexpected error occurred.');
+        showAlert('An unexpected error occurred.');
     }
 },
 error: function (xhr, status, error) {
-    alert('Request failed: ' + error);
+    showAlert('Request failed: ' + error);
 }
             });
         });

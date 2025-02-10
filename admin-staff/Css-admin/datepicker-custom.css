@@ -1,0 +1,189 @@
+/* Custom Datepicker Styling */
+.datepicker {
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    border: none;
+    font-family: 'Sarabun', sans-serif;
+    background-color: white;
+}
+
+.datepicker-dropdown {
+    margin-top: 10px;
+}
+
+.datepicker table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 3px;
+}
+
+.datepicker table tr td,
+.datepicker table tr th {
+    text-align: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.datepicker table tr td.active,
+.datepicker table tr td.active:hover {
+    background-image: none !important;
+    background-color: #007bff !important;
+    color: white !important;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+.datepicker table tr td.today {
+    background-color: #e3f2fd !important;
+    color: #007bff !important;
+    font-weight: bold;
+    position: relative;
+}
+
+.datepicker table tr td.weekend {
+    color: #dc3545;
+}
+
+.datepicker table tr td:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.datepicker .datepicker-switch,
+.datepicker .prev,
+.datepicker .next {
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.datepicker .datepicker-switch:hover,
+.datepicker .prev:hover,
+.datepicker .next:hover {
+    background-color: #e9ecef;
+}
+
+.datepicker .dow {
+    font-weight: bold;
+    color: #495057;
+    padding: 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Input group styling */
+.date-filter .input-group {
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.date-filter .input-group:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.date-filter .form-control {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    font-size: 15px;
+    background-color: white;
+    font-weight: 500;
+}
+
+.date-filter .input-group-text {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 0 20px;
+    transition: background-color 0.3s ease;
+    height: 100%;
+}
+
+.date-filter .input-group-text:hover {
+    background-color: #0056b3;
+    cursor: pointer;
+}
+
+.date-filter .input-group-text i {
+    font-size: 18px;
+}
+
+/* Month and Year Dropdown Styling */
+.datepicker .datepicker-months .month,
+.datepicker .datepicker-years .year {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 8px;
+    width: 60px;
+    margin: 3px;
+    transition: all 0.2s ease;
+}
+
+.datepicker .datepicker-months .month:hover,
+.datepicker .datepicker-years .year:hover {
+    background-color: #e9ecef;
+    transform: scale(1.1);
+}
+
+.datepicker .datepicker-months .month.active,
+.datepicker .datepicker-years .year.active {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Clear Button Styling */
+.datepicker .datepicker-clear-btn {
+    color: #dc3545;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.datepicker .datepicker-clear-btn:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Navigation Arrows */
+.datepicker .prev i,
+.datepicker .next i {
+    font-size: 14px;
+    color: #007bff;
+}
+
+/* Today Button Styling */
+.datepicker .today-btn {
+    background-color: #e3f2fd;
+    color: #007bff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.datepicker .today-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Selected Date Display */
+.text-wrapper-10 small {
+    display: block;
+    margin-top: 5px;
+    font-style: italic;
+    color: #6c757d;
+}

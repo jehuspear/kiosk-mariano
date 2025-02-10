@@ -342,6 +342,11 @@ if ($ticketNumber) {
     </style>
 </head>
 <body>
+    <!-- Audio element for notification -->
+    <audio id="notificationSound" preload="auto">
+        <source src="resources/notification/notification.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="logo-container">
         <img src="resources/images/logo.png" alt="SINCO CAFE Logo" class="logo-image">
         <p class="tagline">Where Good Coffee Starts</p>
@@ -494,7 +499,97 @@ if ($ticketNumber) {
     <!-- Custom Modal JS -->
     <script src="javascript/order-status-modal.js"></script>
     <script>
+        // Service Worker and Push Notification Setup
+        async function registerServiceWorker() {
+            try {
+                if ('serviceWorker' in navigator && 'PushManager' in window) {
+                    const registration = await navigator.serviceWorker.register('service-worker.js');
+                    console.log('Service Worker registered');
+                    return registration;
+                }
+                console.log('Push notifications not supported');
+                return null;
+            } catch (error) {
+                console.error('Service Worker registration failed:', error);
+                return null;
+            }
+        }
+
+        async function subscribeToPushNotifications(registration) {
+            try {
+                // Check if we already have a subscription in localStorage
+                const storedSubscription = localStorage.getItem('pushSubscription');
+                let subscription;
+
+                if (storedSubscription) {
+                    subscription = JSON.parse(storedSubscription);
+                } else {
+                    // Create new subscription
+                    subscription = await registration.pushManager.subscribe({
+                        userVisibleOnly: true,
+                        applicationServerKey: 'YOUR_PUBLIC_KEY' // Replace with your VAPID public key
+                    });
+                    // Store subscription in localStorage
+                    localStorage.setItem('pushSubscription', JSON.stringify(subscription));
+                }
+
+                // Send subscription to server
+                await fetch('subscribe.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        subscription: subscription,
+                        ticketNumber: <?php echo json_encode($ticketNumber); ?>
+                    }),
+                });
+
+                console.log('Push notification subscription successful');
+                return true;
+            } catch (error) {
+                console.error('Push notification subscription failed:', error);
+                localStorage.removeItem('pushSubscription'); // Clear invalid subscription
+                return false;
+            }
+        }
+
+        // Function to request notification permission
+        async function requestNotificationPermission() {
+            if (!("Notification" in window)) {
+                console.log("This browser does not support notifications");
+                return false;
+            }
+
+            if (Notification.permission !== "granted" && Notification.permission !== "denied") {
+                const permission = await Notification.requestPermission();
+                return permission === "granted";
+            }
+            return Notification.permission === "granted";
+        }
+
+        // Initialize notifications when page loads
+        document.addEventListener('DOMContentLoaded', async function() {
+            const permissionGranted = await requestNotificationPermission();
+            if (permissionGranted) {
+                const registration = await registerServiceWorker();
+                if (registration) {
+                    await subscribeToPushNotifications(registration);
+                }
+            }
+        });
+
         // Function to fetch and update order status
+        // Function to play notification sound
+        function playNotification() {
+            const audio = document.getElementById('notificationSound');
+            if (audio) {
+                audio.play().catch(error => {
+                    console.log('Error playing notification:', error);
+                });
+            }
+        }
+
         async function updateOrderStatus() {
             const ticketNumber = <?php echo json_encode($ticketNumber); ?>;
             if (!ticketNumber) return;
@@ -504,11 +599,32 @@ if ($ticketNumber) {
                 const data = await response.json();
                 
                 if (data.success) {
-                    // Update status badge
                     const statusBadge = document.querySelector('.status-badge');
+                    const currentStatus = statusBadge ? statusBadge.textContent : '';
+                    
+                    // Update status badge
                     if (statusBadge) {
                         statusBadge.className = 'status-badge status-' + data.status.toLowerCase();
                         statusBadge.textContent = data.status;
+                        
+                        // Play sound and trigger push notification if status changed to ReadyToClaim
+                        if (data.status === 'ReadyToClaim' && currentStatus !== 'ReadyToClaim') {
+                            playNotification();
+                            
+                            // Send push notification request to server
+                            fetch('send-push-notification.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                    ticketNumber: ticketNumber,
+                                    status: 'ReadyToClaim'
+                                })
+                            }).catch(error => {
+                                console.error('Error sending push notification:', error);
+                            });
+                        }
                     }
 
                     // Check if we need to reload the page to show/hide the Order Received button

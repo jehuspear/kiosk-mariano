@@ -31,8 +31,8 @@ function renderSidebar($currentPage = '') {
     ?>
     <div class="sidebar">
         <div class="logo">
-            <img src="Images/logo/logo.png" alt="SINCO CAFE" class="logo-img">
-            <h2>SINCO CAFE</h2>
+            <img src="Images/logo/logo2.png" alt="SINCO CAFE" class="logo-img">
+            <!-- <h2>SINCO CAFE</h2> -->
             <p class="welcome-text">
                 Hello, <?php echo isset($_SESSION['firstname']) ? htmlspecialchars($_SESSION['firstname']) : 'User'; ?>
                 <br>

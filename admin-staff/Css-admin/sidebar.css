@@ -42,12 +42,13 @@ body {
 }
 
 .sidebar .logo-img {
-    width: 80px;
+    /* width: 80px; */
     height: 80px;
     margin-bottom: 10px;
-    border-radius: 50%;
+    margin-top: 10px;
+    border-radius: 25px;
     object-fit: cover;
-    border: 3px solid #454d55;
+    /* border: 3px solid #454d55; */
 }
 
 .sidebar .logo h2 {
@@ -155,7 +156,7 @@ body {
     flex: 1;
     padding: 30px;
     margin-left: 280px;
-    background: #1e1e1e;
+    background: #222;
     color: white;
     min-height: 100vh;
 }

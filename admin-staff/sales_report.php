@@ -232,6 +232,7 @@ while ($row = $result->fetch_assoc()) {
         }
         .report-header {
             margin-bottom: 20px;
+            padding: 20px;
         }
         .report-header img {
             max-width: 200px;
@@ -327,7 +328,7 @@ while ($row = $result->fetch_assoc()) {
 
             <div class="report-header-section">
                 <div class="report-header">
-                    <img src="Images/logo/logo.png" alt="SINCO CAFE Logo" style="border-radius: 20px;">
+                    <img src="Images/logo/logo2.png" alt="SINCO CAFE Logo" style="border-radius: 20px;">
                 </div>
                 <div class="report-title-section">
                     <h2>Sales Report</h2>

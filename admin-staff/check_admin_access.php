@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    $_SESSION['error_message'] = 'Please log in to access this page.';
+    // $_SESSION['error_message'] = 'Please log in to access this page.';
     header('Location: login.php');
     exit;
 }
@@ -40,13 +40,13 @@ if (in_array($currentPage, $adminPages)) {
 } elseif (in_array($currentPage, $orderPages)) {
     // Order pages accessible to both Admin and Staff
     if ($userRole !== 'Admin' && $userRole !== 'Staff') {
-        $_SESSION['error_message'] = 'Invalid user role. Please contact an administrator.';
+        // $_SESSION['error_message'] = 'Invalid user role. Please contact an administrator.';
         header('Location: logout.php');
         exit;
     }
 } else {
     // Unknown pages redirect to pending orders
-    $_SESSION['error_message'] = 'Page not found.';
+    // $_SESSION['error_message'] = 'Page not found.';
     header('Location: pending-orders.php');
     exit;
 }

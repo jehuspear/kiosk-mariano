@@ -1,0 +1,82 @@
+/* Mass Complete Footer Styles */
+.mass-complete-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #2d2d2d;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1030;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ready-tickets {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.ready-tickets span {
+    background-color: #28a745;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin: 0 3px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.no-ready-tickets {
+    color: #6c757d;
+    font-style: italic;
+}
+
+#massCompleteBtn {
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#massCompleteBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#massCompleteBtn:active {
+    transform: translateY(0);
+}
+
+#massCompleteBtn i {
+    margin-right: 8px;
+}
+
+/* Toast Notification Styles */
+.mass-complete-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 250px;
+    padding: 15px 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Adjust main content padding to prevent footer overlap */
+.main-content {
+    padding-bottom: 80px !important;
+}

@@ -24,6 +24,7 @@ if(!isset($_SESSION["user_id"])) {
   <link rel="stylesheet" href="Css-admin/orderlist.css">
   <link rel="stylesheet" href="Css-admin/preparing_orders.css">
   <link rel="stylesheet" href="Css-admin/preparing_status.css">
+  <link rel="stylesheet" href="Css-admin/mass_complete_orders.css">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -207,6 +208,7 @@ if(!isset($_SESSION["user_id"])) {
 <script src="Javascript-admin/mobile-menu.js"></script>
 <script src="Javascript-admin/auto-refresh.js"></script>
 <script src="Javascript-admin/sidebar-toggle.js"></script>
+<script src="Javascript-admin/mass_complete_orders.js"></script>
 
 <script>
 // Initialize all components and handlers
@@ -413,6 +415,16 @@ document.addEventListener('DOMContentLoaded', () => {
 </style>
 <div class="refresh-indicator">
     <i class="fas fa-sync-alt"></i> Refreshing...
+</div>
+
+<!-- Footer div for mass order completion -->
+<div class="mass-complete-footer">
+    <div id="readyTickets" class="ready-tickets">
+        Loading ready orders...
+    </div>
+    <button id="massCompleteBtn" class="btn btn-success">
+        <i class="fas fa-check-double"></i> Complete All Ready Orders
+    </button>
 </div>
 </body>
 </html>

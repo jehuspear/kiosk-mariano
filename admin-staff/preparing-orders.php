@@ -86,7 +86,7 @@ if(!isset($_SESSION["user_id"])) {
                     FROM `order` o
                     JOIN orderitem oi ON o.Order_ID = oi.Order_ID
                     JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID
-                    JOIN menuitem_sizes ms ON oi.MenuItem_ID = ms.MenuItem_ID AND oi.OrderItem_CupSize = ms.MenuItemSize_SizeName
+                    JOIN menuitem_sizes ms ON ms.MenuItemSize_ID = oi.MenuItemSize_ID AND oi.OrderItem_CupSize = ms.MenuItemSize_SizeName
                     JOIN payment p ON o.Payment_ID = p.Payment_ID
                     WHERE o.Order_Status = 'Preparing' 
                     AND p.Payment_Status = 'Completed'

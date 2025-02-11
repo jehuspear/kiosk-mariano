@@ -35,18 +35,18 @@ try {
     $data = json_decode($rawData, true);
     logDebug("Decoded data: " . print_r($data, true));
 
-    if ($data && isset($data['id'], $data['name'], $data['price'], $data['size'], $data['orderType'], $data['quantity'], $data['image'])) {
+    if ($data && isset($data['id'], $data['name'], $data['price'], $data['size'], $data['sizeId'], $data['orderType'], $data['quantity'], $data['image'])) {
         // Check stock availability
         $sql = "SELECT MenuItemSize_Stock as stock, MenuItemSize_IsHot as temperature 
                 FROM menuitem_sizes 
-                WHERE MenuItem_ID = ? AND MenuItemSize_SizeName = ?";
+                WHERE MenuItemSize_ID = ?";
         
         $stmt = $conn->prepare($sql);
         if (!$stmt) {
             throw new Exception('Failed to prepare stock check statement');
         }
         
-        $stmt->bind_param("is", $data['id'], $data['size']);
+        $stmt->bind_param("i", $data['sizeId']);
         
         if (!$stmt->execute()) {
             throw new Exception('Failed to execute stock check');
@@ -67,21 +67,65 @@ try {
             exit;
         }
 
+        // Check if identical item exists in cart
+        $existingItemIndex = -1;
+        foreach ($_SESSION['cart'] as $index => $item) {
+            if (isset($item['sizeId']) && 
+                $item['sizeId'] === intval($data['sizeId']) && 
+                $item['id'] === intval($data['id']) && 
+                $item['size'] === $data['size'] && 
+                $item['orderType'] === $data['orderType']) {
+                // Get temperature for the current item
+                $sql = "SELECT MenuItemSize_IsHot as temperature 
+                        FROM menuitem_sizes 
+                        WHERE MenuItemSize_ID = ?";
+                $tempStmt = $conn->prepare($sql);
+                $tempStmt->bind_param("i", $item['sizeId']);
+                $tempStmt->execute();
+                $tempResult = $tempStmt->get_result();
+                $tempInfo = $tempResult->fetch_assoc();
+                
+                // Only combine if temperatures match
+                if ($tempInfo && $tempInfo['temperature'] === $sizeInfo['temperature']) {
+                    $existingItemIndex = $index;
+                    break;
+                }
+            }
+        }
+
         // Create cart item
         $cartItem = array(
             'id' => intval($data['id']),
             'name' => $data['name'],
             'image' => $data['image'],
             'size' => $data['size'],
+            'sizeId' => intval($data['sizeId']),
             'price' => floatval($data['price']),
             'quantity' => intval($data['quantity']),
             'orderType' => $data['orderType'],
             'temperature' => $sizeInfo['temperature']
         );
         
-        // Add to cart
-        $_SESSION['cart'][] = $cartItem;
-        logDebug("Item added to cart: " . print_r($cartItem, true));
+        if ($existingItemIndex !== -1) {
+            // Update quantity of existing item
+            $newQuantity = $_SESSION['cart'][$existingItemIndex]['quantity'] + $cartItem['quantity'];
+            
+            // Check if new quantity exceeds stock
+            if ($newQuantity > $sizeInfo['stock']) {
+                $response['success'] = false;
+                $response['error'] = 'Not enough stock available';
+                logDebug("Insufficient stock: requested {$newQuantity}, available {$sizeInfo['stock']}");
+                echo json_encode($response);
+                exit;
+            }
+            
+            $_SESSION['cart'][$existingItemIndex]['quantity'] = $newQuantity;
+            logDebug("Updated existing item quantity: " . print_r($_SESSION['cart'][$existingItemIndex], true));
+        } else {
+            // Add as new item
+            $_SESSION['cart'][] = $cartItem;
+            logDebug("Added new item to cart: " . print_r($cartItem, true));
+        }
         
         
         // Calculate totals

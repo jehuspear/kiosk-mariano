@@ -20,6 +20,7 @@ if (isset($_GET['itemId'])) {
     
     // Query to get sizes and their temperatures for this item
     $sql = "SELECT 
+                MenuItemSize_ID as sizeId,
                 MenuItemSize_SizeName as size, 
                 MenuItemSize_IsHot as temperature,
                 MenuItemSize_Stock as stock,
@@ -71,6 +72,7 @@ if (isset($_GET['itemId'])) {
         }
 
         $sizes[] = [
+            'sizeId' => intval($row['sizeId']),
             'size' => $row['size'],
             'temperature' => $temperatureDisplay,
             'stock' => intval($row['stock']),

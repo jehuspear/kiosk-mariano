@@ -1,5 +1,6 @@
 // Global variables
 let selectedSize = null;
+let selectedSizeId = null;
 let selectedOrderType = null;
 let currentQuantity = 1;
 let currentItemId = null;
@@ -15,6 +16,7 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
     
     // Reset selections
     selectedSize = null;
+    selectedSizeId = null;
     selectedOrderType = null;
     currentQuantity = 1;
     currentStock = 0;
@@ -76,13 +78,14 @@ async function showItemDetails(name, price, description, image, isOutOfStock, it
                 if (index === 0) {
                     button.classList.add('active');
                     selectedSize = sizeInfo.size;
+                    selectedSizeId = sizeInfo.sizeId;
                     currentStock = sizeInfo.stock;
                     window.currentItem.price = parseFloat(sizeInfo.price);
                     document.getElementById('item-price').textContent = `₱${parseFloat(sizeInfo.price).toFixed(2)}`;
                     document.getElementById('stock-count').textContent = sizeInfo.stock;
                 }
                 
-                button.onclick = () => selectSize(sizeInfo.size, button, sizeInfo.price, sizeInfo.stock);
+                button.onclick = () => selectSize(sizeInfo.size, sizeInfo.sizeId, button, sizeInfo.price, sizeInfo.stock);
                 
                 // Add size text (use the size name directly from database)
                 button.textContent = sizeInfo.size;
@@ -158,6 +161,7 @@ async function addToCart() {
     console.log('Selected order type:', selectedOrderType);
     console.log('Current item:', window.currentItem);
     console.log('Selected size:', selectedSize);
+    console.log('Selected size ID:', selectedSizeId);
     console.log('Current quantity:', currentQuantity);
 
     if (!selectedOrderType) {
@@ -178,6 +182,7 @@ async function addToCart() {
     const orderItem = {
         ...window.currentItem,
         size: selectedSize,
+        sizeId: selectedSizeId,
         orderType: selectedOrderType,
         quantity: currentQuantity
     };
@@ -252,13 +257,14 @@ function adjustQuantity(change) {
 }
 
 // Function to select size
-function selectSize(size, button, price, stock) {
+function selectSize(size, sizeId, button, price, stock) {
     if (stock <= 0) {
         showToast('This size is out of stock');
         return;
     }
 
     selectedSize = size;
+    selectedSizeId = sizeId;
     currentStock = stock;
     
     // Reset quantity to 1 when changing sizes
@@ -400,9 +406,13 @@ function toggleSearchOverlay(show) {
         }, 300);
     } else {
         overlay.classList.remove('active');
+        // Clear search input
         searchInput.value = '';
-        // Reset search results
+        currentSearchTerm = '';
+        // Reset search results and reapply current category filter
         filterMenuItems('', currentCategory);
+        // Reset animation delays
+        setMenuItemAnimationDelays();
     }
 }
 

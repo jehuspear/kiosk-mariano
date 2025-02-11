@@ -79,9 +79,8 @@ foreach ($_SESSION['cart'] as $item) {
                 <img src="<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>" class="item-image">
                 <div class="item-details ms-3">
                     <div class="item-name"><?php echo $item['name']; ?></div>
-                    <div class="item-size">
+                <div class="item-size">
                         <?php 
-                            echo $item['size']; 
                             // Get temperature from session cart item
                             $tempClass = 'normal';
                             $tempIcon = 'fa-thermometer-half';
@@ -101,7 +100,15 @@ foreach ($_SESSION['cart'] as $item) {
                                         break;
                                 }
                             }
-                            echo " <span class='temp-badge {$tempClass}'><i class='fas {$tempIcon}'></i>{$tempText}</span>";
+                            
+                            // Display size and temperature as a combined description
+                            echo "<div class='size-temp-container'>";
+                            echo "<span class='size-text'>" . $item['size'] . "</span>";
+                            echo "<span class='temp-badge {$tempClass}'>";
+                            echo "<i class='fas {$tempIcon}'></i>";
+                            echo "<span class='temp-text'>{$tempText}</span>";
+                            echo "</span>";
+                            echo "</div>";
                         ?>
                     </div>
                     <div class="item-price">₱<?php echo number_format($item['price'], 2); ?></div>

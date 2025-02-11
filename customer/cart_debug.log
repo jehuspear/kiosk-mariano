@@ -5124,3 +5124,1145 @@
 
 [2025-02-10 18:55:36] New total quantity: 1
 [2025-02-10 18:55:36] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-11 19:31:02] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-11 19:31:02] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 19:31:02] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 19:31:02] New total quantity: 1
+[2025-02-11 19:31:02] Response sent: {"success":true,"cartCount":1,"totalAmount":125,"message":"Item added to cart successfully"}
+[2025-02-11 19:31:21] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-11 19:31:21] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 19:31:21] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 19:31:21] New total quantity: 1
+[2025-02-11 19:31:21] Response sent: {"success":true,"cartCount":1,"totalAmount":125,"message":"Item added to cart successfully"}
+[2025-02-11 19:32:13] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":130,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","orderType":"Dine-in","quantity":1}
+[2025-02-11 19:32:13] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 130
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 19:32:13] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [price] => 130
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 19:32:13] New total quantity: 2
+[2025-02-11 19:32:13] Response sent: {"success":true,"cartCount":2,"totalAmount":255,"message":"Item added to cart successfully"}
+[2025-02-11 19:32:25] Raw POST data: {"id":2,"name":"Latte de Kape","price":90,"description":"Espresso with steamed milk and a thin layer of foam","image":"../admin-staff/Images/menu-item/latte-de-kape.jpg","size":"Tres","orderType":"Dine-in","quantity":1}
+[2025-02-11 19:32:25] Decoded data: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [price] => 90
+    [description] => Espresso with steamed milk and a thin layer of foam
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Tres
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 19:32:25] Item added to cart: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Tres
+    [price] => 90
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 19:32:25] New total quantity: 1
+[2025-02-11 19:32:25] Response sent: {"success":true,"cartCount":1,"totalAmount":90,"message":"Item added to cart successfully"}
+[2025-02-11 19:32:38] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":135,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"16oz","orderType":"Dine-in","quantity":1}
+[2025-02-11 19:32:38] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 135
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 16oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 19:32:38] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 16oz
+    [price] => 135
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 19:32:38] New total quantity: 2
+[2025-02-11 19:32:38] Response sent: {"success":true,"cartCount":2,"totalAmount":225,"message":"Item added to cart successfully"}
+[2025-02-11 19:32:50] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":130,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","orderType":"Take-out","quantity":1}
+[2025-02-11 19:32:50] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 130
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-11 19:32:50] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [price] => 130
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-11 19:32:50] New total quantity: 3
+[2025-02-11 19:32:50] Response sent: {"success":true,"cartCount":3,"totalAmount":355,"message":"Item added to cart successfully"}
+[2025-02-11 19:34:11] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":130,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"Tres(12oz)","orderType":"Dine-in","quantity":1}
+[2025-02-11 19:34:11] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 130
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Tres(12oz)
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 19:34:11] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => Tres(12oz)
+    [price] => 130
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 19:34:11] New total quantity: 1
+[2025-02-11 19:34:11] Response sent: {"success":true,"cartCount":1,"totalAmount":130,"message":"Item added to cart successfully"}
+[2025-02-11 19:34:38] Raw POST data: {"id":3,"name":"Cappuccino","price":110,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"12oz","orderType":"Take-out","quantity":1}
+[2025-02-11 19:34:38] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 110
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 12oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-11 19:34:38] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 12oz
+    [price] => 110
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-11 19:34:38] New total quantity: 2
+[2025-02-11 19:34:38] Response sent: {"success":true,"cartCount":2,"totalAmount":240,"message":"Item added to cart successfully"}
+[2025-02-11 19:34:44] Raw POST data: {"id":3,"name":"Cappuccino","price":105,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"12oz","orderType":"Take-out","quantity":1}
+[2025-02-11 19:34:44] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 105
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 12oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-11 19:34:44] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 12oz
+    [price] => 105
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-11 19:34:44] New total quantity: 3
+[2025-02-11 19:34:44] Response sent: {"success":true,"cartCount":3,"totalAmount":345,"message":"Item added to cart successfully"}
+[2025-02-11 20:23:22] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":23,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:23:22] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:23:22] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 20:23:22] New total quantity: 1
+[2025-02-11 20:23:22] Response sent: {"success":true,"cartCount":1,"totalAmount":125,"message":"Item added to cart successfully"}
+[2025-02-11 20:23:30] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":22,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:23:30] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:23:30] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 20:23:30] New total quantity: 2
+[2025-02-11 20:23:30] Response sent: {"success":true,"cartCount":2,"totalAmount":250,"message":"Item added to cart successfully"}
+[2025-02-11 20:26:20] Raw POST data: {"id":2,"name":"Latte de Kape","price":90,"description":"Espresso with steamed milk and a thin layer of foam","image":"../admin-staff/Images/menu-item/latte-de-kape.jpg","size":"Tres","sizeId":8,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:26:20] Decoded data: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [price] => 90
+    [description] => Espresso with steamed milk and a thin layer of foam
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Tres
+    [sizeId] => 8
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:26:20] Item added to cart: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Tres
+    [sizeId] => 8
+    [price] => 90
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 20:26:20] New total quantity: 1
+[2025-02-11 20:26:20] Response sent: {"success":true,"cartCount":1,"totalAmount":90,"message":"Item added to cart successfully"}
+[2025-02-11 20:26:54] Raw POST data: {"id":2,"name":"Latte de Kape","price":105,"description":"Espresso with steamed milk and a thin layer of foam","image":"../admin-staff/Images/menu-item/latte-de-kape.jpg","size":"Dos","sizeId":7,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:26:54] Decoded data: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [price] => 105
+    [description] => Espresso with steamed milk and a thin layer of foam
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Dos
+    [sizeId] => 7
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:26:54] Item added to cart: Array
+(
+    [id] => 2
+    [name] => Latte de Kape
+    [image] => ../admin-staff/Images/menu-item/latte-de-kape.jpg
+    [size] => Dos
+    [sizeId] => 7
+    [price] => 105
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 20:26:54] New total quantity: 2
+[2025-02-11 20:26:54] Response sent: {"success":true,"cartCount":2,"totalAmount":195,"message":"Item added to cart successfully"}
+[2025-02-11 20:27:24] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":23,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:27:24] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:27:24] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 20:27:24] New total quantity: 3
+[2025-02-11 20:27:24] Response sent: {"success":true,"cartCount":3,"totalAmount":320,"message":"Item added to cart successfully"}
+[2025-02-11 20:28:26] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":22,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:28:26] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:28:26] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 20:28:26] New total quantity: 4
+[2025-02-11 20:28:26] Response sent: {"success":true,"cartCount":4,"totalAmount":445,"message":"Item added to cart successfully"}
+[2025-02-11 20:40:54] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":22,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:40:54] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:40:54] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 20:40:54] New total quantity: 1
+[2025-02-11 20:40:54] Response sent: {"success":true,"cartCount":1,"totalAmount":125,"message":"Item added to cart successfully"}
+[2025-02-11 20:40:58] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":23,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:40:58] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:40:58] Item added to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 20:40:58] New total quantity: 2
+[2025-02-11 20:40:58] Response sent: {"success":true,"cartCount":2,"totalAmount":250,"message":"Item added to cart successfully"}
+[2025-02-11 20:49:04] Raw POST data: {"id":27,"name":"Caesar Salad","price":100,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Solo 250g","sizeId":80,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:49:04] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 100
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Solo 250g
+    [sizeId] => 80
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:49:04] Added new item to cart: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Solo 250g
+    [sizeId] => 80
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-11 20:49:04] New total quantity: 3
+[2025-02-11 20:49:04] Response sent: {"success":true,"cartCount":3,"totalAmount":350,"message":"Item added to cart successfully"}
+[2025-02-11 20:49:34] Raw POST data: {"id":27,"name":"Caesar Salad","price":150,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Medium 500g","sizeId":81,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:49:34] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 150
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Medium 500g
+    [sizeId] => 81
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:49:34] Added new item to cart: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Medium 500g
+    [sizeId] => 81
+    [price] => 150
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-11 20:49:34] New total quantity: 4
+[2025-02-11 20:49:34] Response sent: {"success":true,"cartCount":4,"totalAmount":500,"message":"Item added to cart successfully"}
+[2025-02-11 20:49:40] Raw POST data: {"id":27,"name":"Caesar Salad","price":100,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Solo 250g","sizeId":80,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:49:40] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 100
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Solo 250g
+    [sizeId] => 80
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:49:40] Updated existing item quantity: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Solo 250g
+    [sizeId] => 80
+    [price] => 100
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-11 20:49:40] New total quantity: 5
+[2025-02-11 20:49:40] Response sent: {"success":true,"cartCount":5,"totalAmount":600,"message":"Item added to cart successfully"}
+[2025-02-11 20:49:48] Raw POST data: {"id":27,"name":"Caesar Salad","price":250,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Family 1000g","sizeId":82,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:49:48] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 250
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Family 1000g
+    [sizeId] => 82
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:49:48] Added new item to cart: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Family 1000g
+    [sizeId] => 82
+    [price] => 250
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-11 20:49:48] New total quantity: 6
+[2025-02-11 20:49:48] Response sent: {"success":true,"cartCount":6,"totalAmount":850,"message":"Item added to cart successfully"}
+[2025-02-11 20:50:03] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":22,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:50:03] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:50:03] Updated existing item quantity: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [price] => 125
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 20:50:03] New total quantity: 7
+[2025-02-11 20:50:03] Response sent: {"success":true,"cartCount":7,"totalAmount":975,"message":"Item added to cart successfully"}
+[2025-02-11 20:50:09] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":23,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:50:09] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:50:09] Updated existing item quantity: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [price] => 125
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 20:50:09] New total quantity: 8
+[2025-02-11 20:50:09] Response sent: {"success":true,"cartCount":8,"totalAmount":1100,"message":"Item added to cart successfully"}
+[2025-02-11 20:50:16] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":23,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:50:16] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:50:16] Updated existing item quantity: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [price] => 125
+    [quantity] => 3
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 20:50:16] New total quantity: 9
+[2025-02-11 20:50:16] Response sent: {"success":true,"cartCount":9,"totalAmount":1225,"message":"Item added to cart successfully"}
+[2025-02-11 20:57:41] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":22,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:57:41] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:57:41] Added new item to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 20:57:41] New total quantity: 1
+[2025-02-11 20:57:41] Response sent: {"success":true,"cartCount":1,"totalAmount":125,"message":"Item added to cart successfully"}
+[2025-02-11 20:57:43] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":23,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:57:43] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:57:43] Added new item to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 20:57:43] New total quantity: 2
+[2025-02-11 20:57:43] Response sent: {"success":true,"cartCount":2,"totalAmount":250,"message":"Item added to cart successfully"}
+[2025-02-11 20:58:42] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":22,"orderType":"Dine-in","quantity":1}
+[2025-02-11 20:58:42] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 20:58:42] Updated existing item quantity: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [price] => 125
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 20:58:42] New total quantity: 3
+[2025-02-11 20:58:42] Response sent: {"success":true,"cartCount":3,"totalAmount":375,"message":"Item added to cart successfully"}
+[2025-02-11 20:59:33] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":23,"orderType":"Dine-in","quantity":2}
+[2025-02-11 20:59:33] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-02-11 20:59:33] Updated existing item quantity: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [price] => 125
+    [quantity] => 3
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 20:59:33] New total quantity: 5
+[2025-02-11 20:59:33] Response sent: {"success":true,"cartCount":5,"totalAmount":625,"message":"Item added to cart successfully"}
+[2025-02-11 21:05:04] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":22,"orderType":"Dine-in","quantity":1}
+[2025-02-11 21:05:04] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 21:05:04] Added new item to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 21:05:04] New total quantity: 1
+[2025-02-11 21:05:04] Response sent: {"success":true,"cartCount":1,"totalAmount":125,"message":"Item added to cart successfully"}
+[2025-02-11 21:05:08] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":23,"orderType":"Dine-in","quantity":1}
+[2025-02-11 21:05:08] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 21:05:08] Added new item to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 21:05:08] New total quantity: 2
+[2025-02-11 21:05:08] Response sent: {"success":true,"cartCount":2,"totalAmount":250,"message":"Item added to cart successfully"}
+[2025-02-11 21:35:06] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":22,"orderType":"Dine-in","quantity":1}
+[2025-02-11 21:35:06] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 21:35:06] Added new item to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 21:35:06] New total quantity: 1
+[2025-02-11 21:35:06] Response sent: {"success":true,"cartCount":1,"totalAmount":125,"message":"Item added to cart successfully"}
+[2025-02-11 21:35:11] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":23,"orderType":"Dine-in","quantity":1}
+[2025-02-11 21:35:11] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 21:35:11] Added new item to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 21:35:11] New total quantity: 2
+[2025-02-11 21:35:11] Response sent: {"success":true,"cartCount":2,"totalAmount":250,"message":"Item added to cart successfully"}
+[2025-02-11 21:48:51] Raw POST data: {"id":21,"name":"Banana Bread","price":50,"description":"This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.","image":"../admin-staff/Images/menu-item/banana bread.jpg","size":"Per slice","sizeId":71,"orderType":"Dine-in","quantity":1}
+[2025-02-11 21:48:51] Decoded data: Array
+(
+    [id] => 21
+    [name] => Banana Bread
+    [price] => 50
+    [description] => This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.
+    [image] => ../admin-staff/Images/menu-item/banana bread.jpg
+    [size] => Per slice
+    [sizeId] => 71
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 21:48:51] Added new item to cart: Array
+(
+    [id] => 21
+    [name] => Banana Bread
+    [image] => ../admin-staff/Images/menu-item/banana bread.jpg
+    [size] => Per slice
+    [sizeId] => 71
+    [price] => 50
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-11 21:48:51] New total quantity: 1
+[2025-02-11 21:48:51] Response sent: {"success":true,"cartCount":1,"totalAmount":50,"message":"Item added to cart successfully"}
+[2025-02-11 21:49:14] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","sizeId":52,"orderType":"Dine-in","quantity":7}
+[2025-02-11 21:49:14] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [sizeId] => 52
+    [orderType] => Dine-in
+    [quantity] => 7
+)
+
+[2025-02-11 21:49:14] Added new item to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [sizeId] => 52
+    [price] => 120
+    [quantity] => 7
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 21:49:14] New total quantity: 7
+[2025-02-11 21:49:14] Response sent: {"success":true,"cartCount":7,"totalAmount":840,"message":"Item added to cart successfully"}
+[2025-02-11 21:49:38] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":23,"orderType":"Dine-in","quantity":1}
+[2025-02-11 21:49:38] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 21:49:38] Added new item to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 23
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 21:49:38] New total quantity: 8
+[2025-02-11 21:49:38] Response sent: {"success":true,"cartCount":8,"totalAmount":965,"message":"Item added to cart successfully"}
+[2025-02-11 21:49:41] Raw POST data: {"id":5,"name":"Kape Dulce Salty Caramelo","price":125,"description":"Espresso combined with milk, infused with salted caramel syrup","image":"../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg","size":"12oz","sizeId":22,"orderType":"Dine-in","quantity":1}
+[2025-02-11 21:49:41] Decoded data: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [price] => 125
+    [description] => Espresso combined with milk, infused with salted caramel syrup
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 21:49:41] Added new item to cart: Array
+(
+    [id] => 5
+    [name] => Kape Dulce Salty Caramelo
+    [image] => ../admin-staff/Images/menu-item/kape-dulce-salty-caramelo.jpg
+    [size] => 12oz
+    [sizeId] => 22
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-11 21:49:41] New total quantity: 9
+[2025-02-11 21:49:41] Response sent: {"success":true,"cartCount":9,"totalAmount":1090,"message":"Item added to cart successfully"}
+[2025-02-11 21:49:56] Raw POST data: {"id":27,"name":"Caesar Salad","price":250,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Family 1000g","sizeId":82,"orderType":"Dine-in","quantity":1}
+[2025-02-11 21:49:56] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 250
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Family 1000g
+    [sizeId] => 82
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 21:49:56] Added new item to cart: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Family 1000g
+    [sizeId] => 82
+    [price] => 250
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-11 21:49:56] New total quantity: 10
+[2025-02-11 21:49:56] Response sent: {"success":true,"cartCount":10,"totalAmount":1340,"message":"Item added to cart successfully"}
+[2025-02-11 22:05:29] Raw POST data: {"id":27,"name":"Caesar Salad","price":100,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Solo 250g","sizeId":80,"orderType":"Dine-in","quantity":1}
+[2025-02-11 22:05:29] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 100
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Solo 250g
+    [sizeId] => 80
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 22:05:29] Added new item to cart: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Solo 250g
+    [sizeId] => 80
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-11 22:05:29] New total quantity: 1
+[2025-02-11 22:05:29] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-11 22:05:42] Raw POST data: {"id":27,"name":"Caesar Salad","price":100,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Solo 250g","sizeId":80,"orderType":"Dine-in","quantity":1}
+[2025-02-11 22:05:42] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 100
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Solo 250g
+    [sizeId] => 80
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-11 22:05:42] Added new item to cart: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Solo 250g
+    [sizeId] => 80
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-11 22:05:42] New total quantity: 1
+[2025-02-11 22:05:42] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-11 22:07:00] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","sizeId":52,"orderType":"Dine-in","quantity":12}
+[2025-02-11 22:07:00] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [sizeId] => 52
+    [orderType] => Dine-in
+    [quantity] => 12
+)
+
+[2025-02-11 22:07:00] Added new item to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [sizeId] => 52
+    [price] => 120
+    [quantity] => 12
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-11 22:07:00] New total quantity: 12
+[2025-02-11 22:07:00] Response sent: {"success":true,"cartCount":12,"totalAmount":1440,"message":"Item added to cart successfully"}

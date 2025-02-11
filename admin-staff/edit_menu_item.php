@@ -41,9 +41,9 @@ if(isset($_GET['id'])) {
             mysqli_stmt_bind_param($sizeStmt, "i", $id);
             mysqli_stmt_execute($sizeStmt);
             $sizeResult = mysqli_stmt_get_result($sizeStmt);
-            while($size = mysqli_fetch_assoc($sizeResult)) {
-                $sizes[$size['MenuItemSize_SizeName']] = $size;
-            }
+        while($size = mysqli_fetch_assoc($sizeResult)) {
+            $sizes[] = $size;
+        }
         }
     }
 }

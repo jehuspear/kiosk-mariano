@@ -110,7 +110,7 @@ class AdminModal {
         const paymentInputHtml = order.paymentMethod === 'GCash' 
             ? `<div class="payment-input">
                 <span class="order-detail-value ${paymentMethodClass}">${order.paymentMethod}</span>
-                <input type="text" id="referenceNumber" class="form-control" maxlength="6" placeholder="Enter last 6 digits of Reference Number" required>
+                <input type="text" id="referenceNumber" class="form-control" maxlength="6" placeholder="Enter last 6 digits of Reference Number" autocomplete="off" required>
                </div>`
             : `<div class="payment-input">
                 <span class="order-detail-value ${paymentMethodClass}">${order.paymentMethod}</span>

@@ -57,7 +57,7 @@ $sql = "SELECT
         LEFT JOIN payment p ON o.Payment_ID = p.Payment_ID
         LEFT JOIN orderitem oi ON o.Order_ID = oi.Order_ID
         LEFT JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID
-        LEFT JOIN menuitem_sizes ms ON m.MenuItem_ID = ms.MenuItem_ID AND oi.OrderItem_CupSize = ms.MenuItemSize_SizeName
+        LEFT JOIN menuitem_sizes ms ON ms.MenuItemSize_ID = oi.MenuItemSize_ID AND oi.OrderItem_CupSize = ms.MenuItemSize_SizeName
         WHERE o.Order_Status IN ('ReadyToClaim', 'Completed')
         AND DATE(o.Order_DateTime) = ?
         GROUP BY o.Order_ID

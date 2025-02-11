@@ -73,12 +73,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payment_method'])) {
             $orderId = $conn->insert_id;
             
             // Insert order items
-            $sql = "INSERT INTO orderitem (Order_ID, MenuItem_ID, OrderItem_CupSize, OrderItem_Quantity, OrderItem_Price) 
-                    VALUES (?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO orderitem (Order_ID, MenuItem_ID, OrderItem_CupSize, OrderItem_Quantity, OrderItem_Price, MenuItemSize_ID) 
+                    VALUES (?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             
             foreach ($_SESSION['cart'] as $item) {
-                $stmt->bind_param("iisid", $orderId, $item['id'], $item['size'], $item['quantity'], $item['price']);
+                $stmt->bind_param("iisidi", $orderId, $item['id'], $item['size'], $item['quantity'], $item['price'], $item['sizeId']);
                 if (!$stmt->execute()) {
                     throw new Exception("Failed to insert order items");
                 }

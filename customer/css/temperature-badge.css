@@ -50,6 +50,27 @@
     gap: 4px;
 }
 
+.size-temp-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f8f9fa;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.size-text {
+    font-weight: 500;
+    color: #333;
+    font-size: 0.9rem;
+    padding-right: 8px;
+    border-right: 1px solid #dee2e6;
+}
+
+.temp-text {
+    margin-left: 4px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 576px) {
     .item-size .temp-badge {

@@ -98,7 +98,7 @@ session_start();
 
 // Check if user has a valid ticket number
 if (!isset($_SESSION['ticket_number'])) {
-    header('Location: e-ticket.php');
+    header('Location: orderstatus.php');
     exit();
 }
 ?>
@@ -252,7 +252,7 @@ if (!isset($_SESSION['ticket_number'])) {
         <input type="text" class="name-input" id="customer-name" placeholder="Enter Name Here (Optional)">
         <button class="btn btn-primary" id="next-button">Next</button>
         <div class="">
-        <a href="e-ticket.php" class="btn btn-primary">Back to your E-Ticket Number</a>
+        <a href="orderstatus.php" class="btn btn-primary">Back to your Order Details</a>
     </div>
     </div>
 
@@ -350,11 +350,11 @@ if (!isset($_SESSION['ticket_number'])) {
                 if (!response.hasTicket) {
                     if (response.message) {
                         showAlert(response.message, 'Feedback Already Submitted', function() {
-                            window.location.href = 'e-ticket.php';
+                            window.location.href = 'orderstatus.php';
                         });
                     } else {
-                        showAlert('Your session has expired. You will be redirected to the e-ticket page.', 'Session Expired', function() {
-                            window.location.href = 'e-ticket.php';
+                        showAlert('Your session has expired. You will be redirected to your Order Details Page.', 'Session Expired', function() {
+                            window.location.href = 'orderstatus.php';
                         });
                     }
                 }
@@ -448,8 +448,8 @@ $('#thank-you-modal').on('hidden.bs.modal', function () {
 
     // With this redirect code:
         $('#thank-you-modal').on('hidden.bs.modal', function () {
-    // Redirect to e-ticket.php after closing modal
-        window.location.href = 'e-ticket.php';
+    // Redirect to orderstatus.php after closing modal
+        window.location.href = 'orderstatus.php';
     });
  });
 </script>

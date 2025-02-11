@@ -4341,3 +4341,516 @@
 
 [2025-02-07 09:47:22] New total quantity: 1
 [2025-02-07 09:47:22] Response sent: {"success":true,"cartCount":1,"totalAmount":70,"message":"Item added to cart successfully"}
+[2025-02-08 07:22:02] Raw POST data: {"id":12,"name":"Blue Punch Mocktail","price":100,"description":"A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.","image":"../admin-staff/Images/menu-item/blue_mocktail.jpg","size":"12oz","orderType":"Take-out","quantity":1}
+[2025-02-08 07:22:02] Decoded data: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [price] => 100
+    [description] => A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-08 07:22:02] Item added to cart: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Iced
+)
+
+[2025-02-08 07:22:02] New total quantity: 1
+[2025-02-08 07:22:02] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-08 08:02:44] Raw POST data: {"id":23,"name":"Air Fried French Fries","price":75,"description":"These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.","image":"../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg","size":"Medium","orderType":"Dine-in","quantity":3}
+[2025-02-08 08:02:44] Decoded data: Array
+(
+    [id] => 23
+    [name] => Air Fried French Fries
+    [price] => 75
+    [description] => These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.
+    [image] => ../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg
+    [size] => Medium
+    [orderType] => Dine-in
+    [quantity] => 3
+)
+
+[2025-02-08 08:02:44] Item added to cart: Array
+(
+    [id] => 23
+    [name] => Air Fried French Fries
+    [image] => ../admin-staff/Images/menu-item/Crispy Air Fried French Fries.jpg
+    [size] => Medium
+    [price] => 75
+    [quantity] => 3
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-08 08:02:44] New total quantity: 3
+[2025-02-08 08:02:44] Response sent: {"success":true,"cartCount":3,"totalAmount":225,"message":"Item added to cart successfully"}
+[2025-02-08 08:29:47] Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"8oz","orderType":"Take-out","quantity":1}
+[2025-02-08 08:29:47] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 8oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-08 08:29:47] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 8oz
+    [price] => 85
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-08 08:29:47] New total quantity: 1
+[2025-02-08 08:29:47] Response sent: {"success":true,"cartCount":1,"totalAmount":85,"message":"Item added to cart successfully"}
+[2025-02-08 08:58:55] Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"8oz","orderType":"Take-out","quantity":1}
+[2025-02-08 08:58:55] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 8oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-08 08:58:55] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 8oz
+    [price] => 85
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-08 08:58:55] New total quantity: 1
+[2025-02-08 08:58:55] Response sent: {"success":true,"cartCount":1,"totalAmount":85,"message":"Item added to cart successfully"}
+[2025-02-08 09:47:48] Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"8oz","orderType":"Take-out","quantity":1}
+[2025-02-08 09:47:48] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 8oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-08 09:47:48] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 8oz
+    [price] => 85
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-08 09:47:48] New total quantity: 1
+[2025-02-08 09:47:48] Response sent: {"success":true,"cartCount":1,"totalAmount":85,"message":"Item added to cart successfully"}
+[2025-02-08 09:58:27] Raw POST data: {"id":6,"name":"Kape con Canela","price":100,"description":"Espresso combined with steamed milk and infused with honey and cinnamon","image":"../admin-staff/Images/menu-item/kape-con-canela.jpg","size":"Uno","orderType":"Take-out","quantity":1}
+[2025-02-08 09:58:27] Decoded data: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [price] => 100
+    [description] => Espresso combined with steamed milk and infused with honey and cinnamon
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-08 09:58:27] Item added to cart: Array
+(
+    [id] => 6
+    [name] => Kape con Canela
+    [image] => ../admin-staff/Images/menu-item/kape-con-canela.jpg
+    [size] => Uno
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-08 09:58:27] New total quantity: 1
+[2025-02-08 09:58:27] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-02-08 09:59:28] Raw POST data: {"id":13,"name":"Matcha Latte","price":70,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"8oz","orderType":"Dine-in","quantity":1}
+[2025-02-08 09:59:28] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 70
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-08 09:59:28] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 8oz
+    [price] => 70
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-08 09:59:28] New total quantity: 1
+[2025-02-08 09:59:28] Response sent: {"success":true,"cartCount":1,"totalAmount":70,"message":"Item added to cart successfully"}
+[2025-02-09 10:37:25] Raw POST data: {"id":24,"name":"Cafe BonBon","price":50,"description":"Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. ","image":"../admin-staff/Images/menu-item/Bonbon.jpg","size":"8oz","orderType":"Take-out","quantity":1}
+[2025-02-09 10:37:25] Decoded data: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [price] => 50
+    [description] => Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat. 
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-09 10:37:25] Item added to cart: Array
+(
+    [id] => 24
+    [name] => Cafe BonBon
+    [image] => ../admin-staff/Images/menu-item/Bonbon.jpg
+    [size] => 8oz
+    [price] => 50
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-09 10:37:25] New total quantity: 1
+[2025-02-09 10:37:25] Response sent: {"success":true,"cartCount":1,"totalAmount":50,"message":"Item added to cart successfully"}
+[2025-02-09 10:39:08] Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"8oz","orderType":"Take-out","quantity":1}
+[2025-02-09 10:39:08] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 8oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-09 10:39:08] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 8oz
+    [price] => 85
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-09 10:39:08] New total quantity: 1
+[2025-02-09 10:39:08] Response sent: {"success":true,"cartCount":1,"totalAmount":85,"message":"Item added to cart successfully"}
+[2025-02-09 10:44:59] Raw POST data: {"id":3,"name":"Cappuccino","price":125,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"16oz","orderType":"Take-out","quantity":1}
+[2025-02-09 10:44:59] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 125
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 16oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-09 10:44:59] Item added to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 16oz
+    [price] => 125
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Iced
+)
+
+[2025-02-09 10:44:59] New total quantity: 1
+[2025-02-09 10:44:59] Response sent: {"success":true,"cartCount":1,"totalAmount":125,"message":"Item added to cart successfully"}
+[2025-02-09 10:52:22] Raw POST data: {"id":10,"name":"Espresso (Doppio)","price":60,"description":"Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning \"double\" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.","image":"../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg","size":"Uno","orderType":"Take-out","quantity":1}
+[2025-02-09 10:52:22] Decoded data: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [price] => 60
+    [description] => Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning "double" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-09 10:52:22] Item added to cart: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Uno
+    [price] => 60
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-09 10:52:22] New total quantity: 1
+[2025-02-09 10:52:22] Response sent: {"success":true,"cartCount":1,"totalAmount":60,"message":"Item added to cart successfully"}
+[2025-02-09 11:52:17] Raw POST data: {"id":13,"name":"Matcha Latte","price":70,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"8oz","orderType":"Dine-in","quantity":1}
+[2025-02-09 11:52:17] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 70
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 8oz
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 11:52:17] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 8oz
+    [price] => 70
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-09 11:52:17] New total quantity: 1
+[2025-02-09 11:52:17] Response sent: {"success":true,"cartCount":1,"totalAmount":70,"message":"Item added to cart successfully"}
+[2025-02-09 13:12:35] Raw POST data: {"id":10,"name":"Espresso (Doppio)","price":60,"description":"Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning \"double\" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.","image":"../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg","size":"Uno","orderType":"Dine-in","quantity":1}
+[2025-02-09 13:12:35] Decoded data: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [price] => 60
+    [description] => Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning "double" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 13:12:35] Item added to cart: Array
+(
+    [id] => 10
+    [name] => Espresso (Doppio)
+    [image] => ../admin-staff/Images/menu-items/Doppio_Espresso_Macchiato.jpg
+    [size] => Uno
+    [price] => 60
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-09 13:12:35] New total quantity: 1
+[2025-02-09 13:12:35] Response sent: {"success":true,"cartCount":1,"totalAmount":60,"message":"Item added to cart successfully"}
+[2025-02-09 13:15:57] Raw POST data: {"id":28,"name":"test","price":20,"description":"test","image":"../admin-staff/Images/menu-item/Distansya (1).png","size":"Uno","orderType":"Dine-in","quantity":1}
+[2025-02-09 13:15:57] Decoded data: Array
+(
+    [id] => 28
+    [name] => test
+    [price] => 20
+    [description] => test
+    [image] => ../admin-staff/Images/menu-item/Distansya (1).png
+    [size] => Uno
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-09 13:15:57] Item added to cart: Array
+(
+    [id] => 28
+    [name] => test
+    [image] => ../admin-staff/Images/menu-item/Distansya (1).png
+    [size] => Uno
+    [price] => 20
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-09 13:15:57] New total quantity: 1
+[2025-02-09 13:15:57] Response sent: {"success":true,"cartCount":1,"totalAmount":20,"message":"Item added to cart successfully"}
+[2025-02-09 13:17:08] Raw POST data: {"id":29,"name":"test","price":0.04,"description":"test","image":"../admin-staff/Images/menu-item/Distansya (1).png","size":"Uno","orderType":"Take-out","quantity":1}
+[2025-02-09 13:17:08] Decoded data: Array
+(
+    [id] => 29
+    [name] => test
+    [price] => 0.04
+    [description] => test
+    [image] => ../admin-staff/Images/menu-item/Distansya (1).png
+    [size] => Uno
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-09 13:17:08] Item added to cart: Array
+(
+    [id] => 29
+    [name] => test
+    [image] => ../admin-staff/Images/menu-item/Distansya (1).png
+    [size] => Uno
+    [price] => 0.04
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-09 13:17:08] New total quantity: 1
+[2025-02-09 13:17:08] Response sent: {"success":true,"cartCount":1,"totalAmount":0.04,"message":"Item added to cart successfully"}
+[2025-02-09 23:30:40] Raw POST data: {"id":11,"name":"Pretzel","price":50,"description":"Soft and chewy on the inside, crispy and golden on the outside, these Soft Pretzels are a fun snack that bake up in the oven and served with a delicious cheese sauce! ","image":"../admin-staff/Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg","size":"Small","orderType":"Take-out","quantity":1}
+[2025-02-09 23:30:40] Decoded data: Array
+(
+    [id] => 11
+    [name] => Pretzel
+    [price] => 50
+    [description] => Soft and chewy on the inside, crispy and golden on the outside, these Soft Pretzels are a fun snack that bake up in the oven and served with a delicious cheese sauce! 
+    [image] => ../admin-staff/Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg
+    [size] => Small
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-09 23:30:40] Item added to cart: Array
+(
+    [id] => 11
+    [name] => Pretzel
+    [image] => ../admin-staff/Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg
+    [size] => Small
+    [price] => 50
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Normal
+)
+
+[2025-02-09 23:30:40] New total quantity: 1
+[2025-02-09 23:30:40] Response sent: {"success":true,"cartCount":1,"totalAmount":50,"message":"Item added to cart successfully"}
+[2025-02-10 11:59:54] Raw POST data: {"id":22,"name":"Milky Donuts","price":50,"description":"These cream-filled doughnuts are what coffee-break dreams are made of. They are soft pillows with a super-easy cream filling. These yeast doughnuts are deep-fried to perfection, and then filling is piped inside for a delightful treat. ","image":"../admin-staff/Images/menu-item/milky donuts.jpg","size":"Per piece","orderType":"Dine-in","quantity":1}
+[2025-02-10 11:59:54] Decoded data: Array
+(
+    [id] => 22
+    [name] => Milky Donuts
+    [price] => 50
+    [description] => These cream-filled doughnuts are what coffee-break dreams are made of. They are soft pillows with a super-easy cream filling. These yeast doughnuts are deep-fried to perfection, and then filling is piped inside for a delightful treat. 
+    [image] => ../admin-staff/Images/menu-item/milky donuts.jpg
+    [size] => Per piece
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-10 11:59:54] Item added to cart: Array
+(
+    [id] => 22
+    [name] => Milky Donuts
+    [image] => ../admin-staff/Images/menu-item/milky donuts.jpg
+    [size] => Per piece
+    [price] => 50
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-10 11:59:54] New total quantity: 1
+[2025-02-10 11:59:54] Response sent: {"success":true,"cartCount":1,"totalAmount":50,"message":"Item added to cart successfully"}
+[2025-02-10 12:03:34] Raw POST data: {"id":13,"name":"Matcha Latte","price":70,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"8oz","orderType":"Take-out","quantity":1}
+[2025-02-10 12:03:34] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 70
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 8oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-10 12:03:34] Item added to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 8oz
+    [price] => 70
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-10 12:03:34] New total quantity: 1
+[2025-02-10 12:03:34] Response sent: {"success":true,"cartCount":1,"totalAmount":70,"message":"Item added to cart successfully"}
+[2025-02-10 12:05:20] Raw POST data: {"id":25,"name":"Traditional Macchiato","price":35,"description":"the macchiato is quite a literal drink - it is an espresso marked with a dollop of frothed milk, and nothing else (macchiato means marked in Italian). ","image":"../admin-staff/Images/menu-item/macchiatotraditonal-11.jpg","size":"6oz","orderType":"Take-out","quantity":1}
+[2025-02-10 12:05:20] Decoded data: Array
+(
+    [id] => 25
+    [name] => Traditional Macchiato
+    [price] => 35
+    [description] => the macchiato is quite a literal drink - it is an espresso marked with a dollop of frothed milk, and nothing else (macchiato means marked in Italian). 
+    [image] => ../admin-staff/Images/menu-item/macchiatotraditonal-11.jpg
+    [size] => 6oz
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-10 12:05:20] Item added to cart: Array
+(
+    [id] => 25
+    [name] => Traditional Macchiato
+    [image] => ../admin-staff/Images/menu-item/macchiatotraditonal-11.jpg
+    [size] => 6oz
+    [price] => 35
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Hot
+)
+
+[2025-02-10 12:05:20] New total quantity: 1
+[2025-02-10 12:05:20] Response sent: {"success":true,"cartCount":1,"totalAmount":35,"message":"Item added to cart successfully"}

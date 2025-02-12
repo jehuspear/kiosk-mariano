@@ -1,0 +1,46 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Uploaded files
+/admin-staff/Images/menu-items/*
+!/admin-staff/Images/menu-items/.gitkeep
+/admin-staff/Images/menu-item/*
+!/admin-staff/Images/menu-item/.gitkeep
+/admin-staff/Images/logo/*
+!/admin-staff/Images/logo/.gitkeep
+
+# Database dumps
+*.sql
+!kiosk_ordering_system_db (FinalSystem-Feb12).sql

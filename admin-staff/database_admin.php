@@ -10,11 +10,11 @@ ini_set('display_errors', 1);
 ini_set('log_errors', 1);
 error_log("Starting database connection - " . date('Y-m-d H:i:s'));
 
-// Database configuration for XAMPP
-$hostName = "localhost";
-$dbUser = "root";
-$dbPassword = "";
-$dbName = "kiosk_ordering_system_db";
+// Database configuration from environment variables
+$hostName = getenv('DB_HOST') ?: 'localhost';
+$dbUser = getenv('DB_USER') ?: 'root';
+$dbPassword = getenv('DB_PASSWORD') ?: '';
+$dbName = getenv('DB_NAME') ?: 'kiosk_ordering_system_db';
 
 // Debug logging function
 function logDebug($message, $data = null) {

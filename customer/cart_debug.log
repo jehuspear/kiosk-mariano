@@ -1,0 +1,58 @@
+[2025-02-12 14:35:21] Raw POST data: {"id":16,"name":"Chocolate Latte","price":95,"description":"A sweet chocolate flavored drink!","image":"../admin-staff/Images/menu-item/chocolate latte1.jpg","size":"12oz","sizeId":63,"orderType":"Dine-in","quantity":1}
+[2025-02-12 14:35:21] Decoded data: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [price] => 95
+    [description] => A sweet chocolate flavored drink!
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 12oz
+    [sizeId] => 63
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-12 14:35:21] Added new item to cart: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 12oz
+    [sizeId] => 63
+    [price] => 95
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-12 14:35:21] New total quantity: 1
+[2025-02-12 14:35:21] Response sent: {"success":true,"cartCount":1,"totalAmount":95,"message":"Item added to cart successfully"}
+[2025-02-12 14:35:23] Raw POST data: {"id":16,"name":"Chocolate Latte","price":95,"description":"A sweet chocolate flavored drink!","image":"../admin-staff/Images/menu-item/chocolate latte1.jpg","size":"12oz","sizeId":64,"orderType":"Dine-in","quantity":1}
+[2025-02-12 14:35:23] Decoded data: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [price] => 95
+    [description] => A sweet chocolate flavored drink!
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 12oz
+    [sizeId] => 64
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-12 14:35:23] Added new item to cart: Array
+(
+    [id] => 16
+    [name] => Chocolate Latte
+    [image] => ../admin-staff/Images/menu-item/chocolate latte1.jpg
+    [size] => 12oz
+    [sizeId] => 64
+    [price] => 95
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-12 14:35:23] New total quantity: 2
+[2025-02-12 14:35:24] Response sent: {"success":true,"cartCount":2,"totalAmount":190,"message":"Item added to cart successfully"}

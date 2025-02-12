@@ -51,10 +51,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payment_method'])) {
         
         try {
             // Insert payment record
+            $currentDateTime = date('Y-m-d H:i:s');
             $sql = "INSERT INTO payment (Payment_Method, Payment_DateTime, Order_TotalAmount, Payment_TotalAmount, Payment_Status) 
-                    VALUES (?, NOW(), ?, ?, 'Pending')";
+                    VALUES (?, ?, ?, ?, 'Pending')";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sdd", $paymentMethod, $totalAmount, $totalAmount);
+            $stmt->bind_param("ssdd", $paymentMethod, $currentDateTime, $totalAmount, $totalAmount);
             
             if (!$stmt->execute()) {
                 throw new Exception("Failed to insert payment record");
@@ -63,9 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payment_method'])) {
             
             // Insert order record with the generated ticket number
             $sql = "INSERT INTO `order` (Order_EatingOption, Order_TicketNumber, Order_DateTime, Order_TotalAmount, Payment_ID, Payment_Method, Order_Status) 
-                    VALUES (?, ?, NOW(), ?, ?, ?, 'Pending')";
+                    VALUES (?, ?, ?, ?, ?, ?, 'Pending')";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sidis", $eatingOption, $ticketNumber, $totalAmount, $paymentId, $paymentMethod);
+            $stmt->bind_param("sisids", $eatingOption, $ticketNumber, $currentDateTime, $totalAmount, $paymentId, $paymentMethod);
             
             if (!$stmt->execute()) {
                 throw new Exception("Failed to insert order record");

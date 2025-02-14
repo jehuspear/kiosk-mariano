@@ -65,29 +65,14 @@ function removeSizeRow(button) {
 function updateTemperatureTypeStyle(select) {
     if (!select) return;
     
+    // Remove all temperature type classes first
+    select.classList.remove('hot', 'iced', 'normal');
+    
+    // Get the selected value and convert to lowercase
     const value = select.value.toLowerCase();
-    select.className = `form-control temperature-type-select ${value}`;
     
-    // Update icon based on temperature type
-    const icon = select.parentElement.querySelector('.temperature-icon');
-    if (icon) {
-        icon.remove();
-    }
-    
-    const newIcon = document.createElement('span');
-    newIcon.className = 'temperature-icon';
-    switch (value) {
-        case 'hot':
-            newIcon.innerHTML = '<i class="fas fa-fire"></i>';
-            break;
-        case 'iced':
-            newIcon.innerHTML = '<i class="fas fa-snowflake"></i>';
-            break;
-        case 'normal':
-            newIcon.innerHTML = '<i class="fas fa-thermometer-half"></i>';
-            break;
-    }
-    select.parentElement.insertBefore(newIcon, select);
+    // Keep the base classes and add the temperature type class if a value is selected
+    select.className = `form-control temperature-type-select${value ? ' ' + value : ''}`;
 }
 
 // Function to validate form data

@@ -100,36 +100,69 @@
     background-color: #343a40;
 }
 
-/* Temperature Types */
-.temperature-select {
-    padding-left: 35px !important;
-    position: relative;
+/* Temperature Type Select Styling */
+.temperature-type-select {
+    background-color: #2a2a2a;
+    border: 1px solid #404040;
+    color: #e0e0e0;
+    border-radius: 6px;
+    padding: 8px 12px;
+    width: 100%;
+    transition: all 0.2s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
 }
 
-.temperature-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 16px;
+.temperature-type-select:focus {
+    outline: none;
+    border-color: #ffd700;
 }
 
-.temperature-select.hot {
+/* Hot Temperature */
+.temperature-type-select option[value="Hot"] {
+    background-color: #ff4444;
+    color: white;
+    border: 1px solid #ff6b6b;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+/* Normal Temperature */
+.temperature-type-select option[value="Normal"] {
+    background-color: #00C851;
+    color: white;
+    border: 1px solid #69db7c;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+/* Iced Temperature */
+.temperature-type-select option[value="Iced"] {
+    background-color: #33b5e5;
+    color: white;
+    border: 1px solid #74c0fc;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+/* Selected Option Styling */
+.temperature-type-select.hot {
+    background-color: #ff4444;
     border-color: #ff6b6b;
-    color: #ff6b6b;
-    background-color: rgba(255, 107, 107, 0.1);
+    color: white;
 }
 
-.temperature-select.iced {
-    border-color: #74c0fc;
-    color: #74c0fc;
-    background-color: rgba(116, 192, 252, 0.1);
-}
-
-.temperature-select.normal {
+.temperature-type-select.normal {
+    background-color: #00C851;
     border-color: #69db7c;
-    color: #69db7c;
-    background-color: rgba(105, 219, 124, 0.1);
+    color: white;
+}
+
+.temperature-type-select.iced {
+    background-color: #33b5e5;
+    border-color: #74c0fc;
+    color: white;
 }
 
 /* Price Input */

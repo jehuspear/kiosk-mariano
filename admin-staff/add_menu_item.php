@@ -227,11 +227,11 @@ if(isset($_POST['submit'])) {
                 </div>
             </td>
             <td>
-                <select class="form-control temperature-select" name="sizes[{index}][temperature_type]" required>
+                <select class="form-control temperature-type-select" name="sizes[{index}][temperature_type]" required>
                     <option value="">Select Temperature</option>
-                    <option value="Hot">Hot</option>
-                    <option value="Iced">Iced</option>
-                    <option value="Normal">Normal</option>
+                    <option value="Hot">🔥 Hot</option>
+                    <option value="Normal">🌡️ Normal</option>
+                    <option value="Iced">❄️ Iced</option>
                 </select>
             </td>
             <td>

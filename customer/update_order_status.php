@@ -17,8 +17,12 @@ if (!$ticketNumber || !$status) {
     exit;
 }
 
+// Set timezone and get current datetime
+date_default_timezone_set('Asia/Manila');
+$currentDateTime = date('Y-m-d H:i:s');
+
 // Update order status
-$sql = "UPDATE `order` SET Order_Status = ?, Order_CompletedTime = NOW() WHERE Order_TicketNumber = ?";
+$sql = "UPDATE `order` SET Order_Status = ? WHERE Order_TicketNumber = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("si", $status, $ticketNumber);
 

@@ -60,11 +60,15 @@ try {
     }
 
     
+    // Set timezone and get current datetime
+    date_default_timezone_set('Asia/Manila');
+    $currentDateTime = date('Y-m-d H:i:s');
+
     // Update order completed time when approving
     if ($action === 'approve') {
-        $sql = "UPDATE `order` SET Order_CompletedTime = NOW() WHERE Order_ID = ?";
+        $sql = "UPDATE `order` SET Order_CompletedTime = ? WHERE Order_ID = ?";
         $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "i", $order_id);
+        mysqli_stmt_bind_param($stmt, "si", $currentDateTime, $order_id);
         
         if (!mysqli_stmt_execute($stmt)) {
             throw new Exception("Failed to update order completed time: " . mysqli_error($conn));
@@ -77,9 +81,9 @@ try {
     $log_details = "Order #$order_id status changed to $new_order_status";
     
     $sql = "INSERT INTO logs (Staff_ID, Log_DateTime, Log_Action, Log_Details) 
-            VALUES (?, NOW(), ?, ?)";
+            VALUES (?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "iss", $staff_id, $log_action, $log_details);
+    mysqli_stmt_bind_param($stmt, "isss", $staff_id, $currentDateTime, $log_action, $log_details);
     
     if (!mysqli_stmt_execute($stmt)) {
         throw new Exception("Failed to log action: " . mysqli_error($conn));

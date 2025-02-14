@@ -73,11 +73,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
+    // Set timezone and get current datetime
+    date_default_timezone_set('Asia/Manila');
+    $currentDateTime = date('Y-m-d H:i:s');
+
     $sql = "INSERT INTO feedback (Order_ID, Feedback_CustomerName, Feedback_DateTime, Feedback_Rating, Feedback_Comments) 
-            VALUES (?, ?, NOW(), ?, ?)";
+            VALUES (?, ?, ?, ?, ?)";
             
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("isis", $Order_ID, $Feedback_CustomerName, $Feedback_Rating, $Feedback_Comments);
+    $stmt->bind_param("issis", $Order_ID, $Feedback_CustomerName, $currentDateTime, $Feedback_Rating, $Feedback_Comments);
 
     if ($stmt->execute()) {
         echo json_encode(["status" => "success", "message" => "Feedback submitted successfully!"]);
@@ -101,6 +105,39 @@ if (!isset($_SESSION['ticket_number'])) {
     header('Location: orderstatus.php');
     exit();
 }
+
+// Check if feedback already exists for this order
+$ticketNumber = $_SESSION['ticket_number'];
+date_default_timezone_set('Asia/Manila');
+$today_start = date('Y-m-d 00:00:00');
+$today_end = date('Y-m-d 23:59:59');
+
+$orderQuery = "SELECT o.Order_ID FROM `order` o 
+              WHERE o.Order_TicketNumber = ? 
+              AND o.Order_DateTime BETWEEN ? AND ?";
+$stmt = $conn->prepare($orderQuery);
+$stmt->bind_param("iss", $ticketNumber, $today_start, $today_end);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result && $result->num_rows > 0) {
+    $orderRow = $result->fetch_assoc();
+    $Order_ID = $orderRow['Order_ID'];
+    
+    // Check for existing feedback
+    $feedbackCheck = $conn->prepare("SELECT COUNT(*) as count FROM feedback WHERE Order_ID = ?");
+    $feedbackCheck->bind_param("i", $Order_ID);
+    $feedbackCheck->execute();
+    $feedbackResult = $feedbackCheck->get_result();
+    $feedbackCount = $feedbackResult->fetch_assoc()['count'];
+    $feedbackCheck->close();
+    
+    if ($feedbackCount > 0) {
+        header('Location: orderstatus.php');
+        exit();
+    }
+}
+$stmt->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">

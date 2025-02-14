@@ -61,7 +61,7 @@ switch($period) {
 }
 
 // Fetch completed orders
-$sql = "SELECT o.Order_ID, o.Order_DateTime, o.Order_TicketNumber, 
+$sql = "SELECT o.Order_ID, p.Payment_DateTime, o.Order_TicketNumber, 
                o.Order_EatingOption, o.Order_TotalAmount, o.Payment_Method,
                oi.MenuItem_ID, m.MenuItem_Name, oi.OrderItem_CupSize,
                oi.OrderItem_Quantity, oi.OrderItem_Price,
@@ -73,8 +73,8 @@ $sql = "SELECT o.Order_ID, o.Order_DateTime, o.Order_TicketNumber,
         LEFT JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID
         LEFT JOIN payment p ON o.Payment_ID = p.Payment_ID
         WHERE p.Payment_Status = 'Completed'
-        AND o.Order_DateTime BETWEEN ? AND ?
-        ORDER BY o.Order_DateTime DESC";
+        AND p.Payment_DateTime BETWEEN ? AND ?
+        ORDER BY p.Payment_DateTime DESC";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ss", $startDate, $endDate);
@@ -93,7 +93,7 @@ while ($row = $result->fetch_assoc()) {
     $orderId = $row['Order_ID'];
     if (!isset($orders[$orderId])) {
         $orders[$orderId] = [
-            'datetime' => $row['Order_DateTime'],
+            'datetime' => $row['Payment_DateTime'],
             'ticket' => $row['Order_TicketNumber'],
             'eating_option' => $row['Order_EatingOption'],
             'payment_method' => $row['Payment_Method'],

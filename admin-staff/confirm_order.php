@@ -108,10 +108,14 @@ try {
                 $discount_type .= " ({$discount_percent}%)";
             }
 
+            // Set timezone to Philippines
+            date_default_timezone_set('Asia/Manila');
+            $currentDateTime = date('Y-m-d H:i:s');
+
             // Update payment details
             $sql = "UPDATE payment SET 
                     Payment_Status = 'Completed',
-                    Payment_DateTime = NOW(),
+                    Payment_DateTime = ?,
                     Payment_DiscountType = ?,
                     Payment_DiscountAmount = ?,
                     Payment_TotalAmount = ?,
@@ -125,7 +129,8 @@ try {
                 throw new Exception("Failed to prepare update statement: " . mysqli_error($conn));
             }
 
-            mysqli_stmt_bind_param($stmt, "sddsddi", 
+            mysqli_stmt_bind_param($stmt, "ssddsddi", 
+                $currentDateTime,
                 $discount_type,
                 $discount_amount,
                 $final_amount,
@@ -209,7 +214,7 @@ try {
             // Update order status
             $sql = "UPDATE `order` SET 
                     Order_Status = 'Preparing',
-                    Order_CompletedTime = NOW(),
+                    Order_CompletedTime = ?,
                     Staff_ID = $staff_id
                     WHERE Order_ID = ?";
             
@@ -218,7 +223,7 @@ try {
                 throw new Exception("Failed to prepare order update statement: " . mysqli_error($conn));
             }
 
-            mysqli_stmt_bind_param($stmt, "i", $order_id);
+            mysqli_stmt_bind_param($stmt, "si", $currentDateTime, $order_id);
             
             if (!mysqli_stmt_execute($stmt)) {
                 throw new Exception("Failed to update order status: " . mysqli_error($conn));
@@ -236,13 +241,13 @@ try {
             );
             
             $sql = "INSERT INTO logs (Staff_ID, Log_DateTime, Log_Action, Log_Details) 
-                    VALUES (?, NOW(), ?, ?)";
+                    VALUES (?, ?, ?, ?)";
             $stmt = mysqli_prepare($conn, $sql);
             if (!$stmt) {
                 throw new Exception("Failed to prepare log statement: " . mysqli_error($conn));
             }
 
-            mysqli_stmt_bind_param($stmt, "iss", $staff_id, $log_action, $log_details);
+            mysqli_stmt_bind_param($stmt, "isss", $staff_id, $currentDateTime, $log_action, $log_details);
             
             if (!mysqli_stmt_execute($stmt)) {
                 throw new Exception("Failed to log payment: " . mysqli_error($conn));

@@ -368,6 +368,11 @@ if ($ticketNumber) {
             </div>
 
             <div class="status-details">
+                <div class="status-label">Order ID</div>
+                <div class="status-value">
+                    <?php echo str_pad($orderDetails['Order_ID'], 8, '0', STR_PAD_LEFT); ?>
+                </div>
+
                 <div class="status-label">Order Time</div>
                 <div class="status-value">
                     <?php echo date('M d, Y h:i A', strtotime($orderDetails['Order_DateTime'])); ?>
@@ -472,14 +477,35 @@ if ($ticketNumber) {
                         </div>
             </div>
 
+            <?php 
+            // Check for existing feedback if order is completed
+            $hasFeedback = false;
+            if ($orderDetails['Order_Status'] === 'Completed') {
+                $feedbackCheck = $conn->prepare("SELECT COUNT(*) as count FROM feedback WHERE Order_ID = ?");
+                $feedbackCheck->bind_param("i", $orderDetails['Order_ID']);
+                $feedbackCheck->execute();
+                $feedbackResult = $feedbackCheck->get_result();
+                $hasFeedback = $feedbackResult->fetch_assoc()['count'] > 0;
+                $feedbackCheck->close();
+            }
+            ?>
+
             <?php if ($orderDetails['Order_Status'] === 'ReadyToClaim'): ?>
                 <button id="orderReceivedBtn" class="btn-received">
                     Click Here to Confirm Order Received
                 </button>
             <?php elseif ($orderDetails['Order_Status'] === 'Completed'): ?>
-                <a href="customerfeedback.php" class="btn-feedback animate">
-                    <i class="fas fa-star"></i> Submit Feedback Here
-                </a>
+                <?php if ($hasFeedback): ?>
+                    <div style="text-align: center; padding: 15px; margin: 15px 0; background: linear-gradient(45deg, #28a745, #34ce57); border-radius: 10px; color: white;">
+                        <i class="fas fa-check-circle" style="font-size: 24px; margin-bottom: 10px;"></i>
+                        <p style="margin: 0; font-weight: bold;">Feedback Submitted</p>
+                        <p style="margin: 5px 0 0 0; font-size: 0.9em;">Thank you for helping us improve our service!</p>
+                    </div>
+                <?php else: ?>
+                    <a href="customerfeedback.php" class="btn-feedback animate">
+                        <i class="fas fa-star"></i> Submit Feedback Here
+                    </a>
+                <?php endif; ?>
             <?php endif; ?>
         </div>
         
@@ -579,7 +605,7 @@ if ($ticketNumber) {
                 orderReceivedBtn.addEventListener('click', async function() {
                     const confirmed = await modal.confirm(
                         'Confirm Order Receipt',
-                        'Have you received your order?'
+                        '<div class="text-center mb-3"><i class="fas fa-check-circle" style="font-size: 48px; color: #28a745;"></i></div>Have you received your order?'
                     );
                     
                     if (confirmed) {

@@ -60,6 +60,19 @@ function renderSidebar($currentPage = '') {
                 </div>
             <?php endif; ?>
 
+            <!-- Point-of-Sale - Accessible to both Admin and Staff -->
+            <div class="sidebar-section">
+                <h5 class="sidebar-heading">Point-of-Sale</h5>
+                <ul class="nav">
+                    <li class="<?php echo $currentPage === 'pos' ? 'active' : ''; ?>">
+                        <a href="point-of-sale.php">
+                            <i class="fa-solid fa-cash-register"></i>
+                            <span>POS Terminal</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
             <!-- Order Management - Accessible to both Admin and Staff -->
             <div class="sidebar-section">
                 <h5 class="sidebar-heading">Orders</h5>

@@ -10,6 +10,10 @@ window.confirmOrderHandler = async function(e) {
             throw new Error('Could not find order row');
         }
         
+        // Get staff name from welcome text
+        const welcomeText = document.querySelector('.welcome-text');
+        const staffName = welcomeText ? welcomeText.textContent.split(',')[1].split('\n')[0].trim() : '';
+
         // Get order details from the row based on grid layout
         const orderDetails = {
             orderId: orderId,  // Add orderId to the details
@@ -19,7 +23,8 @@ window.confirmOrderHandler = async function(e) {
             paymentMethod: orderRow.querySelector('.order-item:nth-child(4)').textContent.trim(),
             items: orderRow.querySelector('.order-item:nth-child(5)').innerHTML.trim(),
             itemPrices: orderRow.querySelector('.order-item:nth-child(6)').innerHTML.trim(),
-            totalAmount: orderRow.querySelector('.order-item:nth-child(7)').textContent.trim().replace('₱', '').replace(/,/g, '')
+            totalAmount: orderRow.querySelector('.order-item:nth-child(7)').textContent.trim().replace('₱', '').replace(/,/g, ''),
+            staffFirstName: staffName
         };
 
         // Debug log order details

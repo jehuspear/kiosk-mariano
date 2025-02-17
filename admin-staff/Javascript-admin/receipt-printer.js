@@ -228,6 +228,10 @@ class ReceiptPrinter {
                         <span class="order-detail-value">${orderDate}</span>
                     </div>
                     <div class="order-detail-item">
+                        <span class="order-detail-label">Cashier:</span>
+                        <span class="order-detail-value">${orderDetails.staffFirstName || ''}</span>
+                    </div>
+                    <div class="order-detail-item">
                         <span class="order-detail-label">Eating Option:</span>
                         <span class="order-detail-value">${orderDetails.eatingOption}</span>
                     </div>

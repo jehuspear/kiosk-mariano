@@ -130,8 +130,8 @@ if (!isset($conn)) {
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <h5 class="mb-0">Cart</h5>
-                                <div id="datetime" class="text-muted"></div>
                             </div>
+                            <div id="datetime" class="text-muted"></div>
                             <div class="cashier-info text-muted">
                                 Cashier: <?php echo isset($_SESSION['firstname']) ? htmlspecialchars($_SESSION['firstname']) : 'Unknown'; ?>
                             </div>
@@ -141,20 +141,88 @@ if (!isset($conn)) {
                                 <!-- Cart items will be displayed here -->
                             </div>
                             <div class="cart-summary mt-auto">
+                                <!-- Eating Options -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Eating Option</label>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-outline-primary flex-grow-1 eating-option active" data-option="dine-in">
+                                            <i class="fas fa-utensils me-2"></i>Dine-In
+                                        </button>
+                                        <button class="btn btn-outline-primary flex-grow-1 eating-option" data-option="take-out">
+                                            <i class="fas fa-shopping-bag me-2"></i>Take-Out
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Payment Mode -->
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Mode of Payment</label>
+                                    <div class="d-flex gap-2 mb-2">
+                                        <button class="btn btn-outline-success flex-grow-1 payment-mode active" data-mode="cash">
+                                            <i class="fas fa-money-bill-wave me-2"></i>Cash
+                                        </button>
+                                        <button class="btn btn-outline-success flex-grow-1 payment-mode" data-mode="gcash">
+                                            <i class="fas fa-mobile-alt me-2"></i>GCash
+                                        </button>
+                                    </div>
+                                    <!-- Cash Payment Input -->
+                                    <div id="cashPaymentInput" class="payment-input">
+                                        <div class="input-group mb-2">
+                                            <span class="input-group-text">₱</span>
+                                            <input type="number" class="form-control" id="cashAmount" placeholder="Enter cash amount" min="0" step="0.01">
+                                        </div>
+                                        <div class="d-flex justify-content-between text-muted mb-2">
+                                            <small>Change:</small>
+                                            <small id="changeAmount">₱0.00</small>
+                                        </div>
+                                    </div>
+                                    <!-- GCash Payment Input -->
+                                    <div id="gcashPaymentInput" class="payment-input" style="display: none;">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="referenceNumber" placeholder="Enter last 6 digits of reference #" maxlength="6" pattern="\d{6}">
+                                            <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Totals -->
                                 <div class="d-flex justify-content-between mb-2">
                                     <span>Subtotal:</span>
                                     <span id="subtotal">₱0.00</span>
                                 </div>
+
+                                <!-- Discount Selection -->
+                                <div class="mb-3">
+                                    <label class="form-label">Discount Type</label>
+                                    <select class="form-select mb-2" id="discountType">
+                                        <option value="none">No Discount</option>
+                                        <option value="senior">Senior Citizen (20%)</option>
+                                        <option value="pwd">PWD (20%)</option>
+                                        <option value="custom">Custom Discount</option>
+                                    </select>
+                                    <div id="customDiscountInput" style="display: none;">
+                                        <div class="input-group mb-2">
+                                            <input type="text" class="form-control" id="customDiscountName" placeholder="Enter discount name (e.g., Partnership)">
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="customDiscountPercent" min="0" max="100" placeholder="Enter percentage">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="d-flex justify-content-between mb-2">
                                     <span>Discount:</span>
                                     <span id="discount">₱0.00</span>
                                 </div>
+
                                 <div class="d-flex justify-content-between mb-3">
                                     <span class="fw-bold">Total:</span>
                                     <span id="total" class="fw-bold">₱0.00</span>
                                 </div>
+
                                 <button class="btn btn-primary w-100 mb-2" id="checkoutBtn">
-                                    Proceed to Checkout
+                                    Process Order
                                 </button>
                                 <button class="btn btn-outline-danger w-100" id="clearCartBtn">
                                     Clear Cart
@@ -213,7 +281,104 @@ if (!isset($conn)) {
         </div>
     </div>
 
+    <!-- Payment Validation Modals -->
+    <!-- Insufficient Cash Modal -->
+    <div class="modal fade" id="insufficientCashModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pb-4">
+                    <i class="fas fa-money-bill-wave text-danger mb-4" style="font-size: 3rem;"></i>
+                    <h4 class="modal-title mb-3">Insufficient Cash</h4>
+                    <p class="text-muted">Cash amount must be equal to or greater than the total amount.</p>
+                    <button type="button" class="btn btn-primary px-4 mt-3" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pb-4">
+                    <i class="fas fa-check-circle text-success mb-4" style="font-size: 3rem;"></i>
+                    <h4 class="modal-title mb-3">Order Successful!</h4>
+                    <p class="text-muted">Your order has been processed successfully.</p>
+                    <button type="button" class="btn btn-primary px-4 mt-3" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Receipt Modal -->
+    <div class="modal fade" id="receiptModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Order Receipt</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="receiptModalBody">
+                    Loading receipt...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="window.print()">
+                        <i class="fas fa-print me-2"></i>Print Receipt
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invalid Reference Number Modal -->
+    <div class="modal fade" id="invalidRefModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pb-4">
+                    <i class="fas fa-hashtag text-warning mb-4" style="font-size: 3rem;"></i>
+                    <h4 class="modal-title mb-3">Invalid Reference Number</h4>
+                    <p class="text-muted">Please enter the last 6 digits of the GCash reference number.</p>
+                    <button type="button" class="btn btn-primary px-4 mt-3" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print Preview Modal -->
+    <div class="modal fade" id="printPreviewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Print Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div id="printPreviewContent" style="max-height: 70vh; overflow-y: auto;">
+                        <!-- Receipt content will be loaded here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="confirmPrint">
+                        <i class="fas fa-print me-2"></i>Print Receipt
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Custom JavaScript -->
+    <script src="Javascript-admin/pos-receipt-printer.js"></script>
     <script src="Javascript-admin/pos.js"></script>
 </body>
 </html>

@@ -1,0 +1,235 @@
+/* Container styles */
+.container {
+    max-width: 80mm !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+.receipt-container {
+    width: 58mm;
+    margin: 0 auto;
+    background: white;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* Receipt text styles */
+.receipt-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 9pt;
+    line-height: 1.2;
+    padding: 0 !important;
+    font-weight: 600;
+}
+
+/* Print receipt */
+.print-receipt {
+    width: 58mm !important;
+    margin: 0 auto;
+    padding: 2mm;
+    background: white;
+}
+
+/* Logo */
+.print-receipt .logo {
+    width: 45mm;
+    height: auto;
+    margin: 0 auto 3mm;
+    display: block;
+    filter: invert(1) !important;
+    margin-top: 20mm;
+}
+
+/* Ticket number */
+.print-receipt .ticket-number-display {
+    font-size: 21pt;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 3mm;
+    padding: 1mm 0;
+    border-bottom: 1px solid black;
+}
+
+/* Order details */
+.print-receipt .order-detail-item {
+    margin-bottom: 1.5mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.print-receipt .order-detail-label {
+    font-weight: 900;
+    font-size: 9pt;
+}
+
+.print-receipt .order-detail-value {
+    text-align: right;
+    font-size: 9pt;
+    max-width: 60%;
+    font-weight: 700;
+}
+
+/* Order items list */
+.print-receipt .order-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 2mm 0;
+}
+
+.print-receipt .order-items-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1mm;
+    font-size: 9pt;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.print-receipt .item-name {
+    flex: 1;
+    padding-right: 2mm;
+    white-space: normal;
+    word-wrap: break-word;
+    font-weight: 700;
+}
+
+.print-receipt .item-price {
+    white-space: nowrap;
+    margin-left: 2mm;
+    font-weight: 900;
+}
+
+/* Subtotal section */
+.print-receipt .subtotal-section {
+    margin-top: 3mm;
+    padding-top: 1.5mm;
+    border-top: 1px solid black;
+}
+
+/* Total section */
+.print-receipt .total-section {
+    margin-top: 3mm;
+    padding-top: 1.5mm;
+    border-top: 1px solid black;
+    font-size: 12pt;
+}
+
+.print-receipt .total-section .order-detail-label,
+.print-receipt .total-section .order-detail-value {
+    font-size: 10pt;
+    font-weight: 900;
+}
+
+/* Payment section */
+.print-receipt .payment-section {
+    margin-top: 3mm;
+    padding-top: 1.5mm;
+    border-top: 1px solid black;
+}
+
+.print-receipt .payment-method-gcash,
+.print-receipt .payment-method-cash {
+    font-weight: 900;
+}
+
+.print-receipt .payment-change {
+    font-weight: 900;
+}
+
+/* Footer */
+.print-receipt .footer {
+    margin-top: 4mm;
+    text-align: center;
+    font-size: 8pt;
+    border-top: 1px solid black;
+    padding-top: 2mm;
+}
+
+.print-receipt .footer p {
+    margin: 1mm 0;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+/* Cutting line */
+.print-receipt .cutting-line {
+    margin-top: 20mm;
+    border-top: 1px solid black;
+    margin-bottom: 5mm;
+}
+
+/* Print styles */
+@media print {
+    @page {
+        margin: 0;
+        size: 58mm auto;
+    }
+
+    body {
+        width: 58mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .container {
+        width: 58mm !important;
+        max-width: 58mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .receipt-container {
+        width: 58mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+    }
+
+    .print-receipt {
+        width: 58mm !important;
+        margin: 0 !important;
+        padding: 2mm !important;
+    }
+
+    /* Ensure text is black for better printing */
+    * {
+        color: black !important;
+        background: none !important;
+        box-shadow: none !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Ensure dashed borders print */
+    .print-receipt .ticket-number-display,
+    .print-receipt .subtotal-section,
+    .print-receipt .total-section,
+    .print-receipt .payment-section,
+    .print-receipt .footer,
+    .print-receipt .cutting-line {
+        border-color: black !important;
+    }
+
+    /* Hide non-printable elements */
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* Alert styles */
+.alert {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    background-color: #ffe6e6;
+    border: 1px solid #ffcccc;
+    color: #cc0000;
+}
+
+.alert-danger small {
+    color: #990000;
+}

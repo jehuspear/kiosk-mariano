@@ -14,23 +14,29 @@ if(!isset($_SESSION["user_id"])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Preparing Orders</title>
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="resources/favicon/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="resources/favicon/favicon_io/site.webmanifest"> 
   
-  <!-- Add Bootstrap CSS -->
-  <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
-  
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="Css-admin/sidebar.css">
-  <link rel="stylesheet" href="Css-admin/sidebar-toggle.css">
-  <link rel="stylesheet" href="Css-admin/orderlist.css">
-  <link rel="stylesheet" href="Css-admin/preparing_orders.css">
-  <link rel="stylesheet" href="Css-admin/preparing_status.css">
-  <link rel="stylesheet" href="Css-admin/mass_complete_orders.css">
-  
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="Css-admin/sidebar.css">
+    <link rel="stylesheet" href="Css-admin/sidebar-toggle.css">
+    <link rel="stylesheet" href="Css-admin/orderlist.css">
+    <link rel="stylesheet" href="Css-admin/preparing_orders.css">
+    <link rel="stylesheet" href="Css-admin/preparing_status.css">
+    <link rel="stylesheet" href="Css-admin/mass_complete_orders.css">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Toast Container -->
   <div class="toast-container"></div>

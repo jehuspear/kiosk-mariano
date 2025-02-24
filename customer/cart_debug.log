@@ -375,3 +375,90 @@
 
 [2025-02-24 13:17:41] New total quantity: 5
 [2025-02-24 13:17:41] Response sent: {"success":true,"cartCount":5,"totalAmount":730,"message":"Item added to cart successfully"}
+[2025-02-24 17:28:35] Raw POST data: {"id":3,"name":"Cappuccino","price":85,"description":"Espresso with steamed milk and a thick layer of foam","image":"../admin-staff/Images/menu-item/cappuccino.jpg","size":"8oz","sizeId":11,"orderType":"Dine-in","quantity":1}
+[2025-02-24 17:28:35] Decoded data: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [price] => 85
+    [description] => Espresso with steamed milk and a thick layer of foam
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 8oz
+    [sizeId] => 11
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-24 17:28:35] Added new item to cart: Array
+(
+    [id] => 3
+    [name] => Cappuccino
+    [image] => ../admin-staff/Images/menu-item/cappuccino.jpg
+    [size] => 8oz
+    [sizeId] => 11
+    [price] => 85
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-24 17:28:35] New total quantity: 1
+[2025-02-24 17:28:35] Response sent: {"success":true,"cartCount":1,"totalAmount":85,"message":"Item added to cart successfully"}
+[2025-02-24 17:48:30] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","sizeId":52,"orderType":"Dine-in","quantity":1}
+[2025-02-24 17:48:30] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [sizeId] => 52
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-24 17:48:30] Added new item to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [sizeId] => 52
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-24 17:48:30] New total quantity: 1
+[2025-02-24 17:48:30] Response sent: {"success":true,"cartCount":1,"totalAmount":120,"message":"Item added to cart successfully"}
+[2025-02-24 17:48:36] Raw POST data: {"id":27,"name":"Caesar Salad","price":150,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Medium 500g","sizeId":81,"orderType":"Dine-in","quantity":2}
+[2025-02-24 17:48:36] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 150
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Medium 500g
+    [sizeId] => 81
+    [orderType] => Dine-in
+    [quantity] => 2
+)
+
+[2025-02-24 17:48:36] Added new item to cart: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Medium 500g
+    [sizeId] => 81
+    [price] => 150
+    [quantity] => 2
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-24 17:48:36] New total quantity: 3
+[2025-02-24 17:48:36] Response sent: {"success":true,"cartCount":3,"totalAmount":420,"message":"Item added to cart successfully"}

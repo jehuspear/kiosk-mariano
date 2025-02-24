@@ -72,152 +72,160 @@ $averageRating = $totalRatings > 0 ? round($totalScore / $totalRatings, 1) : 0;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Feedback - SINCO CAFE</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   <!-- Add Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
-        <link rel="stylesheet" href="Css-admin/sidebar.css">
-        <link rel="stylesheet" href="Css-admin/order.css">
-        <link rel="stylesheet" href="Css-admin/search_order.css">
-        <link rel="stylesheet" href="Css-admin/admin-modal.css">
-        <link rel="stylesheet" href="Css-admin/reports.css">
-        <link rel="stylesheet" href="Css-admin/feedback.css">
-        <link rel="stylesheet" href="Javascript-admin/auto-refresh.js">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
-        <style>
-            .feedback-header {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 10px;
-                color: #666;
-                font-size: 0.9em;
-            }
-            .feedback-datetime {
-                margin-top: 10px;
-                color: #666;
-                font-size: 0.9em;
-                text-align: right;
-            }
-            .feedback-item {
-                background: #fff;
-                padding: 15px;
-                margin-bottom: 15px;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                transition: transform 0.2s ease;
-            }
-            .feedback-item:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-            }
-            .feedback-item p {
-                margin: 5px 0;
-            }
-            .feedback-container {
-                padding: 20px;
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-            .feedback-list {
-                display: grid;
-                gap: 20px;
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-            .rating {
-                color: #ffc107;
-                margin: 10px 0;
-            }
-            .rating i {
-                margin-right: 2px;
-            }
-            .rating span {
-                color: #666;
-                margin-left: 5px;
-            }
-            .feedback-comments {
-                background: #f8f9fa;
-                padding: 10px;
-                border-radius: 4px;
-                margin: 10px 0;
-            }
+  <title>Customer Feedback - White House Cafe</title>
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="resources/favicon/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="resources/favicon/favicon_io/site.webmanifest"> 
+  
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
+    <link rel="stylesheet" href="Css-admin/sidebar.css">
+    <link rel="stylesheet" href="Css-admin/order.css">
+    <link rel="stylesheet" href="Css-admin/search_order.css">
+    <link rel="stylesheet" href="Css-admin/admin-modal.css">
+    <link rel="stylesheet" href="Css-admin/reports.css">
+    <link rel="stylesheet" href="Css-admin/feedback.css">
+    <link rel="stylesheet" href="Javascript-admin/auto-refresh.js">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
+
+    <!-- Inline Styles -->
+    <style>
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .feedback-datetime {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9em;
+            text-align: right;
+        }
+        .feedback-item {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        .feedback-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .feedback-item p {
+            margin: 5px 0;
+        }
+        .feedback-container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feedback-list {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+        .rating {
+            color: #ffc107;
+            margin: 10px 0;
+        }
+        .rating i {
+            margin-right: 2px;
+        }
+        .rating span {
+            color: #666;
+            margin-left: 5px;
+        }
+        .feedback-comments {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .stats-container {
+            max-width: 100%;
+            margin: 0 auto 20px;
+            padding: 0 10px;
+        }
+        .feedback-summary {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+            padding: 12px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .feedback-summary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .summary-item {
+            text-align: center;
+            padding: 0 12px;
+            flex: 1;
+            min-width: 100px;
+        }
+        .summary-item h3 {
+            font-size: clamp(16px, 2.5vw, 20px);
+            margin: 0;
+            color: #333;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .summary-item h3 i {
+            color: #ffc107;
+            font-size: 0.8em;
+        }
+        .summary-item p {
+            margin: 3px 0 0;
+            color: #666;
+            font-size: clamp(0.75em, 1.8vw, 0.85em);
+        }
+        .chart-container {
+            background: linear-gradient(145deg, #383838, #2a2a2a);
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+            height: 512px;
+            width: 100%;
+        }
+        @media (max-width: 576px) {
             .stats-container {
-                max-width: 100%;
-                margin: 0 auto 20px;
-                padding: 0 10px;
+                padding: 0 8px;
+                margin-bottom: 15px;
             }
             .feedback-summary {
-                display: flex;
-                justify-content: center;
-                gap: 15px;
-                margin: 15px 0;
-                padding: 12px;
-                background: #fff;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                transition: transform 0.2s ease, box-shadow 0.2s ease;
-            }
-            .feedback-summary:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+                padding: 8px;
+                gap: 8px;
+                margin: 10px 0;
             }
             .summary-item {
-                text-align: center;
-                padding: 0 12px;
-                flex: 1;
-                min-width: 100px;
-            }
-            .summary-item h3 {
-                font-size: clamp(16px, 2.5vw, 20px);
-                margin: 0;
-                color: #333;
-                white-space: nowrap;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 5px;
-            }
-            .summary-item h3 i {
-                color: #ffc107;
-                font-size: 0.8em;
-            }
-            .summary-item p {
-                margin: 3px 0 0;
-                color: #666;
-                font-size: clamp(0.75em, 1.8vw, 0.85em);
+                padding: 0 8px;
             }
             .chart-container {
-                background: linear-gradient(145deg, #383838, #2a2a2a);
-                padding: 12px;
-                border-radius: 8px;
-                box-shadow: 0 3px 6px rgba(0,0,0,0.3);
-                height: 512px;
-                width: 100%;
+                height: 130px;
+                padding: 8px;
             }
-            @media (max-width: 576px) {
-                .stats-container {
-                    padding: 0 8px;
-                    margin-bottom: 15px;
-                }
-                .feedback-summary {
-                    padding: 8px;
-                    gap: 8px;
-                    margin: 10px 0;
-                }
-                .summary-item {
-                    padding: 0 8px;
-                }
-                .chart-container {
-                    height: 130px;
-                    padding: 8px;
-                }
-            }
-            h1 {
-                margin: clamp(15px, 3vw, 25px) 0;
-                font-size: clamp(24px, 4vw, 32px);
-                text-align: center;
-            }
-        </style>
+        }
+        h1 {
+            margin: clamp(15px, 3vw, 25px) 0;
+            font-size: clamp(24px, 4vw, 32px);
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
   <div class="wrapper">

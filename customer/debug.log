@@ -196,3 +196,36 @@
             WHERE MenuItem_ID = ?
             ORDER BY MenuItemSize_ID ASC
 2025-02-24 13:17:37 - Successfully found 3 sizes for itemId: 14
+2025-02-24 17:28:32 - Received request for itemId: 3
+2025-02-24 17:28:32 - SQL Query: SELECT 
+                MenuItemSize_ID as sizeId,
+                MenuItemSize_SizeName as size, 
+                MenuItemSize_IsHot as temperature,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY MenuItemSize_ID ASC
+2025-02-24 17:28:32 - Successfully found 5 sizes for itemId: 3
+2025-02-24 17:48:28 - Received request for itemId: 13
+2025-02-24 17:48:28 - SQL Query: SELECT 
+                MenuItemSize_ID as sizeId,
+                MenuItemSize_SizeName as size, 
+                MenuItemSize_IsHot as temperature,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY MenuItemSize_ID ASC
+2025-02-24 17:48:28 - Successfully found 3 sizes for itemId: 13
+2025-02-24 17:48:33 - Received request for itemId: 27
+2025-02-24 17:48:33 - SQL Query: SELECT 
+                MenuItemSize_ID as sizeId,
+                MenuItemSize_SizeName as size, 
+                MenuItemSize_IsHot as temperature,
+                MenuItemSize_Stock as stock,
+                MenuItemSize_Price as price
+            FROM menuitem_sizes 
+            WHERE MenuItem_ID = ?
+            ORDER BY MenuItemSize_ID ASC
+2025-02-24 17:48:33 - Successfully found 3 sizes for itemId: 27

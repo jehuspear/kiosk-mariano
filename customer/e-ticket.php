@@ -60,7 +60,7 @@ if (!$ticketNumber) {
         }
 
         .logo-image {
-            width: 200px;
+            width: 300px;
             height: auto;
         }
 
@@ -176,8 +176,8 @@ if (!$ticketNumber) {
 </head>
 <body>
     <div class="logo-container">
-        <img src="resources/images/logo.png" alt="SINCO CAFE Logo" class="logo-image">
-        <p class="tagline">Where Good Coffee Starts</p>
+        <img src="resources/images/logo.png" alt="CAFE Logo" class="logo-image">
+        <!-- <p class="tagline">Where Good Coffee Starts</p> -->
     </div>
 
     <div class="ticket-container">

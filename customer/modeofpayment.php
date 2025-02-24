@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payment_method'])) {
         }
 
         .logo-image {
-            width: 266px;
+            width: 300px;
             height: auto;
             margin-top: 30px;
         }
@@ -173,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payment_method'])) {
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-auto">
-                    <img src="resources/images/logo.png" alt="SINCO CAFE Logo" class="logo-image">
+                    <img src="resources/images/logo.png" alt="CAFE Logo" class="logo-image">
                 </div>
             </div>
         </div>

@@ -55,8 +55,8 @@ foreach ($_SESSION['cart'] as $item) {
     <div class="mobile-container">
         <!-- Header -->
         <header class="header">
-            <img src="resources/images/logo.png" alt="SINCO CAFE Logo" class="logo-image">
-            <p class="header-tagline">Where Good Coffee Starts</p>
+            <img src="resources/images/logo.png" alt="CAFE Logo" class="logo-image">
+            <!-- <p class="header-tagline">Where Good Coffee Starts</p> -->
             <h5 class="mt-2 mb-0">Order List</h5>
             <a href="menu.php" class="menu-btn">
                 <i class="fas fa-arrow-left"></i>

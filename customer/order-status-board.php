@@ -77,8 +77,8 @@ echo " -->";
 <body>
     <!-- Header -->
     <header class="header">
-        <img src="resources/images/logo.png" alt="SINCO CAFE Logo" class="logo-image">
-        <p>Where Good Coffee Starts</p>
+        <img src="resources/images/logo.png" alt="CAFE Logo" class="logo-image">
+        <!-- <p>Where Good Coffee Starts</p> -->
     </header>
 
     <!-- Refresh Indicator -->

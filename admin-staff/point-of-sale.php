@@ -179,7 +179,7 @@ if (!isset($conn)) {
                                     <!-- GCash Payment Input -->
                                     <div id="gcashPaymentInput" class="payment-input" style="display: none;">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" id="referenceNumber" placeholder="Enter last 6 digits of reference #" maxlength="6" pattern="\d{6}">
+                                            <input type="text" class="form-control" id="referenceNumber" autocomplete="off" placeholder="Enter last 6 digits of reference #" maxlength="6" pattern="\d{6}">
                                             <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
                                         </div>
                                     </div>

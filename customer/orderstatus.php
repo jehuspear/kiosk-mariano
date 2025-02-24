@@ -350,8 +350,8 @@ if ($ticketNumber) {
     </audio>
 
     <div class="logo-container">
-        <img src="resources/images/logo.png" alt="SINCO CAFE Logo" class="logo-image">
-        <p class="tagline">Where Good Coffee Starts</p>
+        <img src="resources/images/logo.png" alt="CAFE Logo" class="logo-image">
+        <!-- <p class="tagline">Where Good Coffee Starts</p> -->
     </div>
 
     <?php if ($orderDetails): ?>

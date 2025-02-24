@@ -201,3 +201,177 @@
 
 [2025-02-17 15:02:25] New total quantity: 4
 [2025-02-17 15:02:25] Response sent: {"success":true,"cartCount":4,"totalAmount":405,"message":"Item added to cart successfully"}
+[2025-02-24 13:15:30] Raw POST data: {"id":27,"name":"Caesar Salad","price":150,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Medium 500g","sizeId":81,"orderType":"Dine-in","quantity":1}
+[2025-02-24 13:15:30] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 150
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Medium 500g
+    [sizeId] => 81
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-24 13:15:30] Added new item to cart: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Medium 500g
+    [sizeId] => 81
+    [price] => 150
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-24 13:15:30] New total quantity: 1
+[2025-02-24 13:15:30] Response sent: {"success":true,"cartCount":1,"totalAmount":150,"message":"Item added to cart successfully"}
+[2025-02-24 13:15:34] Raw POST data: {"id":12,"name":"Blue Punch Mocktail","price":100,"description":"A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.","image":"../admin-staff/Images/menu-item/blue_mocktail.jpg","size":"12oz","sizeId":48,"orderType":"Dine-in","quantity":1}
+[2025-02-24 13:15:34] Decoded data: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [price] => 100
+    [description] => A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [sizeId] => 48
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-24 13:15:34] Added new item to cart: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [sizeId] => 48
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-24 13:15:34] New total quantity: 2
+[2025-02-24 13:15:34] Response sent: {"success":true,"cartCount":2,"totalAmount":250,"message":"Item added to cart successfully"}
+[2025-02-24 13:17:06] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","sizeId":52,"orderType":"Dine-in","quantity":1}
+[2025-02-24 13:17:06] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [sizeId] => 52
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-24 13:17:06] Added new item to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [sizeId] => 52
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-24 13:17:06] New total quantity: 3
+[2025-02-24 13:17:06] Response sent: {"success":true,"cartCount":3,"totalAmount":370,"message":"Item added to cart successfully"}
+[2025-02-24 13:17:09] Raw POST data: {"id":4,"name":"Latte Espanyol","price":120,"description":"Espresso combined with milk and a hint of condensed milk","image":"../admin-staff/Images/menu-item/latte-espanyol.jpg","size":"12oz","sizeId":17,"orderType":"Dine-in","quantity":1}
+[2025-02-24 13:17:09] Decoded data: Array
+(
+    [id] => 4
+    [name] => Latte Espanyol
+    [price] => 120
+    [description] => Espresso combined with milk and a hint of condensed milk
+    [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+    [size] => 12oz
+    [sizeId] => 17
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-24 13:17:09] Added new item to cart: Array
+(
+    [id] => 4
+    [name] => Latte Espanyol
+    [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+    [size] => 12oz
+    [sizeId] => 17
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-24 13:17:09] New total quantity: 4
+[2025-02-24 13:17:09] Response sent: {"success":true,"cartCount":4,"totalAmount":490,"message":"Item added to cart successfully"}
+[2025-02-24 13:17:11] Raw POST data: {"id":4,"name":"Latte Espanyol","price":120,"description":"Espresso combined with milk and a hint of condensed milk","image":"../admin-staff/Images/menu-item/latte-espanyol.jpg","size":"12oz","sizeId":18,"orderType":"Dine-in","quantity":1}
+[2025-02-24 13:17:11] Decoded data: Array
+(
+    [id] => 4
+    [name] => Latte Espanyol
+    [price] => 120
+    [description] => Espresso combined with milk and a hint of condensed milk
+    [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+    [size] => 12oz
+    [sizeId] => 18
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-24 13:17:11] Added new item to cart: Array
+(
+    [id] => 4
+    [name] => Latte Espanyol
+    [image] => ../admin-staff/Images/menu-item/latte-espanyol.jpg
+    [size] => 12oz
+    [sizeId] => 18
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-02-24 13:17:11] New total quantity: 5
+[2025-02-24 13:17:11] Response sent: {"success":true,"cartCount":5,"totalAmount":610,"message":"Item added to cart successfully"}
+[2025-02-24 13:17:41] Raw POST data: {"id":14,"name":"Black Forest cake ","price":240,"description":"A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.","image":"../admin-staff/Images/menu-item/black-forest-pastry.jpg","size":"1 Whole","sizeId":55,"orderType":"Dine-in","quantity":1}
+[2025-02-24 13:17:41] Decoded data: Array
+(
+    [id] => 14
+    [name] => Black Forest cake 
+    [price] => 240
+    [description] => A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.
+    [image] => ../admin-staff/Images/menu-item/black-forest-pastry.jpg
+    [size] => 1 Whole
+    [sizeId] => 55
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-24 13:17:41] Added new item to cart: Array
+(
+    [id] => 14
+    [name] => Black Forest cake 
+    [image] => ../admin-staff/Images/menu-item/black-forest-pastry.jpg
+    [size] => 1 Whole
+    [sizeId] => 55
+    [price] => 240
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-24 13:17:41] New total quantity: 5
+[2025-02-24 13:17:41] Response sent: {"success":true,"cartCount":5,"totalAmount":730,"message":"Item added to cart successfully"}

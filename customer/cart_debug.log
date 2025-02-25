@@ -462,3 +462,32 @@
 
 [2025-02-24 17:48:36] New total quantity: 3
 [2025-02-24 17:48:36] Response sent: {"success":true,"cartCount":3,"totalAmount":420,"message":"Item added to cart successfully"}
+[2025-02-25 02:41:29] Raw POST data: {"id":27,"name":"Caesar Salad","price":150,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Medium 500g","sizeId":81,"orderType":"Take-out","quantity":1}
+[2025-02-25 02:41:29] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 150
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Medium 500g
+    [sizeId] => 81
+    [orderType] => Take-out
+    [quantity] => 1
+)
+
+[2025-02-25 02:41:29] Added new item to cart: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Medium 500g
+    [sizeId] => 81
+    [price] => 150
+    [quantity] => 1
+    [orderType] => Take-out
+    [temperature] => Normal
+)
+
+[2025-02-25 02:41:29] New total quantity: 1
+[2025-02-25 02:41:29] Response sent: {"success":true,"cartCount":1,"totalAmount":150,"message":"Item added to cart successfully"}

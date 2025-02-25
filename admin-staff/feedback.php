@@ -14,16 +14,11 @@ require_once 'check_admin_access.php';
 // Fetch username for the sidebar
 // $username = $_SESSION['Staff_Username'];
 
-// Database connection
-$servername = "localhost";
-$username_db = "root";
-$password = "";
-$dbname = "kiosk_ordering_system_db";
+// Define constant to allow database connection
+define('ALLOW_DIRECT_ACCESS', true);
 
-$conn = new mysqli($servername, $username_db, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// Include database connection
+require_once 'database_admin.php';
 
 // Fetch feedback data
 $feedbacks = [];

@@ -40,7 +40,7 @@ class CustomModal {
             this.modalIcon.innerHTML = '<i class="fas fa-question-circle"></i>';
             this.modalIcon.className = 'modal-icon';
             this.modalTitle.textContent = title;
-            this.modalMessage.textContent = message;
+            this.modalMessage.innerHTML = message;
             
             this.modalButtons.innerHTML = `
                 <button class="modal-btn modal-btn-confirm">Confirm</button>
@@ -80,7 +80,7 @@ class CustomModal {
             this.modalIcon.innerHTML = `<i class="fas fa-${icon}"></i>`;
             this.modalIcon.className = `modal-icon ${type}`;
             this.modalTitle.textContent = title;
-            this.modalMessage.textContent = message;
+            this.modalMessage.innerHTML = message;
             
             this.modalButtons.innerHTML = `
                 <button class="modal-btn modal-btn-ok">OK</button>

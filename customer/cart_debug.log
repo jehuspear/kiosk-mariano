@@ -462,3 +462,61 @@
 
 [2025-02-24 17:48:36] New total quantity: 3
 [2025-02-24 17:48:36] Response sent: {"success":true,"cartCount":3,"totalAmount":420,"message":"Item added to cart successfully"}
+[2025-02-25 18:43:23] Raw POST data: {"id":13,"name":"Matcha Latte","price":70,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"8oz","sizeId":50,"orderType":"Dine-in","quantity":1}
+[2025-02-25 18:43:23] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 70
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 8oz
+    [sizeId] => 50
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-25 18:43:23] Added new item to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 8oz
+    [sizeId] => 50
+    [price] => 70
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Hot
+)
+
+[2025-02-25 18:43:23] New total quantity: 1
+[2025-02-25 18:43:23] Response sent: {"success":true,"cartCount":1,"totalAmount":70,"message":"Item added to cart successfully"}
+[2025-02-25 18:43:27] Raw POST data: {"id":27,"name":"Caesar Salad","price":150,"description":"This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.","image":"../admin-staff/Images/menu-item/Caesar-Salad.jpg","size":"Medium 500g","sizeId":81,"orderType":"Dine-in","quantity":1}
+[2025-02-25 18:43:27] Decoded data: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [price] => 150
+    [description] => This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Medium 500g
+    [sizeId] => 81
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-02-25 18:43:27] Added new item to cart: Array
+(
+    [id] => 27
+    [name] => Caesar Salad
+    [image] => ../admin-staff/Images/menu-item/Caesar-Salad.jpg
+    [size] => Medium 500g
+    [sizeId] => 81
+    [price] => 150
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-02-25 18:43:27] New total quantity: 2
+[2025-02-25 18:43:27] Response sent: {"success":true,"cartCount":2,"totalAmount":220,"message":"Item added to cart successfully"}

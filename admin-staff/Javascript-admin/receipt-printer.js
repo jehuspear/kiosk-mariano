@@ -47,7 +47,7 @@ class ReceiptPrinter {
                         padding: 0;
                         background: white;
                         font-family: "Recursive Mono", monospace;
-
+                        font-weight: 600;
                         font-size: 9pt;
                         color: black;
                         width: 58mm;
@@ -118,6 +118,7 @@ class ReceiptPrinter {
                         padding-right: 2mm;
                         white-space: normal;
                         word-wrap: break-word;
+                        font-weight: 700;
                     }
 
                     .print-receipt .item-price {

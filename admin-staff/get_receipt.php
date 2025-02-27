@@ -65,10 +65,11 @@ try {
 
     error_log("Found order: " . json_encode($orderResult));
 
-    // Get order items with error handling
-    $sql = "SELECT oi.*, m.MenuItem_Name 
+    // Get order items with error handling, including temperature details
+    $sql = "SELECT oi.*, m.MenuItem_Name, ms.MenuItemSize_IsHot 
             FROM orderitem oi 
             JOIN menuitem m ON oi.MenuItem_ID = m.MenuItem_ID 
+            LEFT JOIN menuitem_sizes ms ON oi.MenuItemSize_ID = ms.MenuItemSize_ID
             WHERE oi.Order_ID = ?";
             
     $stmt = $conn->prepare($sql);
@@ -102,6 +103,7 @@ try {
                 return [
                     'name' => $item['MenuItem_Name'],
                     'size' => $item['OrderItem_CupSize'],
+                    'temperature' => $item['MenuItemSize_IsHot'] ?? 'Normal',
                     'quantity' => $item['OrderItem_Quantity'],
                     'price' => $item['OrderItem_Price']
                 ];

@@ -84,7 +84,8 @@ $averageRating = $totalRatings > 0 ? round($totalScore / $totalRatings, 1) : 0;
     <link rel="stylesheet" href="Css-admin/admin-modal.css">
     <link rel="stylesheet" href="Css-admin/reports.css">
     <link rel="stylesheet" href="Css-admin/feedback.css">
-    <link rel="stylesheet" href="Javascript-admin/auto-refresh.js">
+    <link rel="stylesheet" href="Css-admin/feedback-filters.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
 
     <!-- Inline Styles -->
@@ -231,14 +232,103 @@ $averageRating = $totalRatings > 0 ? round($totalScore / $totalRatings, 1) : 0;
     <div class="main-content">
     <h1>Customer Feedback</h1>
     
+    <!-- Filters Section -->
+    <div class="filters-container">
+        <div class="filters-title">
+            <i class="fas fa-filter"></i> Filter Feedback
+        </div>
+        
+        <div class="filters-row">
+            <div class="filter-group">
+                <label for="date-preset">Date Range</label>
+                <select id="date-preset" class="form-control">
+                    <option value="today">Today</option>
+                    <option value="yesterday">Yesterday</option>
+                    <option value="last7days">Last 7 Days</option>
+                    <option value="last30days" selected>Last 30 Days</option>
+                    <option value="thisMonth">This Month</option>
+                    <option value="lastMonth">Last Month</option>
+                    <option value="custom">Custom Range</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="rating-filter">Rating</label>
+                <select id="rating-filter" class="form-control">
+                    <option value="all" selected>All Ratings</option>
+                    <option value="5">5 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="2">2 Stars</option>
+                    <option value="1">1 Star</option>
+                    <option value="custom">Custom Selection</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Custom Date Range (initially hidden) -->
+        <div class="filters-row" id="custom-date-range">
+            <div class="filter-group">
+                <label for="start-date">Start Date</label>
+                <input type="date" id="start-date" class="form-control">
+            </div>
+            
+            <div class="filter-group">
+                <label for="end-date">End Date</label>
+                <input type="date" id="end-date" class="form-control">
+            </div>
+        </div>
+        
+        <!-- Custom Star Rating Selection -->
+        <div class="filters-row" id="custom-star-selection">
+            <div class="filter-group">
+                <label>Select Ratings</label>
+                <div class="star-filter-options">
+                    <div class="star-option" data-rating="5">
+                        <i class="fas fa-star"></i> 5
+                    </div>
+                    <div class="star-option" data-rating="4">
+                        <i class="fas fa-star"></i> 4
+                    </div>
+                    <div class="star-option" data-rating="3">
+                        <i class="fas fa-star"></i> 3
+                    </div>
+                    <div class="star-option" data-rating="2">
+                        <i class="fas fa-star"></i> 2
+                    </div>
+                    <div class="star-option" data-rating="1">
+                        <i class="fas fa-star"></i> 1
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="filter-buttons">
+            <button id="apply-filters" class="filter-btn apply-filter">
+                <i class="fas fa-check"></i> Apply Filters
+            </button>
+            <button id="reset-filters" class="filter-btn reset-filter">
+                <i class="fas fa-undo"></i> Reset
+            </button>
+        </div>
+        
+        <!-- Active Filters Display -->
+        <div class="active-filters"></div>
+    </div>
+    
+    <!-- Loading Spinner -->
+    <div class="loading-spinner">
+        <i class="fas fa-spinner"></i>
+    </div>
+    
     <div class="stats-container">
         <div class="feedback-summary">
             <div class="summary-item">
-                <h3><?php echo $totalRatings; ?></h3>
+                <h3 id="total-ratings"><?php echo $totalRatings; ?></h3>
                 <p>Total Feedbacks</p>
             </div>
             <div class="summary-item">
-                <h3><?php echo $averageRating; ?> <i class="fas fa-star"></i></h3>
+                <h3 id="average-rating"><?php echo $averageRating; ?> <i class="fas fa-star"></i></h3>
                 <p>Average Rating</p>
             </div>
         </div>
@@ -280,14 +370,15 @@ $averageRating = $totalRatings > 0 ? round($totalScore / $totalRatings, 1) : 0;
                 </div>
             <?php endforeach; ?>
         </div>
-        
     </div>
     
 </div>
 
+    <!-- Initialize Chart -->
     <script>
+    // Initial chart setup - will be updated by the feedback-filters.js
     const ctx = document.getElementById('ratingChart').getContext('2d');
-    new Chart(ctx, {
+    window.ratingChartInstance = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars'],
@@ -326,86 +417,114 @@ $averageRating = $totalRatings > 0 ? round($totalScore / $totalRatings, 1) : 0;
                 ]
             }]
         },
-            options: {
-                indexAxis: 'y',
-                responsive: true,
-                maintainAspectRatio: false,
-                animation: {
-                    duration: 1000,
-                    easing: 'easeInOutQuart'
+        options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: {
+                duration: 1000,
+                easing: 'easeInOutQuart'
+            },
+            layout: {
+                padding: {
+                    left: 5,
+                    right: 10,
+                    top: 5,
+                    bottom: 5
+                }
+            },
+            color: '#fff',
+            plugins: {
+                legend: {
+                    display: false
                 },
-                layout: {
-                    padding: {
-                        left: 5,
-                        right: 10,
-                        top: 5,
-                        bottom: 5
-                    }
-                },
-                color: '#fff',
-                plugins: {
-                    legend: {
-                        display: false
+                tooltip: {
+                    backgroundColor: 'rgba(40, 40, 40, 0.95)',
+                    titleColor: '#fff',
+                    bodyColor: '#fff',
+                    padding: 8,
+                    callbacks: {
+                        label: function(context) {
+                            return context.raw.toFixed(1) + '% of ratings';
+                        }
                     },
-                    tooltip: {
-                        backgroundColor: 'rgba(40, 40, 40, 0.95)',
-                        titleColor: '#fff',
-                        bodyColor: '#fff',
-                        padding: 8,
-                        callbacks: {
-                            label: function(context) {
-                                return context.raw.toFixed(1) + '% of ratings';
+                    titleFont: {
+                        size: 10,
+                        weight: 'bold'
+                    },
+                    bodyFont: {
+                        size: 10
+                    },
+                    borderColor: 'rgba(255, 255, 255, 0.1)',
+                    borderWidth: 1
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        },
+                        font: {
+                            size: function(context) {
+                                const width = context.chart.width;
+                                return width < 400 ? 9 : 11;
                             }
                         },
-                        titleFont: {
-                            size: 10,
-                            weight: 'bold'
-                        },
-                        bodyFont: {
-                            size: 10
-                        },
-                        borderColor: 'rgba(255, 255, 255, 0.1)',
-                        borderWidth: 1
+                        color: '#fff'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
                     }
                 },
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        max: 100,
-                        ticks: {
-                            callback: function(value) {
-                                return value + '%';
-                            },
-                            font: {
-                                size: function(context) {
-                                    const width = context.chart.width;
-                                    return width < 400 ? 9 : 11;
-                                }
-                            },
-                            color: '#fff'
-                        },
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        }
+                y: {
+                    grid: {
+                        display: false
                     },
-                    y: {
-                        grid: {
-                            display: false
+                    ticks: {
+                        font: {
+                            size: function(context) {
+                                const width = context.chart.width;
+                                return width < 400 ? 9 : 11;
+                            }
                         },
-                        ticks: {
-                            font: {
-                                size: function(context) {
-                                    const width = context.chart.width;
-                                    return width < 400 ? 9 : 11;
-                                }
-                            },
-                            color: '#fff'
-                        }
+                        color: '#fff'
                     }
                 }
             }
+        }
     });
-</script>
+    
+    // Custom script for filter UI interactions
+    $(document).ready(function() {
+        // Toggle custom date range visibility based on date preset selection
+        $('#date-preset').on('change', function() {
+            if ($(this).val() === 'custom') {
+                $('#custom-date-range').show();
+            } else {
+                $('#custom-date-range').hide();
+            }
+        });
+        
+        // Toggle custom star selection visibility based on rating filter selection
+        $('#rating-filter').on('change', function() {
+            if ($(this).val() === 'custom') {
+                $('#custom-star-selection').show();
+            } else {
+                $('#custom-star-selection').hide();
+            }
+        });
+        
+        // Initially hide custom selections
+        $('#custom-date-range').hide();
+        $('#custom-star-selection').hide();
+    });
+    </script>
+    
+    <!-- Include the feedback filters script -->
+    <script src="Javascript-admin/feedback-filters.js"></script>
 
 </body>
 </html>

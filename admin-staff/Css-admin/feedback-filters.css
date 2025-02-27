@@ -1,0 +1,237 @@
+/* Feedback Filters Styling */
+.filters-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.filters-container:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.filters-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.filters-title i {
+    margin-right: 8px;
+    color: #495057;
+}
+
+.filters-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+.filter-group select,
+.filter-group input[type="date"] {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+.filter-group select:focus,
+.filter-group input[type="date"]:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.filter-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.apply-filter {
+    background-color: #28a745;
+    color: white;
+}
+
+.apply-filter:hover {
+    background-color: #218838;
+}
+
+.reset-filter {
+    background-color: #6c757d;
+    color: white;
+}
+
+.reset-filter:hover {
+    background-color: #5a6268;
+}
+
+.filter-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    background-color: #e9ecef;
+    color: #495057;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.filter-badge i {
+    margin-left: 5px;
+    cursor: pointer;
+    color: #6c757d;
+}
+
+.filter-badge i:hover {
+    color: #dc3545;
+}
+
+.active-filters {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.star-filter-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.star-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    transition: all 0.2s ease;
+}
+
+.star-option:hover {
+    background-color: #e9ecef;
+}
+
+.star-option.selected {
+    background-color: #28a745;
+    color: white;
+}
+
+.star-option i {
+    color: #ffc107;
+    margin-right: 3px;
+}
+
+.star-option.selected i {
+    color: white;
+}
+
+.date-range-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.date-range-container input {
+    flex: 1;
+}
+
+.date-separator {
+    color: #6c757d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .filters-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .filter-group {
+        min-width: 100%;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+    }
+    
+    .filter-btn {
+        width: 100%;
+    }
+}
+
+/* Animation for filter changes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.feedback-item {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* No results message */
+.no-results {
+    text-align: center;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+    color: #6c757d;
+}
+
+.no-results i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #dc3545;
+}
+
+/* Loading indicator */
+.loading-spinner {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.loading-spinner i {
+    font-size: 2rem;
+    color: #28a745;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

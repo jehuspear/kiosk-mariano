@@ -17,6 +17,24 @@ $orderId = intval($_GET['order_id']);
     <title>Order Receipt</title>
     <link rel="stylesheet" href="Css-admin/bootstrap.min.css">
     <link rel="stylesheet" href="Css-admin/receipt.css">
+    <style>
+        /* Additional styles for thicker fonts */
+        .receipt-text {
+            font-weight: 600;
+        }
+        .item-name {
+            font-weight: 700;
+        }
+        .order-detail-label, 
+        .order-detail-value, 
+        .item-price, 
+        .total-amount, 
+        .payment-method-gcash, 
+        .payment-method-cash, 
+        .payment-change {
+            font-weight: 800;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -103,7 +121,7 @@ $orderId = intval($_GET['order_id']);
                                 <ul class="order-items-list">
                                     ${receipt.items.map(item => `
                                         <li>
-                                            <span class="item-name">${item.quantity} x [${item.size}] ${item.name}</span>
+                                            <span class="item-name">${item.quantity} x [${item.temperature}] ${item.name} (${item.size})</span>
                                             <span class="item-price">₱${(item.price * item.quantity).toFixed(2)}</span>
                                         </li>
                                     `).join('')}

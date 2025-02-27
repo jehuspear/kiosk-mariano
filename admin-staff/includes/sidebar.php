@@ -73,6 +73,12 @@ function renderSidebar($currentPage = '') {
                             <span>POS Terminal</span>
                         </a>
                     </li>
+                    <li class="<?php echo $currentPage === 'receipts' ? 'active' : ''; ?>">
+                        <a href="receipts.php">
+                            <i class="fa-solid fa-receipt"></i>
+                            <span>Receipts</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 

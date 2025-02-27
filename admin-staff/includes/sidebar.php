@@ -56,6 +56,9 @@ function renderSidebar($currentPage = '') {
                         <li class="<?php echo $currentPage === 'menuscreen' ? 'active' : ''; ?>">
                             <a href="menuscreen.php"><i class="fa-solid fa-book-open"></i> <span>Menu</span></a>
                         </li>
+                        <li class="<?php echo $currentPage === 'categories' ? 'active' : ''; ?>">
+                            <a href="categories.php"><i class="fa-solid fa-tags"></i> <span>Categories</span></a>
+                        </li>
                     </ul>
                 </div>
             <?php endif; ?>
@@ -98,15 +101,15 @@ function renderSidebar($currentPage = '') {
             </div>
 
             <?php if ($userRole === 'Admin'): ?>
-                <!-- Analytics - Admin Only -->
+                <!-- Reports - Admin Only -->
                 <div class="sidebar-section">
-                    <h5 class="sidebar-heading">Analytics</h5>
+                    <h5 class="sidebar-heading">Reports</h5>
                     <ul class="nav">
                         <li class="<?php echo $currentPage === 'feedback' ? 'active' : ''; ?>">
                             <a href="feedback.php"><i class="fa-solid fa-comments"></i> <span>Feedback</span></a>
                         </li>
                         <li class="<?php echo $currentPage === 'history' ? 'active' : ''; ?>">
-                            <a href="history.php"><i class="fa-solid fa-history"></i> <span>History</span></a>
+                            <a href="history.php"><i class="fa-solid fa-history"></i> <span>Sales History</span></a>
                         </li>
                     </ul>
                 </div>

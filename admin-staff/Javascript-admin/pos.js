@@ -33,18 +33,35 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sidebarCollapsed) {
         sidebar.style.display = 'none';
         mainContent.style.marginLeft = '0';
+        
+        // Update icon to match collapsed state
+        const toggleIcon = sidebarToggle.querySelector('i');
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
     }
 
     // Sidebar toggle handler
     sidebarToggle.addEventListener('click', function() {
+        const toggleIcon = this.querySelector('i');
+        
         if (sidebar.style.display === 'none') {
+            // Show sidebar
             sidebar.style.display = 'block';
             mainContent.style.marginLeft = '250px';
             localStorage.setItem('pos-sidebar-collapsed', 'false');
+            
+            // Change icon to X
+            toggleIcon.classList.remove('fa-bars');
+            toggleIcon.classList.add('fa-times');
         } else {
+            // Hide sidebar
             sidebar.style.display = 'none';
             mainContent.style.marginLeft = '0';
             localStorage.setItem('pos-sidebar-collapsed', 'true');
+            
+            // Change icon to bars
+            toggleIcon.classList.remove('fa-times');
+            toggleIcon.classList.add('fa-bars');
         }
     });
 
@@ -372,13 +389,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function filterItems() {
         const searchTerm = searchInput.value.toLowerCase();
         const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+        const activeCategoryId = document.querySelector('.category-btn.active').dataset.categoryId;
         const menuItems = document.querySelectorAll('.menu-item-card');
 
         menuItems.forEach(item => {
             const itemName = item.querySelector('.menu-item-name').textContent.toLowerCase();
             const itemCategory = item.querySelector('.menu-item-category').textContent;
+            const itemCategoryId = item.dataset.categoryId;
             const matchesSearch = itemName.includes(searchTerm);
-            const matchesCategory = activeCategory === 'all' || itemCategory === activeCategory;
+            
+            // Check if category matches by name or ID
+            const matchesCategory = 
+                activeCategory === 'all' || 
+                itemCategory === activeCategory || 
+                (activeCategoryId && itemCategoryId && activeCategoryId === itemCategoryId);
 
             item.style.display = matchesSearch && matchesCategory ? 'block' : 'none';
         });
@@ -411,7 +435,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Render menu items
     function renderMenuItems(menuItems) {
         const menuItemsHtml = menuItems.map(item => `
-            <div class="menu-item-card" data-item-id="${item.MenuItem_ID}">
+            <div class="menu-item-card" data-item-id="${item.MenuItem_ID}" data-category-id="${item.Category_ID}">
                 ${item.bestSeller ? `<div class="best-seller-badge">Best Seller #${item.bestSeller}</div>` : ''}
                 <img src="${item.MenuItem_Image}" alt="${item.MenuItem_Name}" class="menu-item-image">
                 <div class="menu-item-details">

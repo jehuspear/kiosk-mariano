@@ -7,13 +7,37 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once 'check_admin_access.php';
 include 'database_admin.php';
 
-// Fetch menu items and their sizes from database
+// Fetch categories from database
+$categorySql = "SELECT Category_ID, Category_Name, Category_Description FROM category ORDER BY Category_ID ASC";
+$categoryResult = mysqli_query($conn, $categorySql);
+
+// Store categories in an array
+$categories = array();
+while ($categoryRow = mysqli_fetch_assoc($categoryResult)) {
+    $categories[] = $categoryRow;
+}
+
+// Get the currently selected category (default to first category if available)
+$defaultCategoryId = !empty($categories) ? $categories[0]['Category_ID'] : 1;
+$selectedCategoryId = isset($_GET['category_id']) ? $_GET['category_id'] : $defaultCategoryId;
+
+// Find the selected category name for display purposes
+$selectedCategoryName = '';
+foreach ($categories as $category) {
+    if ($category['Category_ID'] == $selectedCategoryId) {
+        $selectedCategoryName = $category['Category_Name'];
+        break;
+    }
+}
+
+// Fetch menu items and their sizes from database with category information
 $sql = "SELECT m.MenuItem_ID, m.MenuItem_Name, m.MenuItem_Image, m.MenuItem_Description, 
-        m.MenuItem_Category, m.MenuItem_TotalStocks, m.MenuItem_TotalSold, m.MenuItem_Availability,
+        m.Category_ID, c.Category_Name, m.MenuItem_TotalStocks, m.MenuItem_TotalSold, m.MenuItem_Availability,
         ms.MenuItemSize_ID, ms.MenuItemSize_SizeName, ms.MenuItemSize_Price, 
         ms.MenuItemSize_IsHot, ms.MenuItemSize_Stock
         FROM menuitem m
         LEFT JOIN menuitem_sizes ms ON m.MenuItem_ID = ms.MenuItem_ID
+        LEFT JOIN category c ON m.Category_ID = c.Category_ID
         ORDER BY m.MenuItem_ID ASC";
 $result = mysqli_query($conn, $sql);
 
@@ -27,7 +51,8 @@ while ($row = mysqli_fetch_assoc($result)) {
             'MenuItem_Name' => $row['MenuItem_Name'],
             'MenuItem_Image' => $row['MenuItem_Image'],
             'MenuItem_Description' => $row['MenuItem_Description'],
-            'MenuItem_Category' => $row['MenuItem_Category'],
+            'Category_ID' => $row['Category_ID'],
+            'Category_Name' => $row['Category_Name'],
             'MenuItem_TotalStocks' => $row['MenuItem_TotalStocks'],
             'MenuItem_TotalSold' => $row['MenuItem_TotalSold'],
             'MenuItem_Availability' => $row['MenuItem_Availability'],
@@ -45,8 +70,27 @@ while ($row = mysqli_fetch_assoc($result)) {
     }
 }
 
-// Get the currently selected category (default to 'Traditional Coffee')
-$selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional Coffee';
+// Function to get appropriate icon for category
+function getCategoryIcon($categoryName) {
+    $icons = [
+        'Coffee' => 'fa-mug-hot',
+        'Specialty Drinks' => 'fa-glass-martini-alt',
+        'Blended Beverages' => 'fa-blender',
+        'Non-Coffee' => 'fa-wine-glass',
+        'Add-Ons' => 'fa-plus-circle',
+        'Sandwiches' => 'fa-bread-slice',
+        'Pica-Pica' => 'fa-pizza-slice',
+        'Rice Meals' => 'fa-utensils',
+        'Extras' => 'fa-mortar-pestle',
+        // Default icons for other categories
+        'Traditional Coffee' => 'fa-coffee',
+        'Mocktail' => 'fa-cocktail',
+        'Pastries' => 'fa-cookie',
+        'Snacks' => 'fa-hamburger'
+    ];
+    
+    return isset($icons[$categoryName]) ? $icons[$categoryName] : 'fa-utensils';
+}
 ?>
 
 <!DOCTYPE html>
@@ -74,6 +118,7 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
     <link rel="stylesheet" href="Css-admin/menu-sizes.css">
     <link rel="stylesheet" href="Css-admin/menu-items.css">
     <link rel="stylesheet" href="Css-admin/availability-modal.css">
+    <link rel="stylesheet" href="Css-admin/responsive-header-menu.css">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -116,49 +161,23 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
                 </div>
                 <!-- Header Menu -->
                 <div class="header-menu">
-                    <div class="menu-item <?php echo $selectedCategory == 'Traditional Coffee' ? 'active' : ''; ?>">
-                        <a href="?category=Traditional Coffee">
-                            <i class="fa-solid fa-coffee"></i>
-                            <p>Traditional Coffee</p>
+                    <?php foreach ($categories as $category): ?>
+                    <div class="menu-item <?php echo $selectedCategoryId == $category['Category_ID'] ? 'active' : ''; ?>">
+                        <a href="?category_id=<?php echo $category['Category_ID']; ?>" title="<?php echo htmlspecialchars($category['Category_Description']); ?>">
+                            <i class="fa-solid <?php echo getCategoryIcon($category['Category_Name']); ?>"></i>
+                            <p><?php echo htmlspecialchars($category['Category_Name']); ?></p>
                         </a>
                     </div>
-                    <div class="menu-item <?php echo $selectedCategory == 'Coffee' ? 'active' : ''; ?>">
-                        <a href="?category=Coffee">
-                            <i class="fa-solid fa-mug-hot"></i>
-                            <p>Coffee</p>
-                        </a>
-                    </div>
-                    <div class="menu-item <?php echo $selectedCategory == 'Non-Coffee' ? 'active' : ''; ?>">
-                        <a href="?category=Non-Coffee">
-                            <i class="fa-solid fa-wine-glass"></i>
-                            <p>Non-Coffee</p>
-                        </a>
-                    </div>
-                    <div class="menu-item <?php echo $selectedCategory == 'Mocktail' ? 'active' : ''; ?>">
-                        <a href="?category=Mocktail">
-                            <i class="fa-solid fa-cocktail"></i>
-                            <p>Mocktail</p>
-                        </a>
-                    </div>
-                    <div class="menu-item <?php echo $selectedCategory == 'Pastries' ? 'active' : ''; ?>">
-                        <a href="?category=Pastries">
-                            <i class="fa-solid fa-cookie"></i>
-                            <p>Pastries</p>
-                        </a>
-                    </div>
-                    <div class="menu-item <?php echo $selectedCategory == 'Snacks' ? 'active' : ''; ?>">
-                        <a href="?category=Snacks">
-                            <i class="fa-solid fa-pizza-slice"></i>
-                            <p>Snacks</p>
-                        </a>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
 
                 <!-- Menu Cards Section -->
                 <div class="menu-cards">
                     <?php
+                    $itemsFound = false;
                     foreach ($menuItems as $item) {
-                        if ($item['MenuItem_Category'] == $selectedCategory) {
+                        if ($item['Category_ID'] == $selectedCategoryId) {
+                            $itemsFound = true;
                             // Check both stock and availability status
                             $isAvailable = $item['MenuItem_TotalStocks'] > 0 && $item['MenuItem_Availability'] === 'Available';
                             $availabilityClass = $isAvailable ? 'btn-success' : 'btn-danger';
@@ -247,6 +266,15 @@ $selectedCategory = isset($_GET['category']) ? $_GET['category'] : 'Traditional 
                         }
                     }
                     ?>
+
+                    <?php if (!$itemsFound): ?>
+                    <div class="no-items-message">
+                        <div class="alert alert-info" role="alert">
+                            <i class="fas fa-info-circle"></i> No menu items found for the category "<?php echo htmlspecialchars($selectedCategoryName); ?>". 
+                            <br>You can add a new menu item by clicking the "Add Menu" button below.
+                        </div>
+                    </div>
+                    <?php endif; ?>
 
                     <!-- Add Menu Card -->
                     <div class="card add-menu-card">

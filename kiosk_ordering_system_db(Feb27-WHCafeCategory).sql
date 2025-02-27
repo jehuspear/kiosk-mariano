@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2025 at 09:42 AM
+-- Generation Time: Feb 27, 2025 at 10:45 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -319,31 +319,31 @@ CREATE TABLE `menuitem` (
 --
 
 INSERT INTO `menuitem` (`MenuItem_ID`, `MenuItem_Name`, `MenuItem_Image`, `MenuItem_Description`, `Category_ID`, `MenuItem_Category`, `MenuItem_TotalStocks`, `MenuItem_TotalSold`, `MenuItem_Availability`) VALUES
-(1, 'Kape Amerikano', 'Images/menu-item/kape-americano.jpg', 'Full-bodied espresso with hot water', NULL, 'Coffee', 1299, 4, 'Available'),
-(2, 'Latte de Kape', 'Images/menu-item/latte-de-kape.jpg', 'Espresso with steamed milk and a thin layer of foam', NULL, 'Coffee', 1500, 5, 'Available'),
-(3, 'Cappuccino', 'Images/menu-item/cappuccino.jpg', 'Espresso with steamed milk and a thick layer of foam', NULL, 'Coffee', 1487, 3, 'Available'),
-(4, 'Latte Espanyol', 'Images/menu-item/latte-espanyol.jpg', 'Espresso combined with milk and a hint of condensed milk', NULL, 'Coffee', 1460, 35, 'Available'),
-(5, 'Kape Dulce Salty Caramelo', 'Images/menu-item/kape-dulce-salty-caramelo.jpg', 'Espresso combined with milk, infused with salted caramel syrup', NULL, 'Coffee', 1469, 22, 'Available'),
-(6, 'Kape con Canela', 'Images/menu-item/kape-con-canela.jpg', 'Espresso combined with steamed milk and infused with honey and cinnamon', NULL, 'Coffee', 1474, 20, 'Available'),
-(7, 'Kape de Cacao', 'Images/menu-item/kape-de-cacao.jpg', 'Espresso combined with steamed milk and rich chocolate syrup', NULL, 'Coffee', 1487, 3, 'Available'),
-(10, 'Espresso (Doppio)', 'Images/menu-items/Doppio_Espresso_Macchiato.jpg', 'Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning \"double\" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.', NULL, 'Traditional Coffee', 9, 25, 'Available'),
-(11, 'Pretzel', 'Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg', 'Soft and chewy on the inside, crispy and golden on the outside, these Soft Pretzels are a fun snack that bake up in the oven and served with a delicious cheese sauce!\r\n', NULL, 'Snacks', 899, 1, 'Available'),
-(12, 'Blue Punch Mocktail', 'Images/menu-item/blue_mocktail.jpg', 'A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.', NULL, 'Mocktail', 287, 12, 'Available'),
-(13, 'Matcha Latte', 'Images/menu-item/matcha-latte.jpg', 'A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.', NULL, 'Non-Coffee', 852, 44, 'Available'),
-(14, 'Black Forest cake ', 'Images/menu-item/black-forest-pastry.jpg', 'A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.', NULL, 'Pastries', 4, 6, 'Available'),
-(15, 'Strawberry Latte', 'Images/menu-item/sakura-strawberry-latte1.jpg', 'Enjoy a sip of this delicious strawberry flavored drink!', NULL, 'Non-Coffee', 1491, 4, 'Available'),
-(16, 'Chocolate Latte', 'Images/menu-item/chocolate latte1.jpg', 'A sweet chocolate flavored drink!', NULL, 'Non-Coffee', 1489, 5, 'Available'),
-(17, 'Shirley Temple', 'Images/menu-item/shirly temple.jpg', 'Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail', NULL, 'Mocktail', 291, 8, 'Available'),
-(18, 'Strawberry Kiss', 'Images/menu-item/strawberry-lemon-mocktail-5411.jpg', 'A delicious sweet strawberry drink that will mark your lips with a delight!', NULL, 'Mocktail', 294, 5, 'Available'),
-(19, 'Orange Sunrise', 'Images/menu-item/orange sunrise.jpg', 'Need a fun brunch drink. This sunrise mocktail has you covered. It is eye-catching, tasty, and 100% alcohol-free.', NULL, 'Mocktail', 293, 6, 'Available'),
-(20, 'Brownies', 'Images/menu-item/brownies.jpg', 'Dense, fudgy, chewy, chocolate brownies! These decadent brownies are a delicious combination of fresh, sweet cherries and chocolate!', NULL, 'Pastries', 98, 2, 'Available'),
-(21, 'Banana Bread', 'Images/menu-item/banana bread.jpg', 'This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.', NULL, 'Pastries', 292, 2, 'Available'),
-(22, 'Milky Donuts', 'Images/menu-item/milky donuts.jpg', 'These cream-filled doughnuts are what coffee-break dreams are made of. They are soft pillows with a super-easy cream filling. These yeast doughnuts are deep-fried to perfection, and then filling is piped inside for a delightful treat. ', NULL, 'Pastries', 297, 0, 'Available'),
-(23, 'Air Fried French Fries', 'Images/menu-item/Crispy Air Fried French Fries.jpg', 'These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.', NULL, 'Snacks', 597, 3, 'Available'),
-(24, 'Cafe BonBon', 'Images/menu-item/Bonbon.jpg', 'Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat.\r\n', NULL, 'Traditional Coffee', 27, 15, 'Available'),
-(25, 'Traditional Macchiato', 'Images/menu-item/macchiatotraditonal-11.jpg', 'the macchiato is quite a literal drink - it is an espresso marked with a dollop of frothed milk, and nothing else (macchiato means marked in Italian). ', NULL, 'Traditional Coffee', 298, 2, 'Available'),
-(26, 'Piccolo', 'Images/menu-item/piccolo.jpg', 'a small coffee composed of a single espresso shot and heated milk.', NULL, 'Traditional Coffee', 267, 32, 'Available'),
-(27, 'Caesar Salad', 'Images/menu-item/Caesar-Salad.jpg', 'This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.', NULL, 'Snacks', 189, 18, 'Available');
+(1, 'Kape Amerikano', 'Images/menu-item/kape-americano.jpg', 'Full-bodied espresso with hot water', 1, 'Coffee', 1299, 4, 'Available'),
+(2, 'Latte de Kape', 'Images/menu-item/latte-de-kape.jpg', 'Espresso with steamed milk and a thin layer of foam', 1, 'Coffee', 1500, 5, 'Available'),
+(3, 'Cappuccino', 'Images/menu-item/cappuccino.jpg', 'Espresso with steamed milk and a thick layer of foam', 1, 'Coffee', 1487, 3, 'Available'),
+(4, 'Latte Espanyol', 'Images/menu-item/latte-espanyol.jpg', 'Espresso combined with milk and a hint of condensed milk', 1, 'Coffee', 1460, 35, 'Available'),
+(5, 'Kape Dulce Salty Caramelo', 'Images/menu-item/kape-dulce-salty-caramelo.jpg', 'Espresso combined with milk, infused with salted caramel syrup', 1, 'Coffee', 1469, 22, 'Available'),
+(6, 'Kape con Canela', 'Images/menu-item/kape-con-canela.jpg', 'Espresso combined with steamed milk and infused with honey and cinnamon', 1, 'Coffee', 1474, 20, 'Available'),
+(7, 'Kape de Cacao', 'Images/menu-item/kape-de-cacao.jpg', 'Espresso combined with steamed milk and rich chocolate syrup', 1, 'Coffee', 1487, 3, 'Available'),
+(10, 'Espresso (Doppio)', 'Images/menu-items/Doppio_Espresso_Macchiato.jpg', 'Espresso (Doppio) is a rich, concentrated coffee brewed by forcing hot water through finely-ground coffee beans, resulting in a bold, full-bodied flavor. A doppio, meaning \"double\" in Italian, is simply a double shot of espresso, offering twice the intensity and depth in a single serving.', 1, 'Coffee', 9, 25, 'Available'),
+(11, 'Pretzel', 'Images/menu-items/Air-Fryer-Frozen-Pretzels2.jpg', 'Soft and chewy on the inside, crispy and golden on the outside, these Soft Pretzels are a fun snack that bake up in the oven and served with a delicious cheese sauce!\r\n', 7, 'Pica-Pica', 899, 1, 'Available'),
+(12, 'Blue Punch Mocktail', 'Images/menu-item/blue_mocktail.jpg', 'A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.', 2, 'Specialty Drinks', 287, 12, 'Available'),
+(13, 'Matcha Latte', 'Images/menu-item/matcha-latte.jpg', 'A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.', 4, 'Non-Coffee', 852, 44, 'Available'),
+(14, 'Black Forest cake ', 'Images/menu-item/black-forest-pastry.jpg', 'A decadent slice of Black Forest cake layered with rich chocolate sponge, whipped cream, cherries, and topped with chocolate shavings and a cherry garnish.', 7, 'Extras', 4, 6, 'Available'),
+(15, 'Strawberry Latte', 'Images/menu-item/sakura-strawberry-latte1.jpg', 'Enjoy a sip of this delicious strawberry flavored drink!', 4, 'Non-Coffee', 1491, 4, 'Available'),
+(16, 'Chocolate Latte', 'Images/menu-item/chocolate latte1.jpg', 'A sweet chocolate flavored drink!', 4, 'Non-Coffee', 1489, 5, 'Available'),
+(17, 'Shirley Temple', 'Images/menu-item/shirly temple.jpg', 'Shirley Temples are fun, simple, and absolutely refreshing friendly mocktail', 2, 'Specialty Drinks', 291, 8, 'Available'),
+(18, 'Strawberry Kiss', 'Images/menu-item/strawberry-lemon-mocktail-5411.jpg', 'A delicious sweet strawberry drink that will mark your lips with a delight!', 2, 'Specialty Drinks', 294, 5, 'Available'),
+(19, 'Orange Sunrise', 'Images/menu-item/orange sunrise.jpg', 'Need a fun brunch drink. This sunrise mocktail has you covered. It is eye-catching, tasty, and 100% alcohol-free.', 3, 'Blended Beverages', 293, 6, 'Available'),
+(20, 'Brownies', 'Images/menu-item/brownies.jpg', 'Dense, fudgy, chewy, chocolate brownies! These decadent brownies are a delicious combination of fresh, sweet cherries and chocolate!', 7, 'Pica-Pica', 98, 2, 'Available'),
+(21, 'Banana Bread', 'Images/menu-item/banana bread.jpg', 'This Banana Loaf recipe is very moist with just the right sweetness and has that perfect banana flavor.', 6, 'Sandwiches', 292, 2, 'Available'),
+(22, 'Milky Donuts', 'Images/menu-item/milky donuts.jpg', 'These cream-filled doughnuts are what coffee-break dreams are made of. They are soft pillows with a super-easy cream filling. These yeast doughnuts are deep-fried to perfection, and then filling is piped inside for a delightful treat. ', 6, 'Sandwiches', 297, 0, 'Available'),
+(23, 'Air Fried French Fries', 'Images/menu-item/Crispy Air Fried French Fries.jpg', 'These air fryer French fries are just as crispy and crunchy as regular fries. They are easy and delicious! They use far less oil, so as a result, these fries are far healthier than average ones.', 7, 'Pica-Pica', 597, 3, 'Available'),
+(24, 'Cafe BonBon', 'Images/menu-item/Bonbon.jpg', 'Discover the delightful cafe bonbon, a sweet and ultra creamy coffee treat.\r\n', 1, 'Coffee', 27, 15, 'Available'),
+(25, 'Traditional Macchiato', 'Images/menu-item/macchiatotraditonal-11.jpg', 'the macchiato is quite a literal drink - it is an espresso marked with a dollop of frothed milk, and nothing else (macchiato means marked in Italian). ', 1, 'Coffee', 298, 2, 'Available'),
+(26, 'Piccolo', 'Images/menu-item/piccolo.jpg', 'a small coffee composed of a single espresso shot and heated milk.', 1, 'Coffee', 267, 32, 'Available'),
+(27, 'Caesar Salad', 'Images/menu-item/Caesar-Salad.jpg', 'This vibrant Caesar salad features crisp romaine lettuce, golden crunchy croutons, and shaved Parmesan cheese, all tossed in a creamy dressing.', 5, 'Add-Ons', 189, 18, 'Available');
 
 -- --------------------------------------------------------
 
@@ -957,7 +957,8 @@ ALTER TABLE `logs`
 -- Indexes for table `menuitem`
 --
 ALTER TABLE `menuitem`
-  ADD PRIMARY KEY (`MenuItem_ID`);
+  ADD PRIMARY KEY (`MenuItem_ID`),
+  ADD KEY `fk_menuitem_category_id` (`Category_ID`);
 
 --
 -- Indexes for table `menuitem_sizes`
@@ -1005,7 +1006,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `Category_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `Category_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -1070,6 +1071,12 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `logs`
   ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `staff` (`Staff_ID`);
+
+--
+-- Constraints for table `menuitem`
+--
+ALTER TABLE `menuitem`
+  ADD CONSTRAINT `fk_menuitem_category_id` FOREIGN KEY (`Category_ID`) REFERENCES `category` (`Category_ID`);
 
 --
 -- Constraints for table `menuitem_sizes`

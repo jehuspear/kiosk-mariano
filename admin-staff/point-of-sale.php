@@ -79,16 +79,16 @@ if (!isset($conn)) {
     <link rel="stylesheet" href="Css-admin/sidebar.css">
 </head>
 <body>
-    <div class="sidebar-toggle">
-        <button id="sidebarToggle" class="btn">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-    
     <?php 
         include 'includes/sidebar.php';
         renderSidebar('pos'); // Pass 'pos' as the current page
     ?>
+    
+    <div class="sidebar-toggle">
+        <button id="sidebarToggle" class="btn">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
     
     <div class="main-content">
         <div class="container-fluid">
@@ -111,14 +111,21 @@ if (!isset($conn)) {
                                     </div>
                                 </div>
                                 <div class="category-nav">
-                                        <button class="category-btn active" data-category="all">All Items</button>
-                                        <button class="category-btn" data-category="Traditional Coffee">Traditional Coffee</button>
-                                        <button class="category-btn" data-category="Coffee">Coffee</button>
-                                        <button class="category-btn" data-category="Non-Coffee">Non-Coffee</button>
-                                        <button class="category-btn" data-category="Mocktail">Mocktail</button>
-                                        <button class="category-btn" data-category="Pastries">Pastries</button>
-                                        <button class="category-btn" data-category="Snacks">Snacks</button>
-                                    </div>
+                                    <button class="category-btn active" data-category="all" data-category-id="0">All Items</button>
+                                    <?php
+                                    // Fetch categories from database, excluding Add-Ons (Category_ID 5)
+                                    $categorySql = "SELECT Category_ID, Category_Name, Category_Description FROM category WHERE Category_ID != 5 ORDER BY Category_ID ASC";
+                                    $categoryResult = mysqli_query($conn, $categorySql);
+                                    
+                                    while ($category = mysqli_fetch_assoc($categoryResult)) {
+                                        echo '<button class="category-btn" data-category="' . htmlspecialchars($category['Category_Name']) . '" ';
+                                        echo 'data-category-id="' . $category['Category_ID'] . '" ';
+                                        echo 'title="' . htmlspecialchars($category['Category_Description']) . '">';
+                                        echo htmlspecialchars($category['Category_Name']);
+                                        echo '</button>';
+                                    }
+                                    ?>
+                                </div>
                             </div>
 
                         </div>

@@ -127,42 +127,100 @@ foreach ($_SESSION['cart'] as $item) {
                         <div class="categories">
                             <div class="category-section">
                                 <div class="category-header">CATEGORIES</div>
-                                <a href="#" class="category-item active" data-category="all">
+                                <a href="#" class="category-item active" data-category="all" data-category-id="0">
                                     <i class="fas fa-th-large"></i>
                                     <span>ALL ITEMS</span>
                                 </a>
                             </div>
-                            <div class="category-section">
-                                <div class="category-header">DRINKS</div>
-                                <a href="#" class="category-item" data-category="Traditional Coffee">
-                                    <img src="resources/menu-items/traditional-coffee-icon.png" alt="Traditional Coffee">
-                                    <span>TRADITIONAL COFFEE</span>
-                                </a>
-                                <a href="#" class="category-item" data-category="Coffee">
-                                    <img src="resources/menu-items/coffee-icon.png" alt="Coffee">
-                                    <span>COFFEE</span>
-                                </a>
-                                <a href="#" class="category-item" data-category="Non-Coffee">
-                                    <img src="resources/menu-items/non-coffee-icon.png" alt="Non-Coffee">
-                                    <span>NON COFFEE</span>
-                                </a>
-                                <a href="#" class="category-item" data-category="Mocktail">
-                                    <img src="resources/menu-items/mocktails.png" alt="Mocktail">
-                                    <span>MOCKTAIL</span>
-                                </a>
-                            </div>
-
-                            <div class="category-section">
-                                <div class="category-header">FOODS</div>
-                                <a href="#" class="category-item" data-category="Pastries">
-                                    <img src="resources/menu-items/pastries-icon.png" alt="Pastries">
-                                    <span>PASTRIES</span>
-                                </a>
-                                <a href="#" class="category-item" data-category="Snacks">
-                                    <img src="resources/menu-items/snacks-icon.png" alt="Snacks">
-                                    <span>SNACKS</span>
-                                </a>
-                            </div>
+                            
+                            <?php
+                            // Fetch categories from database, excluding Add-Ons (Category_ID 5)
+                            $categorySql = "SELECT Category_ID, Category_Name, Category_Description FROM category WHERE Category_ID != 5 ORDER BY Category_ID ASC";
+                            $categoryResult = mysqli_query($conn, $categorySql);
+                            
+                            // Group categories
+                            $drinkCategories = [];
+                            $foodCategories = [];
+                            
+                            while ($category = mysqli_fetch_assoc($categoryResult)) {
+                                // Determine if category is a drink or food based on Category_ID
+                                // Drinks: Coffee, Specialty Drinks, Blended Beverages, Non-Coffee (IDs 1-4)
+                                // Foods: Sandwiches, Pica-Pica, Rice Meals, Extras (IDs 6-9)
+                                if ($category['Category_ID'] <= 4) {
+                                    $drinkCategories[] = $category;
+                                } else {
+                                    $foodCategories[] = $category;
+                                }
+                            }
+                            
+                            // Display drink categories
+                            if (!empty($drinkCategories)) {
+                                echo '<div class="category-section">';
+                                echo '<div class="category-header">DRINKS</div>';
+                                
+                                foreach ($drinkCategories as $category) {
+                                    // Determine icon based on category name
+                                    $iconPath = 'resources/menu-items/';
+                                    switch ($category['Category_Name']) {
+                                        case 'Coffee':
+                                            $iconPath .= 'coffee-icon.png';
+                                            break;
+                                        case 'Specialty Drinks':
+                                            $iconPath .= 'mocktails.png';
+                                            break;
+                                        case 'Blended Beverages':
+                                            $iconPath .= 'blended-beverages-icon.png';
+                                            break;
+                                        case 'Non-Coffee':
+                                            $iconPath .= 'non-coffee-icon.png';
+                                            break;
+                                        default:
+                                            $iconPath .= 'coffee-icon.png';
+                                    }
+                                    
+                                    echo '<a href="#" class="category-item" data-category="' . htmlspecialchars($category['Category_Name']) . '" data-category-id="' . $category['Category_ID'] . '" title="' . htmlspecialchars($category['Category_Description']) . '">';
+                                    echo '<img src="' . $iconPath . '" alt="' . htmlspecialchars($category['Category_Name']) . '">';
+                                    echo '<span>' . strtoupper(htmlspecialchars($category['Category_Name'])) . '</span>';
+                                    echo '</a>';
+                                }
+                                
+                                echo '</div>';
+                            }
+                            
+                            // Display food categories
+                            if (!empty($foodCategories)) {
+                                echo '<div class="category-section">';
+                                echo '<div class="category-header">FOODS</div>';
+                                
+                                foreach ($foodCategories as $category) {
+                                    // Determine icon based on category name
+                                    $iconPath = 'resources/menu-items/';
+                                    switch ($category['Category_Name']) {
+                                        case 'Sandwiches':
+                                            $iconPath .= 'sandwiches-icon.png';
+                                            break;
+                                        case 'Pica-Pica':
+                                            $iconPath .= 'snacks-icon.png';
+                                            break;
+                                        case 'Rice Meals':
+                                            $iconPath .= 'rice-meals-icon.png';
+                                            break;
+                                        case 'Extras':
+                                            $iconPath .= 'extras-icon.png';
+                                            break;
+                                        default:
+                                            $iconPath .= 'snacks-icon.png';
+                                    }
+                                    
+                                    echo '<a href="#" class="category-item" data-category="' . htmlspecialchars($category['Category_Name']) . '" data-category-id="' . $category['Category_ID'] . '" title="' . htmlspecialchars($category['Category_Description']) . '">';
+                                    echo '<img src="' . $iconPath . '" alt="' . htmlspecialchars($category['Category_Name']) . '">';
+                                    echo '<span>' . strtoupper(htmlspecialchars($category['Category_Name'])) . '</span>';
+                                    echo '</a>';
+                                }
+                                
+                                echo '</div>';
+                            }
+                            ?>
                         </div>
                     </div>
 

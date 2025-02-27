@@ -39,11 +39,25 @@ if(isset($_POST['submit'])) {
                 mysqli_begin_transaction($conn);
                 try {
                     // Insert into menuitem table
-                    $sql = "INSERT INTO menuitem (MenuItem_Name, MenuItem_Image, MenuItem_Description, MenuItem_Category, MenuItem_TotalStocks, MenuItem_TotalSold) VALUES (?, ?, ?, ?, ?, 0)";
+                    $sql = "INSERT INTO menuitem (MenuItem_Name, MenuItem_Image, MenuItem_Description, Category_ID, MenuItem_Category, MenuItem_TotalStocks, MenuItem_TotalSold) VALUES (?, ?, ?, ?, ?, ?, 0)";
                     $stmt = mysqli_stmt_init($conn);
                     
                     if(mysqli_stmt_prepare($stmt, $sql)) {
-                        mysqli_stmt_bind_param($stmt, "ssssi", $name, $targetFilePath, $description, $category, $totalStocks);
+                        // Get category name for backward compatibility
+                        $categoryName = '';
+                        $categoryQuery = "SELECT Category_Name FROM category WHERE Category_ID = ?";
+                        $categoryStmt = mysqli_stmt_init($conn);
+                        if(mysqli_stmt_prepare($categoryStmt, $categoryQuery)) {
+                            mysqli_stmt_bind_param($categoryStmt, "i", $category);
+                            mysqli_stmt_execute($categoryStmt);
+                            $categoryResult = mysqli_stmt_get_result($categoryStmt);
+                            if($categoryRow = mysqli_fetch_assoc($categoryResult)) {
+                                $categoryName = $categoryRow['Category_Name'];
+                            }
+                            mysqli_stmt_close($categoryStmt);
+                        }
+                        
+                        mysqli_stmt_bind_param($stmt, "sssisi", $name, $targetFilePath, $description, $category, $categoryName, $totalStocks);
                         mysqli_stmt_execute($stmt);
                         $menuItemId = mysqli_insert_id($conn);
                         
@@ -159,12 +173,16 @@ if(isset($_POST['submit'])) {
                 <label for="category">Category:</label>
                 <select class="form-control" id="category" name="category" required>
                     <option value="">Select Category</option>
-                    <option value="Traditional Coffee">Traditional Coffee</option>
-                    <option value="Coffee">Coffee</option>
-                    <option value="Non-Coffee">Non-Coffee</option>
-                    <option value="Mocktail">Mocktail</option>
-                    <option value="Pastries">Pastries</option>
-                    <option value="Snacks">Snacks</option>
+                    <?php
+                    // Fetch categories from database
+                    $categorySql = "SELECT Category_ID, Category_Name, Category_Description FROM category ORDER BY Category_ID ASC";
+                    $categoryResult = mysqli_query($conn, $categorySql);
+                    
+                    while ($categoryRow = mysqli_fetch_assoc($categoryResult)) {
+                        echo '<option value="' . $categoryRow['Category_ID'] . '" title="' . htmlspecialchars($categoryRow['Category_Description']) . '">' . 
+                             htmlspecialchars($categoryRow['Category_Name']) . '</option>';
+                    }
+                    ?>
                 </select>
             </div>
             

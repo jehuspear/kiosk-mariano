@@ -1,0 +1,144 @@
+/* Responsive Header Menu Styling */
+.header-menu {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    /* background-color: #fff; */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #ccc transparent; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.header-menu::-webkit-scrollbar {
+    height: 4px;
+}
+
+.header-menu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.header-menu::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.header-menu::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+.header-menu .menu-item {
+    flex: 0 0 auto;
+    margin: 0 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.header-menu .menu-item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 15px;
+    color: #555;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
+
+.header-menu .menu-item a:hover {
+    background-color: #f8f9fa;
+    color: #28a745;
+}
+
+.header-menu .menu-item.active a {
+    background-color: #28a745;
+    color: white;
+}
+
+.header-menu .menu-item i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.header-menu .menu-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Tooltip for category description */
+.header-menu .menu-item a[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    z-index: 100;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-menu {
+        padding: 10px 5px;
+    }
+    
+    .header-menu .menu-item {
+        margin: 0 5px;
+    }
+    
+    .header-menu .menu-item a {
+        padding: 8px 10px;
+        min-width: 70px;
+    }
+    
+    .header-menu .menu-item i {
+        font-size: 1.2rem;
+    }
+    
+    .header-menu .menu-item p {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-menu .menu-item a {
+        min-width: 60px;
+    }
+}
+
+/* No items message styling */
+.no-items-message {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.no-items-message .alert {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.no-items-message .alert i {
+    font-size: 1.3rem;
+    margin-right: 8px;
+}

@@ -578,3 +578,61 @@
 
 [2025-02-27 12:33:47] New total quantity: 2
 [2025-02-27 12:33:47] Response sent: {"success":true,"cartCount":2,"totalAmount":220,"message":"Item added to cart successfully"}
+[2025-03-03 00:31:35] Raw POST data: {"id":28,"name":"Bacsilog","price":99,"description":"Bacsilog is a popular rice meal featuring crispy bacon, garlic fried rice (sinangag), and a perfectly cooked fried egg (itlog).","image":"../admin-staff/Images/menu-item/bacsilog.jpg","size":"Regular","sizeId":85,"orderType":"Dine-in","quantity":1}
+[2025-03-03 00:31:35] Decoded data: Array
+(
+    [id] => 28
+    [name] => Bacsilog
+    [price] => 99
+    [description] => Bacsilog is a popular rice meal featuring crispy bacon, garlic fried rice (sinangag), and a perfectly cooked fried egg (itlog).
+    [image] => ../admin-staff/Images/menu-item/bacsilog.jpg
+    [size] => Regular
+    [sizeId] => 85
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-03-03 00:31:35] Added new item to cart: Array
+(
+    [id] => 28
+    [name] => Bacsilog
+    [image] => ../admin-staff/Images/menu-item/bacsilog.jpg
+    [size] => Regular
+    [sizeId] => 85
+    [price] => 99
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-03-03 00:31:35] New total quantity: 1
+[2025-03-03 00:31:35] Response sent: {"success":true,"cartCount":1,"totalAmount":99,"message":"Item added to cart successfully"}
+[2025-03-03 00:31:40] Raw POST data: {"id":13,"name":"Matcha Latte","price":120,"description":"A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.","image":"../admin-staff/Images/menu-item/matcha-latte.jpg","size":"16oz","sizeId":52,"orderType":"Dine-in","quantity":1}
+[2025-03-03 00:31:40] Decoded data: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [price] => 120
+    [description] => A creamy matcha latte with swirling layers of vibrant green tea and silky milk, perfect for a refreshing boost.
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [sizeId] => 52
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-03-03 00:31:40] Added new item to cart: Array
+(
+    [id] => 13
+    [name] => Matcha Latte
+    [image] => ../admin-staff/Images/menu-item/matcha-latte.jpg
+    [size] => 16oz
+    [sizeId] => 52
+    [price] => 120
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-03-03 00:31:40] New total quantity: 2
+[2025-03-03 00:31:40] Response sent: {"success":true,"cartCount":2,"totalAmount":219,"message":"Item added to cart successfully"}

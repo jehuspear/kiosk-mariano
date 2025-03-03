@@ -7,6 +7,12 @@ if (!isset($_GET['order_id'])) {
     exit;
 }
 
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
+
 $orderId = intval($_GET['order_id']);
 ?>
 <!DOCTYPE html>
@@ -95,6 +101,10 @@ $orderId = intval($_GET['order_id']);
                         <div class="order-detail-item">
                             <span class="order-detail-label">Order ID:</span>
                             <span class="order-detail-value">#${receipt.orderId.toString().padStart(8, '0')}</span>
+                        </div>
+                        <div class="order-detail-item">
+                            <span class="order-detail-label">Customer:</span>
+                            <span class="order-detail-value">${receipt.customerName || 'N/A'}</span>
                         </div>
                         <div class="order-detail-item">
                             <span class="order-detail-label">Date:</span>

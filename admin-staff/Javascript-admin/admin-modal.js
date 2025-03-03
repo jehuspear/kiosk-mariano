@@ -216,6 +216,7 @@ class AdminModal {
             const customDiscountType = document.getElementById('customDiscountType');
             const referenceNumber = document.getElementById('referenceNumber');
             const cashAmount = document.getElementById('cashAmount');
+            const customerName = document.getElementById('customerName');
             const totalAmount = parseFloat(document.querySelector('.total-amount').textContent.replace('₱', '').replace(/,/g, ''));
             const yesBtn = document.getElementById('modalYesBtn');
 
@@ -226,6 +227,7 @@ class AdminModal {
             if (referenceNumber) referenceNumber.classList.remove('error');
             if (cashAmount) cashAmount.classList.remove('error');
             if (customDiscountType) customDiscountType.classList.remove('error');
+            if (customerName) customerName.classList.remove('error');
 
             // Validate custom discount type if selected
             if (discountType.value === 'Custom' && !customDiscountType.value.trim()) {
@@ -251,6 +253,7 @@ class AdminModal {
                     cashAmount.classList.add('error');
                 }
             }
+            
 
             // Update validation message and button state
             const validationMessage = document.querySelector('.validation-message');
@@ -395,8 +398,8 @@ class AdminModal {
                 const discountAmount = parseFloat(document.querySelector('.discount-amount').textContent.replace('₱', '').replace(/,/g, ''));
                 const change = cashAmount ? parseFloat(cashAmount.value || 0) - totalAmount : 0;
 
-                // Create result object
-                const modalResult = {
+                // Create a temporary result object without customer name
+                const tempResult = {
                     confirmed: true,
                     discountType: discountType.value === 'Custom' ? customDiscountType.value : discountType.value,
                     discountPercent: parseFloat(discountPercent.value) || 0,
@@ -407,19 +410,103 @@ class AdminModal {
                     change: Math.max(0, change)
                 };
 
-                // Print receipt before hiding modal
-                if (options.order && window.receiptPrinter) {
-                    // Ensure orderId is included in the order details
-                    const orderWithId = { ...options.order, orderId: options.order.orderId };
-                    window.receiptPrinter.print(orderWithId, modalResult);
-                }
-
-                // Debug log the result
-                console.log('Modal Result:', modalResult);
-
+                // Hide the current modal
                 this.hide();
                 cleanup();
-                resolve(modalResult);
+
+                // Create and show the customer name modal
+                const customerNameModal = document.createElement('div');
+                customerNameModal.className = 'admin-modal-overlay';
+                customerNameModal.id = 'customerNameModal';
+                customerNameModal.style.display = 'flex';
+                customerNameModal.innerHTML = `
+                    <div class="admin-modal">
+                        <div class="admin-modal-header">
+                            <h5 class="admin-modal-title">Order Confirmation</h5>
+                            <button class="admin-modal-close">&times;</button>
+                        </div>
+                        <div class="admin-modal-body">
+                            <div class="admin-modal-icon confirm">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="admin-modal-message">Please enter the customer name to finalize the order.</div>
+                            <div class="customer-name-input" style="margin-top: 20px;">
+                                <input type="text" id="customerNameInput" class="form-control" placeholder="Enter customer name" required>
+                                <div class="validation-message" style="color: red; margin-top: 5px;"></div>
+                            </div>
+                        </div>
+                        <div class="admin-modal-footer">
+                            <button class="admin-modal-btn admin-modal-btn-secondary" id="cancelBtn">Cancel</button>
+                            <button class="admin-modal-btn admin-modal-btn-confirm" id="confirmBtn">Confirm Order</button>
+                        </div>
+                    </div>
+                `;
+
+                document.body.appendChild(customerNameModal);
+
+                const customerNameInput = document.getElementById('customerNameInput');
+                const confirmBtn = document.getElementById('confirmBtn');
+                const cancelBtn = document.getElementById('cancelBtn');
+                const closeBtn = customerNameModal.querySelector('.admin-modal-close');
+                const validationMessage = customerNameModal.querySelector('.validation-message');
+
+                // Focus on the input field
+                setTimeout(() => customerNameInput.focus(), 100);
+
+                // Validate customer name
+                const validateCustomerName = () => {
+                    if (!customerNameInput.value.trim()) {
+                        validationMessage.textContent = 'Please enter a customer name';
+                        confirmBtn.disabled = true;
+                        return false;
+                    } else {
+                        validationMessage.textContent = '';
+                        confirmBtn.disabled = false;
+                        return true;
+                    }
+                };
+
+                // Add event listeners
+                customerNameInput.addEventListener('input', validateCustomerName);
+                confirmBtn.disabled = true; // Initially disabled
+
+                // Handle confirm button click
+                confirmBtn.addEventListener('click', () => {
+                    if (validateCustomerName()) {
+                        // Add customer name to the result
+                        const finalResult = {
+                            ...tempResult,
+                            customerName: customerNameInput.value.trim()
+                        };
+
+                        // Print receipt
+                        if (options.order && window.receiptPrinter) {
+                            const orderWithId = { ...options.order, orderId: options.order.orderId };
+                            window.receiptPrinter.print(orderWithId, finalResult);
+                        }
+
+                        // Debug log the result
+                        console.log('Final Modal Result:', finalResult);
+
+                        // Remove the modal
+                        document.body.removeChild(customerNameModal);
+
+                        // Resolve the promise with the final result
+                        resolve(finalResult);
+                    }
+                });
+
+                // Handle cancel button click
+                cancelBtn.addEventListener('click', () => {
+                    document.body.removeChild(customerNameModal);
+                    resolve({ confirmed: false });
+                });
+
+                // Handle close button click
+                closeBtn.addEventListener('click', () => {
+                    document.body.removeChild(customerNameModal);
+                    resolve({ confirmed: false });
+                });
             };
 
             noBtn.addEventListener('click', handleNo);

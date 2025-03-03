@@ -211,11 +211,18 @@ try {
                 }
             }
 
-            // Update order status
+            // Get customer name
+            $customer_name = trim($_POST['customer_name'] ?? '');
+            if (empty($customer_name)) {
+                throw new Exception("Customer name is required");
+            }
+
+            // Update order status and customer name
             $sql = "UPDATE `order` SET 
                     Order_Status = 'Preparing',
                     Order_CompletedTime = ?,
-                    Staff_ID = $staff_id
+                    Staff_ID = $staff_id,
+                    Order_CustomerName = ?
                     WHERE Order_ID = ?";
             
             $stmt = mysqli_prepare($conn, $sql);
@@ -223,7 +230,7 @@ try {
                 throw new Exception("Failed to prepare order update statement: " . mysqli_error($conn));
             }
 
-            mysqli_stmt_bind_param($stmt, "si", $currentDateTime, $order_id);
+            mysqli_stmt_bind_param($stmt, "ssi", $currentDateTime, $customer_name, $order_id);
             
             if (!mysqli_stmt_execute($stmt)) {
                 throw new Exception("Failed to update order status: " . mysqli_error($conn));

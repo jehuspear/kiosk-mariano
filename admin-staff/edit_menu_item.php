@@ -282,7 +282,7 @@ if(isset($_POST['submit'])) {
                     <h5><i class="fas fa-plus-circle"></i> Add New Size</h5>
                     <div class="row">
                         <div class="col-md-3">
-                            <label for="newSizeName" class="form-label">Cup Size</label>
+                            <label for="newSizeName" class="form-label">Size Name: </label>
                             <input type="text" id="newSizeName" class="form-control" 
                                    placeholder="Enter size name" maxlength="50">
                         </div>

@@ -95,7 +95,8 @@ try {
         'receipt' => [
             'orderId' => $orderId,
             'ticketNumber' => str_pad($orderResult['Order_TicketNumber'], 3, '0', STR_PAD_LEFT),
-            'dateTime' => $orderResult['Order_DateTime'],
+            'dateTime' => $orderResult['Payment_DateTime'],
+            'customerName' => $orderResult['Order_CustomerName'],
             'staffName' => $orderResult['Staff_FirstName'],
             'eatingOption' => $orderResult['Order_EatingOption'],
             'paymentMethod' => $orderResult['Payment_Method'],

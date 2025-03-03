@@ -74,6 +74,7 @@ if(!isset($_SESSION["user_id"])) {
                         o.Order_Status,
                         o.Order_EatingOption,
                         o.Order_TotalAmount,
+                        o.Order_CustomerName,
                         GROUP_CONCAT(
                             CONCAT(
                                 oi.OrderItem_Quantity, 
@@ -138,9 +139,12 @@ if(!isset($_SESSION["user_id"])) {
                                 <div class="payment-method">
                                 <i class="fas <?php echo $row['Payment_Method'] === 'Cash' ? 'fa-money-bill' : 'fa-mobile-alt'; ?>"></i>
                                 <?php echo htmlspecialchars($row['Payment_Method']); ?>
+                                </div>
                             </div>
+                            <div class="customer-info">
+                                <i class="fas fa-user"></i>
+                                <span class="customer-name"><?php echo htmlspecialchars($row['Order_CustomerName'] ?? 'Guest'); ?></span>
                             </div>
-                            
                         </div>
                         
                         <div class="order-items">
@@ -262,6 +266,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <!-- Add refresh indicator and button styles -->
 <style>
+    /* Customer Info Styling */
+    .customer-info {
+        display: flex;
+        align-items: center;
+        background-color: #3a3a3a;
+        padding: 8px 12px;
+        border-radius: 20px;
+        margin-top: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+        border-left: 3px solid #17a2b8;
+    }
+
+    .customer-info:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .customer-info i {
+        color: #17a2b8;
+        font-size: 1.1rem;
+        margin-right: 8px;
+        background-color: rgba(23, 162, 184, 0.1);
+        padding: 6px;
+        border-radius: 50%;
+    }
+
+    .customer-name {
+        font-weight: 600;
+        color: #fff;
+        letter-spacing: 0.5px;
+        text-transform: capitalize;
+    }
+
     .refresh-indicator {
         position: fixed;
         bottom: 20px;

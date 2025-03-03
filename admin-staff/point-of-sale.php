@@ -167,36 +167,6 @@ if (!isset($conn)) {
                                     </div>
                                 </div>
 
-                                <!-- Payment Mode -->
-                                <div class="mb-3">
-                                    <label class="form-label fw-bold">Mode of Payment</label>
-                                    <div class="d-flex gap-2 mb-2">
-                                        <button class="btn btn-outline-success flex-grow-1 payment-mode active" data-mode="cash">
-                                            <i class="fas fa-money-bill-wave me-2"></i>Cash
-                                        </button>
-                                        <button class="btn btn-outline-success flex-grow-1 payment-mode" data-mode="gcash">
-                                            <i class="fas fa-mobile-alt me-2"></i>GCash
-                                        </button>
-                                    </div>
-                                    <!-- Cash Payment Input -->
-                                    <div id="cashPaymentInput" class="payment-input">
-                                        <div class="input-group mb-2">
-                                            <span class="input-group-text">₱</span>
-                                            <input type="number" class="form-control" id="cashAmount" placeholder="Enter cash amount" min="0" step="0.01">
-                                        </div>
-                                        <div class="d-flex justify-content-between text-muted mb-2">
-                                            <small>Change:</small>
-                                            <small id="changeAmount">₱0.00</small>
-                                        </div>
-                                    </div>
-                                    <!-- GCash Payment Input -->
-                                    <div id="gcashPaymentInput" class="payment-input" style="display: none;">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="referenceNumber" autocomplete="off" placeholder="Enter last 6 digits of reference #" maxlength="6" pattern="\d{6}">
-                                            <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <!-- Totals -->
                                 <div class="d-flex justify-content-between mb-2">
@@ -232,6 +202,37 @@ if (!isset($conn)) {
                                 <div class="d-flex justify-content-between mb-3">
                                     <span class="fw-bold">Total:</span>
                                     <span id="total" class="fw-bold">₱0.00</span>
+                                </div>
+
+                                 <!-- Payment Mode -->
+                                 <div class="mb-3">
+                                    <label class="form-label fw-bold">Mode of Payment</label>
+                                    <div class="d-flex gap-2 mb-2">
+                                        <button class="btn btn-outline-success flex-grow-1 payment-mode active" data-mode="cash">
+                                            <i class="fas fa-money-bill-wave me-2"></i>Cash
+                                        </button>
+                                        <button class="btn btn-outline-success flex-grow-1 payment-mode" data-mode="gcash">
+                                            <i class="fas fa-mobile-alt me-2"></i>GCash
+                                        </button>
+                                    </div>
+                                    <!-- Cash Payment Input -->
+                                    <div id="cashPaymentInput" class="payment-input">
+                                        <div class="input-group mb-2">
+                                            <span class="input-group-text">₱</span>
+                                            <input type="number" class="form-control" id="cashAmount" placeholder="Enter cash amount" min="0" step="0.01">
+                                        </div>
+                                        <div class="d-flex justify-content-between text-muted mb-2">
+                                            <small>Change:</small>
+                                            <small id="changeAmount">₱0.00</small>
+                                        </div>
+                                    </div>
+                                    <!-- GCash Payment Input -->
+                                    <div id="gcashPaymentInput" class="payment-input" style="display: none;">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="referenceNumber" autocomplete="off" placeholder="Enter last 6 digits of reference #" maxlength="6" pattern="\d{6}">
+                                            <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <button class="btn btn-primary w-100 mb-2" id="checkoutBtn">
@@ -362,6 +363,35 @@ if (!isset($conn)) {
                     <h4 class="modal-title mb-3">Invalid Reference Number</h4>
                     <p class="text-muted">Please enter the last 6 digits of the GCash reference number.</p>
                     <button type="button" class="btn btn-primary px-4 mt-3" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Order Confirmation Modal -->
+    <div class="modal fade" id="confirmOrderModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center pb-4">
+                    <i class="fas fa-shopping-cart text-primary mb-4" style="font-size: 3rem;"></i>
+                    <h4 class="modal-title mb-3">Confirm Order</h4>
+                    <p class="text-muted">Please enter customer name to process this order.</p>
+                    
+                    <div class="form-group mb-4">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control" id="customerName" placeholder="Enter customer name" required>
+                        </div>
+                        <small id="customerNameError" class="text-danger" style="display: none;">Customer name is required</small>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <button type="button" class="btn btn-secondary px-4 me-2" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary px-4" id="confirmProcessOrder" disabled>Confirm</button>
+                    </div>
                 </div>
             </div>
         </div>

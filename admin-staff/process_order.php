@@ -78,6 +78,10 @@ try {
     if (empty($data['eatingOption'])) {
         throw new Exception('Eating option is required');
     }
+    
+    if (empty($data['customerName'])) {
+        throw new Exception('Customer name is required');
+    }
 
     // Set timezone to Philippines
     date_default_timezone_set('Asia/Manila');
@@ -185,11 +189,13 @@ try {
             Payment_Method, 
             Order_Status,
             Staff_ID
-        ) VALUES (NULL, ?, ?, ?, ?, ?, ?, 'Preparing', ?)";
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, 'Preparing', ?)";
     
     try {
+        $customerName = $data['customerName'];
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sisdisi", 
+        $stmt->bind_param("ssisdisi", 
+            $customerName,
             ucfirst($eatingOption), // Capitalize first letter (Dine-in/Take-out)
             $ticketNumber,
             $currentDateTime,

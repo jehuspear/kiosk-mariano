@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const clearCartModal = new bootstrap.Modal(document.getElementById('clearCartModal'));
     const insufficientCashModal = new bootstrap.Modal(document.getElementById('insufficientCashModal'));
     const invalidRefModal = new bootstrap.Modal(document.getElementById('invalidRefModal'));
+    const confirmOrderModal = new bootstrap.Modal(document.getElementById('confirmOrderModal'));
 
     // Cache DOM elements
     const menuItemsContainer = document.getElementById('menuItemsContainer');
@@ -138,16 +139,14 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCartTotals();
     });
 
-    // Handle checkout
-    checkoutBtn.addEventListener('click', async () => {
+    // Handle checkout button click - show confirmation modal
+    checkoutBtn.addEventListener('click', () => {
         if (cart.length === 0) {
             emptyCartModal.show();
             return;
         }
 
-        const subtotal = parseFloat(subtotalElement.textContent.replace('₱', ''));
         const total = parseFloat(totalElement.textContent.replace('₱', ''));
-        const discountAmount = parseFloat(discountElement.textContent.replace('₱', '').split(' ')[0]);
 
         if (paymentMode === 'cash') {
             if (cashAmount < total) {
@@ -161,8 +160,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
+        // Show confirmation modal
+        confirmOrderModal.show();
+    });
+
+    // Handle confirm order button click - process the order
+    document.getElementById('confirmProcessOrder').addEventListener('click', async () => {
+        // Get customer name
+        const customerName = document.getElementById('customerName').value.trim();
+        
+        // Validate customer name again
+        if (customerName === '') {
+            document.getElementById('customerNameError').style.display = 'block';
+            return;
+        }
+        
+        // Hide confirmation modal
+        confirmOrderModal.hide();
+
+        const subtotal = parseFloat(subtotalElement.textContent.replace('₱', ''));
+        const total = parseFloat(totalElement.textContent.replace('₱', ''));
+        const discountAmount = parseFloat(discountElement.textContent.replace('₱', '').split(' ')[0]);
+
         // Prepare order data
         const orderData = {
+            customerName: customerName,
             items: cart.map(item => ({
                 itemId: parseInt(item.itemId, 10) || 0,
                 sizeId: parseInt(item.sizeId, 10) || 0,
@@ -305,6 +327,31 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('successModal').addEventListener('show.bs.modal', function() {
         const icon = this.querySelector('.fa-check-circle');
         icon.classList.add('animate__animated', 'animate__bounceIn');
+    });
+    
+    document.getElementById('confirmOrderModal').addEventListener('show.bs.modal', function() {
+        const icon = this.querySelector('.fa-shopping-cart');
+        icon.classList.add('animate__animated', 'animate__bounceIn');
+        
+        // Clear customer name field and reset validation
+        document.getElementById('customerName').value = '';
+        document.getElementById('customerNameError').style.display = 'none';
+        document.getElementById('confirmProcessOrder').disabled = true;
+    });
+    
+    // Customer name validation
+    document.getElementById('customerName').addEventListener('input', function() {
+        const customerName = this.value.trim();
+        const confirmButton = document.getElementById('confirmProcessOrder');
+        const errorMessage = document.getElementById('customerNameError');
+        
+        if (customerName === '') {
+            confirmButton.disabled = true;
+            errorMessage.style.display = 'block';
+        } else {
+            confirmButton.disabled = false;
+            errorMessage.style.display = 'none';
+        }
     });
 
     // Add styles for receipt modal and iframe

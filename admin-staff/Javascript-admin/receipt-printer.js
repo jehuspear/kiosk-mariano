@@ -225,6 +225,10 @@ class ReceiptPrinter {
                         <span class="order-detail-value">#${orderDetails.orderId.toString().padStart(8, '0')}</span>
                     </div>
                     <div class="order-detail-item">
+                        <span class="order-detail-label">Customer:</span>
+                        <span class="order-detail-value">${modalResult.customerName || 'N/A'}</span>
+                    </div>
+                    <div class="order-detail-item">
                         <span class="order-detail-label">Date:</span>
                         <span class="order-detail-value">${orderDate}</span>
                     </div>

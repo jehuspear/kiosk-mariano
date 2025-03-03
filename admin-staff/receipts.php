@@ -32,7 +32,7 @@ $paymentMethod = isset($_GET['payment_method']) ? $_GET['payment_method'] : '';
 
 // Build the query
 $query = "SELECT o.Order_ID, o.Order_CustomerName, o.Order_TicketNumber, 
-                 o.Order_DateTime, o.Order_TotalAmount, o.Payment_Method, 
+                 p.Payment_DateTime, o.Order_TotalAmount, o.Payment_Method, 
                  p.Payment_DiscountType, p.Payment_TotalAmount, p.Payment_Status
           FROM `order` o
           LEFT JOIN payment p ON o.Payment_ID = p.Payment_ID
@@ -51,14 +51,14 @@ if (!empty($searchTerm)) {
 
 if (!empty($dateFrom)) {
     $dateFrom = mysqli_real_escape_string($conn, $dateFrom);
-    $query .= " AND DATE(o.Order_DateTime) >= '$dateFrom'";
-    $countQuery .= " AND DATE(o.Order_DateTime) >= '$dateFrom'";
+    $query .= " AND DATE(p.Payment_DateTime) >= '$dateFrom'";
+    $countQuery .= " AND DATE(p.Payment_DateTime) >= '$dateFrom'";
 }
 
 if (!empty($dateTo)) {
     $dateTo = mysqli_real_escape_string($conn, $dateTo);
-    $query .= " AND DATE(o.Order_DateTime) <= '$dateTo'";
-    $countQuery .= " AND DATE(o.Order_DateTime) <= '$dateTo'";
+    $query .= " AND DATE(p.Payment_DateTime) <= '$dateTo'";
+    $countQuery .= " AND DATE(p.Payment_DateTime) <= '$dateTo'";
 }
 
 if (!empty($paymentMethod)) {
@@ -68,7 +68,7 @@ if (!empty($paymentMethod)) {
 }
 
 // Add sorting and pagination
-$query .= " ORDER BY o.Order_DateTime DESC LIMIT $offset, $limit";
+$query .= " ORDER BY p.Payment_DateTime DESC LIMIT $offset, $limit";
 
 // Execute queries
 $result = mysqli_query($conn, $query);
@@ -203,7 +203,7 @@ $totalPages = ceil($totalRows / $limit);
                                     <td><?php echo $row['Order_ID']; ?></td>
                                     <td><?php echo $row['Order_TicketNumber']; ?></td>
                                     <td><?php echo $row['Order_CustomerName'] ? htmlspecialchars($row['Order_CustomerName']) : 'Anonymous'; ?></td>
-                                    <td><?php echo date('M d, Y h:i A', strtotime($row['Order_DateTime'])); ?></td>
+                                    <td><?php echo date('M d, Y h:i A', strtotime($row['Payment_DateTime'])); ?></td>
                                     <td><?php echo $row['Payment_Method']; ?></td>
                                     <td><?php echo $row['Payment_DiscountType'] ? htmlspecialchars($row['Payment_DiscountType']) : 'None'; ?></td>
                                     <td>₱<?php echo number_format($row['Payment_TotalAmount'], 2); ?></td>

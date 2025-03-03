@@ -48,6 +48,7 @@ window.confirmOrderHandler = async function(e) {
                 
                 // Basic data
                 paymentFormData.append('order_id', orderId);
+                paymentFormData.append('customer_name', modalResult.customerName || '');
                 paymentFormData.append('discount_type', modalResult.discountType || '');
                 paymentFormData.append('discount_percent', modalResult.discountPercent || 0);
                 paymentFormData.append('discount_amount', modalResult.discountAmount || 0);

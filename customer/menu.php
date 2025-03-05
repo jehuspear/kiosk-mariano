@@ -135,7 +135,7 @@ foreach ($_SESSION['cart'] as $item) {
                             
                             <?php
                             // Fetch categories from database, excluding Add-Ons (Category_ID 5)
-                            $categorySql = "SELECT Category_ID, Category_Name, Category_Description FROM category WHERE Category_ID != 5 ORDER BY Category_ID ASC";
+                            $categorySql = "SELECT Category_ID, Category_Name, Category_Description FROM category ORDER BY Category_ID ASC";
                             $categoryResult = mysqli_query($conn, $categorySql);
                             
                             // Group categories
@@ -146,7 +146,7 @@ foreach ($_SESSION['cart'] as $item) {
                                 // Determine if category is a drink or food based on Category_ID
                                 // Drinks: Coffee, Specialty Drinks, Blended Beverages, Non-Coffee (IDs 1-4)
                                 // Foods: Sandwiches, Pica-Pica, Rice Meals, Extras (IDs 6-9)
-                                if ($category['Category_ID'] <= 4) {
+                                if ($category['Category_ID'] <= 5) {
                                     $drinkCategories[] = $category;
                                 } else {
                                     $foodCategories[] = $category;
@@ -166,7 +166,7 @@ foreach ($_SESSION['cart'] as $item) {
                                             $iconPath .= 'coffee-icon.png';
                                             break;
                                         case 'Specialty Drinks':
-                                            $iconPath .= 'mocktails.png';
+                                            $iconPath .= 'specialty-drink.png';
                                             break;
                                         case 'Blended Beverages':
                                             $iconPath .= 'blended-beverages-icon.png';
@@ -175,7 +175,7 @@ foreach ($_SESSION['cart'] as $item) {
                                             $iconPath .= 'non-coffee-icon.png';
                                             break;
                                         default:
-                                            $iconPath .= 'coffee-icon.png';
+                                            $iconPath .= 'cocktails.png';
                                     }
                                     
                                     echo '<a href="#" class="category-item" data-category="' . htmlspecialchars($category['Category_Name']) . '" data-category-id="' . $category['Category_ID'] . '" title="' . htmlspecialchars($category['Category_Description']) . '">';

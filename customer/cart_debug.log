@@ -636,3 +636,61 @@
 
 [2025-03-03 00:31:40] New total quantity: 2
 [2025-03-03 00:31:40] Response sent: {"success":true,"cartCount":2,"totalAmount":219,"message":"Item added to cart successfully"}
+[2025-03-05 15:53:09] Raw POST data: {"id":12,"name":"Blue Punch Mocktail","price":100,"description":"A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.","image":"../admin-staff/Images/menu-item/blue_mocktail.jpg","size":"12oz","sizeId":48,"orderType":"Dine-in","quantity":1}
+[2025-03-05 15:53:09] Decoded data: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [price] => 100
+    [description] => A vibrant blue mocktail garnished with a cherry and lemon slice, served over crushed ice with a striped straw for a refreshing tropical flair.
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [sizeId] => 48
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-03-05 15:53:09] Added new item to cart: Array
+(
+    [id] => 12
+    [name] => Blue Punch Mocktail
+    [image] => ../admin-staff/Images/menu-item/blue_mocktail.jpg
+    [size] => 12oz
+    [sizeId] => 48
+    [price] => 100
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Iced
+)
+
+[2025-03-05 15:53:09] New total quantity: 1
+[2025-03-05 15:53:09] Response sent: {"success":true,"cartCount":1,"totalAmount":100,"message":"Item added to cart successfully"}
+[2025-03-05 15:53:17] Raw POST data: {"id":28,"name":"Bacsilog","price":99,"description":"Bacsilog is a popular rice meal featuring crispy bacon, garlic fried rice (sinangag), and a perfectly cooked fried egg (itlog).","image":"../admin-staff/Images/menu-item/bacsilog.jpg","size":"Regular","sizeId":85,"orderType":"Dine-in","quantity":1}
+[2025-03-05 15:53:17] Decoded data: Array
+(
+    [id] => 28
+    [name] => Bacsilog
+    [price] => 99
+    [description] => Bacsilog is a popular rice meal featuring crispy bacon, garlic fried rice (sinangag), and a perfectly cooked fried egg (itlog).
+    [image] => ../admin-staff/Images/menu-item/bacsilog.jpg
+    [size] => Regular
+    [sizeId] => 85
+    [orderType] => Dine-in
+    [quantity] => 1
+)
+
+[2025-03-05 15:53:17] Added new item to cart: Array
+(
+    [id] => 28
+    [name] => Bacsilog
+    [image] => ../admin-staff/Images/menu-item/bacsilog.jpg
+    [size] => Regular
+    [sizeId] => 85
+    [price] => 99
+    [quantity] => 1
+    [orderType] => Dine-in
+    [temperature] => Normal
+)
+
+[2025-03-05 15:53:17] New total quantity: 2
+[2025-03-05 15:53:17] Response sent: {"success":true,"cartCount":2,"totalAmount":199,"message":"Item added to cart successfully"}

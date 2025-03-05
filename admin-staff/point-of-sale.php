@@ -114,7 +114,7 @@ if (!isset($conn)) {
                                     <button class="category-btn active" data-category="all" data-category-id="0">All Items</button>
                                     <?php
                                     // Fetch categories from database, excluding Add-Ons (Category_ID 5)
-                                    $categorySql = "SELECT Category_ID, Category_Name, Category_Description FROM category WHERE Category_ID != 5 ORDER BY Category_ID ASC";
+                                    $categorySql = "SELECT Category_ID, Category_Name, Category_Description FROM category ORDER BY Category_ID ASC";
                                     $categoryResult = mysqli_query($conn, $categorySql);
                                     
                                     while ($category = mysqli_fetch_assoc($categoryResult)) {

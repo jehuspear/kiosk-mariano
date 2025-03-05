@@ -1,17 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     const massCompleteBtn = document.getElementById('massCompleteBtn');
     if (massCompleteBtn) {
-        massCompleteBtn.addEventListener('click', handleMassComplete);
+        massCompleteBtn.addEventListener('click', window.handleMassComplete);
     }
     
     // Initial fetch of ready tickets
-    updateReadyTickets();
+    window.updateReadyTickets();
     
     // Update ready tickets every 30 seconds
-    setInterval(updateReadyTickets, 30000);
+    setInterval(window.updateReadyTickets, 30000);
 });
 
-async function updateReadyTickets() {
+// Make updateReadyTickets available globally
+window.updateReadyTickets = async function() {
     try {
         const response = await fetch('mass_complete_orders.php', {
             method: 'POST',
@@ -41,7 +42,8 @@ async function updateReadyTickets() {
     }
 }
 
-async function handleMassComplete() {
+// Make handleMassComplete available globally
+window.handleMassComplete = async function() {
     const massCompleteBtn = document.getElementById('massCompleteBtn');
     const originalText = massCompleteBtn.innerHTML;
     
@@ -58,7 +60,7 @@ async function handleMassComplete() {
         const data = await response.json();
         
         if (!data.success && data.message === 'No ready orders found to complete') {
-            showToast('error', 'No ready orders found to complete');
+            window.showToast('error', 'No ready orders found to complete');
             return;
         }
         
@@ -121,7 +123,7 @@ async function handleMassComplete() {
         const updateData = await updateResponse.json();
         
         if (updateData.success) {
-            showToast('success', `Successfully completed ${updateData.affected_rows} order${updateData.affected_rows > 1 ? 's' : ''}`);
+            window.showToast('success', `Successfully completed ${updateData.affected_rows} order${updateData.affected_rows > 1 ? 's' : ''}`);
             // Refresh the page after 2 seconds
             setTimeout(() => location.reload(), 2000);
         } else {
@@ -129,14 +131,15 @@ async function handleMassComplete() {
         }
     } catch (error) {
         console.error('Error:', error);
-        showToast('error', error.message || 'Failed to process orders');
+        window.showToast('error', error.message || 'Failed to process orders');
         // Reset button state
         massCompleteBtn.innerHTML = originalText;
         massCompleteBtn.disabled = false;
     }
 }
 
-function showToast(type, message) {
+// Make showToast available globally
+window.showToast = function(type, message) {
     const toast = document.createElement('div');
     toast.className = `alert alert-${type === 'success' ? 'success' : 'danger'} mass-complete-toast`;
     toast.innerHTML = message;

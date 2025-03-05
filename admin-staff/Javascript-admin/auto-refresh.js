@@ -1,5 +1,5 @@
 class AutoRefresh {
-    constructor(interval = 5000) {
+    constructor(interval = 3000) {
         this.interval = interval;
         this.searchInput = document.getElementById('searchTicket');
         this.lastSearchValue = '';
@@ -105,6 +105,10 @@ class AutoRefresh {
                 const newOrderContainer = temp.querySelector('.order-details-container, .order-list');
                 const currentOrderContainer = document.querySelector('.order-details-container, .order-list');
 
+                // Get the mass-complete-footer
+                const newMassCompleteFooter = temp.querySelector('.mass-complete-footer');
+                const currentMassCompleteFooter = document.querySelector('.mass-complete-footer');
+
                 if (newOrderContainer && currentOrderContainer) {
                     // If there's an active search, don't update the container directly
                     if (this.searchInput && this.searchInput.value.trim()) {
@@ -119,6 +123,29 @@ class AutoRefresh {
                     } else {
                         // No search active, update container directly
                         currentOrderContainer.innerHTML = newOrderContainer.innerHTML;
+                    }
+
+                    // Update the mass-complete-footer if it exists
+                    if (newMassCompleteFooter && currentMassCompleteFooter) {
+                        currentMassCompleteFooter.innerHTML = newMassCompleteFooter.innerHTML;
+                        
+                        // Reattach event listener to the mass complete button
+                        const massCompleteBtn = document.getElementById('massCompleteBtn');
+                        if (massCompleteBtn) {
+                            // Remove existing event listeners
+                            const newMassCompleteBtn = massCompleteBtn.cloneNode(true);
+                            massCompleteBtn.parentNode.replaceChild(newMassCompleteBtn, massCompleteBtn);
+                            
+                            // Add event listener
+                            if (window.handleMassComplete) {
+                                newMassCompleteBtn.addEventListener('click', window.handleMassComplete);
+                            }
+                        }
+                        
+                        // Update ready tickets data
+                        if (window.updateReadyTickets) {
+                            window.updateReadyTickets();
+                        }
                     }
 
                     // Restore scroll position and opacity

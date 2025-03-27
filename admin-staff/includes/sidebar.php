@@ -13,11 +13,12 @@ function renderSidebar($currentPage = '') {
     // Include error message display
     require_once __DIR__ . '/error_message.php';
     
-    // Add CSS and JS for notifications
+    // Add CSS and JS for notifications and sidebar toggle
     static $resources_included = false;
     if (!$resources_included) {
         echo '<link rel="stylesheet" href="Css-admin/sidebar-notifications.css">';
         echo '<link rel="stylesheet" href="Css-admin/role-display.css">';
+        echo '<link rel="stylesheet" href="Css-admin/sidebar.css">';
         echo '<script src="Javascript-admin/sidebar-notifications.js" defer></script>';
         
         // Add notification sound if not on pending orders page
@@ -29,20 +30,22 @@ function renderSidebar($currentPage = '') {
         $resources_included = true;
     }
     ?>
+    <!-- We don't add a mobile toggle button here as most pages already have one -->
+    
     <div class="sidebar">
-        <div class="logo">
-            <img src="Images/logo/logo3.png" alt="SINCO CAFE" class="logo-img">
-            <!-- <h2>SINCO CAFE</h2> -->
-            <p class="welcome-text">
-                Hello, <?php echo isset($_SESSION['firstname']) ? htmlspecialchars($_SESSION['firstname']) : 'User'; ?>
-                <br>
-                <small class="role-<?php echo strtolower(htmlspecialchars($userRole)); ?>">
-                    <?php echo ucfirst(htmlspecialchars($userRole)); ?>
-                </small>
-            </p>
-        </div>
-        
-        <div class="sidebar-content">
+            <div class="logo">
+                <img src="Images/logo/logo3.png" alt="SINCO CAFE" class="logo-img">
+                <!-- <h2>SINCO CAFE</h2> -->
+                <p class="welcome-text">
+                    Hello, <?php echo isset($_SESSION['firstname']) ? htmlspecialchars($_SESSION['firstname']) : 'User'; ?>
+                    <br>
+                    <small class="role-<?php echo strtolower(htmlspecialchars($userRole)); ?>">
+                        <?php echo ucfirst(htmlspecialchars($userRole)); ?>
+                    </small>
+                </p>
+            </div>
+            
+            <div class="sidebar-content">
             <?php if ($userRole === 'Admin'): ?>
                 <div class="sidebar-section">
                     <h5 class="sidebar-heading">Management</h5>
@@ -121,12 +124,12 @@ function renderSidebar($currentPage = '') {
                 </div>
             <?php endif; ?>
 
-            <div class="sidebar-section mt-auto">
-                <ul class="nav">
-                    <li><a href="logout.php" class="logout-link"><i class="fa-solid fa-sign-out-alt"></i> <span>Logout</span></a></li>
-                </ul>
+                <div class="sidebar-section mt-auto">
+                    <ul class="nav">
+                        <li><a href="logout.php" class="logout-link"><i class="fa-solid fa-sign-out-alt"></i> <span>Logout</span></a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
     </div>
     <?php
     // Add notification sound if not on pending or preparing orders pages
